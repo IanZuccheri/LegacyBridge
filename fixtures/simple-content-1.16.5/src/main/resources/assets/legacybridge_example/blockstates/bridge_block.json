@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "legacybridge_example:block/bridge_block" }
+  }
+}

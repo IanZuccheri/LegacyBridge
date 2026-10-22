@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-19",
+  "prompt": "LB-09",
+  "cut": "LIFE-EVENTS",
+  "slice": "EVENT_PRIORITY_CANCELLATION",
+  "status": "PARTIAL_HEADLESS_IMPLEMENTED_NATIVE_NOT_RUN",
+  "next": "LB-09/LIFE-CONFIG/CLIENT_CONFIG_SCOPE",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "sourceEventBus": "4.0.0",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetEventBus": "6.2.33",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "e15e418d4b6a6da9b35934ef1d631a4d62d2faea548dc9d06d77dbe4992ec0ba",
+    "bytes": 1732050,
+    "entries": 701,
+    "fileEntries": 652,
+    "directoryEntries": 49,
+    "previousSha256": "d6d95d6f9eca0992c95d87d4920d2d56b2810e9b37f07bfe74321bb112e74018",
+    "unchangedEntries": 684,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/EventPriorityContract$Proof.class",
+      "dev/legacybridge/converter/conversion/EventPriorityContract.class",
+      "dev/legacybridge/runtime/compat/logic/EventArtifactAdapter.class"
+    ],
+    "removedEntries": []
+  },
+  "catalog": {
+    "oldEntries": 36,
+    "newEntries": 38,
+    "changedOldEntries": [],
+    "addedOperations": [
+      "logic.event-manifest.v1",
+      "logic.event-bindings.v1"
+    ],
+    "scope": "OFFLINE_METADATA_ONLY",
+    "executableRuntimeAbiChanged": false
+  },
+  "fixture": {
+    "path": "fixtures/event-priority-1.16.5/build/libs/legacybridge-event-priority-1.16.5-1.0.0.jar",
+    "bytes": 8162,
+    "sha256": "418086b60af96a6cac1bc76e5f315929bdadec92eeecd16918b1eb545af9b81c",
+    "authored": true,
+    "sourceForgeCompilation": "PASSED",
+    "originalExecuted": false,
+    "classes": 4,
+    "methods": 12
+  },
+  "candidate": {
+    "bytes": 6694,
+    "kind": "PRIVATE_SERIALIZED_JAR",
+    "sha256": "1ecfd94fa0296ef8e49616898b45b3c4efe05ba47451456df1899115efc3f3cd",
+    "published": false,
+    "exported": false,
+    "installed": false,
+    "sourceTargetReadbackProofEqual": true,
+    "preservedResourceBytes": true,
+    "originalIntact": true
+  },
+  "proof": {
+    "classesExecuted": false,
+    "contract": "event-priority-cancellation-v1",
+    "installation": "install",
+    "isolatedOracle": {
+      "afterWorkTrace": 12,
+      "beforeWorkTrace": 0,
+      "postReturnsCancelled": true,
+      "qualification": "EXPECTED_NOT_EXECUTED"
+    },
+    "listeners": [
+      {
+        "bus": "FORGE",
+        "method": "cancel",
+        "priority": "HIGH",
+        "receiveCancelled": false
+      },
+      {
+        "bus": "FORGE",
+        "method": "observe",
+        "priority": "LOW",
+        "receiveCancelled": true
+      }
+    ],
+    "roles": {
+      "entry": "dev/legacybridge/fixture/events/EventContent",
+      "event": "dev/legacybridge/fixture/events/DecisionEvent",
+      "flow": "dev/legacybridge/fixture/events/EventFlow",
+      "item": "dev/legacybridge/fixture/events/EventItem"
+    },
+    "runtimeValidation": "NOT_RUN",
+    "schemaVersion": 1,
+    "setup": {
+      "bus": "MOD",
+      "callback": "setup",
+      "dispatch": "enqueueWork",
+      "phase": "FMLCommonSetupEvent",
+      "priority": "NORMAL",
+      "receiveCancelled": false,
+      "work": "run"
+    },
+    "state": {
+      "cancelled": "cancelled",
+      "trace": "trace"
+    }
+  },
+  "sourceOfflineLinkage": {
+    "checkedMethodCount": 12,
+    "classesExecuted": false,
+    "fieldReferenceCount": 18,
+    "lambdaSiteCount": 5,
+    "limitations": [
+      "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+      "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+      "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+      "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+      "Only the independently re-read four-class owned cancelable event, two explicit HIGH/LOW Consumer callbacks and common-setup Runnable are admitted. No arbitrary events, MONITOR, payload, runtime execution or third-party listener equivalence."
+    ],
+    "methodReferenceCount": 21,
+    "ownedClassCount": 4,
+    "resolvedClassCount": 55,
+    "schemaVersion": 1,
+    "status": "PASSED_SCOPED"
+  },
+  "serializedOfflineLinkage": {
+    "checkedMethodCount": 12,
+    "classesExecuted": false,
+    "fieldReferenceCount": 18,
+    "lambdaSiteCount": 5,
+    "limitations": [
+      "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+      "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+      "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+      "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+      "Only the independently re-read four-class owned cancelable event, two explicit HIGH/LOW Consumer callbacks and common-setup Runnable are admitted. No arbitrary events, MONITOR, payload, runtime execution or third-party listener equivalence."
+    ],
+    "methodReferenceCount": 21,
+    "ownedClassCount": 4,
+    "resolvedClassCount": 55,
+    "schemaVersion": 1,
+    "status": "PASSED_SCOPED"
+  },
+  "apiSources": [
+    {
+      "artifact": "net.minecraftforge:eventbus:4.0.0:sources",
+      "sha256": "88af63462fd2880bb12ed3a9c8fa98cff0e0b2195dd60001175f717e12a03f43"
+    },
+    {
+      "artifact": "net.minecraftforge:eventbus:6.2.33:sources",
+      "sha256": "6973f199d644a1ba81d8f703c8599ddff07448f2f62c5c0c664d765c3ead16a6"
+    }
+  ],
+  "dataInputs": [
+    {
+      "id": "legacy.clientMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+    },
+    {
+      "id": "legacy.serverMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+    },
+    {
+      "id": "legacy.srg",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+    },
+    {
+      "id": "target.clientMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+    },
+    {
+      "id": "target.serverMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+    },
+    {
+      "id": "target.srg",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+    },
+    {
+      "id": "legacy.apiJars[0]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+    },
+    {
+      "id": "legacy.apiJars[1]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+    },
+    {
+      "id": "target.apiJars[0]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+    },
+    {
+      "id": "target.apiJars[1]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+    },
+    {
+      "id": "target.apiJars[2]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+    },
+    {
+      "id": "target.apiJars[3]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+    },
+    {
+      "id": "target.apiJars[4]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+    }
+  ],
+  "validation": {
+    "policy": "SERIAL_FOCUSED_HEADLESS_NO_NATIVE",
+    "runs": [
+      {
+        "id": "fixture-build-01",
+        "status": "PASS",
+        "seconds": 6,
+        "log": "build/event-priority-20260919/fixture-build-01.log",
+        "tasks": "-p fixtures/event-priority-1.16.5 build",
+        "tests": "NO_SOURCE; compilation/reobfuscation only"
+      },
+      {
+        "id": "compile-01",
+        "status": "PASS",
+        "seconds": 23,
+        "log": "build/event-priority-20260919/compile-01.log",
+        "tasks": ":legacy-converter:compileJava"
+      },
+      {
+        "id": "events-01",
+        "status": "FAILED_RETAINED",
+        "tests": 39,
+        "passed": 32,
+        "failures": 7,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 38,
+        "log": "build/event-priority-20260919/events-01.log",
+        "xml": "build/event-priority-20260919/events-01.xml",
+        "cause": "Fixture smelting recipe used unclosed forge:ingots/iron; four positives and three later-stage cancellation checks could not reach success. Validator correctly refused. Replaced with defined local event_ingredient tag; no validator relaxation."
+      },
+      {
+        "id": "fixture-build-02",
+        "status": "PASS",
+        "seconds": 3,
+        "log": "build/event-priority-20260919/fixture-build-02.log",
+        "tasks": "-p fixtures/event-priority-1.16.5 build"
+      },
+      {
+        "id": "events-02",
+        "status": "PASS",
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 24,
+        "log": "build/event-priority-20260919/events-02.log",
+        "xml": "build/event-priority-20260919/events-02.xml"
+      },
+      {
+        "id": "focused-01",
+        "status": "PASS",
+        "tests": 361,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 70,
+        "log": "build/event-priority-20260919/focused-01.log",
+        "xmlDirectory": "build/event-priority-20260919/focused-01",
+        "scope": "New event integration; composition, constructors, hierarchy, defaults, receivers, mappings, linkage and lifecycle unit regressions. Explicit local lifecycle mapping profile and opt-in bounded 1 GiB test heap."
+      },
+      {
+        "id": "regressions-01",
+        "status": "PASS",
+        "tests": 88,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 104,
+        "log": "build/event-priority-20260919/regressions-01.log",
+        "xmlDirectory": "build/event-priority-20260919/regressions-01",
+        "scope": "41 event cases (including added invisible annotation guards), 47 unchanged-profile/CLI/service/adapter cases, explicit pinned profiles."
+      },
+      {
+        "id": "package-01",
+        "status": "PASS",
+        "seconds": 36,
+        "log": "build/event-priority-20260919/package-01.log",
+        "tasks": "assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli"
+      },
+      {
+        "id": "final-cancellation-01",
+        "status": "PASS",
+        "tests": 57,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 36,
+        "log": "build/event-priority-20260919/final-cancellation-01.log",
+        "xmlDirectory": "build/event-priority-20260919/final-cancellation-01",
+        "scope": "41 event cases plus 16 earlier private cases selected by lowercase cancel. Corrected stage-start counting; new event REOPEN observes exactly one real private scratch JAR then confirms deletion. Composition candidateCancellation (uppercase C) requires separate final follow-up; not covered by that lowercase filter."
+      },
+      {
+        "id": "contract-final-01",
+        "status": "PASS_WITH_TWO_ENVIRONMENT_SKIPS",
+        "seconds": 44,
+        "log": "build/event-priority-20260919/contract-final-01.log",
+        "xmlDirectory": "build/event-priority-20260919/contract-final-01",
+        "engine": {
+          "tests": 4,
+          "passed": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "scope": "Corrected CompositionPreviewIntegrationTest.candidateCancellationDoesNotExposeHashOrOutput; explicit uppercase method selection."
+        },
+        "contract": {
+          "tests": 77,
+          "passed": 75,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 2,
+          "reason": "Existing Windows symlink privilege assumptions; skipped is not passed."
+        },
+        "tasks": ":legacy-converter:test (exact candidateCancellation method) :legacy-corpus:test --tests '*PromptContractVerifierTest' :legacy-corpus:verifyPromptContract assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+        "artifactHashAfterRebuild": "e15e418d4b6a6da9b35934ef1d631a4d62d2faea548dc9d06d77dbe4992ec0ba"
+      }
+    ],
+    "distinctEngineCases": 410,
+    "newEngineCases": 41,
+    "repeatRunsAreNotAdditionalCoverage": true,
+    "unfilteredSuite": "NOT_RUN",
+    "contractValidation": "PASS; 75 tests passed, 2 existing Windows symlink privilege cases skipped; repository contract verifier passed with LB-09/LIFE-CONFIG cursor",
+    "reviewCorrection": "SafeJarReader emits ARCHIVE_SCAN both at stage start and per entry/byte progress. Earlier REOPEN tests counted all events and could stop during original scan. Updated composition/constructor/hierarchy/interface/receiver/event tests to count only completed=0 plus exact snapshot-start detail. This is a test-coverage correction, not a converter fix; old ledgers do not retrospectively prove cancellation at re-open.",
+    "warnings": [
+      "Existing deprecated PreservedArtifactInspector API warning; no new native behavior claim."
+    ],
+    "correctedReopenCoverage": "All six corrected private-candidate REOPEN cases passed: event observes real scratch existence/deletion; composition exact method follow-up and constructors/hierarchy/interfaces/receiver cases. Repeats not additive."
+  },
+  "contractCounts": {
+    "ACCEPTED": 15,
+    "PARTIAL": 16,
+    "BLOCKED": 2,
+    "NOT_STARTED": 48
+  },
+  "boundaries": {
+    "sixExistingGrammars": "UNCHANGED",
+    "publicConvertApply": "UNCHANGED",
+    "newCliCommand": false,
+    "newScreenRoute": false,
+    "newPublicProfile": false,
+    "privateExport": false,
+    "installationAuthority": false,
+    "includedData": "UNCHANGED",
+    "jarInJarLibrary": "UNCHANGED",
+    "clientServerClassesResolved": "NOT_RUN",
+    "gameOpened": false,
+    "screenAutomation": false,
+    "newRealModAcquisition": false,
+    "publication": false,
+    "licenseChanged": false,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "worldMigration": false
+  },
+  "native": {
+    "sourceBehavior": "NOT_RUN",
+    "targetBehavior": "NOT_RUN",
+    "client": "NOT_RUN",
+    "dedicatedServer": "NOT_RUN",
+    "activation": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "currentPublicArtifactQualification": "EXPERIMENTAL_BETA"
+  },
+  "limitations": [
+    "Owned event has no payload, external overrides or constructor effects.",
+    "Only explicit HIGH/LOW Consumer registration and literal cancellation flags; no MONITOR, results, uncancellation, inheritance, unregistration or instance subscribers.",
+    "Posting is only fresh, synchronous and inside common-setup enqueued owned work; no registry reads or client access in this candidate.",
+    "Third-party listeners, queue failure/context differences and native transformer/classloader wiring require separate contracts and native qualification.",
+    "Clumps corpus source motivated event review but its noncancelable mutable entity event is not this fixture and remains unsupported.",
+    "LIFE-EVENTS and COMPOSE-01 remain PARTIAL; static prerequisites permit the next private config slice, not acceptance or public promotion."
+  ]
+}

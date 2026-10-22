@@ -1,0 +1,57 @@
+plugins {
+    id 'java-library'
+}
+
+base {
+    archivesName = 'legacy-compat-api'
+}
+
+// Internal JDK-only contracts and offline adapters. Existing runtime packages,
+// descriptors and catalog identities intentionally remain unchanged.
+tasks.register('verifyCompatibilityApiBoundary') {
+    group = 'verification'
+    description = 'Checks that shared compatibility contracts have no game, engine or bootstrap dependencies.'
+    dependsOn tasks.named('jar')
+    inputs.file(tasks.named('jar').flatMap { it.archiveFile })
+    doLast {
+        if (!configurations.compileClasspath.files.empty || !configurations.runtimeClasspath.files.empty) {
+            throw new GradleException('legacy-compat-api must remain dependency-free and must not depend on the game, engine or runtime')
+        }
+        def archive = tasks.named('jar').get().archiveFile.get().asFile
+        def zip = new java.util.zip.ZipFile(archive)
+        try {
+            def names = zip.entries().collect { it.name }
+            def forbidden = names.findAll { entry ->
+                entry == 'META-INF/mods.toml' || entry.startsWith('META-INF/services/') ||
+                    entry.endsWith('.jar') || (entry.endsWith('.class') &&
+                        !entry.startsWith('dev/legacybridge/runtime/compat/'))
+            }
+            if (!forbidden.empty) {
+                throw new GradleException("Compatibility API must not contain mod metadata, bootstrap services or foreign classes: ${forbidden}")
+            }
+            if (names.size() != names.toSet().size()) {
+                throw new GradleException('Compatibility API JAR contains duplicate entries')
+            }
+            [
+                'dev/legacybridge/runtime/compat/AdapterCatalog.class',
+                'dev/legacybridge/runtime/compat/AdapterDescriptor.class',
+                'dev/legacybridge/runtime/compat/AdapterSelection.class',
+                'dev/legacybridge/runtime/compat/AdapterCatalogWriter.class',
+                'dev/legacybridge/runtime/compat/UnsupportedCompatibilityException.class',
+                'dev/legacybridge/runtime/compat/registry/ModMetadataAdapter.class',
+                'dev/legacybridge/runtime/compat/world/BlockMiningAdapter.class',
+                'dev/legacybridge/runtime/compat/client/ResourcePackAdapter.class'
+            ].each { required ->
+                if (!names.contains(required)) {
+                    throw new GradleException("Compatibility API is missing an existing contract or offline adapter: ${required}")
+                }
+            }
+        } finally {
+            zip.close()
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('verifyCompatibilityApiBoundary')
+}

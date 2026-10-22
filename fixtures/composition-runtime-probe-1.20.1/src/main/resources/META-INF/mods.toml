@@ -1,0 +1,38 @@
+modLoader="javafml"
+loaderVersion="[47.4.23]"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_composition_probe"
+version="1.0.0"
+displayName="LegacyBridge Composition QA 1.20.1"
+authors="LegacyBridge contributors"
+description='''Developer-only disposable dedicated-server capture. Never install in a player profile. Native QA requires separate authorization.'''
+
+[[dependencies.legacybridge_composition_probe]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.23]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_composition_probe]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_composition_probe]]
+modId="legacybridge_composed"
+mandatory=true
+versionRange="[1.0.0]"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.legacybridge_composition_probe]]
+modId="legacybridge_runtime"
+mandatory=true
+versionRange="[0.1.1-SNAPSHOT]"
+ordering="AFTER"
+side="BOTH"

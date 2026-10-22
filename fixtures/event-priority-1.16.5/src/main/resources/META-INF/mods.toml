@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[36]"
+license="All Rights Reserved"
+[[mods]]
+modId="legacybridge_events"
+version="${file.jarVersion}"
+displayName="LegacyBridge Event Priority Fixture"
+description="Original finite event priority and cancellation fixture; not a released mod."
+[[dependencies.legacybridge_events]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_events]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"

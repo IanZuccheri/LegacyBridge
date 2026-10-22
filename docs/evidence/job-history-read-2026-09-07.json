@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-05",
+  "cut": "JOB-HISTORY-READ",
+  "scope": "Bounded read-only schemas 1/2 job history and existing coordinator API. No native widget, journal/discovery reconciliation, installation authority or conversion expansion.",
+  "authorization": "User requested continued headless implementation. No games, visible windows, desktop automation, new mod acquisition or publication.",
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12+8-LTS-286",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "baselinePublicArtifact": {
+    "path": "build/job-history-read-2026-09-07-run1/baseline-LegacyBridge.jar",
+    "sha256": "6e168fd729b7d3e45b45d95ca4e161d7d7db83c4ee054516d2ab8c17b030efd1",
+    "bytes": 1212567,
+    "evidence": "docs/evidence/job-install-receipts-2026-09-07.json",
+    "transferAcceptanceToNewArtifact": false
+  },
+  "currentPublicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "f041efcb92a1a2727b55918a8604cf58435a35b6eedbecb9c9e76c292673a940",
+    "bytes": 1245234,
+    "qualification": "STATIC_BUILD_ONLY_NATIVE_NOT_RUN"
+  },
+  "sources": [
+    {
+      "path": "legacy-product/src/main/java/dev/legacybridge/product/history/JobHistory.java",
+      "sha256": "3cd5fe68e205df92ae2485ea11b3d36cd5d796a6562ec40ee7fe5b34309909b4"
+    },
+    {
+      "path": "legacy-product/src/main/java/dev/legacybridge/product/history/JobHistoryReader.java",
+      "sha256": "7a98271ce882165937bbf235304044a9722448baa446f91ca3658de989b829c3"
+    },
+    {
+      "path": "legacy-product/src/main/java/dev/legacybridge/product/controller/ConversionController.java",
+      "sha256": "041c6b98293b93d26cb65cb21054a30b98b6fab0dc9be6ebec41f26de73138f4"
+    },
+    {
+      "path": "legacy-product/src/test/java/dev/legacybridge/product/history/JobHistoryReaderTest.java",
+      "sha256": "54bf0c157cc31c10aca9fca5f95afae53fb2e83338d73688a502bdbb61802764"
+    },
+    {
+      "path": "legacy-product/src/test/java/dev/legacybridge/product/controller/JobHistoryControllerTest.java",
+      "sha256": "1170ab9f1454a156c9f68697f3be03ba17c402399e8571b860705a9668147f64"
+    },
+    {
+      "path": "legacy-product/build.gradle",
+      "sha256": "4e3b11575c3530fc2e43dbc23cd4370ea5d4827ebf1cc30954c419c3e8dab718"
+    }
+  ],
+  "testBoundary": {
+    "reader": "Synthetic typed JSON in JUnit TempDir; strict parse and immutable observation assertions.",
+    "integration": "Actual default engine + authored inert Java-8 ASM fixture + actual disposable Apply/Restore. No original/converted class execution. Synthetic platform metadata, not Forge discovery.",
+    "fixtureGenerator": {
+      "path": "legacy-product/src/test/java/dev/legacybridge/product/controller/ReceiptSourceFixture.java",
+      "sha256": "6720942dac19296b1a3421f6ee05935ac8b0312047fe5b691e31b556c72a35c0"
+    },
+    "fixtureJarHashes": "Ephemeral JUnit TempDir artifacts; not retained as a newly qualified mod release. Source generator and test code are pinned; no new conversion recipe.",
+    "faults": "Real Windows hard links, three junction locations and deny-read handle. Explicit cooperative deadline/cancel barriers and stale-reader-return test seam.",
+    "unchanged": [
+      "Original receipt schema 1 remains read-only",
+      "Receipt writer schema 2",
+      "CompatibilityReport and TransformationLog schemas",
+      "Transaction journal",
+      "All conversion profiles, mapping rules, adapter ABI and libraries"
+    ]
+  },
+  "limits": {
+    "processedEntries": 1024,
+    "receiptCandidates": 128,
+    "perFileBytes": 65536,
+    "totalPayloadBytes": 2097152,
+    "retainedDiagnostics": 64,
+    "omittedDiagnosticCount": true,
+    "cooperativeTimeoutMillis": 10000,
+    "extraExecutors": 0
+  },
+  "commands": {
+    "targeted": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' :legacy-product:test --tests '*JobHistory*' --no-daemon --max-workers=1",
+    "root": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' build --no-daemon --max-workers=1"
+  },
+  "runs": [
+    {
+      "log": "build/job-history-read-2026-09-07-run1/tests-1.log",
+      "sha256": "63db86447529ae6d9825d3bb098911366e6a504bbe9725f6aa566bf50d21ecf8",
+      "status": "FAIL",
+      "exitCode": 1,
+      "tests": 46,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed": "2m 22s",
+      "cause": "Windows fileKey alone did not identify a real hard-link pair. DUPLICATE_SEQUENCE still suppressed highest, but ALIASED_RECEIPT assertion failed.",
+      "correction": "Added bounded Files.isSameFile fallback when file keys are absent; kept fail-closed grouping. Added real junction/deny-read tests.",
+      "xmlPrefix": "build/job-history-read-2026-09-07-run1/tests-1-TEST-"
+    },
+    {
+      "log": "build/job-history-read-2026-09-07-run1/tests-2.log",
+      "sha256": "bc2844539b42f26f4196e8803d89ced3a3e81f65d304daf49a45b603c5190ca8",
+      "status": "PASS",
+      "exitCode": 0,
+      "tests": 50,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed": "1m 47s",
+      "xmlPrefix": "build/job-history-read-2026-09-07-run1/tests-2-TEST-"
+    }
+  ],
+  "rootBuild": {
+    "status": "PASS",
+    "log": "build/job-history-read-2026-09-07-run1/build-1.log",
+    "sha256": "3e3609037cbfa04e74775ddb7a0caa187a945afba1230bcd845ebb410a4b26fb",
+    "exitCode": 0,
+    "elapsed": "7m 35s",
+    "freshProductTests": {
+      "tests": 155,
+      "newHistoryCases": 50,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xmlDirectory": "build/job-history-read-2026-09-07-run1/root-tests-1",
+      "suites": [
+        {
+          "name": "dev.legacybridge.product.controller.ConversionControllerTest",
+          "tests": 19,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "ca50d6124272d830d09dbd8f566c2203dcc7e8aa0714fb7db6cee9a1252b8d8b"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.ConversionQueueTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "facee1f9a4842a1edc7d06da1251652f3a213d0c66da54f1ad1f95fababcef0f"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.InstallationControllerTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "89b79a2fbf1eaa7d2759cecf489a0c4cd279c9ed3bcfc0ac465f6ade7a8c54de"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.InstallationShutdownBarrierTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "ad78f3e260ae3163ae84d32fbb682da94d2792d67c22adb1b5b2ce943654cd06"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.JobHistoryControllerTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "b7697a23bf0effbf9b19af9c22f4ca733aaf3db3cb3c03c88b9febf295b09f13"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.JobInstallationReceiptTest",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "98624923d4d69e9da7d605a572173a2e5131e21ce84246ad92bbea7f4491a237"
+        },
+        {
+          "name": "dev.legacybridge.product.history.JobHistoryReaderTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "4c2bf86661f7f2412659ef073481e53bc9d8ee6a4d4a7aeba4558940f7adc7d3"
+        },
+        {
+          "name": "dev.legacybridge.product.install.AddOnlyInstallerTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "1855391b4a58696cbbc68610412b2f71f13df5d52e11857686b00b3cbdf14949"
+        },
+        {
+          "name": "dev.legacybridge.product.install.TransactionalInstallerTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "ea796eaef1fd53bad6113cc7f52ad13ae283b8ad0071457f5b4734fbe143b408"
+        },
+        {
+          "name": "dev.legacybridge.product.install.TransactionalProcessCrashTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "fd34b7f14ad35b4da2b178734c733738ee13a7be5f291ef073fd62473039fc42"
+        },
+        {
+          "name": "dev.legacybridge.product.install.TransactionalWindowsLockTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "sha256": "5db4bf09e635a5b13a7eb1f4d53fd810335d12f1bc31c81c99f851ab3225918e"
+        }
+      ]
+    },
+    "otherModuleTests": "UP_TO_DATE; not counted as fresh",
+    "packaging": "PASS, includes history API; unchanged runtime identity, JiJ and reviewed embedded vocabulary; no private data/platform/logging duplicates",
+    "contract": "PASS, 23 prompts / 79 cuts before cursor handoff",
+    "warning": "One existing deprecated ResourceLocation(String,String) warning in dev-only ProductClientProbe compilation; probe was not executed or included in public JAR."
+  },
+  "archiveComparison": {
+    "method": "SHA-256 comparison of every uncompressed ZIP entry in retained baseline/current public archives.",
+    "baselineEntries": 494,
+    "currentEntries": 512,
+    "addedEntries": 18,
+    "addedScope": "17 history classfiles + package directory",
+    "changedEntries": 9,
+    "changedScope": "ConversionController and its nested classfiles",
+    "removedEntries": 0,
+    "changedEngineRuntimeWorkflowEntries": 0,
+    "changedMappingAdapterAssetsEntries": 0,
+    "testFixtureEntries": 0,
+    "qualification": "STATIC_ARCHIVE_COMPARISON_ONLY"
+  },
+  "assertions": [
+    {
+      "expected": "A fresh history-only controller performs no filesystem writes and runs read off caller thread.",
+      "observed": "PASS: no legacybridge directory created; existing legacybridge-controller worker; installer seam not invoked."
+    },
+    {
+      "expected": "Actual Apply/Restore receipts order by sequence without authorizing fresh-controller Apply.",
+      "observed": "PASS: real sequence 1/2/3, original file bytes unchanged, empty actionable jobs and rejected stored UUID."
+    },
+    {
+      "expected": "Malformed/ambiguous/bounded scan never hides a newer outcome behind a selected older success.",
+      "observed": "PASS: diagnostics and no highestRecorded in any partial snapshot."
+    },
+    {
+      "expected": "Cancellation/close cannot publish stale successful reader output.",
+      "observed": "PASS: previous immutable snapshot retained, operation CANCELLED, nonblocking close and busy refusal."
+    },
+    {
+      "expected": "Hard links, junctions and Windows locked reads are diagnosed without modification.",
+      "observed": "PASS after first-run fileKey correction; junctions at reports operation, artifact parent and reserved reports root; deny-read refresh succeeds after release."
+    }
+  ],
+  "acceptance": "HEADLESS_READ_ONLY_HISTORY_API_ONLY",
+  "dimensions": {
+    "typedReaderAndController": "PASS_50_SCOPED",
+    "productRegression": "PASS_155_FRESH",
+    "publicArchive": "PASS_STATIC",
+    "nativeHistoryUI": "NOT_RUN_NOT_IMPLEMENTED",
+    "journalDiscoveryReconciliation": "NOT_IMPLEMENTED",
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "originalExecution": "NOT_RUN",
+    "gameplay": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "offlineGameplay": "NOT_RUN",
+    "newModAcquisition": "NOT_RUN_DEFERRED",
+    "publication": "NOT_RUN_NOT_AUTHORIZED"
+  },
+  "limitations": [
+    "No native history widget, activation/discovery reconciliation, Apply rehydration, pagination/retention or cross-instance migration.",
+    "Editable receipts are untrusted claims; PENDING_RESTART and recorded safe-to-close never authorize closing/installing.",
+    "Missing referenced artifacts are permitted historical paths, not proof of bytes/existence/ownership.",
+    "Cooperative limits do not bound stalled OS calls or isolate heap. No atomic multi-file snapshot or OS sandbox against concurrent replacement.",
+    "Alias comparison only covers examined receipts, not hard links elsewhere. Native artifact-bound gates remain pending."
+  ],
+  "transition": {
+    "from": "LB-05/JOB-HISTORY-READ",
+    "to": "LB-08/COMPOSE-01",
+    "reason": "Finite headless reader contract met; LOGIC-BASE prerequisite already ACCEPTED. COMPOSE-01 can start statically, not accept native behavior without separate authorized comparison.",
+    "nativeGatesUnchanged": true,
+    "conversionFeaturesEnabled": 0
+  }
+}

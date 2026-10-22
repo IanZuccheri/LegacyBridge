@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "active=false": { "model": "legacybridge_boolean_toggle:block/bridge_block" },
+    "active=true": { "model": "legacybridge_boolean_toggle:block/bridge_block_active" }
+  }
+}

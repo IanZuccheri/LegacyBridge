@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 1,
+  "id": "clumps-forge-6.0.0.28",
+  "kind": "REAL_MOD",
+  "projectKey": "modrinth:Wnxd13zP",
+  "version": "6.0.0.28",
+  "artifact": {
+    "fileName": "Clumps-6.0.0.28.jar",
+    "sha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+    "sizeBytes": 18397
+  },
+  "authorization": {
+    "basis": "SPDX_LICENSE",
+    "license": "MIT",
+    "redistributeBinary": false,
+    "evidence": [
+      "license-upstream",
+      "license-snapshot"
+    ]
+  },
+  "source": {
+    "loader": "Forge",
+    "minecraftVersions": [
+      "1.16.5"
+    ],
+    "forgeBuild": "36.1.16",
+    "forgeVersionEvidence": "Release-associated immutable source configuration: https://github.com/jaredlll08/Clumps/blob/34c57ca0bd068655a63d99eabd215219432c32d4/build.gradle. Build target Minecraft 1.16.5 / Forge 36.1.16; binary source reproducibility NOT_VERIFIED. Release-associated source configuration; not a claim that binary build was reproduced."
+  },
+  "dependencies": [
+    "forge [35,); mandatory=true; side=BOTH; ordering=NONE",
+    "minecraft [1.16.4,); mandatory=true; side=BOTH; ordering=NONE"
+  ],
+  "detectedFeatures": [
+    "CLIENT_RENDERING",
+    "CUSTOM_ENTITIES",
+    "LEGACY_EVENTS",
+    "LEGACY_NETWORKING",
+    "LEGACY_REGISTRIES",
+    "REFLECTION",
+    "RESOURCE_PACK_METADATA",
+    "RESOURCE_CONFIGURATION"
+  ],
+  "blockers": [
+    "Unapproved manifest attribute: Implementation-Timestamp"
+  ],
+  "output": {
+    "status": "BLOCKED",
+    "sha256": null
+  },
+  "stages": {
+    "analyzable": {
+      "status": "PASSED",
+      "evidence": [
+        "analysis"
+      ]
+    },
+    "convertible": {
+      "status": "BLOCKED",
+      "evidence": [
+        "conversion"
+      ]
+    },
+    "bytecodeValidated": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "multiplayer": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "evidence": [
+    {
+      "id": "license-upstream",
+      "type": "AUTHORIZATION",
+      "sourceSha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+      "targetSha256": null,
+      "sha256": "f06bc81b4cf8335305fbe954c748746b60ff6d7f016f9efcd405e7d204f88e1a",
+      "url": "https://raw.githubusercontent.com/jaredlll08/Clumps/34c57ca0bd068655a63d99eabd215219432c32d4/LICENSE.md"
+    },
+    {
+      "id": "license-snapshot",
+      "type": "AUTHORIZATION",
+      "sourceSha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+      "targetSha256": null,
+      "sha256": "f06bc81b4cf8335305fbe954c748746b60ff6d7f016f9efcd405e7d204f88e1a",
+      "path": "corpus/licenses/clumps/LICENSE.md"
+    },
+    {
+      "id": "analysis",
+      "type": "ANALYSIS",
+      "sourceSha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+      "targetSha256": null,
+      "sha256": "9845984c74608c78a61071f06a73feda7ba8a5c97074c988c019e1a668acebb9",
+      "path": "build/corpus-intake/observations/clumps-forge-6.0.0.28/analysis.json"
+    },
+    {
+      "id": "conversion",
+      "type": "CONVERSION",
+      "sourceSha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+      "targetSha256": null,
+      "sha256": "cac8c77bdf8760b69a64ea0927bc55b733887a1bfbafad66138107620f9524e1",
+      "path": "build/corpus-intake/observations/clumps-forge-6.0.0.28/conversion.json"
+    }
+  ],
+  "structuredMetadata": {
+    "modId": "clumps",
+    "modDisplayName": "Clumps",
+    "provenance": {
+      "platform": "Modrinth",
+      "projectId": "Wnxd13zP",
+      "versionId": "UutzgwbZ",
+      "versionUrl": "https://modrinth.com/mod/clumps/version/UutzgwbZ",
+      "metadataUrl": "https://api.modrinth.com/v2/version/UutzgwbZ",
+      "publishedAt": "2023-06-04T08:55:28.440942Z",
+      "declaredGameVersions": [
+        "1.16.5"
+      ],
+      "declaredLoaders": [
+        "forge"
+      ],
+      "declaredThirdPartyDependencies": []
+    },
+    "acquisition": {
+      "originalRelativePath": "build/corpus-intake/public/clumps/Clumps-6.0.0.28.jar",
+      "downloadUrl": "https://cdn.modrinth.com/data/Wnxd13zP/versions/UutzgwbZ/Clumps-6.0.0.28.jar",
+      "publisherSha512": "f38e416c613c2686b458ab9b18c9db3ae14ed1cd887ebd26e4f8914ae16c6dea64bc9210f48b744d8aef598236bdf3673a13536c2681cc4eecc72aabe3b3eb0a",
+      "receiptRelativePath": "build/corpus-intake/public/clumps/acquisition.json",
+      "rightsReviewedAt": "2026-09-06",
+      "originalCodeExecuted": false,
+      "localOnly": true,
+      "privateArtifact": false,
+      "packaged": false,
+      "redistributed": false
+    },
+    "rightsReview": {
+      "status": "LOCAL_ACQUISITION_STATIC_ANALYSIS_MODIFICATION_ALLOWED",
+      "licenseSpdx": "MIT",
+      "licenseSnapshot": "corpus/licenses/clumps/LICENSE.md",
+      "licenseUrl": "https://raw.githubusercontent.com/jaredlll08/Clumps/34c57ca0bd068655a63d99eabd215219432c32d4/LICENSE.md",
+      "licenseSha256": "f06bc81b4cf8335305fbe954c748746b60ff6d7f016f9efcd405e7d204f88e1a",
+      "sourceCommit": "34c57ca0bd068655a63d99eabd215219432c32d4",
+      "releaseAssociation": "The exact Modrinth 6.0.0.28 changelog links this commit as its newest change; the license was read at that immutable commit, not master.",
+      "permissionBasis": "MIT expressly permits use, copying and modification. Preserve copyright and permission notices. No binary redistribution is performed by this corpus intake.",
+      "binarySourceReproducibility": "NOT_VERIFIED",
+      "redistributionSelected": false
+    },
+    "sourceBuildEvidence": {
+      "url": "https://github.com/jaredlll08/Clumps/blob/34c57ca0bd068655a63d99eabd215219432c32d4/build.gradle",
+      "minecraftVersion": "1.16.5",
+      "forgeVersion": "36.1.16",
+      "javaTarget": "1.8",
+      "scope": "Release-associated source configuration; not a claim that binary build was reproduced."
+    },
+    "integrity": {
+      "beforeRecordWrite": {
+        "sha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+        "sizeBytes": 18397,
+        "verifiedAtUtc": "2026-09-06T06:36:19.5855256Z"
+      },
+      "analysisInputSha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+      "conversionInputSha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+      "originalUnchangedFromAcquisition": true,
+      "afterInitialRecordWrite": {
+        "sha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+        "sizeBytes": 18397,
+        "verifiedAtUtc": "2026-09-06T06:38:35.5009413Z"
+      }
+    },
+    "rawModsTomlAnalysis": {
+      "present": true,
+      "parsed": true,
+      "modLoader": "javafml",
+      "loaderVersion": "[35,)",
+      "mods": [
+        {
+          "modId": "clumps",
+          "version": "${file.jarVersion}",
+          "displayName": "Clumps"
+        }
+      ],
+      "dependencies": [
+        {
+          "ownerModId": "clumps",
+          "modId": "forge",
+          "mandatoryDeclared": true,
+          "mandatory": true,
+          "versionRange": "[35,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        },
+        {
+          "ownerModId": "clumps",
+          "modId": "minecraft",
+          "mandatoryDeclared": true,
+          "mandatory": true,
+          "versionRange": "[1.16.4,)",
+          "ordering": "NONE",
+          "side": "BOTH"
+        }
+      ]
+    },
+    "rawManifestAnalysis": {
+      "present": true,
+      "parsed": true,
+      "attributes": {
+        "Implementation-Title": "Clumps",
+        "Implementation-Version": "6.0.0.28"
+      },
+      "valuesTruncated": false
+    },
+    "dependencyInterpretation": "The top-level dependencies array contains only declared mods.toml dependencies. Publisher mod dependencies are separate. Inferred packages below are not verified external mod requirements and may be platform libraries or scanner false positives; a truncated list is not a complete dependency inventory.",
+    "fullDeclaredDependencies": [
+      {
+        "ownerModId": "clumps",
+        "modId": "forge",
+        "mandatoryDeclared": true,
+        "mandatory": true,
+        "versionRange": "[35,)",
+        "ordering": "NONE",
+        "side": "BOTH"
+      },
+      {
+        "ownerModId": "clumps",
+        "modId": "minecraft",
+        "mandatoryDeclared": true,
+        "mandatory": true,
+        "versionRange": "[1.16.4,)",
+        "ordering": "NONE",
+        "side": "BOTH"
+      }
+    ],
+    "inferredThirdPartyDependencies": [
+      {
+        "identifier": "io.netty.buffer",
+        "source": "INFERRED_PACKAGE",
+        "mandatory": false,
+        "versionRange": ""
+      }
+    ],
+    "thirdPartyDependenciesTruncated": true
+  },
+  "analysisSummary": {
+    "observationScope": "Static engine analysis and attempted conversion only. COMPLETE means bounded archive/bytecode scanning completed, not complete semantic understanding or compatibility. No original mod class was executed. No converted output exists.",
+    "tool": {
+      "name": "LegacyBridge Converter",
+      "version": "0.1.1-SNAPSHOT",
+      "policyVersion": "2026-09-v2"
+    },
+    "schemaVersion": 2,
+    "assessment": {
+      "analysisStatus": "COMPLETE",
+      "sourceProfile": "FORGE_1_16_5_CANDIDATE",
+      "conversionStatus": "NOT_IMPLEMENTED",
+      "executionStatus": "NOT_TESTED"
+    },
+    "assessmentCaveat": "analysis.assessment.conversionStatus=NOT_IMPLEMENTED is the analyzer-only schema statement, not the separately executed conversion outcome; the actual converter returned ABORTED.",
+    "detectedMinecraftVersion": "1.16.5",
+    "detectedForgeVersion": "36.x",
+    "sourceDetectionCaveat": "The analyzer's Forge36.x family is a heuristic; the exact source build configuration is recorded separately and is not a reproduced binary build attestation.",
+    "classCount": 6,
+    "classMajorVersions": {
+      "52": 6
+    },
+    "unreadableClassCount": 0,
+    "nativeMethodCount": 0,
+    "previewClassCount": 0,
+    "complexity": "COMPLEX",
+    "riskScore": 54,
+    "countInterpretation": "Reference/class/occurrence counts characterize this exact static input only. They are not a compatible-mod percentage, whole-mod unlock count, runtime validation or multiplayer evidence.",
+    "minecraftReferenceCount": 410,
+    "minecraftReferencesTruncated": true,
+    "minecraftReferenceExternalityComplete": true,
+    "forgeReferenceCount": 113,
+    "forgeReferencesTruncated": false,
+    "forgeReferenceExternalityComplete": true,
+    "packagesUsedTruncated": true,
+    "featureDetectionEvidence": [
+      {
+        "id": "CLIENT_RENDERING",
+        "occurrenceCount": 69,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "com/blamejared/clumps/ClumpsClient.class#METHOD:net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V",
+          "com/blamejared/clumps/ClumpsClient.class#TYPE:net/minecraft/client/renderer/entity/EntityRenderer(Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;",
+          "com/blamejared/clumps/ClumpsClient.class#TYPE:net/minecraft/client/renderer/entity/EntityRendererManager(Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "CUSTOM_ENTITIES",
+        "occurrenceCount": 37,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "com/blamejared/clumps/Clumps.class#FIELD:net/minecraft/entity/EntityType.field_200807_uLnet/minecraft/entity/EntityType;",
+          "com/blamejared/clumps/Clumps.class#METHOD:net/minecraft/entity/EntityType$Builder.func_206830_a(Ljava/lang/String;)Lnet/minecraft/entity/EntityType;",
+          "com/blamejared/clumps/Clumps.class#METHOD:net/minecraft/entity/EntityType$Builder.func_220321_a(FF)Lnet/minecraft/entity/EntityType$Builder;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "LEGACY_EVENTS",
+        "occurrenceCount": 61,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "com/blamejared/clumps/Clumps.class#FIELD:net/minecraftforge/common/MinecraftForge.EVENT_BUSLnet/minecraftforge/eventbus/api/IEventBus;",
+          "com/blamejared/clumps/Clumps.class#FIELD:net/minecraftforge/event/TickEvent$Phase.STARTLnet/minecraftforge/event/TickEvent$Phase;",
+          "com/blamejared/clumps/Clumps.class#FIELD:net/minecraftforge/event/TickEvent$WorldTickEvent.phaseLnet/minecraftforge/event/TickEvent$Phase;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "LEGACY_NETWORKING",
+        "occurrenceCount": 5,
+        "analyzerEvidenceTruncated": false,
+        "evidenceSamples": [
+          "com/blamejared/clumps/entities/EntityXPOrbBig.class#INTERFACE:net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData",
+          "com/blamejared/clumps/entities/EntityXPOrbBig.class#METHOD:net/minecraftforge/fml/network/NetworkHooks.getEntitySpawningPacket(Lnet/minecraft/entity/Entity;)Lnet/minecraft/network/IPacket;",
+          "com/blamejared/clumps/entities/EntityXPOrbBig.class#TYPE:net/minecraft/network/IPacket()Lnet/minecraft/network/IPacket;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "LEGACY_REGISTRIES",
+        "occurrenceCount": 28,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "com/blamejared/clumps/Clumps.class#FIELD:net/minecraftforge/registries/ForgeRegistries.ENTITIESLnet/minecraftforge/registries/IForgeRegistry;",
+          "com/blamejared/clumps/Clumps.class#METHOD:net/minecraftforge/fml/RegistryObject.get()Lnet/minecraftforge/registries/IForgeRegistryEntry;",
+          "com/blamejared/clumps/Clumps.class#METHOD:net/minecraftforge/registries/DeferredRegister.create(Lnet/minecraftforge/registries/IForgeRegistry;Ljava/lang/String;)Lnet/minecraftforge/registries/DeferredRegister;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "REFLECTION",
+        "occurrenceCount": 1,
+        "analyzerEvidenceTruncated": false,
+        "evidenceSamples": [
+          "com/blamejared/clumps/Clumps.class#METHOD:net/minecraftforge/fml/common/ObfuscationReflectionHelper.setPrivateValue(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V"
+        ],
+        "corpusSamplesTruncated": false
+      }
+    ],
+    "detectionCaveat": "Feature categories are static API-reference/entry-marker signals, not exhaustive semantic proofs. REFLECTION means observed reflective API references, not a complete set of dynamically constructed targets. Absence of a category does not establish absence of behavior; evidence samples and package lists may be truncated.",
+    "content": {
+      "observedFileCount": 9,
+      "assetEntryCount": 0,
+      "dataPackEntryCount": 0,
+      "assetNamespaces": {
+        "namespaceCount": 0,
+        "samples": [],
+        "samplesTruncated": false
+      },
+      "dataNamespaces": {
+        "namespaceCount": 0,
+        "samples": [],
+        "samplesTruncated": false
+      },
+      "categories": {
+        "PACK_METADATA": {
+          "entryCount": 1,
+          "samples": [
+            "pack.mcmeta"
+          ],
+          "samplesTruncated": false
+        },
+        "CONFIGURATION": {
+          "entryCount": 1,
+          "samples": [
+            "META-INF/mods.toml"
+          ],
+          "samplesTruncated": false
+        }
+      }
+    },
+    "mixins": [],
+    "accessTransformers": [],
+    "coremods": [],
+    "findings": [
+      {
+        "code": "LB-B006",
+        "severity": "WARNING",
+        "category": "sides",
+        "message": "References to net.minecraft.client require physical-side review.",
+        "evidence": [
+          "net/minecraft/client/renderer/IRenderTypeBuffer",
+          "net/minecraft/client/renderer/RenderType",
+          "net/minecraft/client/renderer/culling/ClippingHelper",
+          "net/minecraft/client/renderer/entity/EntityRenderer",
+          "net/minecraft/client/renderer/entity/EntityRendererManager",
+          "net/minecraft/client/renderer/texture/OverlayTexture"
+        ]
+      },
+      {
+        "code": "LB-P001",
+        "severity": "INFO",
+        "category": "profile",
+        "message": "Metadata and bytecode are consistent with a Forge 1.16.5 candidate; this is not proof of compatibility.",
+        "evidence": [
+          "javaClassMajor<=52",
+          "loaderVersionIntersectsMajor=36",
+          "minecraftDependency=1.16.5"
+        ]
+      },
+      {
+        "code": "LB-P003",
+        "severity": "INFO",
+        "category": "conversion",
+        "message": "Conversion is intentionally not implemented in report schema v2.",
+        "evidence": []
+      }
+    ],
+    "conversionObservation": {
+      "status": "ABORTED",
+      "compatibilityStatus": "UNSUPPORTED",
+      "diagnostics": [
+        "Unapproved manifest attribute: Implementation-Timestamp"
+      ],
+      "bytecodeExecuted": false,
+      "bytecodeModified": false,
+      "transformationsCommitted": false,
+      "reportType": "LEGACY_CONVERSION",
+      "schemaVersion": 2,
+      "supportProfile": "simple-content-v1",
+      "targetMinecraft": "1.20.1",
+      "targetForge": "47.4.23",
+      "runtimeRequired": "legacybridge_runtime",
+      "runtimeVersion": "0.1.1-SNAPSHOT"
+    },
+    "conversionFirstFailureOnly": true,
+    "sourceReviewedRemainingDependencies": {
+      "status": "REVIEWED_SOURCE_HYPOTHESES_NOT_ADDITIONAL_CONVERTER_RESULTS",
+      "sourceCommit": "34c57ca0bd068655a63d99eabd215219432c32d4",
+      "reviewPath": "corpus/intake/semantic-review.md",
+      "clusters": [
+        "Custom xp_orb_big entity registration and lifecycle",
+        "Denomination-count map, merge conservation, pickup cancellation and mending",
+        "NBT persistence and additional entity spawn data",
+        "World/entity and lifecycle events; custom clone/merge events",
+        "EntityType translation-key reflection replacement",
+        "Client entity renderer, light and blending semantics"
+      ],
+      "guaranteedWholeModUnlocks": 0,
+      "implementedByThisCorpus": false
+    },
+    "validationScope": {
+      "bytecodeValidation": "NOT_RUN: the input was parsed; no generated target bytecode exists to validate.",
+      "client": "NOT_RUN: no converted artifact exists.",
+      "server": "NOT_RUN: no converted artifact exists.",
+      "behavior": "NOT_RUN: source review is not behavioral execution.",
+      "multiplayer": "NOT_RUN: no connected players or server/client test was run for this mod."
+    },
+    "limitations": [
+      "Source-to-binary reproducibility and upstream runtime baseline behavior were not validated.",
+      "No claim of client/server compatibility follows from publisher side metadata.",
+      "The corpus is a three-project convenience sample and cannot estimate ecosystem coverage."
+    ]
+  }
+}

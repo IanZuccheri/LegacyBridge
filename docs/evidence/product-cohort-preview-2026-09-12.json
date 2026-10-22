@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-12",
+  "prompt": "LB-01",
+  "cut": "PRODUCT-COMPOSED",
+  "implementedSlice": "COHORT_TARGET_PREVIEW",
+  "status": "PARTIAL",
+  "baseline": {"sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": 17, "gradle": "8.8", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "implementation": {
+    "nativeClientScreen": "CohortScreen: explicit frozen review before Inspect; 1..4 checked inputs including search-hidden rows; no focused-row fallback or resize submission",
+    "controller": "ConversionController.inspectCohort -> LegacyEngineService.planCohort on existing bounded coordinator/worker; no CLI main/stdout/class execution",
+    "summary": "Typed input/source/dependency/private target evidence, bounded diagnostics, explicit false conversion/installation permissions",
+    "report": "reports/<operation UUID>/cohort-preview.json, PRODUCT_COHORT_PREVIEW schema 1, unchanged engineReport tree and TransformationLog",
+    "limits": {"inputs": 4, "sources": 4, "targets": 2, "dependenciesPerSource": 64, "diagnostics": 32, "untrustedTextCodePoints": 512, "wrappedRows": 1024, "reportUtf8Bytes": 2097152},
+    "reportCreateNewAndCancellationBarrier": true,
+    "existingJobsInstallationAndProfilesUnchanged": true,
+    "newConversionRulesOrAdapters": false,
+    "outputJarExposed": false,
+    "installationAllowed": false,
+    "hardHeapIsolationClaimed": false,
+    "locales": ["en_us", "pt_br"]
+  },
+  "apiAudit": {
+    "legacySourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "legacyEntriesRead": ["GuiScreenEvent.InitGuiEvent.addWidget(Widget)", "InitGuiEvent.Post"],
+    "targetEntriesRead": ["ScreenEvent.Init.addListener(GuiEventListener)", "ScreenEvent.Init.Post", "Screen.setInitialFocus/resize/removed/onClose", "Button.Builder.bounds", "AbstractSelectionList.getScrollAmount/setScrollAmount"],
+    "primaryGuidance": "https://docs.minecraftforge.net/en/1.20.1/gui/screens/",
+    "crossVersionScreenMappingAdded": false,
+    "bootstrapOrDiscoveryServiceAdded": false
+  },
+  "explicitLocalData": {"path": "build/logic-preserving-v1/mapping-bundle", "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb", "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION", "bundledInPublicJar": false, "downloadOrImplicitGradleLookup": false},
+  "fixture": {
+    "path": "fixtures/dependency-cohort-1.16.5/build/libs",
+    "rights": "Existing authored fixtures under repository all-rights-reserved license; no new acquisition or redistribution",
+    "librarySourceSha256": "7ccceb72ef6d1518310b21253acf18cff0502e8f06a892758ea254ae799f5cd4",
+    "consumerSourceSha256": "a67a24e331c1d81b5e85ce267c9d55e622294f01134cdc9cca8cdcad76e7e8f1",
+    "originalsPreserved": true,
+    "sourceOrTargetClassesExecuted": false,
+    "rebuiltThisTurn": false,
+    "addedToTestClasspath": false
+  },
+  "proof": {
+    "path": "build/product-cohort-preview-20260912/evidence/cohort-preview-7806463021724299643.json",
+    "sha256": "cdd8076008909cbe571410514522bd9f80b006a33b2ac31c2e69b61d20f31b5f",
+    "bytes": 54164,
+    "status": "STATIC_PAIR_VALIDATED",
+    "libraryTargetSha256": "facd86ef056da22304c0e78fd2a892fda08f3a4d9e0142bfac6b63e255cff88b",
+    "consumerTargetSha256": "434d3010118fcde50c7c0783ae3f1ba3f7291466ba82c8324d91e244c48f97bd",
+    "productEngineTreeEqualsFreshService": true,
+    "sourceClasses": 3,
+    "sourceDependencyMandatoryRangeSideOrderingPreserved": true,
+    "targetChecks": "Existing engine serialized/reopened candidates; per-JAR ASM/linkage/access and CLIENT/SERVER dependency graphs",
+    "privateCandidatesRetained": false,
+    "ordinarySimpleConversionOfPair": "BLOCKED",
+    "historyTreatsPreviewAsReceipt": false,
+    "nativeQualification": "NOT_RUN"
+  },
+  "validation": {
+    "initialFocused": {"result": "FAIL_COMMAND_PATH", "tests": 33, "failed": 3, "skipped": 0, "log": "build/product-cohort-preview-20260912/focused-1.log", "sha256": "238b221473f8e65b39e305d135983df02e5e689fffdde2f6d7e4f719923f2cc4", "cause": "Wrong productCompositionFixture filename supplied by this turn: extra '-fixture'. Three pre-existing environment checks raised NoSuchFileException, not conversion failures. Corrected to the actual observed file; all new cohort cases already passed."},
+    "correctedFocused": {"result": "PASS", "tests": 33, "failed": 0, "errors": 0, "skipped": 0, "duration": "34s", "log": "build/product-cohort-preview-20260912/focused-final.log", "sha256": "3d753e0997349ae8f740c5696e5d10d0bde0451c0134fa15f56aa2fd063e91ee"},
+    "finalFocused": {
+      "result": "PASS", "tests": 34, "passed": 34, "failed": 0, "errors": 0, "skipped": 0, "newTests": 15,
+      "duration": "37s", "tasks": 11, "executed": 2, "upToDate": 9,
+      "suites": {"CohortInspectionControllerTest": 6, "CohortInspectionEnvironmentTest": 6, "CohortPresentationTest": 3, "CompositionInspectionControllerTest": 5, "CompositionInspectionEnvironmentTest": 4, "ConversionQueueTest": 8, "HistoryClientBoundaryTest": 2},
+      "log": "build/product-cohort-preview-20260912/focused-complete.log", "sha256": "e2e56328e4bbe3af5c818baa7341d6deeacc624fffe207ed8b89e89b03484b7b",
+      "command": "gradlew.bat :legacy-product:test --tests *Cohort*Test --tests *CompositionInspection*Test --tests *ConversionQueueTest --tests *HistoryClientBoundaryTest -PproductCohortBundle=<explicit full bundle> -PproductCohortFixtureRoot=<fixture path above> -PproductCohortEvidence=build/product-cohort-preview-20260912/evidence -PproductCompositionBundle=<same bundle> -PproductCompositionFixture=fixtures/composed-logic-recipes-1.16.5/build/libs/legacybridge-composed-logic-recipes-1.16.5-1.0.0.jar --max-workers=1 --console=plain",
+      "notes": "Actual invocations use absolute property paths. The final run separated the unknown-third negative from the changed-original negative and checked that preview reports are not job history receipts. Counts are unique final tests, not sums across reruns.",
+      "negativeCases": ["missing library", "intact pair plus unknown third artifact", "changed source after inventory", "corrupt JAR", "duplicate modIds", "duplicate/repeated/unobserved/too many selection rows", "stale review after refresh", "blank/relative/oversized/missing bundle", "accepted cancellation and close", "concurrent preview/refresh/enqueue refused", "report workspace obstructed by a file", "forged successful display cannot authorize installation"],
+      "ioCoverageLimit": "Real report-directory file obstruction, not OS ACL denial, disk-full simulation or locked-file recovery. Existing cancellation race must actually be won; no completed proof is re-labelled cancelled."
+    },
+    "package": {"result": "PASS", "duration": "26s", "tasks": 48, "executed": 17, "upToDate": 31, "log": "build/product-cohort-preview-20260912/package.log", "sha256": "2539247db3562f43658735d23bff6e36efd303aac6eda6eca6a6f838a00053bb", "command": "gradlew.bat assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-compat-api:verifyCompatibilityApiBoundary :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli --max-workers=1 --console=plain", "warning": "Existing dev-only ProductClientProbe uses deprecated ResourceLocation constructor; probe compiled but was not executed or packaged."},
+    "finalMetadataRecheck": {"log": "build/product-cohort-preview-20260912/final-gates.log", "command": "Same focused test selection/properties plus assemble, product/runtime/API/engine/installed-CLI audits and :legacy-corpus:verifyPromptContract, serially after contract/docs edits. Up-to-date tests are not counted as additional runs."},
+    "javaTls": "Java17 with -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT, no TLS bypass",
+    "nativeClient": "NOT_RUN", "nativeServer": "NOT_RUN", "visualKeyboardResize": "NOT_RUN", "behaviorComparison": "NOT_RUN", "multiplayer": "NOT_RUN", "cachelessNativeOrOffline": "NOT_RUN", "fullRegressionCampaign": "DEFERRED"
+  },
+  "previousPublicArtifact": {"path": "build/product-cohort-preview-20260912/baseline-LegacyBridge.jar", "sha256": "27f09773ec6b2a275269adb3c788ec99504659b9638d6283c4ffdf756822d6aa"},
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "b069df666292a1d833c5c8f18f455608cbeb5961e67570032e575a63d2fc029d",
+    "bytes": 1403347, "entries": 569,
+    "entryComparison": {"unchanged": 545, "changed": 12, "added": 12, "removed": 0},
+    "changedScope": "ConversionScreen, ConversionController and its nested types, en_us/pt_br; 12 added display/presentation/screen types",
+    "engineRuntimeAdaptersCatalogDataInstallerLibrariesByteIdentical": true,
+    "publicProfilesAndAdapterAbiPreserved": true,
+    "fixturesHarnessesCliAndPrivateDataPackaged": false,
+    "qualification": "Experimental/Beta; no new native artifact qualification or public cohort promotion"
+  },
+  "next": {"prompt": "LB-02", "cut": "DATA-EXPAND", "slice": "FINITE_PREVIEW_DATA", "scope": "Minimize/version finite preview source/target data with hashes/provenance and redistribution audit; only permitted included or explicit local route. Never embed full LOCAL_USE_ONLY bundle or admit unknown contracts.", "acceptanceDependenciesUnchanged": true},
+  "userBoundary": "No Minecraft/client/server/screen automation; no new mod acquisition or publication; unrelated processes/files preserved"
+}

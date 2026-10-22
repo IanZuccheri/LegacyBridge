@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-13",
+  "prompt": "LB-05",
+  "cut": "INSTALL-PROMOTION",
+  "slice": "INDEPENDENT_LOGIC_READBACK_V1",
+  "status": "IMPLEMENTED_HEADLESS_SCOPED; PARENT_PARTIAL; NO_INSTALLATION_PROMOTION",
+  "baseline": {"minecraftSource": "1.16.5", "forgeSource": "36.2.42", "minecraftTarget": "1.20.1", "forgeTarget": "47.4.23", "java": "17.0.12", "runtimeId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "implementation": {
+    "api": "LegacyEngineService.inspectPreservedArtifact(PreservedArtifactRequest)",
+    "cli": "inspect-preserved <original.jar> <candidate.jar> --original-sha256 <sha> --candidate-sha256 <sha> --mapping-bundle <directory> --mapping-sha256 <manifest-sha>",
+    "reportSchema": 1,
+    "reportType": "LEGACY_PRESERVED_ARTIFACT_INSPECTION",
+    "profile": "logic-preserving-v1",
+    "installationAllowed": false,
+    "publicationAllowed": false,
+    "writesJarOrJournal": false,
+    "executesOriginalOrCandidateClasses": false,
+    "reusesConversionPublisher": false,
+    "independenceLimit": "Actual-byte readback, not a second ASM implementation. Shares exact reviewed recipes, metadata helpers, ASM commons symbol projection and offline validators; cannot prove general semantic equivalence.",
+    "sourceHashes": {
+      "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/PreservedArtifactInspector.java": "65279695949442f6a2f07326423dac3fa0e59c991341a10f2102aa24ef7315ab",
+      "legacy-converter/src/main/java/dev/legacybridge/converter/service/PreservedArtifactRequest.java": "e77b435c9d45d5eb09f61b303034b31e29da6b7cb96a77875885682fce3be06d",
+      "legacy-converter/src/main/java/dev/legacybridge/converter/service/PreservedArtifactInspection.java": "f6369be95ef041c8b3375009096ab61265b6bda574349faa861dbcb101052e1e",
+      "legacy-converter/src/main/java/dev/legacybridge/converter/service/LegacyEngineService.java": "d974abfeb8fc95decc4e21efcd9ed2eef1519e01a7da788ff0667e169cecef3b",
+      "legacy-converter/src/main/java/dev/legacybridge/converter/cli/PreservedArtifactInspectionCli.java": "d6086171a4d92e5d5b037735f58ef468b9a67c29feb0c913b79d31d077df4ad3",
+      "legacy-converter/src/main/java/dev/legacybridge/converter/cli/LegacyBridgeCli.java": "611c36521054380de63f58827ddee9a48f138de0a8bd530938df634cd2702183",
+      "tools/PreservedAdmissionProbe.java": "317e8666e7802caac2cfe6bb9b86ad327dc61a71d5a4c114195b09c99309b25d"
+    }
+  },
+  "exactPair": {
+    "modId": "legacybridge_logic",
+    "modVersion": "1.0.0",
+    "original": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar",
+    "originalSha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f",
+    "candidate": "build/logic-preserving-v1/converted.jar",
+    "candidateSha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d",
+    "dataBundle": "build/logic-preserving-v1/mapping-bundle",
+    "dataManifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+    "dataRights": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION",
+    "dataEmbeddedOrDownloaded": false,
+    "inputAndCandidateUnchanged": true,
+    "newConversionGenerated": false,
+    "ownedClasses": 6,
+    "ownedMethods": 25,
+    "bytecode": "PASSED_SCOPED",
+    "sourceAndTargetLinkage": "PASSED_SCOPED",
+    "runtimeBehaviorThisTurn": "NOT_RUN",
+    "apiReview": {
+      "sourceForgeSourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+      "targetForgeSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+      "observed": "Real Item.isFoil(ItemStack) bodies and DeferredRegister.register(String,Supplier) source/target reviewed from exact sources; existing recipes/inventories compiled without new equivalences or HIGH promotion. Source data provenance is included in the inspection report."
+    }
+  },
+  "focusedValidation": {
+    "status": "PASSED",
+    "cases": 71, "passed": 71, "failures": 0, "errors": 0, "skipped": 0, "newCases": 22,
+    "suites": {"PreservedArtifactInspectionEnvironmentTest": 17, "PreservedArtifactInspectionCliTest": 4, "PreservedAdmissionBoundaryTest": 1, "LogicBodyPreservationTest": 4, "LogicProfileSelectionTest": 3, "AddOnlyInstallerTest": 21, "TransactionalInstallerTest": 21},
+    "negativeCoverage": ["matching-hash changed body constant", "lambda implementation handle", "missing helper", "extra platform class entry", "changed localization", "wrong profile", "wrong adapter binding", "unknown target dependency", "changed annotation", "invalid MAXS", "changed superclass", "opaque class attribute", "dropped unknown original dependency", "stale original hash", "same-file hardlink alias", "cancellation before bytecode validation", "corrupt archive", "reviewed bundle manifest changed", "builtin data scope refused", "existing installer still refuses actual preserved artifact"],
+    "log": "build/preserved-admission-20260913/focused-fixed.log",
+    "logSha256": "2c7da97775027a8fa5e9e8e2bee693c5b4ad7e376b5ac6f015bd727444011a26",
+    "xmlDirectory": "build/preserved-admission-20260913/test-results",
+    "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT --max-workers=1 --console=plain -PadmissionBundle=<explicit local bundle> -PadmissionCandidate=<explicit existing target JAR> :legacy-converter:test --tests *PreservedArtifactInspection*Test --tests *LogicBodyPreservationTest --tests *LogicProfileSelectionTest :legacy-product:test --tests *PreservedAdmissionBoundaryTest --tests *AddOnlyInstallerTest --tests *TransactionalInstallerTest assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+    "build": "SUCCESSFUL in 55s; 52 tasks, 25 executed, 27 up-to-date; serial",
+    "warning": "ASM Remapper default constructor deprecation; pinned existing ASM 9.9.1, no version upgrade.",
+    "countPolicy": "Final corrected execution only. Parameter cases/tests are not distinct supported mods; all-six-profile behavior regression was not rerun."
+  },
+  "isolatedJvmReadback": {
+    "status": "PASSED_SCOPED",
+    "publicEngineExit": 0,
+    "installedCliExit": 0,
+    "identicalReports": true,
+    "report": "build/preserved-admission-20260913/isolated/public-inspection.json",
+    "reportSha256": "abaf2a0ed068c63424bf0fa8f05c0b519e9cebd9317f374b6278cec1dd8c62dd",
+    "reportFileEncoding": "UTF-16LE from PowerShell 5 stdout redirection; both process reports captured identically",
+    "publicClassloadLog": "build/preserved-admission-20260913/isolated/public-classload.log",
+    "publicClassloadLogSha256": "041df57247268c0efc962e8688828f367d36743c9222c2fb3cbbfd44ca5328f3",
+    "cliClassloadLog": "build/preserved-admission-20260913/isolated/cli-classload.log",
+    "cliClassloadLogSha256": "8361e30e4180c2b00c453734b0922b4d7d005e3418ae267ac95c5579fa406e6f",
+    "method": "Separate Java17 -Xmx512m processes outside repository. Developer source probe requires engine CodeSource=LegacyBridge.jar. Explicit copied libraries/inputs/local bundle; public classpath excludes converter/compat CLI JARs, CLI uses its own separate distribution. Configured user.home and gradle.user.home empty before/after. No fixture or candidate classes defined.",
+    "limitations": "Flat classpath with explicit platform libraries, not native Forge/JiJ/JPMS discovery. Empty configured cache and observed class provenance, not OS sandbox or OS-enforced offline certification."
+  },
+  "observedAndCorrected": [
+    {"log": "build/preserved-admission-20260913/focused.log", "sha256": "bf4b5caecd094b301fc625e4c11a19b86ae984b929ce7dbe20255012b635ed22", "result": "1 of 28 converter cases failed", "cause": "New hardlink test attempted C: temporary link to H: original, unsupported cross-volume hardlink.", "correction": "Copy to an owned same-volume temporary source before creating the alias. No production safety check weakened; rerun passed."},
+    {"log": "build/preserved-admission-20260913/isolated/stderr.log", "result": "Initial probe exit 1, ClassNotFoundException for CLI entry point", "cause": "Public artifact deliberately excludes CLI classes.", "correction": "Keep packaging boundary intact. Use developer-only Java source probe against public engine; run installed CLI separately. Both corrected runs passed with identical reports."}
+  ],
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "903a8803f1bc2fa379648beab10c8635b527bde25f0e567e41a20b7db5cfa7be",
+    "bytes": 1487147, "entries": 605,
+    "baselineArchive": "build/preserved-admission-20260913/LegacyBridge-baseline.jar",
+    "baselineSha256": "b89a4a7795309f2ff70a05348a200bcafb1afe048c3c332910bf727663b4b5d9",
+    "unchangedPayloads": 593, "changedPayloads": 2, "addedPayloads": 10, "removedPayloads": 0,
+    "changedScope": "LegacyEngineService and its nested-class metadata; new inspector/request/result classes. CLI and developer probe excluded.",
+    "unchanged": ["six conversion profiles", "runtime/adapters/ABI", "simple-content-v1", "mapping/API data", "installer/journal", "UI", "libraries", "metadata/services/notices/source material"],
+    "packagingAudits": "PASSED"
+  },
+  "contractValidation": {
+    "status": "PASSED_WITH_EXPLICIT_SKIPS",
+    "cases": 77, "passed": 75, "failures": 0, "errors": 0, "skipped": 2,
+    "skipReason": "Windows symbolic-link creation privilege unavailable; rejectsSymbolicEvidenceWithoutFollowingIt and rejectsSymbolicPromptDirectory are skipped, not passes.",
+    "prompts": 23, "cuts": 81, "current": "LB-05/INSTALL-PROMOTION",
+    "log": "build/preserved-admission-20260913/contract-final.log",
+    "logSha256": "e7cb12a18d0629d5e6f411c6f594e4b20c9bb0447f48e1ef6266000855240370",
+    "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT --max-workers=1 --console=plain :legacy-corpus:test --tests *PromptContractVerifierTest --rerun :legacy-corpus:verifyPromptContract assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+    "build": "SUCCESSFUL in 41s; 50 tasks, 16 executed, 34 up-to-date; public JAR hash unchanged",
+    "qualification": "Structure/evidence paths only, not execution/freshness inference or acceptance of prerequisite/native gates."
+  },
+  "native": {"client": "NOT_RUN", "server": "NOT_RUN", "UI": "NOT_RUN", "behavior": "NOT_RUN", "multiplayer": "NOT_RUN", "installationOfPreservedProfile": "NOT_ENABLED"},
+  "rights": {"licenseChanged": false, "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef", "billingImplemented": false, "newAcquisition": false, "publication": false},
+  "next": {"prompt": "LB-05", "cut": "INSTALL-PROMOTION", "slice": "JOURNAL_ADMISSION_BINDING", "action": "Version exact profile/source/candidate/reviewed-data binding and recovery; freshly revalidate, never import editable PASS authority. Preserve V1/V2 simple behavior. Do not repeat readback or promote composed/cohort Apply. COMPOSE-01/DEPS-COHORT and native gates remain acceptance requirements."}
+}

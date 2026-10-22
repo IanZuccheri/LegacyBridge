@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "id": "fixture-p6-unsupported-1.0.0",
+  "kind": "PROJECT_FIXTURE",
+  "projectKey": "project-simple-content",
+  "version": "1.0.0",
+  "artifact": {
+    "fileName": "p6-unsupported.jar",
+    "sha256": "10c99a4e1434dbfd80aee62ddc6220fac1aa82cd9539acbec8dc04a32cb504f7",
+    "sizeBytes": 6527
+  },
+  "authorization": {
+    "basis": "PROJECT_LOCAL_REQUEST",
+    "license": "ALL_RIGHTS_RESERVED",
+    "redistributeBinary": false,
+    "evidence": [
+      "license"
+    ]
+  },
+  "source": {
+    "loader": "Forge/javafml",
+    "minecraftVersions": [
+      "1.16.5"
+    ],
+    "forgeBuild": "36.2.42",
+    "forgeVersionEvidence": "Statically derived from the exact Forge 36.2.42-compiled source artifact SHA-256 00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947. No independent Forge compilation; metadata retains [36.2.42,37), analyzer detection remains 36.x."
+  },
+  "dependencies": [
+    "forge [36.2.42,37) mandatory BOTH NONE",
+    "minecraft [1.16.5,1.17) mandatory BOTH NONE"
+  ],
+  "detectedFeatures": [
+    "LEGACY_EVENTS",
+    "LEGACY_REGISTRIES",
+    "RECIPES",
+    "ASSET_BLOCKSTATES",
+    "ASSET_MODELS",
+    "ASSET_TEXTURES",
+    "ASSET_LANG",
+    "ASSET_SOUNDS",
+    "DATA_RECIPES",
+    "DATA_TAGS",
+    "PACK_METADATA",
+    "PLAIN_ITEM",
+    "PLAIN_STONE_BLOCK",
+    "BLOCK_ITEM",
+    "DEFERRED_REGISTER_MOD_BUS_ATTACHMENT",
+    "VANILLA_CREATIVE_TAB_ASSIGNMENT",
+    "WORLD_GENERATION path marker",
+    "DATA_WORLDGEN"
+  ],
+  "blockers": [
+    "RESOURCE_OUTSIDE_SUBSET: data/p6_unsupported/worldgen/configured_feature/p6_probe.json: data kind or namespace is outside SIMPLE_CONTENT_V1 (worldgen, dimensions, loot tables, functions and custom serializers are unsupported)"
+  ],
+  "output": {
+    "sha256": null,
+    "status": "BLOCKED"
+  },
+  "stages": {
+    "analyzable": {
+      "status": "PASSED",
+      "evidence": [
+        "analysis"
+      ]
+    },
+    "convertible": {
+      "status": "BLOCKED",
+      "evidence": [
+        "conversion"
+      ]
+    },
+    "bytecodeValidated": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "multiplayer": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "evidence": [
+    {
+      "id": "license",
+      "type": "AUTHORIZATION",
+      "sourceSha256": null,
+      "targetSha256": null,
+      "sha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+      "path": "corpus/licenses/legacybridge/legacy-license-2026-09-06.txt"
+    },
+    {
+      "id": "analysis",
+      "type": "ANALYSIS",
+      "sourceSha256": "10c99a4e1434dbfd80aee62ddc6220fac1aa82cd9539acbec8dc04a32cb504f7",
+      "targetSha256": null,
+      "sha256": "7b384f314dab304513a16f49ca494d1c062c0fdd29b843d29cc86e1c8203e0fe",
+      "path": "build/p6-public/client/legacybridge/reports/72573f84-eb15-49ac-b96f-885be4a6a78b/analysis.json"
+    },
+    {
+      "id": "conversion",
+      "type": "CONVERSION",
+      "sourceSha256": "10c99a4e1434dbfd80aee62ddc6220fac1aa82cd9539acbec8dc04a32cb504f7",
+      "targetSha256": null,
+      "sha256": "0710e1bfa46d13e5bac9f8be8c03dbc2f4c02518012d3042f326c3c514bd2818",
+      "path": "build/p6-public/negative-fixtures/qualification-3a722dca-fb4a-4d3f-8bde-95f7bef1cf42/p6-unsupported-conversion.json"
+    },
+    {
+      "id": "unsupported-screen",
+      "type": "SCREENSHOT",
+      "sourceSha256": "10c99a4e1434dbfd80aee62ddc6220fac1aa82cd9539acbec8dc04a32cb504f7",
+      "targetSha256": null,
+      "sha256": "19317172bbd7963e59f04b35954c0f84f8ff4cb481e8a95689ce016d65000924",
+      "path": "build/p6-public/evidence/12-unsupported-resource-report.png"
+    }
+  ],
+  "structuredMetadata": {
+    "corpusVersion": "2026.09.06.1",
+    "modId": "p6_unsupported",
+    "modVersion": "1.0.0",
+    "sourceNature": "PROJECT_GENERATED_NEGATIVE",
+    "sourceDescription": "Static namespace-renamed baseline plus an inert empty-object worldgen resource sentinel. This is not an implemented/runnable worldgen feature.",
+    "sourceArtifactSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+    "artifactLocations": [
+      "build/p6-public/negative-fixtures/p6-unsupported.jar"
+    ],
+    "aliases": [],
+    "isModArtifact": true,
+    "independentForgeCompiledFixture": false,
+    "sourceClassesExecutedDuringAnalysisOrConversion": false,
+    "redistributionNote": "The fixture README's broad redistributable wording is not a redistribution grant. Neither this intake nor the user's local QA request changes the repository LICENSE. No third-party mod was obtained by this audit.",
+    "validationContext": {
+      "sourceMinecraft": "1.16.5",
+      "sourceForge": "36.2.42",
+      "targetMinecraft": "1.20.1",
+      "targetForge": "47.4.23",
+      "java": "17.0.12",
+      "supportProfile": "simple-content-v1",
+      "runtimeModId": "legacybridge_runtime",
+      "adapterVersion": "0.1.1-SNAPSHOT",
+      "publicRuntimeSha256": "00cc7ebde1279c1ac3cc6ac0a54498e4598ca4f45700a6799f915ce9dddea991",
+      "mappingManifestSha256": "bac4e0018cc51bd13a7e5ae19116d04cb6b4bc271d3aecfba5e4ac0d27df5c69",
+      "runtimeEvidenceInheritedFromOtherFixture": false,
+      "operationDate": "2026-09-06",
+      "historicalEvidenceImport": true,
+      "gameRerunDuringCorpusIntake": false
+    },
+    "resourceSentinel": "Empty JSON object at a worldgen path. Detection/refusal proof only; not a valid playable worldgen implementation.",
+    "metricLimitations": [
+      "Fixture variants are not independently developed third-party mods.",
+      "A passed stage attests only the cited exact source/output hashes.",
+      "Counts of tests and resolved symbols are not counts or percentages of compatible mods."
+    ]
+  },
+  "analysisSummary": {
+    "retainedStandaloneCompatibilityReport": true,
+    "analysisStatus": "COMPLETE",
+    "detectedMinecraftVersion": "1.16.5",
+    "detectedForgeVersion": "36.x",
+    "classCount": 1,
+    "complexity": "MODERATE",
+    "riskScore": 30,
+    "scannerUnsupportedFeatureLabels": [
+      "LEGACY_EVENTS",
+      "LEGACY_REGISTRIES",
+      "RECIPES",
+      "WORLD_GENERATION"
+    ],
+    "scannerPolicyCaveat": "CompatibilityReport schema 2 calls these labels unsupportedFeatures and retains conversionStatus NOT_IMPLEMENTED. They are analyzer labels, not converter blockers. Actual converter diagnostics and conversion report schema 2 determine refusal/success.",
+    "bytecodeChecks": [],
+    "staticJvmLinkageVerified": false,
+    "sourceModClassesLoaded": false,
+    "outputSizeBytes": null,
+    "conversionScope": "No converted result published."
+  }
+}

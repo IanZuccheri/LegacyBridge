@@ -1,0 +1,1045 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Actual private composed candidate serialization, complete file ownership, distinct metadata/implemented bindings and validation of reopened ZIP bytes. No publication or native acceptance.",
+  "authorization": "Continue headless implementation. No Minecraft clients/servers, desktop automation, original-class execution, mod acquisition or publication.",
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "sourceClassMajor": 52,
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "javaMajor": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "previousEvidence": "docs/evidence/compose-01-2026-09-07.json",
+  "baselinePublicArtifact": {
+    "path": "build/compose-candidate-2026-09-07-run1/baseline-LegacyBridge.jar",
+    "sha256": "4ebc190b29cb0a53507ef4a6b63c0c0cfacab402ef003077535535d5c895eaad",
+    "bytes": 1260685,
+    "transferAcceptance": false
+  },
+  "currentPublicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "9248ba60a1b64bba986fe40033272746eef624978ad6f475f7b33c8c5feffda8",
+    "bytes": 1279264,
+    "qualification": "STATIC_BUILD_PACKAGE_REGRESSION_ONLY_NATIVE_NOT_RUN"
+  },
+  "sources": [
+    {
+      "path": "legacy-compat-api/src/main/java/dev/legacybridge/runtime/compat/logic/ComposedArtifactAdapter.java",
+      "sha256": "3c8d5b7981123e5c40ea109d85cf54c4d9438e4174341e2ef5771a012461ecf3",
+      "bytes": 2220
+    },
+    {
+      "path": "legacy-compat-api/src/main/java/dev/legacybridge/runtime/compat/AdapterCatalog.java",
+      "sha256": "3b672aa4a1144cc4203537bb05e1efade401fdeef7de0065148cef89640b60af",
+      "bytes": 18354
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/CompositionArtifactPlan.java",
+      "sha256": "b4a7d3afc293892a49f083f0d44e7375d75d0adad8b16fe6a003d17ef17041ad",
+      "bytes": 8261
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/CompositionCandidateBuilder.java",
+      "sha256": "df25e660defa0e3b721b0b46da6f24b934db8a9ad0f006d925d8309b07e26555",
+      "bytes": 7045
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/LogicPreservingConverter.java",
+      "sha256": "aa0b5919f70be7562de961574a0a39bdeaff4932ce504af9f58f9d135303a093",
+      "bytes": 26052
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/TransformationBindings.java",
+      "sha256": "29ec7ae9bc475f5d04442da7414cb02149dbeafe220431980e361c081f2eabec",
+      "bytes": 4678
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/service/CompositionCandidate.java",
+      "sha256": "5523c976fa69bded55964f45743ba72f29c9242d9bac2949cb165f1703e86685",
+      "bytes": 943
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/service/LegacyEngineService.java",
+      "sha256": "726abe70943eb01b5b82c3848d28ef5d65e50c5d15a80f470d7d86b997fac0e0",
+      "bytes": 20437
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/conversion/CompositionArtifactPlanTest.java",
+      "sha256": "32d8064fad911ae1e75b3c2a27ba1c5a8e7ee1e54a9de9708f536b332f678697",
+      "bytes": 8644
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/cli/CompositionPreviewIntegrationTest.java",
+      "sha256": "739ec3ccfb2ed2ce6875864c613d2ff46cd65207cfa758d304cb77263d536c2a",
+      "bytes": 19910
+    },
+    {
+      "path": "docs/COMPOSITION_CANDIDATE.md",
+      "sha256": "47d943d4915d8a8bc55277443bd18f5cadd37982413f39ff104a28bc30eb0b28",
+      "bytes": 8834
+    }
+  ],
+  "sourceFixture": {
+    "path": "fixtures/composed-logic-recipes-1.16.5/build/libs/legacybridge-composed-logic-recipes-1.16.5-1.0.0.jar",
+    "sha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+    "bytes": 7433,
+    "originalIntact": true,
+    "rebuiltThisTurn": false,
+    "classesExecuted": false,
+    "sourceProvenance": "Authored MIT fixture source/resource hashes retained in previousEvidence. No private third-party mod binary acquired."
+  },
+  "mappings": {
+    "explicitProfile": {
+      "path": "build/logic-preserving-v1/mapping-profile.properties",
+      "sha256": "067bf14c37ad71c7c1fbfcc23c4dda9b1f4eaff185d27872a145cae6a0cb44ac",
+      "bytes": 2055
+    },
+    "sources": [
+      {
+        "id": "legacy.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+      },
+      {
+        "id": "legacy.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+      },
+      {
+        "id": "legacy.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+      },
+      {
+        "id": "target.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+      },
+      {
+        "id": "target.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+      },
+      {
+        "id": "target.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+      },
+      {
+        "id": "legacy.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+      },
+      {
+        "id": "legacy.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+      },
+      {
+        "id": "target.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+      },
+      {
+        "id": "target.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+      },
+      {
+        "id": "target.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+      },
+      {
+        "id": "target.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+      },
+      {
+        "id": "target.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+      }
+    ],
+    "scope": "Complete explicitly selected existing LOCAL_USE_ONLY data; no implicit discovery or download.",
+    "reviewedSourceArchives": [
+      {
+        "version": "1.16.5-36.2.42_mapped_official_1.16.5",
+        "sha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376"
+      },
+      {
+        "version": "1.20.1-47.4.23_mapped_official_1.20.1",
+        "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+      }
+    ],
+    "realApiInspection": "Opened source ZIP entries Item.isFoil and the cooking serializers again. Existing exact mappings and dependency-preserving metadata implementation reviewed; no new game-method equivalence."
+  },
+  "addedAdapters": [
+    {
+      "id": "composition.mod-manifest.v1",
+      "revision": 1,
+      "phase": "OFFLINE",
+      "implementation": "ComposedArtifactAdapter.targetManifest(String)"
+    },
+    {
+      "id": "composition.adapter-bindings.v1",
+      "revision": 1,
+      "phase": "OFFLINE",
+      "implementation": "ComposedArtifactAdapter.bindingTree()"
+    }
+  ],
+  "adapterBoundary": "Concrete JDK-only inert metadata emitters, verified against compiled catalog descriptors. Existing adapter IDs/revisions unchanged. Runtime capability catalog remains simple-content-only; additive metadata entries are not gameplay support.",
+  "privateCandidate": {
+    "identity": "composed-logic-recipes-v1",
+    "bytes": 5913,
+    "kind": "PRIVATE_SERIALIZED_JAR",
+    "sha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2",
+    "retained": false,
+    "published": false,
+    "output": null,
+    "artifactPlan": {
+      "baseOperations": {
+        "kind": "STRUCTURAL_GRAPH_NOT_AUTHORITY",
+        "operations": [
+          {
+            "claims": [
+              {
+                "path": "dev/legacybridge/fixture/composed/ComposedContent.class",
+                "sourceSha256": "b7c70f10de3ebf8017e52cadcb7957ddda9d1545018d68a9f8019d8fe42465a3"
+              },
+              {
+                "path": "dev/legacybridge/fixture/composed/ComposedItem.class",
+                "sourceSha256": "3dd8cedff08f685bc2cda4304a1364d59485f5be37804669c063c26a8eec7f66"
+              },
+              {
+                "path": "dev/legacybridge/fixture/composed/CountRule.class",
+                "sourceSha256": "0fd8e950848df339ca1e2513c074672038a8d60eaf2490ad04e402c532ff2cc3"
+              },
+              {
+                "path": "dev/legacybridge/fixture/composed/OddRule.class",
+                "sourceSha256": "5357caedb2495c090e93d89da7468598fdb4398362e1b9faeff95d9f48d7805f"
+              }
+            ],
+            "executionThread": "BOUNDED_ENGINE_WORKER_NO_MOD_EXECUTION",
+            "id": "logic.owned-bodies",
+            "implementation": "LogicPreservingConverter/LogicBodyPreservation/OfflineLinkageVerifier",
+            "kind": "PRESERVE_OWNED_BODIES",
+            "phase": "OWNED_CLASS_TRANSFORMATION",
+            "preconditions": [
+              "Mod-owned classes only",
+              "Exact reviewed mapping recipes",
+              "Source and target offline linkage",
+              "Finite envelope and body proof"
+            ],
+            "requires": [],
+            "revision": 1,
+            "runtimeContext": "Original static initialization/supplier/constructor order; native MOD event bus; BOTH physical sides; original virtual dispatch caller"
+          },
+          {
+            "claims": [
+              {
+                "path": "assets/legacybridge_composed/lang/en_us.json",
+                "sourceSha256": "84e763eb8fea9def0065aeb47c4af112c446f4052a7e3bf68787bbaefac4f18e"
+              },
+              {
+                "path": "assets/legacybridge_composed/lang/pt_br.json",
+                "sourceSha256": "b3f2ee979131bfd3755cb21bcd61f3ec8f1ee17d92a4b7934793a33314a0b47e"
+              },
+              {
+                "path": "assets/legacybridge_composed/models/item/count_token.json",
+                "sourceSha256": "5785fe1b638804163f8309cd934fc07b90b9edecae6cfd99e18c6cab9bdf1208"
+              },
+              {
+                "path": "data/legacybridge_composed/recipes/count_token.json",
+                "sourceSha256": "d2e46ebeb3332f2a10a9ff24ac3786ac5ddd960a8f3506d3ae1c0a3a4853eb5f"
+              },
+              {
+                "path": "data/legacybridge_composed/tags/items/token_material.json",
+                "sourceSha256": "8b02c5c2f8aa5dc8c479dda274643e501295fab8d05e3fa147fda6f9aed9b3e4"
+              }
+            ],
+            "executionThread": "BOUNDED_ENGINE_WORKER_NO_MOD_EXECUTION",
+            "id": "data.recipe-resources",
+            "implementation": "ContentResourceValidator.validateDatapackRecipes",
+            "kind": "PRESERVE_RECIPE_RESOURCES",
+            "phase": "RESOURCE_VALIDATION",
+            "preconditions": [
+              "Proven item registry inventory",
+              "Closed versioned JSON/resource policy",
+              "No byte changes"
+            ],
+            "requires": [
+              "logic.owned-bodies"
+            ],
+            "revision": 1,
+            "runtimeContext": "Native datapack loading/reload; registry IDs from proven body envelope; no thread relocation"
+          }
+        ],
+        "publicationAllowed": false,
+        "runtimeAbi": "0.1.1-SNAPSHOT",
+        "schemaVersion": 1
+      },
+      "entries": [
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;)[B",
+            "id": "composition.mod-manifest.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.ComposedArtifactAdapter",
+            "method": "targetManifest",
+            "revision": 1
+          },
+          "disposition": "REWRITE",
+          "operation": "metadata.composition-identity",
+          "path": "META-INF/MANIFEST.MF",
+          "sourceSha256": "e31dc00fe969d2bae03e16a7052ff28d5784f6b781b3e6bc2b873026097c89d6",
+          "targetSha256": "a808709b151d79166721a9560c82298711f8f12a5a631f12d10bfa49c6bab63d"
+        },
+        {
+          "adapter": {
+            "descriptor": "()Ljava/util/Map;",
+            "id": "composition.adapter-bindings.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.ComposedArtifactAdapter",
+            "method": "bindingTree",
+            "revision": 1
+          },
+          "disposition": "GENERATE",
+          "operation": "metadata.adapter-bindings",
+          "path": "META-INF/legacybridge/legacybridge_composed/adapters.json",
+          "sourceSha256": null,
+          "targetSha256": "8ab8be3ae3aea987e629f1549a01cc717b26d432a6eb836bfbac773728bfa43a"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+            "id": "registry.mod-metadata.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+            "method": "targetRanges",
+            "revision": 1
+          },
+          "disposition": "REWRITE",
+          "operation": "metadata.mod-dependencies",
+          "path": "META-INF/mods.toml",
+          "sourceSha256": "273417ad6d81fade63504244bb602efcaf18414290c6b4b7ef088eb5f50e5abd",
+          "targetSha256": "418efa569b6de9e7fb12d55c177d7ae6e783532d431a59e535472323b33e3f42"
+        },
+        {
+          "adapter": null,
+          "disposition": "PRESERVE_BYTES",
+          "operation": "data.recipe-resources",
+          "path": "assets/legacybridge_composed/lang/en_us.json",
+          "sourceSha256": "84e763eb8fea9def0065aeb47c4af112c446f4052a7e3bf68787bbaefac4f18e",
+          "targetSha256": "84e763eb8fea9def0065aeb47c4af112c446f4052a7e3bf68787bbaefac4f18e"
+        },
+        {
+          "adapter": null,
+          "disposition": "PRESERVE_BYTES",
+          "operation": "data.recipe-resources",
+          "path": "assets/legacybridge_composed/lang/pt_br.json",
+          "sourceSha256": "b3f2ee979131bfd3755cb21bcd61f3ec8f1ee17d92a4b7934793a33314a0b47e",
+          "targetSha256": "b3f2ee979131bfd3755cb21bcd61f3ec8f1ee17d92a4b7934793a33314a0b47e"
+        },
+        {
+          "adapter": null,
+          "disposition": "PRESERVE_BYTES",
+          "operation": "data.recipe-resources",
+          "path": "assets/legacybridge_composed/models/item/count_token.json",
+          "sourceSha256": "5785fe1b638804163f8309cd934fc07b90b9edecae6cfd99e18c6cab9bdf1208",
+          "targetSha256": "5785fe1b638804163f8309cd934fc07b90b9edecae6cfd99e18c6cab9bdf1208"
+        },
+        {
+          "adapter": null,
+          "disposition": "PRESERVE_BYTES",
+          "operation": "data.recipe-resources",
+          "path": "data/legacybridge_composed/recipes/count_token.json",
+          "sourceSha256": "d2e46ebeb3332f2a10a9ff24ac3786ac5ddd960a8f3506d3ae1c0a3a4853eb5f",
+          "targetSha256": "d2e46ebeb3332f2a10a9ff24ac3786ac5ddd960a8f3506d3ae1c0a3a4853eb5f"
+        },
+        {
+          "adapter": null,
+          "disposition": "PRESERVE_BYTES",
+          "operation": "data.recipe-resources",
+          "path": "data/legacybridge_composed/tags/items/token_material.json",
+          "sourceSha256": "8b02c5c2f8aa5dc8c479dda274643e501295fab8d05e3fa147fda6f9aed9b3e4",
+          "targetSha256": "8b02c5c2f8aa5dc8c479dda274643e501295fab8d05e3fa147fda6f9aed9b3e4"
+        },
+        {
+          "adapter": null,
+          "disposition": "REWRITE",
+          "operation": "logic.owned-bodies",
+          "path": "dev/legacybridge/fixture/composed/ComposedContent.class",
+          "sourceSha256": "b7c70f10de3ebf8017e52cadcb7957ddda9d1545018d68a9f8019d8fe42465a3",
+          "targetSha256": "379dc870b700a0e07b44bef163ea5f58d87a5206ac47eef58ef2da005b89d7a7"
+        },
+        {
+          "adapter": null,
+          "disposition": "REWRITE",
+          "operation": "logic.owned-bodies",
+          "path": "dev/legacybridge/fixture/composed/ComposedItem.class",
+          "sourceSha256": "3dd8cedff08f685bc2cda4304a1364d59485f5be37804669c063c26a8eec7f66",
+          "targetSha256": "8e65b9876ce91063c975139900401bb14ce84cf29d1db5982ca71b53d970841b"
+        },
+        {
+          "adapter": null,
+          "disposition": "PRESERVE_BYTES",
+          "operation": "logic.owned-bodies",
+          "path": "dev/legacybridge/fixture/composed/CountRule.class",
+          "sourceSha256": "0fd8e950848df339ca1e2513c074672038a8d60eaf2490ad04e402c532ff2cc3",
+          "targetSha256": "0fd8e950848df339ca1e2513c074672038a8d60eaf2490ad04e402c532ff2cc3"
+        },
+        {
+          "adapter": null,
+          "disposition": "PRESERVE_BYTES",
+          "operation": "logic.owned-bodies",
+          "path": "dev/legacybridge/fixture/composed/OddRule.class",
+          "sourceSha256": "5357caedb2495c090e93d89da7468598fdb4398362e1b9faeff95d9f48d7805f",
+          "targetSha256": "5357caedb2495c090e93d89da7468598fdb4398362e1b9faeff95d9f48d7805f"
+        },
+        {
+          "adapter": {
+            "descriptor": "(I)I",
+            "id": "client.resource-pack.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+            "method": "targetFormat",
+            "revision": 1
+          },
+          "disposition": "REWRITE",
+          "operation": "metadata.pack-format",
+          "path": "pack.mcmeta",
+          "sourceSha256": "d52d26e8bf89e26c5298ec7f970f24c4d7437cc958406ab52dc049a47cda92c2",
+          "targetSha256": "5900951afbf22ba60a6108e409df97cc8e7ad9ee51834b70fd3cb32596bf948a"
+        }
+      ],
+      "entryCount": 13,
+      "inertOperations": [],
+      "kind": "PRIVATE_ARTIFACT_PLAN_NOT_AUTHORITY",
+      "metadataOperations": [
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;)[B",
+            "id": "composition.mod-manifest.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.ComposedArtifactAdapter",
+            "method": "targetManifest",
+            "revision": 1
+          },
+          "id": "metadata.composition-identity",
+          "path": "META-INF/MANIFEST.MF",
+          "phase": "PRIVATE_METADATA_SERIALIZATION",
+          "preconditions": [
+            "Source and target dependency closure",
+            "Exact implemented metadata generators",
+            "Complete byte ownership"
+          ],
+          "requires": [
+            "logic.owned-bodies",
+            "data.recipe-resources"
+          ],
+          "runtimeContext": "Inert native loading metadata; no callbacks, bus or thread rescheduling",
+          "thread": "BOUNDED_ENGINE_WORKER"
+        },
+        {
+          "adapter": {
+            "descriptor": "()Ljava/util/Map;",
+            "id": "composition.adapter-bindings.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.ComposedArtifactAdapter",
+            "method": "bindingTree",
+            "revision": 1
+          },
+          "id": "metadata.adapter-bindings",
+          "path": "META-INF/legacybridge/legacybridge_composed/adapters.json",
+          "phase": "PRIVATE_METADATA_SERIALIZATION",
+          "preconditions": [
+            "Source and target dependency closure",
+            "Exact implemented metadata generators",
+            "Complete byte ownership"
+          ],
+          "requires": [
+            "logic.owned-bodies",
+            "data.recipe-resources"
+          ],
+          "runtimeContext": "Inert native loading metadata; no callbacks, bus or thread rescheduling",
+          "thread": "BOUNDED_ENGINE_WORKER"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+            "id": "registry.mod-metadata.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+            "method": "targetRanges",
+            "revision": 1
+          },
+          "id": "metadata.mod-dependencies",
+          "path": "META-INF/mods.toml",
+          "phase": "PRIVATE_METADATA_SERIALIZATION",
+          "preconditions": [
+            "Source and target dependency closure",
+            "Exact implemented metadata generators",
+            "Complete byte ownership"
+          ],
+          "requires": [
+            "logic.owned-bodies",
+            "data.recipe-resources"
+          ],
+          "runtimeContext": "Inert native loading metadata; no callbacks, bus or thread rescheduling",
+          "thread": "BOUNDED_ENGINE_WORKER"
+        },
+        {
+          "adapter": {
+            "descriptor": "(I)I",
+            "id": "client.resource-pack.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+            "method": "targetFormat",
+            "revision": 1
+          },
+          "id": "metadata.pack-format",
+          "path": "pack.mcmeta",
+          "phase": "PRIVATE_METADATA_SERIALIZATION",
+          "preconditions": [
+            "Source and target dependency closure",
+            "Exact implemented metadata generators",
+            "Complete byte ownership"
+          ],
+          "requires": [
+            "logic.owned-bodies",
+            "data.recipe-resources"
+          ],
+          "runtimeContext": "Inert native loading metadata; no callbacks, bus or thread rescheduling",
+          "thread": "BOUNDED_ENGINE_WORKER"
+        }
+      ],
+      "publicationAllowed": false,
+      "runtimeVersion": "0.1.1-SNAPSHOT",
+      "schemaVersion": 1
+    },
+    "archiveValidation": {
+      "centralDirectoryAndCrc": true,
+      "entryCount": 13,
+      "modClassesLoaded": false,
+      "ownershipAndHashes": true,
+      "scratchDeleted": true,
+      "status": "PASSED_REOPENED"
+    },
+    "bytecodeValidation": {
+      "inputClasses": 4,
+      "jvmLinkageVerified": false,
+      "modClassesLoaded": false,
+      "offlineLinkageVerified": true,
+      "outputClasses": 4,
+      "serializedJar": true,
+      "status": "PASSED_STATIC_REOPENED"
+    },
+    "sourceOfflineLinkage": {
+      "checkedMethodCount": 10,
+      "classesExecuted": false,
+      "fieldReferenceCount": 11,
+      "lambdaSiteCount": 1,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only LambdaMetafactory.metafactory Supplier and IntUnaryOperator with owned static implementations/exact captures, or zero-capture Supplier of an owned concrete Item subclass through its declared ()V constructor, are admitted; no boxing adaptation, altMetafactory, standalone handles or condy."
+      ],
+      "methodReferenceCount": 15,
+      "ownedClassCount": 4,
+      "resolvedClassCount": 41,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "targetOfflineLinkage": {
+      "checkedMethodCount": 10,
+      "classesExecuted": false,
+      "fieldReferenceCount": 11,
+      "lambdaSiteCount": 1,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only LambdaMetafactory.metafactory Supplier and IntUnaryOperator with owned static implementations/exact captures, or zero-capture Supplier of an owned concrete Item subclass through its declared ()V constructor, are admitted; no boxing adaptation, altMetafactory, standalone handles or condy."
+      ],
+      "methodReferenceCount": 15,
+      "ownedClassCount": 4,
+      "resolvedClassCount": 42,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "serializedOfflineLinkage": {
+      "checkedMethodCount": 10,
+      "classesExecuted": false,
+      "fieldReferenceCount": 11,
+      "lambdaSiteCount": 1,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only LambdaMetafactory.metafactory Supplier and IntUnaryOperator with owned static implementations/exact captures, or zero-capture Supplier of an owned concrete Item subclass through its declared ()V constructor, are admitted; no boxing adaptation, altMetafactory, standalone handles or condy."
+      ],
+      "methodReferenceCount": 15,
+      "ownedClassCount": 4,
+      "resolvedClassCount": 42,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "resourceValidation": {
+      "baseResourceContract": "simple-content-v1; tag references restricted to local closure",
+      "contract": "datapack-recipes-v1",
+      "differences": [
+        "Target cooking recipe-book category defaults to MISC; client grouping is not validated."
+      ],
+      "provenance": "docs/RESOURCE_API_BASELINES.md",
+      "recipes": [
+        {
+          "disposition": "PRESERVE_BYTES",
+          "format": "minecraft:smelting",
+          "path": "data/legacybridge_composed/recipes/count_token.json",
+          "reason": "Pinned serializer schema and closed ingredient/result references validated; no rewrite necessary",
+          "rule": "resource.recipe.smelting.preserve.v1",
+          "sha256": "d2e46ebeb3332f2a10a9ff24ac3786ac5ddd960a8f3506d3ae1c0a3a4853eb5f"
+        }
+      ],
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "source": "minecraft:1.16.5/forge:36.2.42",
+      "status": "PASSED_REOPENED",
+      "target": "minecraft:1.20.1/forge:47.4.23",
+      "unsupported": [
+        "conditional recipes",
+        "custom serializers and ingredients",
+        "NBT recipe results",
+        "external tag composition",
+        "loot tables and global loot modifiers",
+        "advancements",
+        "functions and commands",
+        "animated textures",
+        "custom model behavior",
+        "local Ogg audio"
+      ]
+    },
+    "preservedClasses": 4,
+    "preservedMethods": 10,
+    "replacedClasses": 0,
+    "transformationLog": {
+      "schemaVersion": 1,
+      "entryCount": 33,
+      "resourceRewrites": [
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;)[B",
+            "id": "composition.mod-manifest.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.ComposedArtifactAdapter",
+            "method": "targetManifest",
+            "revision": 1
+          },
+          "after": "sha256:a808709b151d79166721a9560c82298711f8f12a5a631f12d10bfa49c6bab63d bytes=227",
+          "before": "sha256:e31dc00fe969d2bae03e16a7052ff28d5784f6b781b3e6bc2b873026097c89d6 bytes=222",
+          "confidence": "VERIFIED",
+          "kind": "RESOURCE_REWRITE",
+          "location": "META-INF/MANIFEST.MF",
+          "reason": "Serialize the preserved version, composition revision and explicit non-qualified marker.",
+          "rule": "composition.mod-manifest.v1:revision-1",
+          "sequence": 30
+        },
+        {
+          "adapter": {
+            "descriptor": "()Ljava/util/Map;",
+            "id": "composition.adapter-bindings.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.ComposedArtifactAdapter",
+            "method": "bindingTree",
+            "revision": 1
+          },
+          "after": "sha256:8ab8be3ae3aea987e629f1549a01cc717b26d432a6eb836bfbac773728bfa43a bytes=1354",
+          "before": "<absent>",
+          "confidence": "VERIFIED",
+          "kind": "RESOURCE_REWRITE",
+          "location": "META-INF/legacybridge/legacybridge_composed/adapters.json",
+          "reason": "Serialize only the implemented logic and composed metadata bindings.",
+          "rule": "composition.adapter-bindings.v1:revision-1",
+          "sequence": 31
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+            "id": "registry.mod-metadata.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+            "method": "targetRanges",
+            "revision": 1
+          },
+          "after": "sha256:418efa569b6de9e7fb12d55c177d7ae6e783532d431a59e535472323b33e3f42 bytes=759",
+          "before": "sha256:273417ad6d81fade63504244bb602efcaf18414290c6b4b7ef088eb5f50e5abd bytes=495",
+          "confidence": "VERIFIED",
+          "kind": "RESOURCE_REWRITE",
+          "location": "META-INF/mods.toml",
+          "reason": "Validate the source baseline and return exact target dependency ranges.",
+          "rule": "registry.mod-metadata.v1:revision-1",
+          "sequence": 32
+        },
+        {
+          "adapter": {
+            "descriptor": "(I)I",
+            "id": "client.resource-pack.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+            "method": "targetFormat",
+            "revision": 1
+          },
+          "after": "sha256:5900951afbf22ba60a6108e409df97cc8e7ad9ee51834b70fd3cb32596bf948a bytes=106",
+          "before": "sha256:d52d26e8bf89e26c5298ec7f970f24c4d7437cc958406ab52dc049a47cda92c2 bytes=85",
+          "confidence": "VERIFIED",
+          "kind": "RESOURCE_REWRITE",
+          "location": "pack.mcmeta",
+          "reason": "Upgrade only the already validated finite resource pack format while preserving its description.",
+          "rule": "client.resource-pack.v1:revision-1",
+          "sequence": 33
+        }
+      ]
+    },
+    "fullCanonicalProof": {
+      "path": "build/compose-candidate-2026-09-07-run1/root-build-2-xml/legacy-converter/TEST-dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest.xml",
+      "sha256": "f96bd8919475be5aa9bec024e007693ae922aec2b55b813c6b357e8ebd4b7496",
+      "bytes": 185717
+    },
+    "directServiceParity": "PASS exact typed report/hash equality; repeated direct candidates deterministic.",
+    "installationAuthority": false,
+    "publicationAllowed": false,
+    "classesExecuted": false
+  },
+  "commands": {
+    "targeted": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' :legacy-converter:test --tests '*Composition*Test' --tests '*AdapterContractIntegrationTest' -PverifyCompositionEnvironment=true '-PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties' --no-daemon --max-workers=1",
+    "root": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' build :legacy-converter:installDist -PverifyCompositionEnvironment=true '-PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties' --no-daemon --max-workers=1",
+    "regression": ".\\scripts\\Test-NetworkProfileRegressions.ps1 -RunLabel compose-candidate-20260907-r1",
+    "network": "java -Xmx512m -cp legacy-converter/build/install/legacy-converter/lib/* dev.legacybridge.converter.cli.LegacyBridgeCli convert fixtures/network-snapshot-1.16.5/build/libs/legacybridge-network-1.16.5-1.0.0.jar --conversion-profile network-snapshot-v1 --mapping-profile build/network-snapshot-v1/mapping-profile.properties --output build/compose-candidate-2026-09-07-run1/network/converted.jar --report build/compose-candidate-2026-09-07-run1/network/conversion.json"
+  },
+  "runs": [
+    {
+      "kind": "targeted composition + implemented adapter contracts",
+      "path": "build/compose-candidate-2026-09-07-run1/tests-1.log",
+      "sha256": "edb01cad1ad8a48c02c3211a61c40ac8a4447c62d0397f9fe8090a76e8cf7615",
+      "bytes": 20748,
+      "status": "PASS",
+      "exitCode": 0,
+      "elapsed": "1m 16s",
+      "tests": 62,
+      "passed": 61,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "xmlDirectory": "build/compose-candidate-2026-09-07-run1/tests-1-xml",
+      "scope": "55 composition tests passed plus six adapter tests; one explicit-data adapter environment test skipped."
+    },
+    {
+      "kind": "first full root build",
+      "path": "build/compose-candidate-2026-09-07-run1/root-build-1.log",
+      "sha256": "818c84b471d1b92fa52c4390d15d2e77f49f8e24147ea30ba85450d0d742ab21",
+      "bytes": 250414,
+      "status": "PASS",
+      "exitCode": 0,
+      "elapsed": "3m 8s",
+      "tasksExecuted": 43,
+      "tasksUpToDate": 25,
+      "xmlDirectory": "build/compose-candidate-2026-09-07-run1/root-build-1-xml",
+      "freshRuntimeTests": {
+        "tests": 30,
+        "passed": 30,
+        "failures": 0,
+        "skipped": 0
+      },
+      "note": "Before the final plan-operation IDs/inert operation declaration and additional I/O/work-budget test."
+    },
+    {
+      "kind": "final implementation full root build",
+      "path": "build/compose-candidate-2026-09-07-run1/root-build-2.log",
+      "sha256": "824de9883acaf963f989ad7156f2f1feba7b52eb8dbf0452ee06a81dabb8d8f6",
+      "bytes": 245066,
+      "status": "PASS",
+      "exitCode": 0,
+      "elapsed": "2m 50s",
+      "tasksExecuted": 37,
+      "tasksUpToDate": 31,
+      "xmlDirectory": "build/compose-candidate-2026-09-07-run1/root-build-2-xml",
+      "freshModules": [
+        {
+          "module": "legacy-converter",
+          "tests": 804,
+          "passed": 738,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 66
+        },
+        {
+          "module": "legacy-corpus",
+          "tests": 210,
+          "passed": 206,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 4
+        },
+        {
+          "module": "legacy-product",
+          "tests": 155,
+          "passed": 155,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "otherModules": "Runtime/workflow test tasks UP-TO-DATE; compat-api NO-SOURCE. Runtime's 30 tests were freshly run in root-build-1, not counted as fresh twice.",
+      "compositionTests": {
+        "total": 56,
+        "newCasesThisTurn": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": [
+          {
+            "name": "CompositionPlanTest",
+            "tests": 19
+          },
+          {
+            "name": "CompositionArtifactPlanTest",
+            "tests": 16
+          },
+          {
+            "name": "CompositionPreviewIntegrationTest",
+            "tests": 21
+          }
+        ]
+      },
+      "skippedSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.DatapackProfileIntegrationTest",
+          "skipped": 4
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.FoodProfileIntegrationTest",
+          "skipped": 13
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.LifecycleNegativeJarIntegrationTest",
+          "skipped": 8
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest",
+          "skipped": 3
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.LogicProfileIntegrationTest",
+          "skipped": 3
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.NetworkProfileIntegrationTest",
+          "skipped": 5
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.AdapterContractIntegrationTest",
+          "skipped": 1
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.ContentResourceValidatorTest",
+          "skipped": 1
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.NetworkClassLimitsTest",
+          "skipped": 1
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.NetworkSemanticMutationTest",
+          "skipped": 22
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.SimpleContentConverterTest",
+          "skipped": 1
+        },
+        {
+          "suite": "dev.legacybridge.converter.mapping.builtin.EmbeddedSimpleContentEnvironmentTest",
+          "skipped": 2
+        },
+        {
+          "suite": "dev.legacybridge.converter.mapping.MappingEnvironmentIntegrationTest",
+          "skipped": 1
+        },
+        {
+          "suite": "dev.legacybridge.converter.mapping.portable.PortableMappingBundleTest",
+          "skipped": 1
+        },
+        {
+          "suite": "dev.legacybridge.corpus.CorpusLockTest",
+          "skipped": 1
+        },
+        {
+          "suite": "dev.legacybridge.corpus.PromptContractVerifierTest",
+          "skipped": 2
+        },
+        {
+          "suite": "dev.legacybridge.corpus.PublicEvidenceVerifierTest",
+          "skipped": 1
+        }
+      ]
+    }
+  ],
+  "negatives": {
+    "structural": [
+      "source file loss",
+      "changed data or legal notice bytes",
+      "unknown metadata",
+      "missing metadata",
+      "generated class or extra data",
+      "stale claims",
+      "post-plan source/output byte drift",
+      "changed output entry set"
+    ],
+    "realFixture": [
+      "unknown external call",
+      "mandatory external dependency",
+      "malformed recipe",
+      "missing item ID",
+      "conditional recipe",
+      "early registry use",
+      "protected platform class",
+      "missing resources/recipes",
+      "invalid source pack format",
+      "unknown dependency metadata field",
+      "wrong selected source hash",
+      "insufficient built-in mapping scope"
+    ],
+    "cancellation": [
+      "SERIALIZATION",
+      "second ARCHIVE_SCAN (private reopened candidate)",
+      "third BYTECODE_VALIDATION (reopened classes)",
+      "PREPARED"
+    ],
+    "io": "Real invalid scratch-directory shape and cooperative input-work limit; original sentinel intact and no scratch JAR remained.",
+    "cleanup": "Reopened valid/truncated ZIP and cancellation verified with isolated scratch directory. No matching legacybridge-compose-*.jar remained in this JVM temp directory after final tests.",
+    "notClaimed": [
+      "real disk exhaustion",
+      "hard-process-termination scratch recovery",
+      "antivirus-locked scratch cleanup",
+      "native mod discovery or behavior"
+    ]
+  },
+  "regression": {
+    "scope": "Seven unchanged fixture outputs across six existing profiles, not seven real compatible mods.",
+    "sixCaseReceipt": {
+      "path": "build/network-snapshot-v1/regressions/compose-candidate-20260907-r1/regression-receipt.json",
+      "sha256": "ad5f3d8bdd7d26019dd9be6afb3c8f4726f562b6b015139c36095bca1fdf91b5",
+      "bytes": 25096
+    },
+    "status": "BYTE_IDENTICAL",
+    "network": {
+      "path": "build/compose-candidate-2026-09-07-run1/network/converted.jar",
+      "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f",
+      "exitCode": 0,
+      "report": {
+        "path": "build/compose-candidate-2026-09-07-run1/network/conversion.json",
+        "sha256": "529f972bbeb23f6f3ab56921f53dc098c389b15021e6b636b30b13a294ee66ae",
+        "bytes": 186392
+      },
+      "log": {
+        "path": "build/compose-candidate-2026-09-07-run1/network/cli.log",
+        "sha256": "0bb9986146c859cee2343f857d30bae6085951b5e64fea15f0fc7296e6d1d10e",
+        "bytes": 902
+      },
+      "originalIntact": true,
+      "bytecodeStatus": "PASSED"
+    },
+    "runtimeValidation": "NOT_RUN"
+  },
+  "publicZipComparison": {
+    "beforeEntries": 472,
+    "afterEntries": 477,
+    "changed": [
+      {
+        "path": "dev/legacybridge/converter/conversion/CompositionArtifactPlan$Entry.class",
+        "before": null,
+        "after": "0b75d56b3af48d898bdcd6fd10340d45826fb4be677178c2770dd8677b23d4d7"
+      },
+      {
+        "path": "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+        "before": null,
+        "after": "50e09ace0d5dd5e4f007d0d9febd516a9b9ee3589bb4df11dac6aed02afe30ab"
+      },
+      {
+        "path": "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+        "before": null,
+        "after": "16e547e662589b2802ccb6c1529802697d3c1f1139ddffa67f384591cfcc09d9"
+      },
+      {
+        "path": "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+        "before": "7acb787c1de2c1d2159c37a25b397e987b3680e5f0dd01e9fe12f6d06ee9aa76",
+        "after": "4b090e2bbbe3d037d2d2a791656459b5f7ea7337932841595b33b3675a01288c"
+      },
+      {
+        "path": "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+        "before": "5b20c4bd26040df771012929dbe4ab396c4ebaebfb6289dc2dd4d1c807e02361",
+        "after": "cc0ebb860c8c0c17bdd8af114c2c0ef810c95eda15aa560b9e2f0bf8147b72c1"
+      },
+      {
+        "path": "dev/legacybridge/converter/conversion/TransformationBindings.class",
+        "before": "28c914c1cd7564da0ba8bc018c407b246daf30a6837e8047f50dba55ba935898",
+        "after": "9f0e45b309529f70e308b703bd3293a6e93651493de336b28e9cdef5e8caae5a"
+      },
+      {
+        "path": "dev/legacybridge/converter/service/CompositionCandidate.class",
+        "before": null,
+        "after": "35ab6ce2f65f91347c1c0e7981605c2e6637993d55da56465b2148535d810dab"
+      },
+      {
+        "path": "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+        "before": "ef791bbf3f305c47995c4e32c04b9d06676f5f423394d731330655b5f0f34d56",
+        "after": "b811ef792f0c48080f6f0e3b41fb4ed89aa87432c49e71b6c86b6d3dcf44c0e2"
+      },
+      {
+        "path": "dev/legacybridge/converter/service/LegacyEngineService.class",
+        "before": "5a0dfe4dc141fe1aac2848e171a784ae578d690bbc0f48a1e5e37634328bef92",
+        "after": "6dc27e2df29d0a98202641f0742cc4a082f5f01aa95a0ac4bdebdff3ab33d475"
+      },
+      {
+        "path": "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+        "before": "c30fcc4eae78c80583e362298b0d97bcbbc51930aeea781617463846bf07ac91",
+        "after": "d5507a5c3b6fb266efee41f060a2ba859b65a53cd49c60ff64ffe55e2f3b94a7"
+      },
+      {
+        "path": "dev/legacybridge/runtime/compat/logic/ComposedArtifactAdapter.class",
+        "before": null,
+        "after": "c60ed1d5e98cecc392254bf5a71642ab93a413aaed84caf2e17d7757aa342bf8"
+      },
+      {
+        "path": "META-INF/legacybridge/adapters.json",
+        "before": "5e4d2d4eaf7518ebeae595927b85c2f3368b2d2435ac46824c1889bf297a56b0",
+        "after": "bc71cb3387fd93a4595d643a30b316563ca0d7b7e509c173898040cd4c5148b5"
+      }
+    ],
+    "runtimeCapabilitiesUnchanged": true
+  },
+  "rights": "No new mapping redistribution, dependency, library, game sources, fixtures or harnesses in public JAR. New metadata emitter is authored code; package audit passed.",
+  "dimensions": {
+    "analyzable": "PASS_FINITE_FIXTURE",
+    "privateCandidateSerialized": "PASS",
+    "candidateZipMetadataResources": "PASS_REOPENED_SCOPED",
+    "bytecode": "PASS_SCOPED",
+    "linkageAccess": "PASS_SCOPED_NO_MODULE_WIRING_CLAIM",
+    "developerExport": "NOT_IMPLEMENTED",
+    "clientStartup": "NOT_RUN",
+    "serverStartup": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "resourceReload": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "installerUiPromotion": "NOT_IMPLEMENTED",
+    "newCompatibleRealModReleases": 0
+  },
+  "next": {
+    "prompt": "LB-08",
+    "cut": "COMPOSE-01",
+    "status": "PARTIAL",
+    "headlessAction": "Controlled developer-only QA export and original/target comparison harnesses; preserve the separate public installer/UI gates and all six profiles.",
+    "nativeAction": "Only after renewed authorization, compare actual source and converted fixture in isolated versions. Do not accept COMPOSE-01 or unlock LINKAGE-GENERAL from static proofs.",
+    "gamesAndScreenAutomation": "NOT_AUTHORIZED"
+  }
+}

@@ -1,0 +1,478 @@
+{
+  "schemaVersion": 1,
+  "id": "appleskin-forge-2.5.1-mc1.16.4",
+  "kind": "REAL_MOD",
+  "projectKey": "modrinth:EsAfCjCV",
+  "version": "2.5.1+mc1.16.4",
+  "artifact": {
+    "fileName": "appleskin-forge-mc1.16.x-2.5.1.jar",
+    "sha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+    "sizeBytes": 47721
+  },
+  "authorization": {
+    "basis": "SPDX_LICENSE",
+    "license": "Unlicense",
+    "redistributeBinary": false,
+    "evidence": [
+      "license-upstream",
+      "license-snapshot"
+    ]
+  },
+  "source": {
+    "loader": "Forge",
+    "minecraftVersions": [
+      "1.16.4",
+      "1.16.5"
+    ],
+    "forgeBuild": "35.1.4",
+    "forgeVersionEvidence": "Release-associated immutable source configuration: https://github.com/squeek502/AppleSkin/blob/5bedbcc501848f3a22a650f1f661e57d6973af83/gradle.properties. Build target Minecraft 1.16.4 / Forge 35.1.4; binary source reproducibility NOT_VERIFIED. Adjacent baseline: publisher advertises Forge 1.16.5 compatibility, but source build target is 1.16.4/35.1.4. Do not label this as Forge36-compiled or assume source-profile admission."
+  },
+  "dependencies": [
+    "forge [33,); mandatory=true; side=CLIENT; ordering=AFTER"
+  ],
+  "detectedFeatures": [
+    "CLIENT_RENDERING",
+    "GUI",
+    "LEGACY_EVENTS",
+    "LEGACY_NETWORKING",
+    "REFLECTION",
+    "RESOURCE_PACK_METADATA",
+    "RESOURCE_ASSET_TEXTURES",
+    "RESOURCE_CONFIGURATION"
+  ],
+  "blockers": [
+    "Side-specific dependencies require manual review."
+  ],
+  "output": {
+    "status": "BLOCKED",
+    "sha256": null
+  },
+  "stages": {
+    "analyzable": {
+      "status": "PASSED",
+      "evidence": [
+        "analysis"
+      ]
+    },
+    "convertible": {
+      "status": "BLOCKED",
+      "evidence": [
+        "conversion"
+      ]
+    },
+    "bytecodeValidated": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "multiplayer": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "evidence": [
+    {
+      "id": "license-upstream",
+      "type": "AUTHORIZATION",
+      "sourceSha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+      "targetSha256": null,
+      "sha256": "88d9b4eb60579c191ec391ca04c16130572d7eedc4a86daa58bf28c6e14c9bcd",
+      "url": "https://raw.githubusercontent.com/squeek502/AppleSkin/5bedbcc501848f3a22a650f1f661e57d6973af83/LICENSE"
+    },
+    {
+      "id": "license-snapshot",
+      "type": "AUTHORIZATION",
+      "sourceSha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+      "targetSha256": null,
+      "sha256": "88d9b4eb60579c191ec391ca04c16130572d7eedc4a86daa58bf28c6e14c9bcd",
+      "path": "corpus/licenses/appleskin/LICENSE"
+    },
+    {
+      "id": "analysis",
+      "type": "ANALYSIS",
+      "sourceSha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+      "targetSha256": null,
+      "sha256": "44b7d3248058c18a12e2e72dabfbb03ee12352501f6a2f160cd80f60d5257c92",
+      "path": "build/corpus-intake/observations/appleskin-forge-2.5.1-mc1.16.4/analysis.json"
+    },
+    {
+      "id": "conversion",
+      "type": "CONVERSION",
+      "sourceSha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+      "targetSha256": null,
+      "sha256": "b3843f6aabb198ee721503e9ce296403a846af325ae1aeb4efe50659b683094e",
+      "path": "build/corpus-intake/observations/appleskin-forge-2.5.1-mc1.16.4/conversion.json"
+    }
+  ],
+  "structuredMetadata": {
+    "modId": "appleskin",
+    "modDisplayName": "AppleSkin",
+    "provenance": {
+      "platform": "Modrinth",
+      "projectId": "EsAfCjCV",
+      "versionId": "633NTwhH",
+      "versionUrl": "https://modrinth.com/mod/appleskin/version/633NTwhH",
+      "metadataUrl": "https://api.modrinth.com/v2/version/633NTwhH",
+      "publishedAt": "2023-09-27T05:00:26.667380Z",
+      "declaredGameVersions": [
+        "1.16.4",
+        "1.16.5"
+      ],
+      "declaredLoaders": [
+        "forge"
+      ],
+      "declaredThirdPartyDependencies": []
+    },
+    "acquisition": {
+      "originalRelativePath": "build/corpus-intake/public/appleskin/appleskin-forge-mc1.16.x-2.5.1.jar",
+      "downloadUrl": "https://cdn.modrinth.com/data/EsAfCjCV/versions/633NTwhH/appleskin-forge-mc1.16.x-2.5.1.jar",
+      "publisherSha512": "f7fec83bba6ae1ccb333a2da4f444fa2cb776e2771c43836b796b36f9b98632119e91241764f4cf9c0031d4d413004e2b2170a95e01d7123cf93ed51d9bab21f",
+      "receiptRelativePath": "build/corpus-intake/public/appleskin/acquisition.json",
+      "rightsReviewedAt": "2026-09-06",
+      "originalCodeExecuted": false,
+      "localOnly": true,
+      "privateArtifact": false,
+      "packaged": false,
+      "redistributed": false
+    },
+    "rightsReview": {
+      "status": "LOCAL_ACQUISITION_STATIC_ANALYSIS_MODIFICATION_ALLOWED",
+      "licenseSpdx": "Unlicense",
+      "licenseSnapshot": "corpus/licenses/appleskin/LICENSE",
+      "licenseUrl": "https://raw.githubusercontent.com/squeek502/AppleSkin/5bedbcc501848f3a22a650f1f661e57d6973af83/LICENSE",
+      "licenseSha256": "88d9b4eb60579c191ec391ca04c16130572d7eedc4a86daa58bf28c6e14c9bcd",
+      "sourceCommit": "5bedbcc501848f3a22a650f1f661e57d6973af83",
+      "sourceTag": "v2.5.1",
+      "releaseAssociation": "Exact v2.5.1 tag and immutable commit; gradle.properties explicitly identifies mod 2.5.1 and Minecraft 1.16.4. Publisher lists 1.16.5 compatibility too.",
+      "permissionBasis": "The Unlicense expressly allows copying, modification and use of source or compiled binaries for any purpose. This intake retains its notice and does not redistribute the binary.",
+      "binarySourceReproducibility": "NOT_VERIFIED",
+      "redistributionSelected": false
+    },
+    "sourceBuildEvidence": {
+      "url": "https://github.com/squeek502/AppleSkin/blob/5bedbcc501848f3a22a650f1f661e57d6973af83/gradle.properties",
+      "minecraftVersion": "1.16.4",
+      "forgeVersion": "35.1.4",
+      "javaTarget": "1.8",
+      "scope": "Adjacent baseline: publisher advertises Forge 1.16.5 compatibility, but source build target is 1.16.4/35.1.4. Do not label this as Forge36-compiled or assume source-profile admission."
+    },
+    "integrity": {
+      "beforeRecordWrite": {
+        "sha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+        "sizeBytes": 47721,
+        "verifiedAtUtc": "2026-09-06T06:36:19.7027871Z"
+      },
+      "analysisInputSha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+      "conversionInputSha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+      "originalUnchangedFromAcquisition": true,
+      "afterInitialRecordWrite": {
+        "sha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+        "sizeBytes": 47721,
+        "verifiedAtUtc": "2026-09-06T06:38:35.5172281Z"
+      }
+    },
+    "rawModsTomlAnalysis": {
+      "present": true,
+      "parsed": true,
+      "modLoader": "javafml",
+      "loaderVersion": "[33,)",
+      "mods": [
+        {
+          "modId": "appleskin",
+          "version": "${file.jarVersion}",
+          "displayName": "AppleSkin"
+        }
+      ],
+      "dependencies": [
+        {
+          "ownerModId": "appleskin",
+          "modId": "forge",
+          "mandatoryDeclared": true,
+          "mandatory": true,
+          "versionRange": "[33,)",
+          "ordering": "AFTER",
+          "side": "CLIENT"
+        }
+      ]
+    },
+    "rawManifestAnalysis": {
+      "present": true,
+      "parsed": true,
+      "attributes": {
+        "Implementation-Title": "AppleSkin",
+        "Implementation-Version": "2.5.1+mc1.16.4"
+      },
+      "valuesTruncated": false
+    },
+    "dependencyInterpretation": "The top-level dependencies array contains only declared mods.toml dependencies. Publisher mod dependencies are separate. Inferred packages below are not verified external mod requirements and may be platform libraries or scanner false positives; a truncated list is not a complete dependency inventory.",
+    "fullDeclaredDependencies": [
+      {
+        "ownerModId": "appleskin",
+        "modId": "forge",
+        "mandatoryDeclared": true,
+        "mandatory": true,
+        "versionRange": "[33,)",
+        "ordering": "AFTER",
+        "side": "CLIENT"
+      }
+    ],
+    "inferredThirdPartyDependencies": [
+      {
+        "identifier": "com.electronwill.nightconfig.core",
+        "source": "INFERRED_PACKAGE",
+        "mandatory": false,
+        "versionRange": ""
+      },
+      {
+        "identifier": "com.electronwill.nightconfig.core.file",
+        "source": "INFERRED_PACKAGE",
+        "mandatory": false,
+        "versionRange": ""
+      },
+      {
+        "identifier": "com.electronwill.nightconfig.core.io",
+        "source": "INFERRED_PACKAGE",
+        "mandatory": false,
+        "versionRange": ""
+      },
+      {
+        "identifier": "io.netty.buffer",
+        "source": "INFERRED_PACKAGE",
+        "mandatory": false,
+        "versionRange": ""
+      }
+    ],
+    "thirdPartyDependenciesTruncated": true
+  },
+  "analysisSummary": {
+    "observationScope": "Static engine analysis and attempted conversion only. COMPLETE means bounded archive/bytecode scanning completed, not complete semantic understanding or compatibility. No original mod class was executed. No converted output exists.",
+    "tool": {
+      "name": "LegacyBridge Converter",
+      "version": "0.1.1-SNAPSHOT",
+      "policyVersion": "2026-09-v2"
+    },
+    "schemaVersion": 2,
+    "assessment": {
+      "analysisStatus": "COMPLETE",
+      "sourceProfile": "AMBIGUOUS",
+      "conversionStatus": "NOT_IMPLEMENTED",
+      "executionStatus": "NOT_TESTED"
+    },
+    "assessmentCaveat": "analysis.assessment.conversionStatus=NOT_IMPLEMENTED is the analyzer-only schema statement, not the separately executed conversion outcome; the actual converter returned ABORTED.",
+    "detectedMinecraftVersion": "UNKNOWN",
+    "detectedForgeVersion": "36.x",
+    "sourceDetectionCaveat": "The analyzer returned sourceProfile=AMBIGUOUS and Minecraft UNKNOWN while heuristically reporting Forge36.x. Immutable upstream source instead targets Minecraft1.16.4/Forge35.1.4 and the publisher lists1.16.5 compatibility. Preserve the conflict; do not treat the heuristic as exact build evidence.",
+    "classCount": 30,
+    "classMajorVersions": {
+      "52": 30
+    },
+    "unreadableClassCount": 0,
+    "nativeMethodCount": 0,
+    "previewClassCount": 0,
+    "complexity": "COMPLEX",
+    "riskScore": 49,
+    "countInterpretation": "Reference/class/occurrence counts characterize this exact static input only. They are not a compatible-mod percentage, whole-mod unlock count, runtime validation or multiplayer evidence.",
+    "minecraftReferenceCount": 834,
+    "minecraftReferencesTruncated": false,
+    "minecraftReferenceExternalityComplete": true,
+    "forgeReferenceCount": 410,
+    "forgeReferencesTruncated": false,
+    "forgeReferenceExternalityComplete": true,
+    "packagesUsedTruncated": true,
+    "featureDetectionEvidence": [
+      {
+        "id": "CLIENT_RENDERING",
+        "occurrenceCount": 241,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "squeek/appleskin/api/event/HUDOverlayEvent$Exhaustion.class#TYPE:com/mojang/blaze3d/matrix/MatrixStack(FIILcom/mojang/blaze3d/matrix/MatrixStack;)V",
+          "squeek/appleskin/api/event/HUDOverlayEvent$Exhaustion.class#TYPE:com/mojang/blaze3d/matrix/MatrixStack(IILcom/mojang/blaze3d/matrix/MatrixStack;Lsqueek/appleskin/api/event/HUDOverlayEvent$1;)V",
+          "squeek/appleskin/api/event/HUDOverlayEvent$Exhaustion.class#TYPE:com/mojang/blaze3d/matrix/MatrixStackLcom/mojang/blaze3d/matrix/MatrixStack;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "GUI",
+        "occurrenceCount": 148,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "squeek/appleskin/client/DebugInfoHandler.class#FIELD:net/minecraftforge/client/event/RenderGameOverlayEvent$ElementType.TEXTLnet/minecraftforge/client/event/RenderGameOverlayEvent$ElementType;",
+          "squeek/appleskin/client/DebugInfoHandler.class#METHOD:net/minecraftforge/client/event/RenderGameOverlayEvent$Text.getLeft()Ljava/util/ArrayList;",
+          "squeek/appleskin/client/DebugInfoHandler.class#METHOD:net/minecraftforge/client/event/RenderGameOverlayEvent$Text.getType()Lnet/minecraftforge/client/event/RenderGameOverlayEvent$ElementType;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "LEGACY_EVENTS",
+        "occurrenceCount": 192,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "squeek/appleskin/AppleSkin.class#FIELD:net/minecraftforge/common/MinecraftForge.EVENT_BUSLnet/minecraftforge/eventbus/api/IEventBus;",
+          "squeek/appleskin/AppleSkin.class#METHOD:net/minecraftforge/eventbus/api/IEventBus.addListener(Ljava/util/function/Consumer;)V",
+          "squeek/appleskin/AppleSkin.class#METHOD:net/minecraftforge/eventbus/api/IEventBus.register(Ljava/lang/Object;)V"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "LEGACY_NETWORKING",
+        "occurrenceCount": 65,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "squeek/appleskin/network/MessageExhaustionSync.class#METHOD:net/minecraftforge/fml/network/NetworkEvent$Context.enqueueWork(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;",
+          "squeek/appleskin/network/MessageExhaustionSync.class#METHOD:net/minecraftforge/fml/network/NetworkEvent$Context.setPacketHandled(Z)V",
+          "squeek/appleskin/network/MessageExhaustionSync.class#TYPE:net/minecraftforge/fml/network/NetworkEvent"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "REFLECTION",
+        "occurrenceCount": 11,
+        "analyzerEvidenceTruncated": false,
+        "evidenceSamples": [
+          "squeek/appleskin/helpers/HungerHelper.class#METHOD:java/lang/Class.getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;",
+          "squeek/appleskin/helpers/HungerHelper.class#METHOD:java/lang/reflect/Field.getFloat(Ljava/lang/Object;)F",
+          "squeek/appleskin/helpers/HungerHelper.class#METHOD:java/lang/reflect/Field.setAccessible(Z)V"
+        ],
+        "corpusSamplesTruncated": true
+      }
+    ],
+    "detectionCaveat": "Feature categories are static API-reference/entry-marker signals, not exhaustive semantic proofs. REFLECTION means observed reflective API references, not a complete set of dynamically constructed targets. Absence of a category does not establish absence of behavior; evidence samples and package lists may be truncated.",
+    "content": {
+      "observedFileCount": 34,
+      "assetEntryCount": 1,
+      "dataPackEntryCount": 0,
+      "assetNamespaces": {
+        "namespaceCount": 1,
+        "samples": [
+          "appleskin"
+        ],
+        "samplesTruncated": false
+      },
+      "dataNamespaces": {
+        "namespaceCount": 0,
+        "samples": [],
+        "samplesTruncated": false
+      },
+      "categories": {
+        "PACK_METADATA": {
+          "entryCount": 1,
+          "samples": [
+            "pack.mcmeta"
+          ],
+          "samplesTruncated": false
+        },
+        "ASSET_TEXTURES": {
+          "entryCount": 1,
+          "samples": [
+            "assets/appleskin/textures/icons.png"
+          ],
+          "samplesTruncated": false
+        },
+        "CONFIGURATION": {
+          "entryCount": 1,
+          "samples": [
+            "META-INF/mods.toml"
+          ],
+          "samplesTruncated": false
+        }
+      }
+    },
+    "mixins": [],
+    "accessTransformers": [],
+    "coremods": [],
+    "findings": [
+      {
+        "code": "LB-B006",
+        "severity": "WARNING",
+        "category": "sides",
+        "message": "References to net.minecraft.client require physical-side review.",
+        "evidence": [
+          "net/minecraft/client/GameSettings",
+          "net/minecraft/client/MainWindow",
+          "net/minecraft/client/Minecraft",
+          "net/minecraft/client/entity/player/ClientPlayerEntity",
+          "net/minecraft/client/gui/AbstractGui",
+          "net/minecraft/client/gui/FontRenderer",
+          "net/minecraft/client/gui/IngameGui",
+          "net/minecraft/client/gui/screen/Screen",
+          "net/minecraft/client/renderer/RenderHelper",
+          "net/minecraft/client/renderer/texture/TextureManager",
+          "net/minecraft/client/util/InputMappings"
+        ]
+      },
+      {
+        "code": "LB-P002",
+        "severity": "WARNING",
+        "category": "profile",
+        "message": "The archive could not be classified as a Forge 1.16.5 candidate.",
+        "evidence": []
+      },
+      {
+        "code": "LB-P003",
+        "severity": "INFO",
+        "category": "conversion",
+        "message": "Conversion is intentionally not implemented in report schema v2.",
+        "evidence": []
+      }
+    ],
+    "conversionObservation": {
+      "status": "ABORTED",
+      "compatibilityStatus": "UNSUPPORTED",
+      "diagnostics": [
+        "Side-specific dependencies require manual review."
+      ],
+      "bytecodeExecuted": false,
+      "bytecodeModified": false,
+      "transformationsCommitted": false,
+      "reportType": "LEGACY_CONVERSION",
+      "schemaVersion": 2,
+      "supportProfile": "simple-content-v1",
+      "targetMinecraft": "1.20.1",
+      "targetForge": "47.4.23",
+      "runtimeRequired": "legacybridge_runtime",
+      "runtimeVersion": "0.1.1-SNAPSHOT"
+    },
+    "conversionFirstFailureOnly": true,
+    "sourceReviewedRemainingDependencies": {
+      "status": "REVIEWED_SOURCE_HYPOTHESES_NOT_ADDITIONAL_CONVERTER_RESULTS",
+      "sourceCommit": "5bedbcc501848f3a22a650f1f661e57d6973af83",
+      "reviewPath": "corpus/intake/semantic-review.md",
+      "clusters": [
+        "Adjacent 1.16.4 / Forge 35.1.4 source baseline despite publisher 1.16.5 listing",
+        "One CLIENT config: nine booleans and one ranged double",
+        "Explicit NightConfig synchronous/autosave/REPLACE file I/O",
+        "Eight HUD/text/tooltip/tick/player event subscribers and two lifecycle listeners",
+        "Two float synchronization messages; per-player caches and login invalidation",
+        "Reflection-based exhaustion reads/writes and render-state semantics"
+      ],
+      "guaranteedWholeModUnlocks": 0,
+      "implementedByThisCorpus": false
+    },
+    "validationScope": {
+      "bytecodeValidation": "NOT_RUN: the input was parsed; no generated target bytecode exists to validate.",
+      "client": "NOT_RUN: no converted artifact exists.",
+      "server": "NOT_RUN: no converted artifact exists.",
+      "behavior": "NOT_RUN: source review is not behavioral execution.",
+      "multiplayer": "NOT_RUN: no connected players or server/client test was run for this mod."
+    },
+    "limitations": [
+      "Source-to-binary reproducibility and upstream runtime baseline behavior were not validated.",
+      "No claim of client/server compatibility follows from publisher side metadata.",
+      "The corpus is a three-project convenience sample and cannot estimate ecosystem coverage."
+    ]
+  }
+}

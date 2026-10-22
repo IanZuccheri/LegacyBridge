@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LOGIC_PROFILE_VALIDATION",
+  "date": "2026-09-06",
+  "profile": "logic-preserving-v1",
+  "status": "EXPERIMENTAL_SCOPED_BEHAVIOR_PARITY",
+  "modId": "legacybridge_logic",
+  "modVersion": "1.0.0",
+  "source": {"minecraft": "1.16.5", "forge": "36.2.42", "java": "Temurin 1.8.0_492-b09 x64"},
+  "target": {"minecraft": "1.20.1", "forge": "47.4.23", "java": "Oracle 17.0.12 x64"},
+  "originalSha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f",
+  "convertedSha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d",
+  "publicJarSha256": "f73d3b0606c56ca1686ddd2c216668a1c71ad6811b8f41e0929c712efa537211",
+  "sourceProbeSha256": "40e58db6c8b616e8f1e291ec79b2207f70239d2ef810614e2217d2c1a4ffeebb",
+  "targetProbeSha256": "91f479413908e990de25ba8f8a74a647dee37982b872c051093a5325ba9bd8f9",
+  "sourceInstallerSha256": "dfa90c681f30be2406548b6429bccb68d95af4f64ab19b8c58f6128fd50ff857",
+  "mappingBundleManifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+  "mappingBundleDistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION",
+  "rootTests": {"total": 655, "passed": 653, "failed": 0, "skipped": 2},
+  "separateFixtureAndProbeTests": {"projects": 3, "total": 12, "passed": 12},
+  "staticConversion": {"status": "PASSED", "classesExecuted": false, "preservedClasses": 6, "preservedMethods": 25, "replacedClasses": 0, "asm": "PASSED", "sourceOfflineLinkage": "PASSED_SCOPED", "targetOfflineLinkage": "PASSED_SCOPED", "fullJvmLinkageProof": false},
+  "cachelessEngine": {"status": "PASSED", "cliServiceReportsEqual": true, "cliServiceJarsEqual": true, "externalFileAttempts": 0, "networkAttempts": 0, "subprocessAttempts": 0, "testOnlyJava17Guard": true, "productionSandboxClaim": false},
+  "runtime": {"sourceServer": "PASSED", "targetServer": "PASSED", "sourceExitCode": 0, "targetExitCode": 0, "observedTraceByteEquality": true, "observedTraceSha256": "bc9e6f7f8f2bd5c23ead0e34e09c79245078d0989cfa7b85a1c02d24256ffbaf", "clientVisual": "NOT_RUN", "multiplayer": "NOT_RUN", "fullyOfflineGame": "NOT_TESTED"},
+  "originalUnchanged": true,
+  "simpleContentRegression": {"status": "IDENTICAL_BYTES", "convertedSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"},
+  "localRawEvidence": [
+    {"path": "build/logic-preserving-v1/root-build-attempt-2.log", "sha256": "e3a95553c250d50cded6fd04f1156b98321125d39de455ea336404bd5a9d6c79"},
+    {"path": "build/logic-preserving-v1/source-server/behavior-stdout.log", "sha256": "bdb43f9df6046a76525d5eed5485c3d67f34ea5a62c295c33a84ba819d410d48"},
+    {"path": "build/logic-preserving-v1/target-server/behavior-stdout.log", "sha256": "9edd525938bdaf86170f1d1c0a110bbbdb7429499f294877dcaa787d6d4a6dd5"},
+    {"path": "build/logic-preserving-v1/cacheless-reports/cacheless-engine-evidence.json", "sha256": "f0970a9bcb7eb244d7bcab04cedfd3739d4f72e75d7941001a22e1ddf4fa498c"}
+  ]
+}

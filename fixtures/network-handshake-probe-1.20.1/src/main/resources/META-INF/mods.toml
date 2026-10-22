@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+[[mods]]
+modId="legacybridge_handshake_probe"
+version="1.0.0"
+displayName="LegacyBridge Handshake QA Only"
+description='''Separate adversarial peer/observer. Not a compatibility adapter or player dependency.'''
+[[dependencies.legacybridge_handshake_probe]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.23,48)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_handshake_probe]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_handshake_probe]]
+modId="legacybridge_runtime"
+# QA-only platform control runs without the product. Every ordinary scenario
+# still requires the exact runtime identity in HandshakeProbe.verifyFixture.
+mandatory=false
+versionRange="[0.1.1-SNAPSHOT]"
+ordering="AFTER"
+side="BOTH"

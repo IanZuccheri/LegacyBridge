@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_stack_damage"
+version="1.0.0"
+displayName="LegacyBridge Owned Stack Damage Fixture"
+authors="LegacyBridge contributors"
+description='''Original Forge 1.16.5 fixture with a final owned Item, durability 128 and a bounded repairOne helper for future isolated QA. No automatic gameplay trigger, wear, break, attribute, ingredient, world or player behavior.'''
+
+[[dependencies.legacybridge_stack_damage]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_stack_damage]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,81 @@
+LEGACYBRIDGE_SIMPLE_SOURCE_CONTRACT	1	simple-content-v1	1.16.5	36.2.42	1.20.1	47.4.23	17	1
+S	legacy.clientMappings	7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c
+S	legacy.serverMappings	b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7
+S	legacy.srg	80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342
+S	legacy.apiJars[0]	1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03
+S	legacy.apiJars[1]	8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e
+C	net/minecraft/block/AbstractBlock$Properties	net/minecraft/world/level/block/state/BlockBehaviour$Properties	33	java/lang/Object	-
+M	noOcclusion	func_226896_b_	()Lnet/minecraft/block/AbstractBlock$Properties;	1
+M	of	func_200945_a	(Lnet/minecraft/block/material/Material;)Lnet/minecraft/block/AbstractBlock$Properties;	9
+M	requiresCorrectToolForDrops	func_235861_h_	()Lnet/minecraft/block/AbstractBlock$Properties;	1
+M	sound	func_200947_a	(Lnet/minecraft/block/SoundType;)Lnet/minecraft/block/AbstractBlock$Properties;	1
+M	strength	func_200943_b	(F)Lnet/minecraft/block/AbstractBlock$Properties;	1
+M	strength	func_200948_a	(FF)Lnet/minecraft/block/AbstractBlock$Properties;	1
+C	net/minecraft/block/Block	net/minecraft/world/level/block/Block	33	net/minecraft/block/AbstractBlock	net/minecraft/util/IItemProvider,net/minecraftforge/common/extensions/IForgeBlock
+M	<init>	<init>	(Lnet/minecraft/block/AbstractBlock$Properties;)V	1
+C	net/minecraft/block/SoundType	net/minecraft/world/level/block/SoundType	33	java/lang/Object	-
+F	GLASS	field_185853_f	Lnet/minecraft/block/SoundType;	25
+F	GRASS	field_185850_c	Lnet/minecraft/block/SoundType;	25
+F	GRAVEL	field_185849_b	Lnet/minecraft/block/SoundType;	25
+F	METAL	field_185852_e	Lnet/minecraft/block/SoundType;	25
+F	SAND	field_185855_h	Lnet/minecraft/block/SoundType;	25
+F	SNOW	field_185856_i	Lnet/minecraft/block/SoundType;	25
+F	STONE	field_185851_d	Lnet/minecraft/block/SoundType;	25
+F	WOOD	field_185848_a	Lnet/minecraft/block/SoundType;	25
+F	WOOL	field_185854_g	Lnet/minecraft/block/SoundType;	25
+C	net/minecraft/block/material/Material	net/minecraft/world/level/material/Material	49	java/lang/Object	-
+F	DIRT	field_151578_c	Lnet/minecraft/block/material/Material;	25
+F	GLASS	field_151592_s	Lnet/minecraft/block/material/Material;	25
+F	METAL	field_151573_f	Lnet/minecraft/block/material/Material;	25
+F	STONE	field_151576_e	Lnet/minecraft/block/material/Material;	25
+F	WOOD	field_151575_d	Lnet/minecraft/block/material/Material;	25
+C	net/minecraft/item/BlockItem	net/minecraft/world/item/BlockItem	33	net/minecraft/item/Item	-
+M	<init>	<init>	(Lnet/minecraft/block/Block;Lnet/minecraft/item/Item$Properties;)V	1
+C	net/minecraft/item/Item	net/minecraft/world/item/Item	33	net/minecraftforge/registries/ForgeRegistryEntry	net/minecraft/util/IItemProvider,net/minecraftforge/common/extensions/IForgeItem
+M	<init>	<init>	(Lnet/minecraft/item/Item$Properties;)V	1
+C	net/minecraft/item/Item$Properties	net/minecraft/world/item/Item$Properties	33	java/lang/Object	-
+M	<init>	<init>	()V	1
+M	defaultDurability	func_200915_b	(I)Lnet/minecraft/item/Item$Properties;	1
+M	durability	func_200918_c	(I)Lnet/minecraft/item/Item$Properties;	1
+M	fireResistant	func_234689_a_	()Lnet/minecraft/item/Item$Properties;	1
+M	rarity	func_208103_a	(Lnet/minecraft/item/Rarity;)Lnet/minecraft/item/Item$Properties;	1
+M	stacksTo	func_200917_a	(I)Lnet/minecraft/item/Item$Properties;	1
+M	tab	func_200916_a	(Lnet/minecraft/item/ItemGroup;)Lnet/minecraft/item/Item$Properties;	1
+C	net/minecraft/item/ItemGroup	net/minecraft/world/item/CreativeModeTab	1057	java/lang/Object	-
+F	TAB_BREWING	field_78038_k	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_BUILDING_BLOCKS	field_78030_b	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_COMBAT	field_78037_j	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_DECORATIONS	field_78031_c	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_FOOD	field_78039_h	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_MATERIALS	field_78035_l	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_MISC	field_78026_f	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_REDSTONE	field_78028_d	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_TOOLS	field_78040_i	Lnet/minecraft/item/ItemGroup;	25
+F	TAB_TRANSPORTATION	field_78029_e	Lnet/minecraft/item/ItemGroup;	25
+C	net/minecraft/item/Rarity	net/minecraft/world/item/Rarity	16433	java/lang/Enum	net/minecraftforge/common/IExtensibleEnum
+F	COMMON	COMMON	Lnet/minecraft/item/Rarity;	16409
+F	EPIC	EPIC	Lnet/minecraft/item/Rarity;	16409
+F	RARE	RARE	Lnet/minecraft/item/Rarity;	16409
+F	UNCOMMON	UNCOMMON	Lnet/minecraft/item/Rarity;	16409
+C	net/minecraft/util/ResourceLocation	net/minecraft/resources/ResourceLocation	33	java/lang/Object	java/lang/Comparable
+M	<init>	<init>	(Ljava/lang/String;)V	1
+M	<init>	<init>	(Ljava/lang/String;Ljava/lang/String;)V	1
+C	net/minecraft/util/SoundEvent	net/minecraft/sounds/SoundEvent	33	net/minecraftforge/registries/ForgeRegistryEntry	-
+M	<init>	<init>	(Lnet/minecraft/util/ResourceLocation;)V	1
+C	net/minecraftforge/eventbus/api/IEventBus	net/minecraftforge/eventbus/api/IEventBus	1537	java/lang/Object	-
+C	net/minecraftforge/fml/RegistryObject	net/minecraftforge/fml/RegistryObject	49	java/lang/Object	java/util/function/Supplier
+M	get	get	()Ljava/lang/Object;	4161
+M	get	get	()Lnet/minecraftforge/registries/IForgeRegistryEntry;	1
+C	net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext	net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext	33	java/lang/Object	-
+M	get	get	()Lnet/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext;	9
+M	getModEventBus	getModEventBus	()Lnet/minecraftforge/eventbus/api/IEventBus;	1
+C	net/minecraftforge/registries/DeferredRegister	net/minecraftforge/registries/DeferredRegister	33	java/lang/Object	-
+M	create	create	(Lnet/minecraftforge/registries/IForgeRegistry;Ljava/lang/String;)Lnet/minecraftforge/registries/DeferredRegister;	9
+M	register	register	(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;	1
+M	register	register	(Lnet/minecraftforge/eventbus/api/IEventBus;)V	1
+C	net/minecraftforge/registries/ForgeRegistries	net/minecraftforge/registries/ForgeRegistries	33	java/lang/Object	-
+F	BLOCKS	BLOCKS	Lnet/minecraftforge/registries/IForgeRegistry;	25
+F	ITEMS	ITEMS	Lnet/minecraftforge/registries/IForgeRegistry;	25
+F	SOUND_EVENTS	SOUND_EVENTS	Lnet/minecraftforge/registries/IForgeRegistry;	25
+C	net/minecraftforge/registries/IForgeRegistry	net/minecraftforge/registries/IForgeRegistry	1537	java/lang/Object	java/lang/Iterable
+C	net/minecraftforge/registries/IForgeRegistryEntry	net/minecraftforge/registries/IForgeRegistryEntry	1537	java/lang/Object	-

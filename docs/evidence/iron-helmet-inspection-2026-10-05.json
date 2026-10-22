@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "IRON_HELMET_SEMANTIC_INSPECTION",
+  "outcome": "IMPLEMENTED_READ_ONLY_DIAGNOSTIC_CONVERSION_UNSUPPORTED",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "fixture": {
+    "path": "fixtures/iron-helmet-1.16.5/build/libs/legacybridge-iron-helmet-1.16.5-1.0.0.jar",
+    "bytes": 5554,
+    "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca",
+    "modId": "legacybridge_iron_helmet",
+    "modVersion": "1.0.0",
+    "registryName": "bridge_helmet",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "classes": 1,
+    "methods": 3,
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "scope": {
+    "publicProfilesUnchanged": 6,
+    "publicConversionAndApply": "simple-content-v1",
+    "adapterDescriptorsUnchanged": 66,
+    "adapterAdded": false,
+    "mappingRulesEmitted": 0,
+    "candidateGenerated": false,
+    "installationAllowed": false,
+    "classesExecuted": false,
+    "gameClient": "NOT_RUN",
+    "gameServer": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "newThirdPartyAcquisition": false,
+    "publication": false,
+    "licenseChanged": false
+  },
+  "validation": {
+    "compile": {
+      "status": "PASS",
+      "log": "build/iron-helmet-inspection-20261005/compile.log",
+      "duration": "14s",
+      "tasks": [
+        ":legacy-converter:compileJava"
+      ]
+    },
+    "fixture": {
+      "status": "PASS",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "build/iron-helmet-inspection-20261005/fixture.log",
+      "duration": "18s",
+      "tasks": [
+        "-p fixtures/iron-helmet-1.16.5 build"
+      ]
+    },
+    "firstFocused": {
+      "status": "FAIL_CORRECTED_IN_SUBSEQUENT_REGRESSION",
+      "tests": 362,
+      "passed": 361,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "log": "build/iron-helmet-inspection-20261005/focused.log",
+      "retainedXml": "build/iron-helmet-inspection-20261005/focused-failure-xml",
+      "cause": "The test constructed complete=true with a finite mapping scope outside assertThrows. MappingInputs correctly rejected that contradictory selection before the audit ran.",
+      "correction": "Assert rejection at MappingInputs construction, then separately test incomplete FULL_ENVIRONMENT and FINITE_COHORT_CONTRACT against both audit entrypoints. Production rejection was not weakened."
+    },
+    "firstRegression": {
+      "status": "FAIL_MEMORY_PRESSURE_INVESTIGATED",
+      "tests": 7306,
+      "passed": 7287,
+      "failures": 19,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 83,
+      "duration": "9m33s",
+      "log": "build/iron-helmet-inspection-20261005/regression.log",
+      "retainedXml": "build/iron-helmet-inspection-20261005/regression-failure-xml",
+      "affectedSuites": {
+        "IronHelmetInspectionServiceTest": 9,
+        "IronSwordInspectionServiceTest": 10
+      },
+      "observed": "Seventeen late service assertions received MEMORY_PRESSURE from the existing 32 MiB shared-heap reserve, with reported headroom about 16-32 MiB in the 1 GiB test JVM. Two queue-holder latch assertions also timed out; admission refusal is consistent with adjacent failures but their EngineOutcome was not captured.",
+      "correction": "Release the new inspector suite's static full MappingInputs and original byte array in @AfterAll. Its full native inventory is a per-suite fixture, not a process-lifetime test cache.",
+      "limitsUnchanged": true,
+      "forcedGc": false,
+      "productHeapChanged": false,
+      "causeQualification": "The retained static full inventory was identified by code review. A successful rerun validates the suite lifetime correction; it is not a heap-profile proof of general engine leak freedom.",
+      "rerunOrderLimit": "Gradle prioritized previously failing service suites in the rerun. A passing full selection is not an order-invariant heap/RSS or causal leak qualification."
+    },
+    "finalRegression": {
+      "status": "PASS",
+      "tests": 7306,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 83,
+      "newTests": 362,
+      "newSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.IronHelmetInspectionCliTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetContractTest",
+          "tests": 186,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetInspectorTest",
+          "tests": 43,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetNativeApiAuditTest",
+          "tests": 106,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.service.IronHelmetInspectionServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "passed": 7306,
+      "duration": "10m2s",
+      "log": "build/iron-helmet-inspection-20261005/regression-final.log",
+      "selectionScript": "build/iron-helmet-inspection-20261005/regression-final.ps1",
+      "scope": "Selected engine regressions, not every repository test; no original/game class execution. Previously failing suites were prioritized by Gradle; this is not order-invariant memory qualification."
+    },
+    "finalPackage": {
+      "status": "PASS",
+      "duration": "26s",
+      "log": "build/iron-helmet-inspection-20261005/package-final.log",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "gameLaunched": false,
+      "offlineBuild": true
+    },
+    "installedCli": {
+      "status": "PASS_EXPECTED_UNSUPPORTED",
+      "exitCode": 3,
+      "report": "build/iron-helmet-inspection-20261005/installed-inspection-final.json",
+      "reportSha256": "c3d093e61978387d6f51339c2da7e408522831742b0108a35410325c568c7f27",
+      "stderrBytes": 0,
+      "constructorRecognized": true,
+      "reportType": "LEGACY_IRON_HELMET_SEMANTIC_INSPECTION",
+      "reportSchema": 1,
+      "resultStatus": "UNSUPPORTED",
+      "blockers": [
+        {
+          "code": "HELMET_EQUIPMENT_TYPE_CONTRACT_CHANGED",
+          "message": "Legacy EquipmentSlotType.HEAD becomes contextual ArmorItem.Type.HELMET construction; no exact semantic recipe is implemented",
+          "remediation": "Keep the original unchanged. An exact semantic recipe and separate runtime qualification are required; this diagnostic never enables Convert or Apply."
+        },
+        {
+          "code": "HELMET_USE_CONTRACT_CHANGED",
+          "message": "Legacy empty-slot equip differs from target occupied-slot swap, Binding Curse and stack-match guards, and ITEM_USED statistics; no equivalent use operation is implemented",
+          "remediation": "Keep the original unchanged. An exact semantic recipe and separate runtime qualification are required; this diagnostic never enables Convert or Apply."
+        },
+        {
+          "code": "HELMET_INHERITED_BEHAVIOR_UNQUALIFIED",
+          "message": "Inherited armor/item contracts, dispenser equip, attributes, damage, repair and multiplayer are not qualified",
+          "remediation": "Keep the original unchanged. An exact semantic recipe and separate runtime qualification are required; this diagnostic never enables Convert or Apply."
+        }
+      ],
+      "sourceBytecode": "ASM_AND_BASIC_VERIFIER_PASSED",
+      "sourceLinkage": {
+        "checkedMethodCount": 3,
+        "classesExecuted": false,
+        "fieldReferenceCount": 7,
+        "lambdaSiteCount": 1,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only LambdaMetafactory.metafactory Supplier and IntUnaryOperator with owned static implementations/exact captures, or zero-capture Supplier of an owned concrete Item subclass through its declared ()V constructor, are admitted; no boxing adaptation, altMetafactory, standalone handles or condy."
+        ],
+        "methodReferenceCount": 8,
+        "ownedClassCount": 1,
+        "resolvedClassCount": 39,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "apiDeclarationStatus": "CHECKED_EXACT_DECLARATIONS",
+      "resourceStatus": "FINITE_SOURCE_DATA_CHECKED_NOT_GAME_LOADED",
+      "cliServiceParity": "Canonical typed service/CLI JSON equality tested in IronHelmetInspectionCliTest. Installed CLI checked separately against original pinned fixture."
+    },
+    "contract": {
+      "status": "PASS_WITH_PLATFORM_SKIPS",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Native symlink creation unavailable in this environment; assumption skips, not a simulated pass or security qualification.",
+      "duration": "40s",
+      "log": "build/iron-helmet-inspection-20261005/contract.log",
+      "tasks": [
+        ":legacy-corpus:test --tests *PromptContractVerifierTest",
+        ":legacy-corpus:verifyPromptContract",
+        ":legacy-product:verifyProductJar"
+      ],
+      "prompts": 23,
+      "cuts": 81,
+      "cursor": "LB-10/ITEM-EQUIPMENT",
+      "evidenceCheck": "PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "publicHashUnchanged": true
+    }
+  },
+  "data": {
+    "mappingProfile": "build/item-attributes-20261001/mapping-profile.properties",
+    "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312",
+    "kind": "EXPLICIT_LOCAL_FULL_ENVIRONMENT",
+    "includedInPublicJar": false,
+    "implicitCacheDiscovery": false,
+    "hiddenDownload": false
+  },
+  "sourceReview": {
+    "evidence": "Pinned declaration/body/resource hashes are retained in the inspection; those historical body facts do not authenticate caller-supplied ApiIndex data.",
+    "nativeSourcesRedistributed": false,
+    "primaryOrientation": "https://docs.minecraftforge.net/en/1.20.1/concepts/registries/",
+    "orientationLimit": "Registry documentation is orientation only; finite declarations and use differences were inspected in the pinned local binaries/sources.",
+    "knownFacts": {
+      "aliasDifference": "With occupied unbound nonmatching equipment, target returns a different former-equipment stack; legacy returns FAIL with original hand untouched. Inventory/packet callers are not simulated here.",
+      "attributes": {
+        "armor": 2,
+        "armorToughness": 0,
+        "knockbackModifierPresent": false,
+        "operation": "ADDITION",
+        "slot": "HEAD",
+        "uuid": "2ad3f246-fee1-4e67-b886-69fd380bb150"
+      },
+      "construction": "Both constructors apply material default durability, register native dispenser behavior and build native modifiers; slot-index arrays become armor-type EnumMaps.",
+      "equipSound": "minecraft:item.armor.equip_iron; material declaration is not whole equipment-sound path qualification",
+      "evidenceKind": "PINNED_SOURCE_REVIEW_NOT_DERIVED_FROM_API_INDEX",
+      "ironHelmet": {
+        "baseDurability": 11,
+        "defense": 2,
+        "durabilityMultiplier": 15,
+        "enchantmentValue": 9,
+        "knockbackResistance": 0,
+        "maxDamage": 165,
+        "maxStackSize": 1,
+        "repairIngredient": "minecraft:iron_ingot",
+        "toughness": 0
+      },
+      "repair": "Material ingredient predicate then native superclass fallback; no proof of anvil cost or ingredient consumption.",
+      "scope": "Native IRON HEAD/HELMET and fresh Item.Properties; no subclass, custom material or added properties",
+      "sourceApiSha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03",
+      "sourceArchiveSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+      "sourceUse": "Occupied slot FAIL; otherwise equip a copy, clear received hand stack count and return sidedSuccess with the same cleared hand stack. No direct ITEM_USED award in this body.",
+      "sourceVersion": "1.16.5-36.2.42",
+      "targetApiSha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee",
+      "targetArchiveSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+      "targetUse": "Delegates to Equipable.swapWithEquipmentSlot: binding curse or matching stacks FAIL; otherwise server ITEM_USED award, copyAndClear hand/equipped stacks, equip hand copy and return prior equipment copy (or cleared original hand when empty).",
+      "targetVersion": "1.20.1-47.4.23"
+    },
+    "suppliedProvenance": [
+      {
+        "id": "legacy.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+      },
+      {
+        "id": "legacy.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+      },
+      {
+        "id": "legacy.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+      },
+      {
+        "id": "target.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+      },
+      {
+        "id": "target.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+      },
+      {
+        "id": "target.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+      },
+      {
+        "id": "legacy.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+      },
+      {
+        "id": "legacy.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+      },
+      {
+        "id": "legacy.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+      },
+      {
+        "id": "legacy.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+      },
+      {
+        "id": "legacy.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+      },
+      {
+        "id": "legacy.apiJars[5]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "46d9d0b4a42ab220a2baa25807bc7a076c2cb51594fa6c013c595f43b92956b3"
+      },
+      {
+        "id": "legacy.apiJars[6]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "972139718abc8a4893fa78cba8cf7b2c903f35c97aaf44fa3031b0669948b480"
+      },
+      {
+        "id": "target.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+      },
+      {
+        "id": "target.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+      },
+      {
+        "id": "target.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+      },
+      {
+        "id": "target.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+      },
+      {
+        "id": "target.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+      },
+      {
+        "id": "target.apiJars[5]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+      },
+      {
+        "id": "target.apiJars[6]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+      },
+      {
+        "id": "target.apiJars[7]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "39d9a3d9277c1402b8e7b97f917ce278241cf1796312aec85b87f19a376dd99a"
+      },
+      {
+        "id": "target.apiJars[8]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "a42edc9cab792e39fe39bb94f3fca655ed157ff87a8af78e1d6ba5b07c4a00ab"
+      }
+    ],
+    "resources": {
+      "bytesChanged": 0,
+      "filesSha256": {
+        "META-INF/MANIFEST.MF": "895425f9a42e595c20e515919a94a1b0c2a4d2402f4e2374c552883a9afe5114",
+        "META-INF/mods.toml": "f9f3f59e19dc1e6471028ff63f11fb4ce2c2e60bcd54668d8c13a9d1c3313ea2",
+        "assets/legacybridge_iron_helmet/lang/en_us.json": "e25f9fa2b914458710d93bb54af87b273922c5c4a646b474e832845a93248ace",
+        "assets/legacybridge_iron_helmet/lang/pt_br.json": "045149559bb9ce2592bb52243da65d441f0cc30444496e65abb51b0515474f5e",
+        "assets/legacybridge_iron_helmet/models/item/bridge_helmet.json": "36424dd4a813df80327ef3b6d190d9049a62151cd5b776badae77a9c23901edc",
+        "data/legacybridge_iron_helmet/recipes/bridge_helmet.json": "8ae434c06c552bf8bcd76a323bd3ff224d6a6d4bd526e357b4212a12567d8e7d",
+        "pack.mcmeta": "cd92b59cb20818a0d9330cef6564f6e9643d798ad7c1f05da7860153e45c1f4a"
+      },
+      "limitation": "A schema/reference check is not recipe execution, asset loading, resource reload or conversion approval",
+      "nativeGeneratedModelSha256": "63190611202e75ad7b812bc9a4b31bd53f3e186895d7b53e5e280b0d1e30a67a",
+      "nativeReferenceBasis": "Pinned historical source/target client-resource review, not attestation of caller-supplied game files; no native resources are bundled",
+      "nativeResourceArchiveSha256": {
+        "1.16.5": "00b5ebbc33e95ea88c1ab80601599c9827e9aa861d93ccc2cfcbbfd996e86263",
+        "1.20.1": "56b71336d2b4fdffd197f56595b0da93e32a946f78f382a299b8f4b92758bb0f"
+      },
+      "nativeTextureSha256": "db530074cf0a2b1e6d6958f66536625764f47e00e3c1cc9f558586c24a5cf9dc",
+      "status": "FINITE_SOURCE_DATA_CHECKED_NOT_GAME_LOADED"
+    }
+  },
+  "limitations": [
+    "This diagnostic does not convert armor or unlock any corpus release.",
+    "Recognition, source ASM/linkage and schema checks do not prove native gameplay, Forge discovery, asset loading, equipment use or multiplayer.",
+    "The bytecode interpreter in tests uses synthetic stacks/predicates and a bounded reviewed instruction set, not a running Minecraft environment.",
+    "Capture/deadline/admission controls are cooperative, not a hard heap or filesystem-race sandbox.",
+    "The explicit full local API/mapping profile remains a developer requirement; public simple-content data/setup is unchanged.",
+    "Inherited equipment/dispenser/client/rendering/trim, enchantments, wear, anvil, save/load and caller effects remain unqualified."
+  ],
+  "continuation": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "IRON_HELMET_EMPTY_SLOT_ADAPTER",
+    "plan": "docs/IRON_HELMET_EMPTY_SLOT_ADAPTER_PLAN.md",
+    "gamesAuthorized": false,
+    "publicPromotion": false,
+    "acceptance": "PARTIAL",
+    "countsUnchanged": {
+      "ACCEPTED": 15,
+      "PARTIAL": 19,
+      "BLOCKED": 2,
+      "NOT_STARTED": 45
+    },
+    "reason": "Deliver an actual restricted empty-slot runtime operation and its headless body contract; do not repeat inspection or enable a constructor recipe before inherited/contextual obligations are implemented."
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "f1060ce5d598195e0cfdeff3f8f9d9fe5e25d69556f8cd59f039c7604c13721d",
+    "bytes": 2061609,
+    "entries": 773,
+    "fileEntries": 724,
+    "previousSha256": "8a3f06dbf466b792658b978339a548eeba062fcb9bfc90364f59b1142f197bbb",
+    "unchangedEntries": 758,
+    "changedEntries": [
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/IronHelmetContract$Names.class",
+      "dev/legacybridge/converter/conversion/IronHelmetContract$Proof.class",
+      "dev/legacybridge/converter/conversion/IronHelmetContract.class",
+      "dev/legacybridge/converter/conversion/IronHelmetInspector$1.class",
+      "dev/legacybridge/converter/conversion/IronHelmetInspector$2.class",
+      "dev/legacybridge/converter/conversion/IronHelmetInspector$Refused.class",
+      "dev/legacybridge/converter/conversion/IronHelmetInspector.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Report.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Side.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit.class",
+      "dev/legacybridge/converter/service/IronHelmetInspection$Identity.class",
+      "dev/legacybridge/converter/service/IronHelmetInspection.class",
+      "dev/legacybridge/converter/service/IronHelmetInspectionRequest.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 66,
+      "newEntries": 66
+    },
+    "fixture": {
+      "bytes": 5554,
+      "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "previousCandidates": [
+    {
+      "suite": "OwnedStackRepairUseIntegrationTest",
+      "candidateSha256": "d7dbb4ca43e8b20a42fb4d0180050def1b7b7b4ad7ae48f96effece25e1c6c96",
+      "inputSha256": "420f710dadb3134c500dc1c1fc7077ed183758db6531416093454cca72b90d2a",
+      "unchanged": true
+    },
+    {
+      "suite": "OwnedStackDamageIntegrationTest",
+      "candidateSha256": "19081664b6a4ec70645d00788aced828cd6a04e9ffd3631e3277fe645cce5828",
+      "inputSha256": "a6099857d7a2e4e3cb2db6d67ce1db23d08d2ba9c17b732c380d2d7b64f09793",
+      "unchanged": true
+    },
+    {
+      "suite": "ItemAttributeDurabilityIntegrationTest",
+      "candidateSha256": "dbe6a5acd96b29ae771156bed7e231f443148d74bea6bfcb7159b895cee491eb",
+      "inputSha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16",
+      "unchanged": true
+    },
+    {
+      "suite": "ItemAttributeIntegrationTest",
+      "candidateSha256": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+      "inputSha256": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99",
+      "unchanged": true
+    }
+  ],
+  "localEvidenceFiles": [
+    {
+      "path": "build/iron-helmet-inspection-20261005/fixture.log",
+      "sha256": "2102703f550dc867c8c916e97017e95b10e3c9c02cebe08f71422e900771ae2a",
+      "bytes": 4912
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/compile.log",
+      "sha256": "89bbc73b63377d8384755e69cd9c9122e1eb87e6432b5a6e4e668193fcb3fcb9",
+      "bytes": 4860
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/focused.log",
+      "sha256": "8deb15ec9f3b911ea4c813889c667cc172c6bb2a5e039111d6da08b7571fa73c",
+      "bytes": 99494
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/regression.log",
+      "sha256": "f7ed0a162f330c0fb9d1bcf6350e7e4e4927c00612bb03d5b07ce641a59ea2a7",
+      "bytes": 2061616
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/regression-final.log",
+      "sha256": "c3690b01ca401118a1d2f73a859417ab63d342ea80e3a34e5b0c6c1f996c3ffe",
+      "bytes": 2057430
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/package.log",
+      "sha256": "feadd2a798d0c89316a47564bcbf9aec054917410eecdc4f8e8c47146e56d53f",
+      "bytes": 10872
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/package-final.log",
+      "sha256": "63334c93d254943542734444aec06d1688a7b723ac2b6c3d8769dd2aca5a61a0",
+      "bytes": 11004
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/installed-inspection.json",
+      "sha256": "398d844e3f3ecdecc1c206e98060873ea160c4d2030d1e2a8d14165e7c4a6c8c",
+      "bytes": 56280
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/installed-inspection-final.json",
+      "sha256": "c3d093e61978387d6f51339c2da7e408522831742b0108a35410325c568c7f27",
+      "bytes": 56285
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/installed-cli-stderr-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "build/iron-helmet-inspection-20261005/contract.log",
+      "sha256": "7e94f7b7d5835b47e064ac505e04c851c0a773fb6660a86dffb38a04e00d1260"
+    }
+  ],
+  "implementation": {
+    "fixture": "fixtures/iron-helmet-1.16.5",
+    "contract": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/IronHelmetContract.java",
+    "inspector": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/IronHelmetInspector.java",
+    "apiAudit": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit.java",
+    "request": "legacy-converter/src/main/java/dev/legacybridge/converter/service/IronHelmetInspectionRequest.java",
+    "report": "legacy-converter/src/main/java/dev/legacybridge/converter/service/IronHelmetInspection.java",
+    "entrypoint": "LegacyEngineService.inspectIronHelmet",
+    "cli": "legacy-converter inspect-iron-helmet <jar> --input-sha256 <sha256> --mapping-profile <explicit-local-profile>",
+    "scope": "Read-only diagnostic; the Minecraft UI is not expanded. No CLI-main/stdout reuse by the service."
+  }
+}

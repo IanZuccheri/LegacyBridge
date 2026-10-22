@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "2026.10.22.1",
+  "records": [
+    "records/fixture-simple-content-1.16.5-1.0.0.json",
+    "records/fixture-p6-cancel-1.0.0.json",
+    "records/fixture-p6-duplicate-1.0.0.json",
+    "records/fixture-p6-dependency-1.0.0.json",
+    "records/fixture-p6-unsupported-1.0.0.json",
+    "records/fixture-p6-corrupt-1.json",
+    "records/clumps-forge-6.0.0.28.json",
+    "records/controlling-forge-7.0.0.29.json",
+    "records/appleskin-forge-2.5.1-mc1.16.4.json"
+  ]
+}

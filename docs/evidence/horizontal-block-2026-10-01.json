@@ -1,0 +1,1298 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "prompt": "LB-10",
+  "cut": "BLOCK-STATE",
+  "slices": [
+    "HORIZONTAL_FACING",
+    "HORIZONTAL_ROTATE_MIRROR"
+  ],
+  "scope": "Two private finite preserved native Block subclass variants, not public conversion profiles or native compatibility qualification",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifactAudit": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "b5768ab50840d793481c134061f9daebf09636b65ee891793d741181fe5ef7e6",
+    "bytes": 1849796,
+    "entries": 723,
+    "fileEntries": 674,
+    "previousSha256": "a44b961bf0694e70556380d3440f5ed2c5567d26d11a9ba4f6272941945924d0",
+    "unchangedEntries": 703,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/ContentResourceValidator.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/PlainBlockLowering.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/HorizontalBlockContract$Names.class",
+      "dev/legacybridge/converter/conversion/HorizontalBlockContract$Proof.class",
+      "dev/legacybridge/converter/conversion/HorizontalBlockContract.class",
+      "dev/legacybridge/runtime/compat/logic/HorizontalBlockArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 51,
+      "newEntries": 53
+    },
+    "fixture": {
+      "bytes": 8223,
+      "sha256": "b74f7e6d5734077460c7b9662a08a6c5e16e6af2419fe3439693592356a76cb9"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "fixtures": [
+    {
+      "path": "fixtures/horizontal-block-1.16.5/build/libs/legacybridge-horizontal-block-1.16.5-1.0.0.jar",
+      "ownership": "ORIGINAL_PROJECT_FIXTURE",
+      "bytes": 8223,
+      "sha256": "b74f7e6d5734077460c7b9662a08a6c5e16e6af2419fe3439693592356a76cb9",
+      "originalUnchanged": true,
+      "executed": false
+    },
+    {
+      "path": "fixtures/horizontal-transforms-1.16.5/build/libs/legacybridge-horizontal-transforms-1.16.5-1.0.0.jar",
+      "ownership": "ORIGINAL_PROJECT_FIXTURE",
+      "bytes": 8653,
+      "sha256": "186c3230cce6e0e6d762789f6adf972f26813d8f1dff5d5160b0e7ab158e1ace",
+      "originalUnchanged": true,
+      "executed": false
+    }
+  ],
+  "staticProofs": [
+    {
+      "candidate": {
+        "bytes": 7034,
+        "kind": "PRIVATE_SERIALIZED_JAR",
+        "sha256": "cf57b01ca5eb5c6b06866666b2eebc44af6ef251f8ec15632726c8add20319b2"
+      },
+      "input": {
+        "fileName": "legacybridge-horizontal-block-1.16.5-1.0.0.jar",
+        "sha256": "b74f7e6d5734077460c7b9662a08a6c5e16e6af2419fe3439693592356a76cb9"
+      },
+      "horizontalVariant": "HORIZONTAL_FACING",
+      "horizontalBlockContract": {
+        "block": "dev/legacybridge/fixture/horizontalblock/HorizontalContentBlock",
+        "classesExecuted": false,
+        "contract": "horizontal-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/horizontalblock/HorizontalBlockContent",
+        "orientationTransforms": false,
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/horizontalblock/HorizontalBlockContent",
+          "modId": "legacybridge_horizontal_block",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "propertyField": "FACING",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "state": {
+          "additionalEffects": "NONE",
+          "default": "north",
+          "orientationMode": "INHERITED_NO_OP",
+          "placement": "OPPOSITE_CONTEXT_HORIZONTAL",
+          "property": "facing",
+          "stateBuilder": "SINGLE_STATIC_NATIVE_PROPERTY",
+          "values": [
+            "north",
+            "east",
+            "south",
+            "west"
+          ]
+        }
+      },
+      "sourceHorizontalBlockContract": {
+        "block": "dev/legacybridge/fixture/horizontalblock/HorizontalContentBlock",
+        "classesExecuted": false,
+        "contract": "horizontal-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/horizontalblock/HorizontalBlockContent",
+        "orientationTransforms": false,
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/horizontalblock/HorizontalBlockContent",
+          "modId": "legacybridge_horizontal_block",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "propertyField": "FACING",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "state": {
+          "additionalEffects": "NONE",
+          "default": "north",
+          "orientationMode": "INHERITED_NO_OP",
+          "placement": "OPPOSITE_CONTEXT_HORIZONTAL",
+          "property": "facing",
+          "stateBuilder": "SINGLE_STATIC_NATIVE_PROPERTY",
+          "values": [
+            "north",
+            "east",
+            "south",
+            "west"
+          ]
+        }
+      },
+      "reopenedHorizontalBlockContract": {
+        "block": "dev/legacybridge/fixture/horizontalblock/HorizontalContentBlock",
+        "classesExecuted": false,
+        "contract": "horizontal-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/horizontalblock/HorizontalBlockContent",
+        "orientationTransforms": false,
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/horizontalblock/HorizontalBlockContent",
+          "modId": "legacybridge_horizontal_block",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "propertyField": "FACING",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "state": {
+          "additionalEffects": "NONE",
+          "default": "north",
+          "orientationMode": "INHERITED_NO_OP",
+          "placement": "OPPOSITE_CONTEXT_HORIZONTAL",
+          "property": "facing",
+          "stateBuilder": "SINGLE_STATIC_NATIVE_PROPERTY",
+          "values": [
+            "north",
+            "east",
+            "south",
+            "west"
+          ]
+        }
+      },
+      "horizontalBlockMappingCommutation": "PASSED_EXACT_RULES",
+      "sources": [
+        {
+          "id": "legacy.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+        },
+        {
+          "id": "legacy.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+        },
+        {
+          "id": "legacy.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+        },
+        {
+          "id": "target.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+        },
+        {
+          "id": "target.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+        },
+        {
+          "id": "target.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+        },
+        {
+          "id": "legacy.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+        },
+        {
+          "id": "legacy.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+        },
+        {
+          "id": "legacy.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+        },
+        {
+          "id": "legacy.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+        },
+        {
+          "id": "legacy.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+        },
+        {
+          "id": "legacy.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "46d9d0b4a42ab220a2baa25807bc7a076c2cb51594fa6c013c595f43b92956b3"
+        },
+        {
+          "id": "target.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+        },
+        {
+          "id": "target.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+        },
+        {
+          "id": "target.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+        },
+        {
+          "id": "target.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+        },
+        {
+          "id": "target.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+        },
+        {
+          "id": "target.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+        },
+        {
+          "id": "target.apiJars[6]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+        },
+        {
+          "id": "target.apiJars[7]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "39d9a3d9277c1402b8e7b97f917ce278241cf1796312aec85b87f19a376dd99a"
+        }
+      ],
+      "sourceOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 19,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class horizontal Block/BlockItem program: static facing property, protected definition override, post-super NORTH default, and opposite horizontal placement. Rotation/mirror overrides are absent and no such behavior is added. Protected access is still verified on real receiver dataflow. No arbitrary block callback, additional state, shape change, game execution or behavior qualification."
+        ],
+        "methodReferenceCount": 27,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 54,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "targetOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 20,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class horizontal Block/BlockItem program: static facing property, protected definition override, post-super NORTH default, and opposite horizontal placement. Rotation/mirror overrides are absent and no such behavior is added. Protected access is still verified on real receiver dataflow. No arbitrary block callback, additional state, shape change, game execution or behavior qualification."
+        ],
+        "methodReferenceCount": 29,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 55,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "serializedOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 20,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class horizontal Block/BlockItem program: static facing property, protected definition override, post-super NORTH default, and opposite horizontal placement. Rotation/mirror overrides are absent and no such behavior is added. Protected access is still verified on real receiver dataflow. No arbitrary block callback, additional state, shape change, game execution or behavior qualification."
+        ],
+        "methodReferenceCount": 29,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 55,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "bytecodeValidation": {
+        "inputClasses": 2,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "offlineLinkageVerified": true,
+        "outputClasses": 2,
+        "serializedJar": true,
+        "status": "PASSED_STATIC_REOPENED"
+      },
+      "candidateArchiveValidation": {
+        "centralDirectoryAndCrc": true,
+        "entryCount": 13,
+        "modClassesLoaded": false,
+        "ownershipAndHashes": true,
+        "scratchDeleted": true,
+        "status": "PASSED_REOPENED"
+      },
+      "preservedClassCount": 2,
+      "preservedMethodCount": 8,
+      "replacedClassCount": 0,
+      "bodyPreservation": "CHECKED_EXCEPT_EXACT_LOGGED_STONE_PAIR_EXPANSION",
+      "bytecodeExecuted": false,
+      "publicationAllowed": false,
+      "resourceValidation": {
+        "baseResourceContract": "simple-content-v1; tag references restricted to local closure",
+        "contract": "datapack-recipes-v1",
+        "differences": [
+          "Target cooking recipe-book category defaults to MISC; client grouping is not validated."
+        ],
+        "provenance": "docs/RESOURCE_API_BASELINES.md",
+        "recipes": [
+          {
+            "disposition": "PRESERVE_BYTES",
+            "format": "minecraft:crafting_shapeless",
+            "path": "data/legacybridge_horizontal_block/recipes/bridge_block.json",
+            "reason": "Pinned serializer schema and closed ingredient/result references validated; no rewrite necessary",
+            "rule": "resource.recipe.crafting_shapeless.preserve.v1",
+            "sha256": "106382a2beceb2e190d2ff3a2a1dd49d0d72e32603089c2eed2df978cd15e8ac"
+          }
+        ],
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "source": "minecraft:1.16.5/forge:36.2.42",
+        "status": "PASSED_REOPENED",
+        "target": "minecraft:1.20.1/forge:47.4.23",
+        "unsupported": [
+          "conditional recipes",
+          "custom serializers and ingredients",
+          "NBT recipe results",
+          "external tag composition",
+          "loot tables and global loot modifiers",
+          "advancements",
+          "functions and commands",
+          "animated textures",
+          "custom model behavior",
+          "local Ogg audio"
+        ]
+      },
+      "runtimeValidation": "NOT_RUN",
+      "output": null,
+      "status": "CANDIDATE_VALIDATED"
+    },
+    {
+      "candidate": {
+        "bytes": 7401,
+        "kind": "PRIVATE_SERIALIZED_JAR",
+        "sha256": "ee3dc84e0780f3f3426cb637ac3bb062383c22c44a5d5db1dd2caea9fb87a0c6"
+      },
+      "input": {
+        "fileName": "legacybridge-horizontal-transforms-1.16.5-1.0.0.jar",
+        "sha256": "186c3230cce6e0e6d762789f6adf972f26813d8f1dff5d5160b0e7ab158e1ace"
+      },
+      "horizontalVariant": "HORIZONTAL_ROTATE_MIRROR",
+      "horizontalBlockContract": {
+        "block": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsBlock",
+        "classesExecuted": false,
+        "contract": "horizontal-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsContent",
+        "orientationTransforms": true,
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsContent",
+          "modId": "legacybridge_horizontal_transforms",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "propertyField": "FACING",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "state": {
+          "additionalEffects": "NONE",
+          "default": "north",
+          "orientationMode": "NATIVE_DIRECTION_ROTATE_AND_MIRROR",
+          "placement": "OPPOSITE_CONTEXT_HORIZONTAL",
+          "property": "facing",
+          "stateBuilder": "SINGLE_STATIC_NATIVE_PROPERTY",
+          "values": [
+            "north",
+            "east",
+            "south",
+            "west"
+          ]
+        }
+      },
+      "sourceHorizontalBlockContract": {
+        "block": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsBlock",
+        "classesExecuted": false,
+        "contract": "horizontal-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsContent",
+        "orientationTransforms": true,
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsContent",
+          "modId": "legacybridge_horizontal_transforms",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "propertyField": "FACING",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "state": {
+          "additionalEffects": "NONE",
+          "default": "north",
+          "orientationMode": "NATIVE_DIRECTION_ROTATE_AND_MIRROR",
+          "placement": "OPPOSITE_CONTEXT_HORIZONTAL",
+          "property": "facing",
+          "stateBuilder": "SINGLE_STATIC_NATIVE_PROPERTY",
+          "values": [
+            "north",
+            "east",
+            "south",
+            "west"
+          ]
+        }
+      },
+      "reopenedHorizontalBlockContract": {
+        "block": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsBlock",
+        "classesExecuted": false,
+        "contract": "horizontal-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsContent",
+        "orientationTransforms": true,
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/horizontaltransforms/HorizontalTransformsContent",
+          "modId": "legacybridge_horizontal_transforms",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "propertyField": "FACING",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "state": {
+          "additionalEffects": "NONE",
+          "default": "north",
+          "orientationMode": "NATIVE_DIRECTION_ROTATE_AND_MIRROR",
+          "placement": "OPPOSITE_CONTEXT_HORIZONTAL",
+          "property": "facing",
+          "stateBuilder": "SINGLE_STATIC_NATIVE_PROPERTY",
+          "values": [
+            "north",
+            "east",
+            "south",
+            "west"
+          ]
+        }
+      },
+      "horizontalBlockMappingCommutation": "PASSED_EXACT_RULES",
+      "sources": [
+        {
+          "id": "legacy.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+        },
+        {
+          "id": "legacy.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+        },
+        {
+          "id": "legacy.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+        },
+        {
+          "id": "target.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+        },
+        {
+          "id": "target.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+        },
+        {
+          "id": "target.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+        },
+        {
+          "id": "legacy.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+        },
+        {
+          "id": "legacy.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+        },
+        {
+          "id": "legacy.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+        },
+        {
+          "id": "legacy.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+        },
+        {
+          "id": "legacy.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+        },
+        {
+          "id": "legacy.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "46d9d0b4a42ab220a2baa25807bc7a076c2cb51594fa6c013c595f43b92956b3"
+        },
+        {
+          "id": "target.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+        },
+        {
+          "id": "target.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+        },
+        {
+          "id": "target.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+        },
+        {
+          "id": "target.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+        },
+        {
+          "id": "target.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+        },
+        {
+          "id": "target.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+        },
+        {
+          "id": "target.apiJars[6]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+        },
+        {
+          "id": "target.apiJars[7]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "39d9a3d9277c1402b8e7b97f917ce278241cf1796312aec85b87f19a376dd99a"
+        }
+      ],
+      "sourceOfflineLinkage": {
+        "checkedMethodCount": 10,
+        "classesExecuted": false,
+        "fieldReferenceCount": 23,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class horizontal Block/BlockItem program: static facing property, protected definition override, post-super NORTH default, and opposite horizontal placement. The complete rotate/mirror override pair additionally preserves the supplied state and transforms its existing facing through the exact native enum operations. Protected access is still verified on real receiver dataflow. No arbitrary block callback, additional state, shape change, game execution or behavior qualification."
+        ],
+        "methodReferenceCount": 33,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 56,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "targetOfflineLinkage": {
+        "checkedMethodCount": 10,
+        "classesExecuted": false,
+        "fieldReferenceCount": 24,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class horizontal Block/BlockItem program: static facing property, protected definition override, post-super NORTH default, and opposite horizontal placement. The complete rotate/mirror override pair additionally preserves the supplied state and transforms its existing facing through the exact native enum operations. Protected access is still verified on real receiver dataflow. No arbitrary block callback, additional state, shape change, game execution or behavior qualification."
+        ],
+        "methodReferenceCount": 35,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 57,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "serializedOfflineLinkage": {
+        "checkedMethodCount": 10,
+        "classesExecuted": false,
+        "fieldReferenceCount": 24,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class horizontal Block/BlockItem program: static facing property, protected definition override, post-super NORTH default, and opposite horizontal placement. The complete rotate/mirror override pair additionally preserves the supplied state and transforms its existing facing through the exact native enum operations. Protected access is still verified on real receiver dataflow. No arbitrary block callback, additional state, shape change, game execution or behavior qualification."
+        ],
+        "methodReferenceCount": 35,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 57,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "bytecodeValidation": {
+        "inputClasses": 2,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "offlineLinkageVerified": true,
+        "outputClasses": 2,
+        "serializedJar": true,
+        "status": "PASSED_STATIC_REOPENED"
+      },
+      "candidateArchiveValidation": {
+        "centralDirectoryAndCrc": true,
+        "entryCount": 13,
+        "modClassesLoaded": false,
+        "ownershipAndHashes": true,
+        "scratchDeleted": true,
+        "status": "PASSED_REOPENED"
+      },
+      "preservedClassCount": 2,
+      "preservedMethodCount": 10,
+      "replacedClassCount": 0,
+      "bodyPreservation": "CHECKED_EXCEPT_EXACT_LOGGED_STONE_PAIR_EXPANSION",
+      "bytecodeExecuted": false,
+      "publicationAllowed": false,
+      "resourceValidation": {
+        "baseResourceContract": "simple-content-v1; tag references restricted to local closure",
+        "contract": "datapack-recipes-v1",
+        "differences": [
+          "Target cooking recipe-book category defaults to MISC; client grouping is not validated."
+        ],
+        "provenance": "docs/RESOURCE_API_BASELINES.md",
+        "recipes": [
+          {
+            "disposition": "PRESERVE_BYTES",
+            "format": "minecraft:crafting_shapeless",
+            "path": "data/legacybridge_horizontal_transforms/recipes/bridge_block.json",
+            "reason": "Pinned serializer schema and closed ingredient/result references validated; no rewrite necessary",
+            "rule": "resource.recipe.crafting_shapeless.preserve.v1",
+            "sha256": "591bfbc985b88c5f92cb559de70432908143410973c0a8a6df0d9bcd4daadb39"
+          }
+        ],
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "source": "minecraft:1.16.5/forge:36.2.42",
+        "status": "PASSED_REOPENED",
+        "target": "minecraft:1.20.1/forge:47.4.23",
+        "unsupported": [
+          "conditional recipes",
+          "custom serializers and ingredients",
+          "NBT recipe results",
+          "external tag composition",
+          "loot tables and global loot modifiers",
+          "advancements",
+          "functions and commands",
+          "animated textures",
+          "custom model behavior",
+          "local Ogg audio"
+        ]
+      },
+      "runtimeValidation": "NOT_RUN",
+      "output": null,
+      "status": "CANDIDATE_VALIDATED"
+    }
+  ],
+  "sourceAudit": {
+    "legacy": {
+      "sourceArchive": "forge-1.16.5-36.2.42_mapped_official_1.16.5-sources.jar",
+      "sha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376"
+    },
+    "target": {
+      "sourceArchive": "forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+    },
+    "orientationOracle": {
+      "method": "Bounded symbolic paths over actual native API bytecode read as data; no class initialization or original mod execution",
+      "operationInputPairs": 28,
+      "eachCheckedAgainstBothBaselines": true,
+      "maximumSteps": 128,
+      "maximumRecursion": 4,
+      "enumTableAssumptions": "Explicitly audited Direction data3d lookup and clinit constructor literals; this is not native execution",
+      "result": "PASS_STATIC_ONLY"
+    },
+    "behaviorDifferences": [
+      "Target StateHolder.setValue uses equals rather than identity; finite contract admits only native Direction enum singletons.",
+      "Target BlockItem emits BLOCK_PLACE; source does not. Native platform behavior is not patched.",
+      "Base eight-method graph retains inherited no-op rotation/mirror. Transform variant requires both exact overrides.",
+      "Symmetric cube_all fixture requires actual state inspection in future native QA; screenshots alone cannot prove direction.",
+      "No loot table or drops, creative membership, renderer or generic shape behavior is invented."
+    ]
+  },
+  "validation": {
+    "serial": true,
+    "fixtures": {
+      "projects": 2,
+      "totalTests": 8,
+      "passed": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "scope": "Archive-only tests; fixture classes are never loaded"
+    },
+    "focusedRegression": {
+      "suites": 40,
+      "tests": 1150,
+      "passed": 1150,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "previousCases": 743,
+      "newHorizontalCases": 407,
+      "selectorScript": "build/horizontal-block-20261001/regression.ps1",
+      "scope": "Selected regression, not full unfiltered repository suite; counts are test cases, not supported mods"
+    },
+    "newSuiteCounts": {
+      "HorizontalBlockIntegrationTest": 105,
+      "HorizontalTransformsIntegrationTest": 31,
+      "HorizontalBlockArtifactPlanTest": 23,
+      "HorizontalBlockContractTest": 171,
+      "HorizontalMappingIntegrationTest": 28,
+      "HorizontalOrientationApiAuditTest": 28,
+      "HorizontalTransformsMappingIntegrationTest": 21
+    },
+    "package": {
+      "status": "PASS",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "duration": "1m 19s",
+      "actionableTasks": 47,
+      "executed": 28,
+      "upToDate": 19,
+      "offlineGradle": true
+    },
+    "contract": {
+      "status": "PASS",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedNames": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Windows symbolic-link creation unavailable to these tests",
+      "prompts": 23,
+      "cuts": 81,
+      "current": "LB-10/BLOCK-STATE",
+      "evidencePolicy": "PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "files": [
+        {
+          "path": "build/horizontal-block-20261001/contract.log",
+          "bytes": 22424,
+          "sha256": "4a8c1e69ad20406f39c0e0ef7b0640a065af25af094ef5b40c4f4473a4b0e21f"
+        },
+        {
+          "path": "build/horizontal-block-20261001/contract-results.xml",
+          "bytes": 9785,
+          "sha256": "0541a19be9321c4071d1e035b2aa5abd5b02dc59f97c9e754d364e2310e70842"
+        }
+      ]
+    },
+    "closeout": {
+      "status": "PASS",
+      "duration": "25s",
+      "actionableTasks": 50,
+      "executed": 15,
+      "upToDate": 35,
+      "publicHashUnchanged": true,
+      "note": "Assemble, product/runtime audits, CLI smoke, corpus contract tests and verifier repeated serially after documentation; corpus tests were up-to-date, not additional cases.",
+      "log": {
+        "path": "build/horizontal-block-20261001/closeout.log",
+        "bytes": 11980,
+        "sha256": "d9dfabfa25fba8c9e03acb55526421ff9ddec062c97d9a8ba51054cda8775bad"
+      }
+    },
+    "fullUnfilteredSuite": "NOT_RUN",
+    "freshCachelessInstallation": "NOT_RUN",
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "originalVsConvertedNativeBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "ui": "NOT_RUN"
+  },
+  "retainedFailures": [
+    {
+      "run": "first-test.log",
+      "tests": 237,
+      "failures": 9,
+      "cause": "Missing new manifest/bindings IDs in CompositionArtifactPlan metadataOperation",
+      "resolution": "Explicit implemented metadata operation bindings added; positive candidate and cancellation gates then executed"
+    },
+    {
+      "run": "horizontal-base.log",
+      "tests": 237,
+      "failures": 2,
+      "cause": "Two negative-test defects: no-op property replacement and renaming an inherited platform field as owned",
+      "resolution": "Distinct actual property mutation with assert-changed guard; rename only declared owned fields, preserve inherited field"
+    }
+  ],
+  "boundaries": {
+    "newPublicProfiles": 0,
+    "existingPublicProfiles": 6,
+    "publicApplyChanged": false,
+    "runtimeIdentityChanged": false,
+    "existing51AdapterDescriptorsChanged": 0,
+    "newOfflineMetadataOperations": 2,
+    "oldPlatformCodeOrPrivateDataBundled": false,
+    "licenseChanged": false,
+    "modsAcquired": false,
+    "published": false,
+    "originalModClassesExecuted": false,
+    "gameProcessesLaunched": false,
+    "temporaryCandidatePublished": false,
+    "advancedPlanningData": "Explicit complete local mappings/API profile remains required; this run does not establish new cache independence or redistributability",
+    "acceptance": "PARTIAL; two finite implementation slices delivered, native and prerequisite acceptance deferred"
+  },
+  "nextSliceAudit": {
+    "id": "STATIC_BOTTOM_HALF_SHAPE",
+    "status": "READ_ONLY_AUDIT_NOT_IMPLEMENTED",
+    "design": "Separate fixture: one static final native shape from Block.box(0,0,0,16,8,16); getShape and getCollisionShape return that same field and ignore world/context; no horizontal composition or additional state",
+    "requiredWork": [
+      "Exact owned graph, mappings and override/access proof",
+      "Requalify STONE/defaults/mining for this geometry",
+      "Finite matching half-block visual model contract",
+      "Positive and negative fixtures, source/target/readback and serial regression",
+      "Native comparison later, separately authorized"
+    ],
+    "symbols": {
+      "box": "Block.func_208617_a -> Block.m_49796_",
+      "shape": "AbstractBlock.func_220053_a -> BlockBehaviour.m_5940_",
+      "collision": "AbstractBlock.func_220071_b -> BlockBehaviour.m_5939_",
+      "world": "IBlockReader -> BlockGetter",
+      "context": "ISelectionContext -> CollisionContext"
+    },
+    "semanticWarnings": [
+      "Source AxisAlignedBB normalizes reversed bounds; target Shapes.box rejects them.",
+      "Epsilon/rounding and solid-state cache changed. Do not generalize from names or admit generic dimensions.",
+      "For exact half cuboid, target AABB average extent 5/6 exceeds 0.7291666; expected solid state true after cache matches old STONE. Source-derived prediction only.",
+      "Expected collision-full/solid-render/redstone-conductor/suffocation/view-blocking false, LAND/AIR pathfindable true, skylight true/light-block zero require implementation checks and later native QA.",
+      "No forceSolidOn/noOcclusion workaround is justified; cube_all is not a matching half-height visual model."
+    ],
+    "sourceSpans": {
+      "legacy": "AbstractBlock 100-110,225-282,514-545,825-834; Block 110-112,215-216; VoxelShapes 41-94; Material 38,100-108",
+      "target": "BlockBehaviour 125-135,270-348,489-518,654-684,1004-1010; Block 135-137,241-242; Shapes 34-86; AABB 244-248"
+    }
+  },
+  "evidenceFiles": [
+    {
+      "path": "build/horizontal-block-20261001/fixture.log",
+      "bytes": 4696,
+      "sha256": "3bf4b7494893e05c69a14249cbf90e436fc6316f2d200b3c1e46a608958f8a83"
+    },
+    {
+      "path": "build/horizontal-block-20261001/transforms-fixture.log",
+      "bytes": 5828,
+      "sha256": "91b9996757f4a8ccff68683f90ba39904f90ac03b13d9a595586bfebabbd4c61"
+    },
+    {
+      "path": "build/horizontal-block-20261001/compile.log",
+      "bytes": 6856,
+      "sha256": "84f8035f89c803a6408efa679257c4ef7909e83bee1d279073fdef95462698b5"
+    },
+    {
+      "path": "build/horizontal-block-20261001/first-test.log",
+      "bytes": 69300,
+      "sha256": "b111cb1a26a2c4e91f57b185c1f8e1fe190c3845c2063ee915cb4cee98248c42"
+    },
+    {
+      "path": "build/horizontal-block-20261001/horizontal-base.log",
+      "bytes": 67676,
+      "sha256": "dfa70cd1e1dd07225857d5cfcb62c209757d0bf65ff247409d8a22189f8c4dfc"
+    },
+    {
+      "path": "build/horizontal-block-20261001/two-slices.log",
+      "bytes": 96140,
+      "sha256": "0cb45a2a374a7936dff9214c57f42c8fc7655b155d65afc39256c968457010bb"
+    },
+    {
+      "path": "build/horizontal-block-20261001/regression.log",
+      "bytes": 266660,
+      "sha256": "9141770c5a649bac3fcf2781aef05df9c2ebdb3e2077a7047f4fadc4fb4987db"
+    },
+    {
+      "path": "build/horizontal-block-20261001/regression-final.log",
+      "bytes": 275020,
+      "sha256": "c5893c5d518cab0ccb001c4891b420abae7eea594f2ca7b4e43155d8eb02ff90"
+    },
+    {
+      "path": "build/horizontal-block-20261001/package.log",
+      "bytes": 10638,
+      "sha256": "46a586150244a56675ac672ca178c6b407e592263acc2cd4cba34b08bc923227"
+    },
+    {
+      "path": "build/horizontal-block-20261001/audit.ps1",
+      "bytes": 3114,
+      "sha256": "ed04ccaa8365355aa5b8fb6641f48e1cf1a77881a6af18da16e8f72b77bb7523"
+    },
+    {
+      "path": "build/horizontal-block-20261001/regression.ps1",
+      "bytes": 2287,
+      "sha256": "243b2e513cbeb8929fa2e1c2dcf4fa1449433590bc5285740d83b16e5a02ee26"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.CliEngineServiceTest.xml",
+      "bytes": 3117,
+      "sha256": "175940b33bf3d3681a3dffb1133ea780ea3e3ed5d2d5a71558eccf56d97a916d"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.ClientConfigIntegrationTest.xml",
+      "bytes": 134989,
+      "sha256": "3726c7f0f094b29867bd6752e971802a3d3ef98b246c72ca03e90bd981fed956"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest.xml",
+      "bytes": 187984,
+      "sha256": "44f22823aaf648477456066f4c1f661cf9ba856db08eabc2f3716b36d23f956d"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.DatapackProfileIntegrationTest.xml",
+      "bytes": 1117,
+      "sha256": "8139b8d998a2ebc9660c4e045e608764f1bc6f870fc1ce5d716ffdd8d91e0056"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.DurableItemIntegrationTest.xml",
+      "bytes": 112611,
+      "sha256": "1873ee079be651064875de984dfbc4d5ab9f2f1c20023c4c64fea638050f0ba7"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.EventPriorityIntegrationTest.xml",
+      "bytes": 119905,
+      "sha256": "18a049cc7e770e3d111a4313c066529a2d1e3867ffeea56fd6af5c833119caef"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.FoodProfileIntegrationTest.xml",
+      "bytes": 2641,
+      "sha256": "0c62a053dc8132eb419ec2fa17d267a923a15a96d6d572528d7dce4299665779"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.HorizontalBlockIntegrationTest.xml",
+      "bytes": 252187,
+      "sha256": "c0c020f495cf8a0645e15750d579a17d050c551e1a63c2d69e814662def0359d"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.HorizontalTransformsIntegrationTest.xml",
+      "bytes": 299788,
+      "sha256": "56a3e8368c5a1c9d7a77cc59c3e1fd027fd98e8b86a56873d38be33aa9910dc6"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest.xml",
+      "bytes": 966,
+      "sha256": "fe8fe647659933383fb182666f7e9f5a1566a7c3ef86fc8b98248124ac4ec343"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.LifecycleSuiteIntegrationTest.xml",
+      "bytes": 241060,
+      "sha256": "c112997477fea72fca1447b037c4bb6a37c52e2350642071ae75a403a647c4ab"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.LogicProfileIntegrationTest.xml",
+      "bytes": 950,
+      "sha256": "07e6455db20d505d9102d85d5c94125c25e0b5f156e6141d5c082f69a8aa6c38"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.NetworkProfileIntegrationTest.xml",
+      "bytes": 4551,
+      "sha256": "2b3d372ec6a2341796e4526c01a133da94a3fd2b9094a86b808a834b597843fc"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedConstructorsIntegrationTest.xml",
+      "bytes": 113564,
+      "sha256": "4d791f25a279ef760e333d33943dd32cd04ee32582c0411b52abd497e98bf527"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedHierarchyIntegrationTest.xml",
+      "bytes": 134466,
+      "sha256": "889fd75af34d7f39a7e169502007a5997ec7aafe0c442072b64adbd5a78c6c2f"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedInterfaceIntegrationTest.xml",
+      "bytes": 122209,
+      "sha256": "73f1cb5b87740454c561b14a43f478ecbfba2ddeb1c5ae4c1e4c8327887b6e27"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedReceiverIntegrationTest.xml",
+      "bytes": 113150,
+      "sha256": "bc0a2bfafbd2e75cde16500e0d514d6f58d3ca4a0033aeb2b4528a6a8a956444"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.PlainBlockIntegrationTest.xml",
+      "bytes": 148458,
+      "sha256": "f668a78c25cf661088be61588cfd5b3506a16a4d60009113505c42bf33a40e9c"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.ServerConfigIntegrationTest.xml",
+      "bytes": 149220,
+      "sha256": "b385d1b038ff530a055363c867758935733986b9cd1427a14429d7344069c67a"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.AdapterContractIntegrationTest.xml",
+      "bytes": 1660,
+      "sha256": "8780c396949524e13ec56447c999a066acb225d048d787e631f2fb151295f8e7"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.CompositionArtifactPlanTest.xml",
+      "bytes": 2572,
+      "sha256": "e490c0f67ea5934e5a2c76b6f5f50baf04fce8ef7731362d5f42c582c2fd83bf"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.HorizontalBlockArtifactPlanTest.xml",
+      "bytes": 3421,
+      "sha256": "9c0fae12abe10c964c3ed054ba8d631231b675692cc0105a9f9f3229fc753eff"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.HorizontalBlockContractTest.xml",
+      "bytes": 24516,
+      "sha256": "6eee66bb9020562e996ea98b3424dccdc194e49ebf3986dee8e7870152c30498"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LifecycleContractAdapterTest.xml",
+      "bytes": 1060,
+      "sha256": "3ea635c47d359ab126a691f8b3bc87349aed739a4463a68f0e376967fa4336f5"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LifecycleMetadataTest.xml",
+      "bytes": 3204,
+      "sha256": "c4071938361966214957dd4c2c1e5ac96693eabd1a1741997d37263fedd5b4e3"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LifecycleProfileShapeTest.xml",
+      "bytes": 4919,
+      "sha256": "1bbf5a27e0a198921d0e715c83385b814fcc53b0e0cd01a3054746863ed25e0b"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalMappingIntegrationTest.xml",
+      "bytes": 4597,
+      "sha256": "920ede2fddf707ef7e50abc8aeeb9dde223af7e1ae0f40f65c22324190255d45"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalOrientationApiAuditTest.xml",
+      "bytes": 4856,
+      "sha256": "426496c3d7b1cf917706737a3cbc163a55d9c28a103db4ac83a074a36231ce9b"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalTransformsMappingIntegrationTest.xml",
+      "bytes": 3860,
+      "sha256": "18e63545690dcbaef3c4d44c42da967755d1cd76261361ef41741b01fce63f5f"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.VerifiedLogicMappingsTest.xml",
+      "bytes": 2653,
+      "sha256": "f3e00442c795675d47fc55e17d75205d3a1324793451232e3ea377250aebe654"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LogicProfileShapeTest.xml",
+      "bytes": 2111,
+      "sha256": "0cda1191747dd8950da59ce8532c076b599e0d254eb8f93a0ff53b447a30cf77"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.PlainBlockArtifactPlanTest.xml",
+      "bytes": 3190,
+      "sha256": "a1d985f7bc7d6116ab8753a0761eb520e2bd462d4c2b5988b7cac10df2688c8b"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.PlainBlockContractTest.xml",
+      "bytes": 4973,
+      "sha256": "0b0fe2530cf9e9712e0ea567faa4166c595903d7ab5095932f8a6cb62c423615"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.PlainBlockLoweringIntegrationTest.xml",
+      "bytes": 614,
+      "sha256": "2a790da8219937f370f0464098bdf0b7fa3eef34e59a655cd5c392bcb5870aa9"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OfflineLinkageVerifierTest.xml",
+      "bytes": 6034,
+      "sha256": "620d0eb2d2f7759df33ea7784760ecd8cba7fde1b812901a4af53b1118be0873"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedConstructorGraphTest.xml",
+      "bytes": 2670,
+      "sha256": "d21c8f64ee9197949b033d5f31322aca3701c095a92b0976789f2b9167a21861"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedInterfaceDefaultsTest.xml",
+      "bytes": 3850,
+      "sha256": "3e4c29bc5b2690d4c8ccf65b900d47c741f2d65a14a5569cceb7bddbfaea2ec4"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedItemHierarchyTest.xml",
+      "bytes": 3326,
+      "sha256": "971017b18583065265b21f24a1a0fe5b0dd8263712ac08c0493b73464468f2d2"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedReceiverHandlesTest.xml",
+      "bytes": 5651,
+      "sha256": "2a18092878e5827820df2867a51032078b335d926249d3659070109153775c3e"
+    },
+    {
+      "path": "build/horizontal-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.MappingResolverTest.xml",
+      "bytes": 3211,
+      "sha256": "f0addbb4b66e375701ddab7f56fb644c5e6cf2750fffafa21a4dd4f8e7416dd3"
+    },
+    {
+      "path": "fixtures/horizontal-block-1.16.5/build/test-results/test/TEST-dev.legacybridge.fixture.horizontalblock.HorizontalBlockFixtureArtifactTest.xml",
+      "bytes": 1045,
+      "sha256": "b69dc4eeb300437c45be78f59340032ecd8b3fd932ab164b2a28021e9390db32"
+    },
+    {
+      "path": "fixtures/horizontal-transforms-1.16.5/build/test-results/test/TEST-dev.legacybridge.fixture.horizontaltransforms.HorizontalTransformsFixtureArtifactTest.xml",
+      "bytes": 1095,
+      "sha256": "7574d0a19adfb61efd709523ae2272020c42b878090ef60f0e86c0681f2d4700"
+    }
+  ]
+}

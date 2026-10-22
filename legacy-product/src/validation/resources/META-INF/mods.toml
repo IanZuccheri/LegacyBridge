@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="[47,48)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_product_probe"
+version="1.0.0"
+displayName="LegacyBridge Production Packaging Probe (TEST ONLY)"
+description='''Separate bounded QA probe; never included in the public LegacyBridge artifact.'''
+
+[[dependencies.legacybridge_product_probe]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.23]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_product_probe]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_product_probe]]
+modId="legacybridge_runtime"
+mandatory=true
+versionRange="[0.1.1-SNAPSHOT]"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.legacybridge_product_probe]]
+modId="legacybridge_example"
+mandatory=false
+versionRange="[1.0.0,1.0.2)"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,13 @@
+# The public JAR includes the current project license; historical corpus evidence
+# binds the archived authorization notice, not future changes to LICENSE.
+LICENSE -text
+corpus/licenses/legacybridge/legacy-license-2026-09-06.txt -text
+# Snapshot locks bind corpus records byte-for-byte, including newline bytes.
+corpus/records/*.json -text
+# Primitive native observations are compared byte-for-byte with runtime receipts.
+docs/evidence/lifecycle-preserving-v1/*-trace.json -text
+docs/evidence/food-item-v1/*-trace.json -text
+docs/evidence/datapack-recipes-v1/*-trace.json -text
+# Embedded finite contracts are byte-pinned; do not normalize line endings.
+legacy-converter/src/main/resources/META-INF/legacybridge/simple-content-v1/source-contract-v1.tsv -text
+legacy-converter/src/main/resources/META-INF/legacybridge/cohort-preview-v1/platform-contract-v1.tsv -text

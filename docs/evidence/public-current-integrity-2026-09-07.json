@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_PUBLIC_EVIDENCE_INTEGRITY_VALIDATION",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-06",
+  "cut": "PUBLIC-CURRENT-E2E",
+  "cutStatus": "PARTIAL",
+  "execution": "HEADLESS_ONLY",
+  "gamesLaunched": false,
+  "desktopAutomationUsed": false,
+  "publicSha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6",
+  "productionCodeChanged": false,
+  "newSemanticRules": 0,
+  "newAdapters": 0,
+  "newCompatibleModsClaimed": 0,
+  "implementation": [
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/PublicEvidenceVerifier.java",
+      "sha256": "51a9c2999dd7f63cc9f8c63f5daa85555447c6347a0a7fdf207f2e7286abc5de"
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/PublicEvidenceVerifierTest.java",
+      "sha256": "c09cce9e8f0ece9ec7d86ecfaa7e32cb77b004b6d5754de9817134aa0a18d39d"
+    }
+  ],
+  "index": {
+    "path": "docs/evidence/public-current-index-2026-09-07.json",
+    "sha256": "2270e5b8d230f0d2c7bc152633dc99f8dc35a611f902a527c7d993696810f4be",
+    "status": "INTEGRITY_VERIFIED_NOT_QUALIFICATION",
+    "files": 192,
+    "bytes": 95949903,
+    "exactScalarAssertions": 61,
+    "recordedObservations": 23,
+    "pending": 4,
+    "notClaimed": 3
+  },
+  "targetedTestsAndIntegrity": {
+    "command": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-corpus:test --tests '*PublicEvidenceVerifierTest' :legacy-corpus:verifyPublicEvidence --no-daemon --max-workers=1",
+    "exitCode": 0,
+    "secondsReportedByGradle": 123,
+    "tests": 49,
+    "passed": 48,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipReason": "This Windows environment could not create the symbolic link required by one filesystem test; not passed or worked around by changing privileges.",
+    "xml": {
+      "path": "build/public-current-integrity-2026-09-07-run1/tests-3.xml",
+      "sha256": "88486a8b902d3e8bd3751f94e7513e8f07afda8b4a3fb264f252adc283266664"
+    },
+    "log": {
+      "path": "build/public-current-integrity-2026-09-07-run1/tests-and-integrity-3.log",
+      "sha256": "3fd5db5e4d210ee64068305213ad0dd9188d74ee1aabe6910355acffb8c8cb2e"
+    }
+  },
+  "earlierAttempts": [
+    {
+      "path": "build/public-current-integrity-2026-09-07-run1/tests-1.log",
+      "xml": "build/public-current-integrity-2026-09-07-run1/tests-1-failed.xml",
+      "status": "FAILED",
+      "tests": 46,
+      "failures": 2,
+      "skipped": 1,
+      "cause": "Refusals correctly threw IOException; two test assertions incorrectly required lowercase evidence to match messages beginning Evidence. Normalized only test-message casing. PowerShell Stop handling of native stderr also prevented a clean wrapper exit receipt; the failing XML is retained."
+    },
+    {
+      "path": "build/public-current-integrity-2026-09-07-run1/tests-2.log",
+      "status": "BUILD_SUCCESSFUL",
+      "secondsReportedByGradle": 47,
+      "boundary": "Intermediate suite before parsed-ledger budget and explicit client-log dimension tests; not the final 49-case result."
+    },
+    {
+      "path": "build/public-current-integrity-2026-09-07-run1/integrity-1.log",
+      "status": "FAILED",
+      "cause": "Index initially misclassified the native reload log as visual client evidence with no screenshot. Added explicit NATIVE_CLIENT_LOG dimension requiring its log; did not synthesize an image or weaken visual-gate requirements."
+    }
+  ],
+  "rootBuild": {
+    "status": "BUILD_SUCCESSFUL",
+    "command": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build --no-daemon --max-workers=1",
+    "exitCode": 0,
+    "secondsReportedByGradle": 281,
+    "actionableTasks": 68,
+    "executedTasks": 29,
+    "upToDateTasks": 39,
+    "publicSha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6",
+    "log": {
+      "path": "build/public-current-integrity-2026-09-07-run1/build-1.log",
+      "sha256": "036d59ec498364830a8abcb3f28dbae8fe7a6ce9991dbd967899d2f1bdf3ff76"
+    },
+    "freshJavaModule": "legacy-corpus",
+    "tests": 210,
+    "passed": 206,
+    "skipped": 4,
+    "failures": 0,
+    "errors": 0,
+    "suites": [
+      {
+        "path": "build/public-current-integrity-2026-09-07-run1/root-corpus-tests/TEST-dev.legacybridge.corpus.CorpusJsonTest.xml",
+        "sha256": "525035d4826574625835f1354b542343e3da0afc9ce2fb6ae21e05cfc5c0155c",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-integrity-2026-09-07-run1/root-corpus-tests/TEST-dev.legacybridge.corpus.CorpusLockTest.xml",
+        "sha256": "52b2fe03242fd3bf183b1a1f8d2aa963683aab622c1ad018d5ed4a07b641aa5c",
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      {
+        "path": "build/public-current-integrity-2026-09-07-run1/root-corpus-tests/TEST-dev.legacybridge.corpus.CorpusRunnerTest.xml",
+        "sha256": "8908033209d75113f8ac848c78f1a966f8a299bfefee79a50911e3a7bb98ee55",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-integrity-2026-09-07-run1/root-corpus-tests/TEST-dev.legacybridge.corpus.CorpusVerifierTest.xml",
+        "sha256": "e6046dd7722ee41a7c2df9bd9cdeb7ed3bb957ce1a7c358b119b4755d837995c",
+        "tests": 47,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-integrity-2026-09-07-run1/root-corpus-tests/TEST-dev.legacybridge.corpus.PromptContractVerifierTest.xml",
+        "sha256": "2a8034b0e74ad389ef881aa216c351177d978aaf7739a9097b68400b1be06c14",
+        "tests": 77,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      {
+        "path": "build/public-current-integrity-2026-09-07-run1/root-corpus-tests/TEST-dev.legacybridge.corpus.PublicEvidenceVerifierTest.xml",
+        "sha256": "1d1d267e6d1b35d79d3889d7a607f6608934f666f4e26c38fe5a189c2a045b49",
+        "tests": 49,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      }
+    ],
+    "otherJavaTests": "UP-TO-DATE; no fresh execution claimed",
+    "contract": "VERIFIED prompts=23 cuts=77 cursor=LB-06/PUBLIC-CURRENT-E2E",
+    "packaging": "verifyProductJar passed; public artifact unchanged"
+  },
+  "limits": [
+    "Integrity does not establish that author-declared evidence categories, observation claims or screenshots are genuine. Human review remains mandatory.",
+    "Actual native observations were reused by unchanged hashes; no image viewing, decoding, game launch, runtime test or new original mod acquisition occurred in this continuation.",
+    "The task is opt-in and requires retained local evidence; missing evidence is an explicit failure, not an automatic download, regeneration or skip-as-pass.",
+    "The normal installer has no active test hook. A deterministic external public-client mid-commit oracle remains unimplemented; polling and later killing a process is not sufficient proof.",
+    "Original compatibility/transformation report schemas, public adapter identity and all conversion profiles remain unchanged."
+  ]
+}

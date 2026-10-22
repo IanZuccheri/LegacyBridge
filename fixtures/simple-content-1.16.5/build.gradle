@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+
+group = 'dev.legacybridge.fixture'
+version = '1.0.0'
+base.archivesName = 'legacybridge-example-1.16.5'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 8
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.16.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    fixtureAssets {
+        java.srcDir 'src/fixtureAssets/java'
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.42'
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+def generatedAssets = layout.buildDirectory.dir('generated/fixture-assets')
+tasks.register('generateFixtureAssets', JavaExec) {
+    group = 'build'
+    description = 'Creates the original deterministic 16x16 fixture-only test textures.'
+    dependsOn tasks.named('fixtureAssetsClasses')
+    classpath = sourceSets.fixtureAssets.runtimeClasspath
+    mainClass = 'dev.legacybridge.fixtureassets.FixtureTextures'
+    args generatedAssets.get().asFile.absolutePath
+    inputs.files(sourceSets.fixtureAssets.allSource)
+    outputs.dir(generatedAssets)
+    systemProperty 'java.awt.headless', 'true'
+}
+
+sourceSets.main.resources.srcDir(generatedAssets)
+tasks.named('processResources') {
+    dependsOn tasks.named('generateFixtureAssets')
+}
+
+tasks.named('jar', Jar) {
+    manifest.attributes(
+        'Implementation-Title': 'LegacyBridge Simple Content Fixture',
+        'Implementation-Version': project.version,
+        'Implementation-Vendor': 'LegacyBridge contributors',
+        'LegacyBridge-Fixture': 'simple-content-v1'
+    )
+    finalizedBy 'reobfJar'
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+    dependsOn 'reobfJar'
+    systemProperty 'fixture.jar', tasks.named('jar', Jar).get().archiveFile.get().asFile.absolutePath
+    testLogging {
+        events 'failed', 'skipped'
+        exceptionFormat 'full'
+    }
+}

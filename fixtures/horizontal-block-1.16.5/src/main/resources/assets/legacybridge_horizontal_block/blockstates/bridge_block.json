@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "legacybridge_horizontal_block:block/bridge_block", "y": 0 },
+    "facing=east": { "model": "legacybridge_horizontal_block:block/bridge_block", "y": 90 },
+    "facing=south": { "model": "legacybridge_horizontal_block:block/bridge_block", "y": 180 },
+    "facing=west": { "model": "legacybridge_horizontal_block:block/bridge_block", "y": 270 }
+  }
+}

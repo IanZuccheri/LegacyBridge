@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "kind": "PUBLIC_MOD_LOCAL_INTAKE_RIGHTS",
+  "reviewedAt": "2026-09-06",
+  "policy": "Public metadata and license evidence only. Binaries remain ignored local inputs and are never copied to fixtures, published, or packaged. License evidence is not a compatibility claim or a reproducible-build attestation.",
+  "candidates": [
+    {
+      "id": "clumps-forge-6.0.0.28",
+      "slug": "clumps",
+      "name": "Clumps",
+      "modId": "clumps",
+      "version": "6.0.0.28",
+      "publisher": {
+        "platform": "Modrinth",
+        "projectId": "Wnxd13zP",
+        "versionId": "UutzgwbZ",
+        "versionUrl": "https://modrinth.com/mod/clumps/version/UutzgwbZ",
+        "metadataUrl": "https://api.modrinth.com/v2/version/UutzgwbZ",
+        "publishedAt": "2023-06-04T08:55:28.440942Z",
+        "declaredGameVersions": ["1.16.5"],
+        "declaredLoaders": ["forge"],
+        "declaredThirdPartyDependencies": []
+      },
+      "artifact": {
+        "filename": "Clumps-6.0.0.28.jar",
+        "sizeBytes": 18397,
+        "sha256": "f69abc1d44277b495004fd6d67d0f95f2574581bb26e55543f2dcd2153cd92d0",
+        "publisherSha512": "f38e416c613c2686b458ab9b18c9db3ae14ed1cd887ebd26e4f8914ae16c6dea64bc9210f48b744d8aef598236bdf3673a13536c2681cc4eecc72aabe3b3eb0a",
+        "downloadUrl": "https://cdn.modrinth.com/data/Wnxd13zP/versions/UutzgwbZ/Clumps-6.0.0.28.jar",
+        "localRelativePath": "build/corpus-intake/public/clumps/Clumps-6.0.0.28.jar"
+      },
+      "rights": {
+        "status": "LOCAL_ACQUISITION_STATIC_ANALYSIS_MODIFICATION_ALLOWED",
+        "licenseSpdx": "MIT",
+        "licenseSnapshot": "corpus/licenses/clumps/LICENSE.md",
+        "licenseUrl": "https://raw.githubusercontent.com/jaredlll08/Clumps/34c57ca0bd068655a63d99eabd215219432c32d4/LICENSE.md",
+        "licenseSha256": "f06bc81b4cf8335305fbe954c748746b60ff6d7f016f9efcd405e7d204f88e1a",
+        "sourceCommit": "34c57ca0bd068655a63d99eabd215219432c32d4",
+        "releaseAssociation": "The exact Modrinth 6.0.0.28 changelog links this commit as its newest change; the license was read at that immutable commit, not master.",
+        "permissionBasis": "MIT expressly permits use, copying and modification. Preserve copyright and permission notices. No binary redistribution is performed by this corpus intake.",
+        "binarySourceReproducibility": "NOT_VERIFIED",
+        "redistributionSelected": false
+      },
+      "sourceBuildEvidence": {
+        "url": "https://github.com/jaredlll08/Clumps/blob/34c57ca0bd068655a63d99eabd215219432c32d4/build.gradle",
+        "minecraftVersion": "1.16.5",
+        "forgeVersion": "36.1.16",
+        "javaTarget": "1.8",
+        "scope": "Release-associated source configuration; not a claim that binary build was reproduced."
+      }
+    },
+    {
+      "id": "controlling-forge-7.0.0.29",
+      "slug": "controlling",
+      "name": "Controlling",
+      "modId": "controlling",
+      "version": "7.0.0.29",
+      "publisher": {
+        "platform": "Modrinth",
+        "projectId": "xv94TkTM",
+        "versionId": "Z7UMwzSN",
+        "versionUrl": "https://modrinth.com/mod/controlling/version/Z7UMwzSN",
+        "metadataUrl": "https://api.modrinth.com/v2/version/Z7UMwzSN",
+        "publishedAt": "2023-06-09T02:31:43.119855Z",
+        "declaredGameVersions": ["1.16.5"],
+        "declaredLoaders": ["forge"],
+        "declaredThirdPartyDependencies": []
+      },
+      "artifact": {
+        "filename": "Controlling-7.0.0.29.jar",
+        "sizeBytes": 51888,
+        "sha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+        "publisherSha512": "247ebb1d3d62f4d0e7fda3a1f6c5ebfcea0637fd4694134628a702cee8cb557f75ee19838886b5c2203750a539d6d69cdf9acd694b862bd34a8af4d70b45506f",
+        "downloadUrl": "https://cdn.modrinth.com/data/xv94TkTM/versions/Z7UMwzSN/Controlling-7.0.0.29.jar",
+        "localRelativePath": "build/corpus-intake/public/controlling/Controlling-7.0.0.29.jar"
+      },
+      "rights": {
+        "status": "LOCAL_ACQUISITION_STATIC_ANALYSIS_MODIFICATION_ALLOWED",
+        "licenseSpdx": "MIT",
+        "licenseSnapshot": "corpus/licenses/controlling/LICENSE",
+        "licenseUrl": "https://raw.githubusercontent.com/jaredlll08/Controlling/1975807fd663f62d5631f94b9dee19372a5a2d08/LICENSE",
+        "licenseSha256": "f915f0337aae5963d0426091c4e5dac1aac79128872e1c679be6b95aed66e25b",
+        "sourceCommit": "1975807fd663f62d5631f94b9dee19372a5a2d08",
+        "releaseAssociation": "The exact Modrinth 7.0.0.29 changelog links this commit as its newest change. The moving 1.16 branch has later changes and was not used as release evidence.",
+        "permissionBasis": "MIT expressly permits use, copying and modification. Preserve copyright and permission notices. No binary redistribution is performed by this corpus intake.",
+        "binarySourceReproducibility": "NOT_VERIFIED",
+        "redistributionSelected": false
+      },
+      "sourceBuildEvidence": {
+        "url": "https://github.com/jaredlll08/Controlling/blob/1975807fd663f62d5631f94b9dee19372a5a2d08/build.gradle",
+        "minecraftVersion": "1.16.5",
+        "forgeVersion": "36.0.0",
+        "javaTarget": "1.8",
+        "scope": "Release-associated source configuration; not a claim that binary build was reproduced."
+      }
+    },
+    {
+      "id": "appleskin-forge-2.5.1-mc1.16.4",
+      "slug": "appleskin",
+      "name": "AppleSkin",
+      "modId": "appleskin",
+      "version": "2.5.1+mc1.16.4",
+      "publisher": {
+        "platform": "Modrinth",
+        "projectId": "EsAfCjCV",
+        "versionId": "633NTwhH",
+        "versionUrl": "https://modrinth.com/mod/appleskin/version/633NTwhH",
+        "metadataUrl": "https://api.modrinth.com/v2/version/633NTwhH",
+        "publishedAt": "2023-09-27T05:00:26.667380Z",
+        "declaredGameVersions": ["1.16.4", "1.16.5"],
+        "declaredLoaders": ["forge"],
+        "declaredThirdPartyDependencies": []
+      },
+      "artifact": {
+        "filename": "appleskin-forge-mc1.16.x-2.5.1.jar",
+        "sizeBytes": 47721,
+        "sha256": "6dd1d2ef1daa6871b79f5ca2ac1e757ec731f94958f12397b43670b188091b62",
+        "publisherSha512": "f7fec83bba6ae1ccb333a2da4f444fa2cb776e2771c43836b796b36f9b98632119e91241764f4cf9c0031d4d413004e2b2170a95e01d7123cf93ed51d9bab21f",
+        "downloadUrl": "https://cdn.modrinth.com/data/EsAfCjCV/versions/633NTwhH/appleskin-forge-mc1.16.x-2.5.1.jar",
+        "localRelativePath": "build/corpus-intake/public/appleskin/appleskin-forge-mc1.16.x-2.5.1.jar"
+      },
+      "rights": {
+        "status": "LOCAL_ACQUISITION_STATIC_ANALYSIS_MODIFICATION_ALLOWED",
+        "licenseSpdx": "Unlicense",
+        "licenseSnapshot": "corpus/licenses/appleskin/LICENSE",
+        "licenseUrl": "https://raw.githubusercontent.com/squeek502/AppleSkin/5bedbcc501848f3a22a650f1f661e57d6973af83/LICENSE",
+        "licenseSha256": "88d9b4eb60579c191ec391ca04c16130572d7eedc4a86daa58bf28c6e14c9bcd",
+        "sourceCommit": "5bedbcc501848f3a22a650f1f661e57d6973af83",
+        "sourceTag": "v2.5.1",
+        "releaseAssociation": "Exact v2.5.1 tag and immutable commit; gradle.properties explicitly identifies mod 2.5.1 and Minecraft 1.16.4. Publisher lists 1.16.5 compatibility too.",
+        "permissionBasis": "The Unlicense expressly allows copying, modification and use of source or compiled binaries for any purpose. This intake retains its notice and does not redistribute the binary.",
+        "binarySourceReproducibility": "NOT_VERIFIED",
+        "redistributionSelected": false
+      },
+      "sourceBuildEvidence": {
+        "url": "https://github.com/squeek502/AppleSkin/blob/5bedbcc501848f3a22a650f1f661e57d6973af83/gradle.properties",
+        "minecraftVersion": "1.16.4",
+        "forgeVersion": "35.1.4",
+        "javaTarget": "1.8",
+        "scope": "Adjacent baseline: publisher advertises Forge 1.16.5 compatibility, but source build target is 1.16.4/35.1.4. Do not label this as Forge36-compiled or assume source-profile admission."
+      }
+    }
+  ],
+  "excluded": [],
+  "limitations": [
+    "No source-to-binary reproducibility or signature attestation was established; publisher size and SHA-512 pin the actual acquired binary.",
+    "No original mod code is executed. Intake establishes authorization and identity only; the engine must separately record analysis, conversion, bytecode and runtime results.",
+    "The three convenience-sampled projects are not representative of the complete Forge ecosystem; download counts and symbol-resolution counts are not conversion coverage."
+  ]
+}

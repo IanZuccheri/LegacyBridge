@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+[[mods]]
+modId="legacybridge_hierarchy"
+version="1.0.0"
+displayName="LegacyBridge Owned Hierarchy Fixture"
+description="Authored private hierarchy candidate; no runtime qualification."
+[[dependencies.legacybridge_hierarchy]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_hierarchy]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[47,48)"
+license="GPL-3.0-only with Minecraft linking exception; third-party terms apply separately"
+
+[[mods]]
+modId="legacybridge_runtime"
+version="${project_version}"
+displayName="LegacyBridge"
+authors="LegacyBridge contributors"
+description='''
+Static legacy mod analysis and proven simple-content-v1 conversion, with a client-only conversion screen.
+Includes the matching runtime adapters and finite simple-content mappings. Advanced development profiles require explicit local data.
+No hot loading, automatic installation, universal compatibility or automatic restart.
+'''
+
+[[dependencies.legacybridge_runtime]]
+modId="forge"
+mandatory=true
+versionRange="[${forge_version}]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_runtime]]
+modId="minecraft"
+mandatory=true
+versionRange="[${minecraft_version}]"
+ordering="NONE"
+side="BOTH"

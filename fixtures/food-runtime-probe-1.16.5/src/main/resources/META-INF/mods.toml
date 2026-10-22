@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_food_probe"
+version="1.0.0"
+displayName="LegacyBridge Food Runtime Probe 1.16.5"
+authors="LegacyBridge contributors"
+description='''Separate test-only runtime observation of the authorized food fixture. Never a product dependency.'''
+
+[[dependencies.legacybridge_food_probe]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_food_probe]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_food_probe]]
+modId="legacybridge_food"
+mandatory=true
+versionRange="[1.0.0]"
+ordering="AFTER"
+side="BOTH"

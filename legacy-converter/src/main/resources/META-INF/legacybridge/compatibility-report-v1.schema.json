@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legacybridge:schema:compatibility-report:v1",
+  "title": "LegacyBridge CompatibilityReport v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "tool",
+    "input",
+    "archive",
+    "metadata",
+    "bytecode",
+    "markers",
+    "findings",
+    "assessment"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "tool": { "$ref": "#/$defs/tool" },
+    "input": { "$ref": "#/$defs/input" },
+    "archive": { "$ref": "#/$defs/archive" },
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "bytecode": { "$ref": "#/$defs/bytecode" },
+    "markers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/marker" }
+    },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "assessment": { "$ref": "#/$defs/assessment" }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "policyVersion"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "version": { "$ref": "#/$defs/nonEmptyString" },
+        "policyVersion": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fileName", "sizeBytes", "sha256"],
+      "properties": {
+        "fileName": { "$ref": "#/$defs/nonEmptyString" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entryCount",
+        "totalUncompressedBytes",
+        "signed",
+        "multiRelease",
+        "specialEntryCount",
+        "specialEntriesTruncated",
+        "specialEntries"
+      ],
+      "properties": {
+        "entryCount": { "type": "integer", "minimum": 0 },
+        "totalUncompressedBytes": { "type": "integer", "minimum": 0 },
+        "signed": { "type": "boolean" },
+        "multiRelease": { "type": "boolean" },
+        "specialEntryCount": { "type": "integer", "minimum": 0 },
+        "specialEntriesTruncated": { "type": "boolean" },
+        "specialEntries": {
+          "allOf": [
+            { "$ref": "#/$defs/stringArray" },
+            { "maxItems": 40 }
+          ]
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "parsed", "modLoader", "loaderVersion", "mods", "dependencies"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "parsed": { "type": "boolean" },
+        "modLoader": { "type": "string" },
+        "loaderVersion": { "type": "string" },
+        "mods": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/mod" }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/dependency" }
+        }
+      }
+    },
+    "mod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["modId", "version", "displayName"],
+      "properties": {
+        "modId": { "type": "string" },
+        "version": { "type": "string" },
+        "displayName": { "type": "string" }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ownerModId", "modId", "mandatoryDeclared", "mandatory", "versionRange", "ordering", "side"],
+      "properties": {
+        "ownerModId": { "type": "string" },
+        "modId": { "type": "string" },
+        "mandatoryDeclared": { "type": "boolean" },
+        "mandatory": { "type": "boolean" },
+        "versionRange": { "type": "string" },
+        "ordering": { "type": "string" },
+        "side": { "type": "string" }
+      }
+    },
+    "bytecode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classCount",
+        "unreadableClassCount",
+        "previewClassCount",
+        "nativeMethodCount",
+        "classMajorVersions",
+        "namespaces"
+      ],
+      "properties": {
+        "classCount": { "type": "integer", "minimum": 0 },
+        "unreadableClassCount": { "type": "integer", "minimum": 0 },
+        "previewClassCount": { "type": "integer", "minimum": 0 },
+        "nativeMethodCount": { "type": "integer", "minimum": 0 },
+        "classMajorVersions": {
+          "type": "object",
+          "propertyNames": { "pattern": "^[0-9]+$" },
+          "additionalProperties": { "type": "integer", "minimum": 1 }
+        },
+        "namespaces": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/namespace" }
+        }
+      }
+    },
+    "namespace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "namespace",
+        "definitionCount",
+        "referenceCount",
+        "definitionSamples",
+        "referenceSamples",
+        "definitionSamplesTruncated",
+        "referenceSamplesTruncated"
+      ],
+      "properties": {
+        "namespace": {
+          "enum": ["JAVA", "JAVAX", "MINECRAFT", "MINECRAFT_CLIENT", "FORGE", "MODLAUNCHER", "MIXIN", "OTHER"]
+        },
+        "definitionCount": { "type": "integer", "minimum": 0 },
+        "referenceCount": { "type": "integer", "minimum": 0 },
+        "definitionSamples": {
+          "allOf": [
+            { "$ref": "#/$defs/stringArray" },
+            { "maxItems": 12 }
+          ]
+        },
+        "referenceSamples": {
+          "allOf": [
+            { "$ref": "#/$defs/stringArray" },
+            { "maxItems": 12 }
+          ]
+        },
+        "definitionSamplesTruncated": { "type": "boolean" },
+        "referenceSamplesTruncated": { "type": "boolean" }
+      }
+    },
+    "marker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "evidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "severity", "category", "message", "evidence"],
+      "properties": {
+        "code": { "$ref": "#/$defs/nonEmptyString" },
+        "severity": { "enum": ["INFO", "WARNING", "ERROR", "BLOCKER"] },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "message": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["analysisStatus", "sourceProfile", "conversionStatus", "executionStatus"],
+      "properties": {
+        "analysisStatus": { "enum": ["COMPLETE", "PARTIAL", "REJECTED"] },
+        "sourceProfile": { "enum": ["FORGE_1_16_5_CANDIDATE", "AMBIGUOUS", "OTHER"] },
+        "conversionStatus": { "const": "NOT_IMPLEMENTED" },
+        "executionStatus": { "const": "NOT_TESTED" }
+      }
+    }
+  }
+}

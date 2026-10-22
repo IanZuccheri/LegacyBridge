@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "evidenceKind": "AUTHORED_SCENARIO_DECLARATIONS_ONLY",
+  "sourceMinecraft": "1.16.5",
+  "sourceForge": "36.2.42",
+  "entrypoint": "dev.legacybridge.fixture.helmetdispenser.IronHelmetDispenserContent.dispense",
+  "nativeClient": "NOT_RUN",
+  "nativeServer": "NOT_RUN",
+  "nativeBehavior": "NOT_RUN",
+  "input": {"item": "legacybridge_helmet_dispenser:bridge_helmet", "count": 1},
+  "queryScope": "Native facing-adjacent block AABB; native no-spectator and ArmoredMob eligibility; result order is supplied, never sorted",
+  "cases": [
+    {
+      "id": "native-player-first",
+      "eligibleInOrder": ["net.minecraft.entity.player.ServerPlayerEntity", "net.minecraft.entity.monster.ZombieEntity"],
+      "preconditions": ["both alive", "both nonspectators", "both HEAD empty", "zombie canPickUpLoot=true"],
+      "sourceExpected": {"return": true, "selectedIndex": 0, "splitCount": 1, "playerSoundBeforeWrite": true, "mobPostEffects": false},
+      "targetExpected": "FIRST_EXACT_NATIVE_PLAYER_WITH_REVIEWED_HEAD_EFFECT",
+      "observed": "NOT_RUN"
+    },
+    {
+      "id": "exact-zombie-first",
+      "eligibleInOrder": ["net.minecraft.entity.monster.ZombieEntity", "net.minecraft.entity.player.ServerPlayerEntity"],
+      "preconditions": ["both alive", "both nonspectators", "both HEAD empty", "zombie canPickUpLoot=true"],
+      "sourceExpected": {"return": true, "selectedIndex": 0, "splitCount": 1, "playerSoundBeforeWrite": false, "dropChance": 2.0, "persistenceRequired": true},
+      "targetExpected": "FIRST_EXACT_ZOMBIE_WITH_SILENT_HEAD_WRITE_THEN_MOB_POST_EFFECTS",
+      "observed": "NOT_RUN"
+    },
+    {
+      "id": "no-result",
+      "eligibleInOrder": [],
+      "preconditions": ["no living entities intersect the native query box"],
+      "sourceExpected": {"return": false, "splitCount": 0},
+      "targetExpected": "FALSE_NO_ELIGIBLE_TARGET",
+      "observed": "NOT_RUN"
+    },
+    {
+      "id": "spectator-no-result",
+      "eligibleInOrder": [],
+      "preconditions": ["only player is a spectator", "player HEAD empty"],
+      "sourceExpected": {"return": false, "splitCount": 0},
+      "targetExpected": "FALSE_NO_ELIGIBLE_TARGET",
+      "observed": "NOT_RUN"
+    },
+    {
+      "id": "dead-no-result",
+      "eligibleInOrder": [],
+      "preconditions": ["only zombie is not alive", "zombie HEAD empty", "zombie canPickUpLoot=true"],
+      "sourceExpected": {"return": false, "splitCount": 0},
+      "targetExpected": "FALSE_NO_ELIGIBLE_TARGET",
+      "observed": "NOT_RUN"
+    },
+    {
+      "id": "zombie-loot-disabled-no-result",
+      "eligibleInOrder": [],
+      "preconditions": ["only zombie is alive", "zombie HEAD empty", "zombie canPickUpLoot=false"],
+      "sourceExpected": {"return": false, "splitCount": 0},
+      "targetExpected": "FALSE_NO_ELIGIBLE_TARGET",
+      "observed": "NOT_RUN"
+    },
+    {
+      "id": "unsupported-first-before-known",
+      "eligibleInOrder": ["net.minecraft.entity.item.ArmorStandEntity", "net.minecraft.entity.player.ServerPlayerEntity"],
+      "preconditions": ["both alive", "both nonspectators", "both HEAD empty", "ArmorStand canTakeItem returns true"],
+      "sourceExpected": {"return": true, "selectedIndex": 0, "splitCount": 1},
+      "targetExpected": "UNSUPPORTED_BEFORE_SPLIT_NOT_FALSE_AND_NOT_SELECT_SECOND",
+      "intentionalRestriction": "Exact ArmorStand is outside the implemented target receiver contract; original native method is broader",
+      "observed": "NOT_RUN"
+    }
+  ]
+}

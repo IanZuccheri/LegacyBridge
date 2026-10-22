@@ -1,0 +1,299 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version "${forgegradle_version}"
+}
+
+base {
+    archivesName = "legacy-runtime-${project_version}-forge-${minecraft_version}"
+}
+
+// The version is already part of archivesName so clearing archiveVersion avoids
+// names such as ...-0.1.0-SNAPSHOT-...-0.1.0-SNAPSHOT.jar. This applies to the
+// player JAR and the sources JAR created by the root project convention.
+tasks.withType(AbstractArchiveTask).configureEach {
+    archiveVersion = ''
+}
+
+def validationEnabled = providers.gradleProperty('bridgeValidation').map { it.toBoolean() }.getOrElse(false)
+
+// The neutral module owns the existing compatibility ABI. Its output is part
+// of this mod in development and in the final runtime JAR, never a second mod.
+evaluationDependsOn(':legacy-compat-api')
+def sharedCompatibility = project(':legacy-compat-api').sourceSets.main
+
+sourceSets {
+    main {
+        compileClasspath += sharedCompatibility.output
+        runtimeClasspath += sharedCompatibility.output
+    }
+    test {
+        compileClasspath += sharedCompatibility.output
+        runtimeClasspath += sharedCompatibility.output
+    }
+    validation {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+
+configurations {
+    validationImplementation.extendsFrom implementation
+    validationRuntimeOnly.extendsFrom runtimeOnly
+}
+
+def generatedAdapterCatalog = layout.buildDirectory.dir('generated/adapter-catalog')
+tasks.register('generateAdapterCatalog', JavaExec) {
+    dependsOn ':legacy-compat-api:classes'
+    classpath = sharedCompatibility.runtimeClasspath
+    mainClass = 'dev.legacybridge.runtime.compat.AdapterCatalogWriter'
+    args generatedAdapterCatalog.get().file('META-INF/legacybridge/adapters.json').asFile.absolutePath
+    args project_version
+    inputs.files(sharedCompatibility.output)
+    inputs.property 'runtimeVersion', project_version
+    outputs.dir generatedAdapterCatalog
+}
+sourceSets.main.resources.srcDir generatedAdapterCatalog
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+    copyIdeResources = true
+
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'info'
+            mods {
+                legacybridge_runtime {
+                    source sourceSets.main
+                    source sharedCompatibility
+                }
+                if (validationEnabled) {
+                    legacybridge_validation {
+                        source sourceSets.validation
+                    }
+                }
+            }
+            if (validationEnabled) property 'legacybridge.validation', 'true'
+        }
+
+        client {
+            if (validationEnabled) workingDirectory project.file('run-validation/client')
+        }
+        server {
+            args '--nogui'
+            if (validationEnabled) workingDirectory project.file('run-validation/server')
+        }
+    }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    testImplementation platform("org.junit:junit-bom:${rootProject.junit_version}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    dependsOn 'generateAdapterCatalog'
+    filteringCharset = 'UTF-8'
+    def capabilityCatalogPath = 'META-INF/legacybridge/runtime-capabilities.json'
+    def propertiesToExpand = [
+            project_version: project_version,
+            minecraft_version: minecraft_version,
+            forge_version: forge_version
+    ]
+    inputs.properties propertiesToExpand
+    filesMatching(['META-INF/mods.toml', capabilityCatalogPath]) {
+        expand propertiesToExpand
+    }
+}
+
+def runtimeJar = tasks.named('jar', Jar) {
+    from sharedCompatibility.output
+    from(rootProject.file('LICENSE')) {
+        into 'META-INF'
+        rename { 'LICENSE_legacybridge_runtime' }
+    }
+    from(rootProject.files('LICENSING.md', 'LINKING_EXCEPTION.md')) { into 'META-INF/legacybridge/legal' }
+    manifest {
+        attributes(
+                'Specification-Title': 'legacybridge_runtime',
+                'Specification-Vendor': 'LegacyBridge contributors',
+                'Specification-Version': '1',
+                'Implementation-Title': 'LegacyBridge Runtime',
+                'Implementation-Version': project.version,
+                'Implementation-Vendor': 'LegacyBridge contributors',
+                'LegacyBridge-Capability-Catalog': 'META-INF/legacybridge/runtime-capabilities.json',
+                'LegacyBridge-Transformations-Enabled': 'false'
+        )
+    }
+    finalizedBy 'reobfJar'
+}
+
+tasks.named('sourcesJar', Jar) {
+    dependsOn 'generateAdapterCatalog'
+    from sharedCompatibility.allSource
+}
+
+tasks.register('verifyRuntimeJar') {
+    group = 'verification'
+    description = 'Audits runtime metadata, the simple-content adapter, and the transformation-free boundary.'
+    dependsOn runtimeJar
+    mustRunAfter 'reobfJar'
+    inputs.file(runtimeJar.flatMap { it.archiveFile })
+
+    doLast {
+        def isMixinConfiguration = { String entryName ->
+            def normalized = entryName.toLowerCase(java.util.Locale.ROOT)
+            def fileName = normalized.substring(normalized.lastIndexOf('/') + 1)
+            fileName.endsWith('.json') &&
+                    !fileName.endsWith('.refmap.json') &&
+                    (fileName.startsWith('mixins.') || fileName.endsWith('.mixins.json'))
+        }
+        [
+                'mixins.legacybridge.json': true,
+                'legacybridge.mixins.json': true,
+                'mixins.legacybridge.refmap.json': false,
+                'ordinary.json': false
+        ].each { entryName, expected ->
+            if (isMixinConfiguration(entryName) != expected) {
+                throw new GradleException("Runtime JAR audit Mixin classifier failed for ${entryName}")
+            }
+        }
+
+        def archive = runtimeJar.get().archiveFile.get().asFile
+        def expectedName = "legacy-runtime-${project_version}-forge-${minecraft_version}.jar"
+        if (archive.name != expectedName) {
+            throw new GradleException("Unexpected runtime JAR name: ${archive.name}; expected ${expectedName}")
+        }
+
+        def capabilityCatalogPath = 'META-INF/legacybridge/runtime-capabilities.json'
+        def requiredEntries = [
+                'META-INF/MANIFEST.MF',
+                'META-INF/LICENSE_legacybridge_runtime',
+                'META-INF/legacybridge/legal/LICENSING.md',
+                'META-INF/legacybridge/legal/LINKING_EXCEPTION.md',
+                'META-INF/mods.toml',
+                'pack.mcmeta',
+                capabilityCatalogPath,
+                'META-INF/legacybridge/adapters.json',
+                'dev/legacybridge/runtime/compat/AdapterCatalog.class',
+                'dev/legacybridge/runtime/compat/AdapterBindings.class',
+                'dev/legacybridge/runtime/compat/registry/SimpleContentAdapter.class',
+                'dev/legacybridge/runtime/LegacyBridgeRuntime.class',
+                'dev/legacybridge/runtime/RuntimeCapability.class',
+                'dev/legacybridge/runtime/RuntimeCapabilityCatalog.class',
+                'dev/legacybridge/runtime/RuntimeCapabilityType.class',
+                'dev/legacybridge/runtime/RuntimeDescriptor.class',
+                'dev/legacybridge/runtime/SimpleContentPlan.class',
+                'dev/legacybridge/runtime/SimpleContentRuntime.class'
+        ]
+
+        def zip = new java.util.zip.ZipFile(archive)
+        try {
+            def entryNames = []
+            def entries = zip.entries()
+            while (entries.hasMoreElements()) {
+                entryNames.add(entries.nextElement().name)
+            }
+            if (entryNames.size() != entryNames.toSet().size()) {
+                throw new GradleException('Runtime JAR must contain exactly one definition of every entry, including the shared compatibility API')
+            }
+            def missingEntries = requiredEntries.findAll { !entryNames.contains(it) }
+            if (!missingEntries.empty) {
+                throw new GradleException("Runtime JAR is missing required entries: ${missingEntries.join(', ')}")
+            }
+
+            def forbiddenEntries = entryNames.findAll { entryName ->
+                def normalized = entryName.toLowerCase(java.util.Locale.ROOT)
+                entryName.startsWith('META-INF/services/') ||
+                        entryName.startsWith('dev/legacybridge/validation/') ||
+                        isMixinConfiguration(entryName) ||
+                        normalized.contains('coremod') ||
+                        normalized.endsWith('.jar')
+            }
+            if (!forbiddenEntries.empty) {
+                throw new GradleException("Runtime must not package test harnesses, services, Mixins, coremods, or nested JARs: ${forbiddenEntries.join(', ')}")
+            }
+
+            ['META-INF/mods.toml', capabilityCatalogPath].each { entryName ->
+                def entry = zip.getEntry(entryName)
+                def text
+                zip.getInputStream(entry).withCloseable { stream ->
+                    text = stream.getText('UTF-8')
+                }
+                if (text.contains('${')) {
+                    throw new GradleException("Unresolved resource placeholder in ${entryName}")
+                }
+            }
+
+            def catalogEntry = zip.getEntry(capabilityCatalogPath)
+            def catalogText
+            zip.getInputStream(catalogEntry).withCloseable { stream ->
+                catalogText = stream.getText('UTF-8').replaceAll('\\s+', '')
+            }
+            if (!catalogText.contains('"transformationsEnabled":false') ||
+                    !catalogText.contains('"legacyApiShims":["simple-content-v1"]') ||
+                    !catalogText.contains('"bytecodeTransformations":[]')) {
+                throw new GradleException('Packaged runtime catalog must declare only the simple-content adapter and no transformations')
+            }
+
+            def manifest
+            zip.getInputStream(zip.getEntry('META-INF/MANIFEST.MF')).withCloseable { stream ->
+                manifest = new java.util.jar.Manifest(stream)
+            }
+            def manifestAttributes = manifest.mainAttributes
+            if (manifestAttributes.getValue('LegacyBridge-Capability-Catalog') != capabilityCatalogPath ||
+                    manifestAttributes.getValue('LegacyBridge-Transformations-Enabled') != 'false') {
+                throw new GradleException('Runtime manifest capability diagnostics do not match the catalog')
+            }
+        } finally {
+            zip.close()
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn 'verifyRuntimeJar', 'validationClasses'
+}
+
+tasks.register('prepareValidationFixture') {
+    group = 'verification'
+    description = 'Stages the converted inert fixture into isolated client/server validation mod directories.'
+    def fixture = rootProject.layout.file(providers.provider {
+        rootProject.file(providers.gradleProperty('bridgeFixtureJar')
+                .getOrElse('build/conversion/asm-v1/legacybridge-example-1.20.1.jar'))
+    })
+    inputs.file fixture
+    outputs.files project.file('run-validation/server/mods/legacybridge-example-1.20.1.jar'),
+            project.file('run-validation/client/mods/legacybridge-example-1.20.1.jar')
+    doLast {
+        if (!fixture.get().asFile.isFile()) throw new GradleException('Convert the example fixture before launching validation')
+        ['server', 'client'].each { side ->
+            project.copy {
+                from fixture
+                into project.file("run-validation/${side}/mods")
+                rename { 'legacybridge-example-1.20.1.jar' }
+            }
+        }
+    }
+}
+
+if (validationEnabled) {
+    tasks.matching { it.name == 'runServer' || it.name == 'runClient' }.configureEach {
+        dependsOn 'validationClasses', 'prepareValidationFixture'
+        def side = name == 'runServer' ? 'server' : 'client'
+        def expectedMarker = "LEGACYBRIDGE_${side.toUpperCase(java.util.Locale.ROOT)}_VALIDATION_OK"
+        def validationLog = project.file("run-validation/${side}/logs/latest.log")
+        long startedAt = 0
+        doFirst { startedAt = System.currentTimeMillis() }
+        doLast {
+            if (!validationLog.isFile() || validationLog.lastModified() < startedAt ||
+                    !validationLog.getText('UTF-8').contains(expectedMarker) ||
+                    validationLog.getText('UTF-8').contains('_VALIDATION_FAILED')) {
+                throw new GradleException("${side} exited without a fresh successful LegacyBridge validation marker; inspect ${validationLog}")
+            }
+        }
+    }
+}

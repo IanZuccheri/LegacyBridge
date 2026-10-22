@@ -1,0 +1,2 @@
+# Preserve byte-for-byte provenance hashes on Windows checkouts.
+* text eol=lf

@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-13",
+  "prompt": "LB-05",
+  "cut": "INSTALL-PROMOTION",
+  "slice": "JOURNAL_ADMISSION_BINDING",
+  "status": "IMPLEMENTED_HEADLESS_SCOPED; PARENT_PARTIAL; INSTALLATION_NOT_ENABLED",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12",
+    "runtimeId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "implementation": {
+    "api": "PreservedAdmissionStore.prepare/inspect/resume; synchronous worker-only, shared installer lock",
+    "schemaVersion": 1,
+    "reportType": "LEGACY_PRESERVED_ADMISSION_BINDING",
+    "profile": "logic-preserving-v1",
+    "recipe": "INDEPENDENT_LOGIC_READBACK_V1",
+    "installationAllowed": false,
+    "automaticCloseAllowed": false,
+    "legacyV1V2Migration": false,
+    "originalClassesExecuted": false,
+    "converterInvoked": false,
+    "modsWrites": false,
+    "sourceHashes": {
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedAdmissionResult.java": "e30b8d638740d758b9bf2d6af793657e038b7c726e0b53d7017f27a577fc19dc",
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedAdmissionStore.java": "37b66724058a827db2d94dea12f0d4d676fa8b9f2dd5266540848224fca1727e",
+      "legacy-product/src/test/java/dev/legacybridge/product/install/PreservedAdmissionContractTest.java": "dc792b57ecca1c4e2081b37a50d75911c3b8c98eaca2302ea63ba74d6f648cb6",
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedAdmissionJournal.java": "f7e44cf16aa4d3a648365a452db69aec83d780f4e1fb4cc354850ac3ae487907",
+      "tools/PreservedAdmissionRecoveryProbe.java": "ca2f4f83950e30675cc3b9102d9839aec5d958fc2d89629a01b050e0746cbe95",
+      "legacy-product/src/test/java/dev/legacybridge/product/install/PreservedAdmissionStoreTest.java": "fdd72f66ce25f2f06d6b0ec04622703e1a179f327f088399663f977b15f081ff",
+      "legacy-product/build.gradle": "b2410c05c5fe44757f3d288746d8e8b4618c43bea90bb65f052df74935b26322"
+    },
+    "limits": {
+      "copiedArtifactBytes": 67108864,
+      "inflatedBytes": 134217728,
+      "capturedBytes": 67108864,
+      "cooperativeSeconds": 120,
+      "journalBytes": 65536,
+      "retainedTransactions": 32,
+      "transactionEntries": 128,
+      "windowsDerivedGuardPathCharacters": 247
+    },
+    "limitQualification": "Payload/work bounds, not hard heap/RSS or OS-call timeout; no hostile-process sandbox or power-loss guarantee. Existing stricter inspector limits remain."
+  },
+  "exactPair": {
+    "modId": "legacybridge_logic",
+    "modVersion": "1.0.0",
+    "original": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar",
+    "originalSha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f",
+    "candidate": "build/logic-preserving-v1/converted.jar",
+    "candidateSha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d",
+    "bundle": "build/logic-preserving-v1/mapping-bundle",
+    "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+    "rights": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION",
+    "originalAndCandidateUnchanged": true,
+    "newConversion": false,
+    "dataRedistributedOrDownloaded": false,
+    "ownedClasses": 6,
+    "ownedMethods": 25,
+    "sourceTargetReadback": "PASSED_SCOPED; uses unchanged reviewed recipes and real API inventories, not a new equivalence",
+    "nativeBehavior": "NOT_RUN"
+  },
+  "focusedValidation": {
+    "status": "PASSED",
+    "cases": 71,
+    "passed": 71,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "newCases": 28,
+    "suites": {
+      "PreservedAdmissionStoreTest": 25,
+      "PreservedAdmissionContractTest": 3,
+      "PreservedAdmissionBoundaryTest": 1,
+      "AddOnlyInstallerTest": 21,
+      "TransactionalInstallerTest": 21
+    },
+    "log": "build/journal-admission-20260913/focused-fixed.log",
+    "logSha256": "fe272f3e7e5a813c9c7a196c524fe1b27b8fa49b591b2cdb960e8d6d75ab5c16",
+    "build": "SUCCESSFUL in 1m 59s; 49 tasks, 18 executed, 31 up-to-date; serial",
+    "xmlDirectory": "build/journal-admission-20260913/test-results",
+    "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT --max-workers=1 --console=plain -PadmissionBundle=<explicit bundle> -PadmissionOriginal=<compiled original fixture> -PadmissionCandidate=<existing candidate> :legacy-product:test --tests *PreservedAdmission*Test --tests *AddOnlyInstallerTest --tests *TransactionalInstallerTest assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+    "coverage": [
+      "real six-class/25-method pair",
+      "complete and missing observations with fresh readback",
+      "copy/write interruption before binding",
+      "changed original/staging/payload/observation",
+      "missing/aliased payload",
+      "unknown journal schema/recipe/ABI/baseline/fields/identity/traversal",
+      "changed data manifest pin and component bytes",
+      "matching new hashes cannot mask changed localization",
+      "late source change before observation",
+      "mixed V1/V2 refused without migration",
+      "cooperative lock contention",
+      "early Windows long-path refusal",
+      "old simple installers unchanged"
+    ],
+    "countPolicy": "Parameter cases/tests are not compatible mods. Three separate helper JVM runs are not counted as unit cases."
+  },
+  "publicJarProcessRecovery": {
+    "status": "PASSED_SCOPED",
+    "method": "Developer-only helper compiled with javac17 --release17 against public JAR; separate Java17 -Xmx512m processes, outside repository, copied explicit libraries/input/bundle, empty configured user.home/gradle.user.home. No converter/compat development JAR in classpath. Helper CodeSource verifies actual public-JAR store. This is a flat JVM test, not Forge/JiJ/JPMS or OS-enforced offline certification.",
+    "helper": "tools/PreservedAdmissionRecoveryProbe.java",
+    "prepareExit": 81,
+    "controlledHaltPoint": "BOUND, after complete private payload and forced admission binding; before observation/finally cleanup",
+    "resumeExits": [
+      0,
+      0
+    ],
+    "transactionId": "63ae3c50-5b08-4893-8f4e-835877a8f62f",
+    "planSha256": "43433f4260f1127d86ec1a1b70db639b7cafa2d8f396302968a33cf17209b614",
+    "guardNamesBeforeResume": 14,
+    "guardNamesAfterResume": 0,
+    "secondResumeChangedFiles": false,
+    "modsFileCount": 0,
+    "emptyHomeFileCount": 0,
+    "emptyGradleFileCount": 0,
+    "unknownOriginalCandidateGradleClassSources": 0,
+    "journalArchive": "build/journal-admission-20260913/isolated/63ae3c50-5b08-4893-8f4e-835877a8f62f",
+    "logHashes": {
+      "build/journal-admission-20260913/isolated/resume-1.log": "f1464eaee61a07276879ef352c927a28d03d32d1766aa04f12831142f3c85260",
+      "build/journal-admission-20260913/isolated/resume-1-classload.log": "6d872145684ed490d1f36d11ac9295d34a21d26b092253bc0e31c7de4a927b73",
+      "build/journal-admission-20260913/isolated/resume-2.log": "f1464eaee61a07276879ef352c927a28d03d32d1766aa04f12831142f3c85260",
+      "build/journal-admission-20260913/isolated/prepare.log": "76d43bc1ad59d102c39d17bcfb2803d9a93412feddb8abe61ff2905958001045"
+    },
+    "fileEncoding": "PowerShell 5 stdout logs UTF-16LE; JVM class-load trace encoding unaffected",
+    "privateProbeDirectory": "${DEVELOPER_HOME}/AppData/Local/Temp/lbja-f967a9ad",
+    "retention": "Diagnostic copies and recovery evidence retained; no private data in public JAR. Existing originals never changed."
+  },
+  "observedAndCorrected": [
+    {
+      "status": "INITIAL_PUBLIC_PROBE_FAILED_BEFORE_BINDING",
+      "exit": 1,
+      "log": "build/journal-admission-20260913/long-path-attempt/prepare-error.log",
+      "sha256": "bd0f5728e1c34c57be29426020aa4688b71773818a14603fc8046c33914d2a8b",
+      "cause": "Real JDK17 WindowsFileStore.equals compares root spellings: long guard file produces extended prefix while shorter directory does not; same volume falsely fails conservative store equality. A read-only Java probe observed (\\\\?\\C:) versus (C:), equal=false.",
+      "jdkSourceSha256": "24fee80297ef15a886e283a31ac4eca18888ca8e942a21afb3f60a8535dc573b",
+      "auditedClasses": [
+        "sun.nio.fs.WindowsPath MAX_PATH=247/getPathForWin32Calls",
+        "sun.nio.fs.WindowsFileStore.equals"
+      ],
+      "correction": "New admission API refuses excessive derived guard paths before writes and advises shorter game directory; no V1/V2 change or relaxed volume check. Corrected disposable probe used a shorter path and passed.",
+      "limit": "Long-path admission remains unsupported, not repaired. Failed private attempt retained; no installed file was created."
+    }
+  ],
+  "apiReferences": [
+    {
+      "title": "Java 17 Files",
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html"
+    },
+    {
+      "title": "Java 17 FileChannel.force",
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/channels/FileChannel.html#force(boolean)"
+    }
+  ],
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "4e41fd7e69eac085e9932690d7eee8e7aa68335b754ac1fbaa94979610abd545",
+    "bytes": 1504202,
+    "entries": 613,
+    "baselineArchive": "build/journal-admission-20260913/LegacyBridge-baseline.jar",
+    "baselineSha256": "903a8803f1bc2fa379648beab10c8635b527bde25f0e567e41a20b7db5cfa7be",
+    "unchangedPayloads": 605,
+    "addedPayloads": 8,
+    "changedPayloads": 0,
+    "removedPayloads": 0,
+    "unchanged": [
+      "engine",
+      "six profiles",
+      "runtime/adapters/ABI",
+      "UI",
+      "old installers/journals/filesystem helper",
+      "data",
+      "libraries",
+      "services/metadata/notices"
+    ],
+    "audits": "PASSED; no helper, fixture, private mappings or platform duplicates packaged"
+  },
+  "finalValidation": {
+    "status": "PASSED_WITH_EXPLICIT_CONTRACT_SKIPS",
+    "productCases": 71,
+    "productPassed": 71,
+    "newProductCases": 28,
+    "productFailuresErrorsSkipped": 0,
+    "contractCases": 77,
+    "contractPassed": 75,
+    "contractSkipped": 2,
+    "contractFailuresErrors": 0,
+    "skipReason": "Windows symbolic-link creation privilege unavailable in two existing contract cases; not passes.",
+    "prompts": 23,
+    "cuts": 81,
+    "current": "LB-05/INSTALL-PROMOTION; next PRESERVED_ADD_ONLY_INSTALL",
+    "log": "build/journal-admission-20260913/final.log",
+    "logSha256": "dd98b3582fb9a3b07384328467dd473d041dea60e3b4bb180005c926f37ae397",
+    "xmlDirectory": "build/journal-admission-20260913/test-results-final",
+    "command": "Focused command above, additionally :legacy-corpus:test --tests *PromptContractVerifierTest --rerun :legacy-corpus:verifyPromptContract before assemble/package audits; serial, max-workers=1.",
+    "build": "SUCCESSFUL in 1m 49s; 52 tasks, 18 executed, 34 up-to-date. Public JAR still 4e41fd7e69eac085e9932690d7eee8e7aa68335b754ac1fbaa94979610abd545.",
+    "qualification": "Focused cases repeated after final test assertion/documentation edits; do not sum reruns as additional tests/mods. Contract structure/paths are not evidence freshness or native acceptance."
+  },
+  "native": {
+    "client": "NOT_RUN",
+    "server": "NOT_RUN",
+    "UI": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "preservedInstallation": "NOT_ENABLED"
+  },
+  "rights": {
+    "licenseChanged": false,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "billing": false,
+    "acquisition": false,
+    "publication": false
+  },
+  "next": {
+    "prompt": "LB-05",
+    "cut": "INSTALL-PROMOTION",
+    "slice": "PRESERVED_ADD_ONLY_INSTALL",
+    "action": "Explicit developer-only add-only route, approval/session/installed-set/dependency/loaded-file checks, versioned commit ownership/recovery. Do not repeat binding/readback, migrate old journals implicitly, promote public/composed/cohort Apply or drop native/COMPOSE-01/DEPS-COHORT gates."
+  }
+}

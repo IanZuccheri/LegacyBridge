@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-19",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "DURABILITY_REPAIR_PREDICATE",
+  "scope": "Private finite candidate for a native durable Item and exact iron ingredient predicate, not complete anvil repair, equipment or public profile support",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifactAudit": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "240a35f90be74e74d0d06eb25f04202c6030d003235819d02c93d344a37d8daf",
+    "bytes": 1799643,
+    "entries": 713,
+    "fileEntries": 664,
+    "previousSha256": "08f5cdfc8bd8b30df3206000f6dd4256777e3a5dcc769bf305ae5ebaa4ee1963",
+    "unchangedEntries": 698,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/logic/LogicApiNamespace$1.class",
+      "dev/legacybridge/converter/conversion/logic/LogicApiNamespace.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/DurableItemContract$Proof.class",
+      "dev/legacybridge/converter/conversion/DurableItemContract.class",
+      "dev/legacybridge/runtime/compat/logic/DurableItemArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 45,
+      "newEntries": 47
+    },
+    "fixture": {
+      "bytes": 5883,
+      "sha256": "6d14e862d077d873d6f85e351e3c06f4913089ad33f70a011af16cec76e2b07a"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "fixture": {
+    "path": "fixtures/durable-item-1.16.5/build/libs/legacybridge-durable-1.16.5-1.0.0.jar",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "bytes": 5883,
+    "sha256": "6d14e862d077d873d6f85e351e3c06f4913089ad33f70a011af16cec76e2b07a",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "candidate": {
+    "bytes": 4678,
+    "kind": "PRIVATE_SERIALIZED_JAR",
+    "sha256": "a1d513a0434870de8d933badc4f5be87f5206644d168802ac0f586ed872964ae"
+  },
+  "staticProof": {
+    "candidate": {
+      "bytes": 4678,
+      "kind": "PRIVATE_SERIALIZED_JAR",
+      "sha256": "a1d513a0434870de8d933badc4f5be87f5206644d168802ac0f586ed872964ae"
+    },
+    "durableItemContract": {
+      "durability": 128,
+      "entry": "dev/legacybridge/fixture/durable/DurableContent",
+      "item": "dev/legacybridge/fixture/durable/RepairableItem",
+      "maxStackSize": 1,
+      "modId": "legacybridge_durable",
+      "predicate": "SECOND_ARGUMENT_ITEM_IDENTITY; no stack mutation",
+      "registryName": "token",
+      "repairIngredient": "minecraft:iron_ingot",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1
+    },
+    "sourceOfflineLinkage": {
+      "checkedMethodCount": 4,
+      "classesExecuted": false,
+      "fieldReferenceCount": 6,
+      "lambdaSiteCount": 1,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only LambdaMetafactory.metafactory Supplier and IntUnaryOperator with owned static implementations/exact captures, or zero-capture Supplier of an owned concrete Item subclass through its declared ()V constructor, are admitted; no boxing adaptation, altMetafactory, standalone handles or condy."
+      ],
+      "methodReferenceCount": 10,
+      "ownedClassCount": 2,
+      "resolvedClassCount": 40,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "targetOfflineLinkage": {
+      "checkedMethodCount": 4,
+      "classesExecuted": false,
+      "fieldReferenceCount": 6,
+      "lambdaSiteCount": 1,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only LambdaMetafactory.metafactory Supplier and IntUnaryOperator with owned static implementations/exact captures, or zero-capture Supplier of an owned concrete Item subclass through its declared ()V constructor, are admitted; no boxing adaptation, altMetafactory, standalone handles or condy."
+      ],
+      "methodReferenceCount": 10,
+      "ownedClassCount": 2,
+      "resolvedClassCount": 41,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "serializedOfflineLinkage": {
+      "checkedMethodCount": 4,
+      "classesExecuted": false,
+      "fieldReferenceCount": 6,
+      "lambdaSiteCount": 1,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only LambdaMetafactory.metafactory Supplier and IntUnaryOperator with owned static implementations/exact captures, or zero-capture Supplier of an owned concrete Item subclass through its declared ()V constructor, are admitted; no boxing adaptation, altMetafactory, standalone handles or condy."
+      ],
+      "methodReferenceCount": 10,
+      "ownedClassCount": 2,
+      "resolvedClassCount": 41,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "bytecodeValidation": {
+      "inputClasses": 2,
+      "jvmLinkageVerified": false,
+      "modClassesLoaded": false,
+      "offlineLinkageVerified": true,
+      "outputClasses": 2,
+      "serializedJar": true,
+      "status": "PASSED_STATIC_REOPENED"
+    },
+    "candidateArchiveValidation": {
+      "centralDirectoryAndCrc": true,
+      "entryCount": 10,
+      "modClassesLoaded": false,
+      "ownershipAndHashes": true,
+      "scratchDeleted": true,
+      "status": "PASSED_REOPENED"
+    },
+    "sourceDurableItemContract": {
+      "durability": 128,
+      "entry": "dev/legacybridge/fixture/durable/DurableContent",
+      "item": "dev/legacybridge/fixture/durable/RepairableItem",
+      "maxStackSize": 1,
+      "modId": "legacybridge_durable",
+      "predicate": "SECOND_ARGUMENT_ITEM_IDENTITY; no stack mutation",
+      "registryName": "token",
+      "repairIngredient": "minecraft:iron_ingot",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1
+    },
+    "reopenedDurableItemContract": {
+      "durability": 128,
+      "entry": "dev/legacybridge/fixture/durable/DurableContent",
+      "item": "dev/legacybridge/fixture/durable/RepairableItem",
+      "maxStackSize": 1,
+      "modId": "legacybridge_durable",
+      "predicate": "SECOND_ARGUMENT_ITEM_IDENTITY; no stack mutation",
+      "registryName": "token",
+      "repairIngredient": "minecraft:iron_ingot",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1
+    },
+    "sources": [
+      {
+        "id": "legacy.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+      },
+      {
+        "id": "legacy.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+      },
+      {
+        "id": "legacy.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+      },
+      {
+        "id": "target.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+      },
+      {
+        "id": "target.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+      },
+      {
+        "id": "target.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+      },
+      {
+        "id": "legacy.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+      },
+      {
+        "id": "legacy.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+      },
+      {
+        "id": "legacy.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+      },
+      {
+        "id": "legacy.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+      },
+      {
+        "id": "legacy.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+      },
+      {
+        "id": "legacy.apiJars[5]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "46d9d0b4a42ab220a2baa25807bc7a076c2cb51594fa6c013c595f43b92956b3"
+      },
+      {
+        "id": "target.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+      },
+      {
+        "id": "target.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+      },
+      {
+        "id": "target.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+      },
+      {
+        "id": "target.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+      },
+      {
+        "id": "target.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+      },
+      {
+        "id": "target.apiJars[5]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+      },
+      {
+        "id": "target.apiJars[6]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+      },
+      {
+        "id": "target.apiJars[7]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "39d9a3d9277c1402b8e7b97f917ce278241cf1796312aec85b87f19a376dd99a"
+      }
+    ]
+  },
+  "validation": {
+    "fixtureBuild": {
+      "status": "PASS",
+      "tests": 4,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build/durable-item-20260919/fixture-build-final2.log",
+      "logSha256": "43913bb98d5e3487356ea43fc4e9e9d3e43bf546ad307f82c247b93518ffca83"
+    },
+    "engineRegression": {
+      "status": "PASS",
+      "tests": 631,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "newDurableCases": 49,
+      "log": "build/durable-item-20260919/final-regression.log",
+      "logSha256": "0334109acea629589776e05e8140bba7c035285ef4ad1f7868df5cb7a67a6b1f",
+      "results": "build/durable-item-20260919/final-regression-results",
+      "newSuiteXmlSha256": "0ed3b3b03ca34a3761329fa8257e49dbd3b47451037cc037b912f900cacd1608"
+    },
+    "earlierRuns": "37 first candidate checks then 209 focused cases (47 candidate cases); these overlap the final 631 and are not added to its count.",
+    "package": {
+      "status": "PASS",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "log": "build/durable-item-20260919/package.log",
+      "logSha256": "901a146d35920ebeb10f49f2a333a65c68d8212f79b8e9f5d528c5055cab50ec"
+    },
+    "contract": {
+      "status": "PASS",
+      "tests": 77,
+      "passed": 75,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Existing Windows symbolic-link privilege assumptions; not new skips",
+      "log": "build/durable-item-20260919/contract-final.log",
+      "logSha256": "b56d2e893c02d93dd0c9b26ef28e7ed6430a1f726eed665ad9c83197cacb62e4",
+      "results": "build/durable-item-20260919/contract-results",
+      "scope": "Structural consistency: 23 prompts / 81 cuts, LB-10/BLOCK-STATE; does not prove evidence truth or native acceptance"
+    },
+    "fullUnfilteredTests": "NOT_RUN",
+    "nativeSource": "NOT_RUN",
+    "nativeTarget": "NOT_RUN",
+    "dedicatedServer": "NOT_RUN",
+    "client": "NOT_RUN",
+    "anvilBehavior": "NOT_RUN",
+    "persistence": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "newCandidateCachelessProcess": "NOT_RUN"
+  },
+  "commands": {
+    "policy": "Serial Java 17.0.12, Gradle wrapper, --offline --max-workers=1 --console=plain; Windows-ROOT trust without disabled TLS",
+    "fixture": "gradlew -p fixtures/durable-item-1.16.5 build",
+    "engine": "gradlew :legacy-converter:test with all 29 exact selectors and seven opt-in environment flags; complete invocation in final-regression.log. Explicit build/client-config-20260919 profile for logic/composition, server-config profile for lifecycle/food/datapack and network-snapshot-v1 profile for networking.",
+    "package": "gradlew assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+    "audit": "powershell -File build/durable-item-20260919/audit.ps1"
+  },
+  "sourceAudit": {
+    "archives": [
+      {
+        "version": "1.16.5-36.2.42",
+        "sha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376"
+      },
+      {
+        "version": "1.20.1-47.4.23",
+        "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+      }
+    ],
+    "targetNamespaceEvidence": {
+      "path": "legacy-runtime/build/createMcpToSrg/output.tsrg",
+      "sha256": "246dc9d32f075e71167debb9b4ad1bb75be6a0a8584c08c5c06cc6b7b73d5d15"
+    },
+    "redistribution": "No game sources, API inventories, private bundle or fixtures included in public JAR"
+  },
+  "invariants": {
+    "publicProfiles": 6,
+    "publicConvertApplyUnchanged": true,
+    "existingAdapterDescriptorsUnchanged": 45,
+    "newOfflineMetadataOperations": 2,
+    "executableRuntimeAdaptersUnchanged": true,
+    "ownedBodiesPreserved": 4,
+    "ownedClassesPreserved": 2,
+    "bodyReplacement": false,
+    "resourceBytesPreserved": true,
+    "originalClassesLoaded": false,
+    "publicationAllowed": false,
+    "licenseChanged": false,
+    "newRealModsAcquired": 0,
+    "verifiedWholeRealPorts": 0
+  },
+  "issues": [
+    {
+      "stage": "fixture test compilation",
+      "observed": "Overbroad fixture-template text replacement changed java.util.Enumeration to Enumetoken.",
+      "resolution": "Corrected test identifier and rebuilt: four archive tests pass; initial log retained."
+    },
+    {
+      "stage": "engine test compilation",
+      "observed": "Test used nonexistent one-argument OperationControl constructor.",
+      "resolution": "Read existing typed API and supplied OperationLimits.defaults(); no production API changed to accommodate test."
+    }
+  ],
+  "limitations": [
+    "Durability literal 1..32767 and default native properties only.",
+    "Exact two-class graph with one iron identity override; no damage mutation, tools, tiers, armor, attributes, enchantments, Mending or arbitrary item callbacks.",
+    "Native normal stacks only; no corrupted stacks or third-party registry replacement equivalence.",
+    "Recipe/resource proof does not certify actual crafting, assets or translations in game.",
+    "Candidate is discarded; no exporter, public UI or install authority.",
+    "Advanced candidate still uses explicit full mapping/API inputs; included simple-content data unchanged.",
+    "COMPOSE-01/LIFE-EVENTS parts support development only; their acceptance requirements remain."
+  ],
+  "next": {
+    "prompt": "LB-10",
+    "cut": "BLOCK-STATE",
+    "slice": "PLAIN_BLOCK_WITH_ITEM",
+    "reason": "Develop native preserved Block/BlockItem registration and exact property/tag semantics; leave equipment remainder/native QA visible."
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_PROMPT_CLOSEOUT",
+  "date": "2026-09-06",
+  "status": "EXPERIMENTAL_SAFE_CHECKPOINT_NOT_ALL_PROMPTS_COMPLETE",
+  "source": {"minecraft": "1.16.5", "forge": "36.2.42"},
+  "target": {"minecraft": "1.20.1", "forge": "47.4.23", "javaMajor": 17},
+  "adapterRuntime": {"modId": "legacybridge_runtime", "version": "0.1.1-SNAPSHOT"},
+  "capabilities": {
+    "status": "UNSUPPORTED_NOT_IMPLEMENTED",
+    "unfinishedDraftExposureRemoved": true,
+    "fixtureImplemented": false,
+    "runtimeValidation": "NOT_RUN",
+    "newRefusalTests": 5,
+    "existingProfilesChanged": false
+  },
+  "build": {
+    "status": "PASSED_ON_SECOND_ROOT_VERIFICATION",
+    "path": "build/prompt-closeout-build2.log",
+    "sha256": "f1ff0e522fa2be9a05d1110dac3903716388a506721093e9bd7fbb4027201f12",
+    "durationSeconds": 143,
+    "tasksExecuted": 19,
+    "tasksUpToDate": 44,
+    "allSixRealBaselineFlagsEnabled": true
+  },
+  "initialFailure": {
+    "path": "build/prompt-closeout-build1.log",
+    "sha256": "f123d9503b45cbf01deb163071f7a189ceed267403cfe0c8d45491ce82dac2a2",
+    "forcedTaskExecution": true,
+    "test": "ConversionControllerTest.changingSelectionClearsPreviousCandidateErrorWhileSameRowRetainsIt",
+    "failedIn": "inventoried/await before selection or conversion assertions",
+    "message": "Controller did not complete within the test deadline",
+    "testDeadlineSeconds": 15,
+    "observedTestSeconds": 15.026,
+    "cause": "NOT_DETERMINED",
+    "productionCodeOrTestDeadlineChanged": false,
+    "reproducedInIsolatedAndSubsequentRootRuns": false
+  },
+  "isolatedControllerCheck": {
+    "path": "build/prompt-closeout-controller-check.log",
+    "sha256": "78df7b75987ddc7e6bd59929405e9fcf806389d608067c9255e18f0de56fc737",
+    "tests": 17,
+    "passed": 17,
+    "formerlyFailingTestSeconds": 8.518
+  },
+  "aggregateTestState": {
+    "total": 929,
+    "passed": 927,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "freshInOneSuccessfulInvocation": false,
+    "execution": {
+      "legacy-converter": "701 cases rerun in forced first attempt; up-to-date in successful root verification",
+      "legacy-corpus": "84 cases rerun in forced first attempt; up-to-date in successful root verification",
+      "legacy-product": "82 cases rerun successfully in second root verification",
+      "legacy-runtime": "30 cases up-to-date",
+      "legacy-workflow": "32 cases up-to-date"
+    },
+    "skipReason": "Existing native Windows symlink creation privilege gates"
+  },
+  "staticRegressions": {
+    "path": "build/network-snapshot-v1/regressions/prompt-closeout/regression-receipt.json",
+    "sha256": "aef7b0aa68c4b9832c73911128b94bf6a2c81ec19a6e1fff462d422096717056",
+    "status": "PASSED",
+    "byteIdenticalOutputs": 6,
+    "originalsIntact": true,
+    "durationSeconds": 32,
+    "runtimeValidation": "NOT_RUN"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "bytes": 1190628,
+    "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88",
+    "identicalToPreDraftNetworkingArtifact": true,
+    "packagingAudit": "PASSED"
+  },
+  "corpus": {
+    "version": "2026.09.06.1",
+    "realReleases": 3,
+    "recordedAnalyzable": 3,
+    "recordedConvertible": 0,
+    "recordedMultiplayerValidated": 0,
+    "structuralAndAvailableEvidenceHashAudit": "PASSED",
+    "newRealModRuntimeRuns": 0
+  },
+  "runtimeThisCloseout": "NOT_RUN",
+  "publication": "NOT_REQUESTED_NOT_PERFORMED",
+  "remaining": [
+    "Native two-client networking, original-version comparison and remaining networking negatives",
+    "Capability recipes, genuine fixtures, persistence/ownership/invalidation and player lifecycle validation",
+    "Latest-hash public-only client acceptance and broader launcher/modpack/accessibility coverage",
+    "Mapping-data and third-party redistribution clearance",
+    "Initial inventory timing outlier: cause not determined; no under-load responsiveness certification",
+    "Whole real-mod behavior closure and multiplayer validation"
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Read-only disposable run planner against exact locally prepared Forge launch/platform files, and offline checks of supplied unsigned post-exit records. No live staging/execution/collection.",
+  "authorization": "HEADLESS_IMPLEMENTATION only. No Minecraft client/server, screen/focus/input, mod acquisition, world edits or publication.",
+  "previousEvidence": "docs/evidence/compose-probes-2026-09-07.json",
+  "documentation": "docs/COMPOSITION_RUN_PLANNING.md",
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": 17,
+    "forgeGradle": "6.0.54",
+    "gradle": "8.8",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+    "bytes": 1280333,
+    "zipEntries": 526,
+    "unchanged": true,
+    "qualification": "STATIC_BUILD_PACKAGE_ONLY_NATIVE_NOT_RUN",
+    "changes": "NONE to converter/runtime/product rules, adapters, ABI, six profiles or authored original. No corpus/native/shared probe code in public artifact."
+  },
+  "corpusArtifact": {
+    "path": "legacy-corpus/build/libs/legacy-corpus-0.1.1-SNAPSHOT.jar",
+    "sha256": "89d0d8ce834e89834458459b886640e5fbe1ab929e9bb217420e46603488bf3b",
+    "bytes": 114208,
+    "zipEntries": 35,
+    "qualification": "DEVELOPMENT_ONLY",
+    "nativeOrSharedProbeClasses": 0
+  },
+  "selectedArtifacts": "docs/evidence/compose-observation-index-2026-09-07.json",
+  "platformInventory": {
+    "path": "docs/evidence/compose-platform-inventory-2026-09-07.json",
+    "sha256": "ec9a5abb69cf7cde7b16d3c756aae0eeef322fef387425ca3b119b47a1f796c1",
+    "bytes": 22514,
+    "sourceFiles": 30,
+    "sourceBytes": 54436242,
+    "targetFiles": 66,
+    "targetBytes": 70563804,
+    "embeddedContents": false,
+    "rightsBoundary": "Local path/size/hash provenance only; no game/Forge bytecode, mapping data, source, private mod or new redistribution permission. The planner never provisions/downloads missing inputs."
+  },
+  "sourceAudit": {
+    "sourceLauncher": "Manifest Main-Class net.minecraftforge.server.ServerMain, exact ServerLaunchArgs/Class-Path; inspected prepending and dynamic server locator in pinned Forge 36.2.42.",
+    "targetLauncher": "Exact ordered 16-line win_args.txt, BootstrapLauncher/forgeserver; CommonServerLaunchHandler and ForgeServerLaunchHandler dynamic server/Forge/language selection in 47.4.23.",
+    "selectedManifests": "Bounded main section for all selected JARs; recursive Class-Path names must stay inside reviewed closure.",
+    "sourceLauncherSha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f",
+    "targetArgsSha256": "659e71b783f09de7cfc05591472191b73ea5321864412ce63f49013c266781b8",
+    "sourceMappedSourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetMappedSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "shutdown": "Native Done/capture/Stopping server/Saving players/Saving worlds/chunk saves with role-specific logger and target-only all-dimensions completion; late errors can survive exit zero.",
+    "javaSpec": "https://docs.oracle.com/en/java/javase/17/docs/specs/man/java.html",
+    "sourceJava17": "NOT_RUN. Earlier successful source logic test used Temurin 1.8.0_492 via scripts/Test-LogicRuntime.ps1, not Java 17."
+  },
+  "sources": [
+    {
+      "path": "legacy-corpus/build.gradle",
+      "sha256": "cf499a3ccfc76c9d0f01e5070074ea4c43d50ca925c89f74485ca942c08a1ce9",
+      "bytes": 5336
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionRunFiles.java",
+      "sha256": "86b8e3b5700693e3b470ecbe35ad6e21ab0510fadb7fd020bc5c1d4e51c50668",
+      "bytes": 7278
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionRunPlanner.java",
+      "sha256": "944186a7cd84df05f54e6899c477eec104c510d510848ac09a19d741b157fb18",
+      "bytes": 23312
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionExitVerifier.java",
+      "sha256": "9e3da68a22c914e2e49c1974958108192f72dbeac09809955a44a5056d360cf4",
+      "bytes": 20938
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionRunPlannerTest.java",
+      "sha256": "5a9d5e77b504713ec7a356a811430681774be94d10d40e207f748a1603e4ca75",
+      "bytes": 31319
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionRunPlannerCommandTest.java",
+      "sha256": "861b21156c30b3c36fdaefaa1fd2af1a62fcd12a86d51eb284624f00acace56e",
+      "bytes": 1996
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionExitVerifierTest.java",
+      "sha256": "fdb5bf049fe99a2a70db73273dc03f0d0f40fe175955fc635a125e7512718a6d",
+      "bytes": 29255
+    }
+  ],
+  "readOnlyPlans": [
+    {
+      "role": "SOURCE",
+      "runId": "run-plan-source-20260907",
+      "planSha256": "babe03925768490852c07106dce9501e053a55505ae4f6fe22509828bf4c959d",
+      "copies": 33,
+      "inputFiles": 39,
+      "inputBytes": 55901950,
+      "arguments": 9,
+      "workingDirectory": "build/composition-probe-runs/run-plan-source-20260907/source",
+      "destinationExists": false,
+      "status": "PLANNED_ONLY",
+      "log": {
+        "path": "build/compose-planning-2026-09-07-run1/final-source-and-index.log",
+        "sha256": "5d3ab8e5a6842b2967f571211841d9d6d6b0e7dd1bad303f1fa59a251c78ec88",
+        "bytes": 55638
+      },
+      "observations": [
+        {
+          "bytesChecked": 1402016,
+          "candidateSha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2",
+          "filesChecked": 5,
+          "gameExecutionVerified": false,
+          "installationAllowed": false,
+          "pending": [
+            "INDEPENDENT_NATIVE_EVIDENCE_REVIEW",
+            "CLIENT_ASSETS_TRANSLATIONS",
+            "RESOURCE_RELOAD",
+            "MULTIPLAYER",
+            "COMPOSE_01_ACCEPTANCE"
+          ],
+          "reportType": "LEGACY_COMPOSITION_OBSERVATION_CHECK",
+          "schemaVersion": 1,
+          "sourceSha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "role": "TARGET",
+      "runId": "run-plan-target-20260907",
+      "planSha256": "55c90d8c40c06cab83af69be3316adb6e1f2b3085f763368b481f7b8b9969971",
+      "copies": 71,
+      "inputFiles": 75,
+      "inputBytes": 72029512,
+      "arguments": 34,
+      "workingDirectory": "build/composition-probe-runs/run-plan-target-20260907/target",
+      "destinationExists": false,
+      "status": "PLANNED_ONLY",
+      "log": {
+        "path": "build/compose-planning-2026-09-07-run1/final-target-plan.log",
+        "sha256": "efff5e74ee9b8fcfc8b4e56105cd3039e9a2d294f4fe96c709b4c04e6bec288c",
+        "bytes": 112104
+      },
+      "observations": []
+    }
+  ],
+  "planJava": {
+    "declaredVersion": "17.0.12",
+    "executable": "C:/Program Files/Java/jdk-17/bin/java.exe",
+    "sha256": "9da06bd6c880c0c8d1a63e3716f8ef7996f146c41e6d339e4eafc93df28392f9",
+    "releaseSha256": "00d3211a59bc9f2577f93962e9210de8578c49fd2625022cb38606817d3a71f9",
+    "executedByPlanner": false,
+    "sourceCompatibilityVerified": false
+  },
+  "validation": {
+    "compile": {
+      "status": "PASS",
+      "elapsed": "19s",
+      "log": {
+        "path": "build/compose-planning-2026-09-07-run1/compile.log",
+        "sha256": "7e1ac7c03da5a28929d9680a74ca9b876887f6a5b70b7272d4952c0a42d902af",
+        "bytes": 5198
+      }
+    },
+    "initialActualSourcePlan": {
+      "status": "FAILED_THEN_CORRECTED",
+      "log": {
+        "path": "build/compose-planning-2026-09-07-run1/source-plan.log",
+        "sha256": "908719152bd4008aaf3fc12d9f90f2262bb618d4a10238e3b9bb3dbabc20942a",
+        "bytes": 9624
+      },
+      "cause": "COMPOSE_PLAN_MANIFEST_MAIN_TRUNCATED: actual jopt-simple 5.0.4 ends after a complete newline without another blank line. Main-section EOF handling corrected; unterminated lines still fail.",
+      "recheckLog": {
+        "path": "build/compose-planning-2026-09-07-run1/source-plan-recheck.log",
+        "sha256": "93b22d22a313f9c26c0e86d06e775b5d3835e44ed9778b6000e8cbd02be91894",
+        "bytes": 54068
+      }
+    },
+    "initialTargetPlan": {
+      "status": "PLANNED_ONLY",
+      "log": {
+        "path": "build/compose-planning-2026-09-07-run1/target-plan.log",
+        "sha256": "1f437c7b59db63981d311f4428bb509eeaebf7931151c4c70c4309cfb2456a1a",
+        "bytes": 112104
+      }
+    },
+    "initialFocusedTests": {
+      "tests": 142,
+      "passed": 141,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed": "4m2s",
+      "log": {
+        "path": "build/compose-planning-2026-09-07-run1/tests-1.log",
+        "sha256": "834ae906c767cf32de4a92902ebb2be7adc33930f242fc9d8e92ceb5927de652",
+        "bytes": 36710
+      },
+      "archivedXml": "build/compose-planning-2026-09-07-run1/targeted-failure-xml",
+      "cause": "Both junction-rejection assertions passed, but JUnit TempDir cleanup left a dangling junction and failed. Fixed finally cleanup deletes only created aliases, never targets recursively. Verified and removed the exact dangling owned test alias and empty temp root nonrecursively.",
+      "finalStatus": "CORRECTED_AND_RETESTED"
+    },
+    "reviewCorrection": "Strict UTF-8 decoder for JDK release metadata plus negative test; CLI planner now emits sanitized BLOCKED JSON and exceptions without arbitrary parser/path causes.",
+    "rootBuild": {
+      "status": "PASS",
+      "elapsed": "5m41s",
+      "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build :legacy-converter:installDist -PverifyCompositionEnvironment=true -PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties --no-daemon --max-workers=1",
+      "log": {
+        "path": "build/compose-planning-2026-09-07-run1/root-build.log",
+        "sha256": "31ecc44bbf6c36c4ec6ba1a1bacf6f4067411e95a929c4af9389afa860b770fc",
+        "bytes": 100308
+      },
+      "tasks": {
+        "actionable": 69,
+        "executed": 31,
+        "upToDate": 38
+      },
+      "freshCorpus": {
+        "tests": 438,
+        "passed": 434,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      "newTests": {
+        "planner": 41,
+        "plannerCommand": 3,
+        "recordedExitChecker": 102,
+        "total": 146,
+        "passed": 146,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "newTestBoundary": "Inert valid ZIP manifests, fake unexecuted Java executable metadata and synthetic observation/exit/log files. Real Windows junctions/hard links; no Minecraft fixture or platform classes loaded.",
+      "archivedXml": "build/compose-planning-2026-09-07-run1/root-build-xml",
+      "freshSkips": [
+        "CorpusLockTest.refusesNativeSymlinkRecordWhenCreationIsPermitted",
+        "PromptContractVerifierTest.rejectsSymbolicEvidenceWithoutFollowingIt",
+        "PromptContractVerifierTest.rejectsSymbolicPromptDirectory",
+        "PublicEvidenceVerifierTest.symlinkEvidenceRefusesWhenPlatformAllowsItsCreation"
+      ],
+      "skipReason": "Four pre-existing native symlink creation privilege/support conditions; not passed. New real junction/hard-link tests passed.",
+      "upToDateTestTasks": [
+        "legacy-converter:test",
+        "legacy-product:test",
+        "legacy-runtime:test",
+        "legacy-workflow:test"
+      ],
+      "upToDateXmlSnapshotNotFresh": {
+        "converter": {
+          "tests": 844,
+          "passed": 778,
+          "skipped": 66
+        },
+        "product": {
+          "tests": 155,
+          "passed": 155,
+          "skipped": 0
+        },
+        "runtime": {
+          "tests": 30,
+          "passed": 30,
+          "skipped": 0
+        },
+        "workflow": {
+          "tests": 32,
+          "passed": 32,
+          "skipped": 0
+        }
+      },
+      "contract": "PASS: 23 prompts / 79 cuts, LB-08/COMPOSE-01; structure/paths only.",
+      "packageAudit": "PASS: exact public artifact, runtime identity, one reviewed JiJ and no forbidden QA/platform/logging duplicates; corpus main has no native/shared probe code.",
+      "otherChecks": "PASS: existing CLI smoke, engine consumer boundary, pinned Forge API anchors, runtime/workflow boundaries and headless networking/public-server preflight scripts; no games."
+    },
+    "postDocumentationVerificationLog": "build/compose-planning-2026-09-07-run1/closeout-build.log"
+  },
+  "native": {
+    "client": "NOT_RUN",
+    "sourceServer": "NOT_RUN",
+    "targetServer": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "resourceReload": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "sourceJava17": "NOT_RUN",
+    "realExitIndex": null,
+    "runs": null,
+    "gameExecutionVerified": false,
+    "installationAllowed": false,
+    "launchContractVerified": false
+  },
+  "limitations": [
+    "Planning is read-only: no reserved directories, copy, new EULA consent, game execution, process observation or enforced process budgets.",
+    "Exit checker trusts unsigned recorded exit/EOF flags only enough for RECORDED_EXIT_ONLY; not actual process/EOF proof or association with an approved plan.",
+    "Known trusted local prepared installations only; missing/mutated artifacts fail. No provisioning/download or new offline/cacheless claim.",
+    "Canonical rechecks and hashes are not an atomic filesystem snapshot or hostile-writer sandbox.",
+    "Fixed role-specific native logging recipe; not a universal exception/secret detector. Captured input is not scrubbed or deleted.",
+    "Native source Java 17 remains unvalidated; historical source Java 8 success cannot be reused.",
+    "No profile promotion, installation/UI composition, compatibility percentage, new supported mods or public-release approval."
+  ],
+  "next": {
+    "prompt": "LB-08",
+    "cut": "COMPOSE-01",
+    "action": "Implement owned create-new staging and bounded live process collector tied to the selected plan. Exercise EOF/exit, timeouts, cancellation, write failures, unknown files, Windows locks/crash leftovers and post-exit bindings with inert helper JVMs only. No Minecraft launch. Native comparison remains required under later separate authorization.",
+    "doNotUnlock": [
+      "LINKAGE-GENERAL",
+      "PRODUCT-COMPOSED",
+      "INSTALL-PROMOTION",
+      "UI-PROMOTION"
+    ]
+  }
+}

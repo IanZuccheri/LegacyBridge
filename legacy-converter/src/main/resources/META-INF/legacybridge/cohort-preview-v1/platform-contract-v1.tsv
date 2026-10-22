@@ -1,0 +1,7 @@
+LEGACYBRIDGE_COHORT_PLATFORM_CONTRACT	1	1.16.5	36.2.42	1.20.1	47.4.23	17	1
+S	legacy.apiJars[0]	1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03
+S	target.apiJars[1]	c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661
+S	legacy.Mod.class	726a43641c8037d48d5a29e8111df52e8e6e715d503960ce2a4e173cdfe8601d
+S	target.Mod.class	36245dc17464bf7a9df47b983ea5098340661ffcc9309c33c883464d92813c5e
+C	net/minecraftforge/fml/common/Mod	9729	java/lang/Object	java/lang/annotation/Annotation
+M	value	()Ljava/lang/String;	1025

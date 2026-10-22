@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-19",
+  "prompt": "LB-08",
+  "cut": "LINKAGE-GENERAL",
+  "slice": "OWNED_CONSTRUCTOR_DELEGATION",
+  "status": "PARTIAL_HEADLESS_IMPLEMENTED_NATIVE_NOT_RUN",
+  "next": "LB-08/LINKAGE-GENERAL/OWNED_HIERARCHY_DISPATCH",
+  "baseline": {"sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": "17.0.12", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "18f2e756e85816d5aba79477bfb28750c6f84f6d481f645582aee603e4172c3f",
+    "bytes": 1677193, "entries": 686,
+    "previousSha256": "19d26553e8708d2d63b2362d2147ba54dcfca7c8d8d79ea36e7a0805c98b7079",
+    "unchangedEntries": 663, "changedEntries": 19,
+    "addedEntries": ["dev/legacybridge/converter/transformation/linkage/OwnedConstructorGraph.class", "dev/legacybridge/converter/transformation/linkage/OwnedConstructorGraph$Proof.class", "dev/legacybridge/converter/transformation/linkage/OwnedConstructorGraph$Step.class", "dev/legacybridge/runtime/compat/logic/ConstructorArtifactAdapter.class"],
+    "removedEntries": [],
+    "adapterCatalogDelta": {"old": 28, "current": 30, "changedExisting": [], "newOfflineOperations": ["logic.constructor-bindings.v1", "logic.constructor-manifest.v1"]},
+    "changedScope": ["CompositionArtifactPlan", "CompositionCandidateBuilder", "LogicPreservingConverter and inspection state", "LogicProfileShape", "TransformationBindings", "LegacyEngineService", "InitializationVerifier and inner classes", "OfflineLinkageVerifier and inner classes", "AdapterCatalog and generated adapters.json"],
+    "unchangedScope": ["Public conversion/Apply UI", "Product controllers/installers/journals", "Runtime executable adapters and ABI", "Runtime capabilities", "Packaged data/libraries/services/legal metadata", "Existing profile admission behavior"]
+  },
+  "fixture": {
+    "sourceDirectory": "fixtures/owned-constructors-1.16.5", "version": "1.0.0", "modId": "legacybridge_constructors",
+    "sha256": "d55473d5e666808a0bb1aae6067149d0d23b03c7e3f8644bba14d8daee381681", "bytes": 7401,
+    "acquisition": "PROJECT_AUTHORED_NO_DOWNLOAD",
+    "dependencies": ["forge:[36.2.42]:BOTH:NONE", "minecraft:[1.16.5]:BOTH:NONE"],
+    "classes": 3, "methods": 11,
+    "features": ["Owned helper", "Private final and mutable fields", "Integer this-this-super constructor chain", "Native override and super invocation", "Constructor supplier handle", "Smelting recipe", "Item tag", "Vanilla texture reference/model", "en_us and pt_br"],
+    "originalIntact": true,
+    "candidate": {"identity": "owned-constructors-candidate-v1", "sha256": "1915061842d47720f6c38b4bbb9693470266a83e62c7f49e020f3b3690a90e5b", "bytes": 5802, "serializedAndReopened": true, "published": false, "installed": false, "scratchDeleted": true},
+    "constructorProof": {"contract": "owned-int-constructor-chain-v1", "sourceEqualsTarget": true, "chain": ["()V -> (I)V [16]", "(I)V -> (II)V [16,3]", "(II)V -> Item(Properties.stacksTo(16))"], "bodiesReplaced": false},
+    "ordinaryProfiles": "ALL_SIX_REJECT_THIS_FIXTURE",
+    "transformationLog": {"schemaVersion": 1, "CLASS_REMAP": 10, "METHOD_REMAP": 4, "DESCRIPTOR_REMAP": 15, "RESOURCE_REWRITE": 4},
+    "client": "NOT_RUN", "server": "NOT_RUN", "behavior": "NOT_RUN", "multiplayer": "NOT_RUN"
+  },
+  "validation": {
+    "fixtureBuild": {"status": "PASS", "log": "build/owned-constructors-20260919/fixture-build.log", "seconds": 17},
+    "focused": {"status": "PASS", "tests": 107, "failed": 0, "errors": 0, "skipped": 0, "seconds": 51, "log": "build/owned-constructors-20260919/focused-04.log", "xml": "build/owned-constructors-20260919/focused-04-xml", "suites": {"CompositionPreviewIntegrationTest": 21, "OwnedConstructorsIntegrationTest": 13, "CompositionArtifactPlanTest": 16, "LogicProfileShapeTest": 11, "OfflineLinkageVerifierTest": 31, "OwnedConstructorGraphTest": 15}},
+    "regression": {"status": "PASS_WITH_ONE_OPT_IN_SKIP_RECHECKED_SEPARATELY", "tests": 76, "passed": 75, "failed": 0, "errors": 0, "skipped": 1, "seconds": 95, "log": "build/owned-constructors-20260919/regressions-01.log", "xml": "build/owned-constructors-20260919/regressions-01-xml", "suites": {"CliEngineServiceTest": 12, "DatapackProfileIntegrationTest": 4, "FoodProfileIntegrationTest": 13, "LifecycleProfileIntegrationTest": 3, "LogicProfileIntegrationTest": 3, "NetworkProfileIntegrationTest": 5, "AdapterContractIntegrationTest": 7, "VerifiedLogicMappingsTest": 13, "OwnedConstructorGraphTest": 16}},
+    "simpleRealFollowup": {"status": "PASS", "tests": 1, "failed": 0, "errors": 0, "skipped": 0, "seconds": 17, "log": "build/owned-constructors-20260919/simple-real-01.log", "xml": "build/owned-constructors-20260919/simple-real-01-xml", "test": "AdapterContractIntegrationTest.actualConvertedFixtureCarriesExactBindingsMiningSemanticsAndMatchingBootstrap"},
+    "broadCorpusAttempt": {"status": "INTERRUPTED_NOT_PASSED", "log": "build/owned-constructors-20260919/contract-01.log", "seconds": 297, "reason": "An unfiltered corpus:test also selected the extensive pre-existing inert-session campaign. Stopped only its verified Gradle worker process, then selected PromptContractVerifierTest explicitly. No unrelated process was stopped; partial test output is not full-suite evidence."},
+    "contract": {"status": "PASS_WITH_EXISTING_PLATFORM_SKIPS", "tests": 77, "passed": 75, "failed": 0, "errors": 0, "skipped": 2, "seconds": 25, "skips": "Existing Windows symlink privilege cases, not counted as PASS", "log": "build/owned-constructors-20260919/contract-02.log", "xml": "build/owned-constructors-20260919/contract-02-xml", "verifier": "PROMPT_CONTRACT_VERIFIED prompts=23 cuts=81 current=LB-08/LINKAGE-GENERAL evidence=PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE", "counts": {"ACCEPTED": 15, "PARTIAL": 15, "BLOCKED": 2, "NOT_STARTED": 49}},
+    "newDistinctCases": 29,
+    "counting": "Overlapping static suites, not compatible mods. The initial opt-in skip passed separately, not in the earlier run.",
+    "allModuleAssemble": "PASS", "publicJarAudit": "PASS", "runtimeJarAudit": "PASS", "engineConsumerBoundary": "PASS", "installedCliSmoke": "PASS",
+    "packageLog": "build/owned-constructors-20260919/package-01.log", "packageSeconds": 29,
+    "nativeClient": "NOT_RUN", "nativeServer": "NOT_RUN", "nativeUi": "NOT_RUN", "discovery": "NOT_RUN", "activation": "NOT_RUN", "behavior": "NOT_RUN", "multiplayer": "NOT_RUN", "finalArtifactCachelessRuntime": "NOT_RUN", "gamesStarted": 0,
+    "scope": "Serial headless JUnit/ASM/linkage, genuine fixtures as inert bytes, archive and metadata validation. Full explicit local inventories; not a native/full-runtime campaign or redistribution."
+  },
+  "failuresAndCorrections": [
+    {"log": "build/owned-constructors-20260919/focused-tests.log", "cause": "Unquoted PowerShell -P path split at .properties; task selection failed before tests", "correction": "Quoted absolute profile argument"},
+    {"logs": ["build/owned-constructors-20260919/focused-02.log", "build/owned-constructors-20260919/focused-03.log"], "cause": "Default 512 MiB test worker hit MEMORY_PRESSURE with full real inventories. Reordering alone was insufficient.", "correction": "Explicit composition integration flag selects bounded 1 GiB test worker. Production reserve/queue/limits unchanged; no automatic GC/retry."}
+  ],
+  "sourceApiArchiveHashes": {"forge-1.16.5-36.2.42-sources": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376", "forge-1.20.1-47.4.23-sources": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"},
+  "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+  "limitations": ["Private candidate only, no exporter/install authority/new profile", "One direct Item owner and finite int-only constructor chain within existing registration/resources", "General hierarchies/constructors/properties/argument expressions and unknown external APIs unsupported", "No native equivalence or real-mod coverage inferred from static proof", "COMPOSE-01 requires and LINKAGE-GENERAL acceptance pending", "Full mapping/API data explicitly local", "License/monetization/acquisition/publication unchanged"]
+}

@@ -1,0 +1,68 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+
+group = 'dev.legacybridge.fixture'
+version = '1.0.0'
+base.archivesName = 'legacybridge-lifecycle-inferred-1.16.5'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 8
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.16.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.42'
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('jar', Jar) {
+    manifest.attributes(
+        'Implementation-Title': 'LegacyBridge Inferred Lifecycle Content Fixture',
+        'Implementation-Version': project.version,
+        'Implementation-Vendor': 'LegacyBridge contributors',
+        'LegacyBridge-Fixture': 'lifecycle-content-v1'
+    )
+    finalizedBy 'reobfJar'
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+    dependsOn 'reobfJar'
+    systemProperty 'fixture.jar', tasks.named('jar', Jar).get().archiveFile.get().asFile.absolutePath
+    testLogging {
+        events 'failed', 'skipped'
+        exceptionFormat 'full'
+    }
+}
+
+// This is a source-level variant of one original fixture, not another independently supported mod.
+// Reuse the other three owned classes, all resources, and common archive checks without duplicating them.
+def sharedFixture = file('../lifecycle-content-1.16.5')
+def sharedEntrypoint = new File(sharedFixture, 'src/main/java/dev/legacybridge/fixture/lifecycle/LifecycleContent.java').canonicalFile
+sourceSets {
+    main {
+        java.srcDir new File(sharedFixture, 'src/main/java')
+        java.exclude { element -> element.file.canonicalFile == sharedEntrypoint }
+        resources.setSrcDirs([new File(sharedFixture, 'src/main/resources')])
+    }
+    test {
+        java.srcDir new File(sharedFixture, 'src/test/java')
+    }
+}

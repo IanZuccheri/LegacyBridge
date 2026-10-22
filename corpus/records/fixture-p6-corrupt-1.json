@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "id": "fixture-p6-corrupt-1",
+  "kind": "PROJECT_FIXTURE",
+  "projectKey": "project-negative-container",
+  "version": "p6-1",
+  "artifact": {
+    "fileName": "corrupt.jar",
+    "sha256": "60fec3f17d8ba46fdbe3bb1ea7c0494238cb2ee6bac86adc7ff793dc4223939c",
+    "sizeBytes": 63
+  },
+  "authorization": {
+    "basis": "PROJECT_LOCAL_REQUEST",
+    "license": "ALL_RIGHTS_RESERVED",
+    "redistributeBinary": false,
+    "evidence": [
+      "license"
+    ]
+  },
+  "source": {
+    "loader": "UNKNOWN",
+    "minecraftVersions": [
+      "UNKNOWN"
+    ],
+    "forgeBuild": null,
+    "forgeVersionEvidence": "This project-authored 63-byte plain-text negative is not a ZIP/mod. No loader or Minecraft/Forge version can be detected."
+  },
+  "dependencies": [],
+  "detectedFeatures": [],
+  "blockers": [
+    "MALFORMED_ZIP: Input has no valid ZIP end record."
+  ],
+  "output": {
+    "sha256": null,
+    "status": "FAILED"
+  },
+  "stages": {
+    "analyzable": {
+      "status": "FAILED",
+      "evidence": [
+        "analysis"
+      ]
+    },
+    "convertible": {
+      "status": "FAILED",
+      "evidence": [
+        "conversion"
+      ]
+    },
+    "bytecodeValidated": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "multiplayer": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "evidence": [
+    {
+      "id": "license",
+      "type": "AUTHORIZATION",
+      "sourceSha256": null,
+      "targetSha256": null,
+      "sha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+      "path": "corpus/licenses/legacybridge/legacy-license-2026-09-06.txt"
+    },
+    {
+      "id": "analysis",
+      "type": "ANALYSIS",
+      "sourceSha256": "60fec3f17d8ba46fdbe3bb1ea7c0494238cb2ee6bac86adc7ff793dc4223939c",
+      "targetSha256": null,
+      "sha256": "1fcf90a64e7d5d72cf31dca9f5d8f8a9e5c6e4d0fb35ddd8c73a7fd6351e34f3",
+      "path": "build/p6-public/negative-fixtures/qualification-3a722dca-fb4a-4d3f-8bde-95f7bef1cf42/qualification.json"
+    },
+    {
+      "id": "conversion",
+      "type": "CONVERSION",
+      "sourceSha256": "60fec3f17d8ba46fdbe3bb1ea7c0494238cb2ee6bac86adc7ff793dc4223939c",
+      "targetSha256": null,
+      "sha256": "1fcf90a64e7d5d72cf31dca9f5d8f8a9e5c6e4d0fb35ddd8c73a7fd6351e34f3",
+      "path": "build/p6-public/negative-fixtures/qualification-3a722dca-fb4a-4d3f-8bde-95f7bef1cf42/qualification.json"
+    },
+    {
+      "id": "corrupt-screen",
+      "type": "SCREENSHOT",
+      "sourceSha256": "60fec3f17d8ba46fdbe3bb1ea7c0494238cb2ee6bac86adc7ff793dc4223939c",
+      "targetSha256": null,
+      "sha256": "d7a4332f923325171800597004b34e444180522a3f85fac6519d5a2f5da94116",
+      "path": "build/p6-public/evidence/09-corrupt-jar-details.png"
+    }
+  ],
+  "structuredMetadata": {
+    "corpusVersion": "2026.09.06.1",
+    "modId": null,
+    "modVersion": null,
+    "sourceNature": "PROJECT_NON_JAR_NEGATIVE",
+    "sourceDescription": "Project-authored plain text deliberately given .jar extension; not a mod, loader or Minecraft version cannot be detected.",
+    "sourceArtifactSha256": null,
+    "artifactLocations": [
+      "build/p6-public/negative-fixtures/corrupt.jar"
+    ],
+    "aliases": [],
+    "isModArtifact": false,
+    "independentForgeCompiledFixture": false,
+    "sourceClassesExecutedDuringAnalysisOrConversion": false,
+    "redistributionNote": "The fixture README's broad redistributable wording is not a redistribution grant. Neither this intake nor the user's local QA request changes the repository LICENSE. No third-party mod was obtained by this audit.",
+    "validationContext": {
+      "sourceMinecraft": null,
+      "sourceForge": null,
+      "targetMinecraft": "1.20.1",
+      "targetForge": "47.4.23",
+      "java": "17.0.12",
+      "supportProfile": "simple-content-v1",
+      "runtimeModId": "legacybridge_runtime",
+      "adapterVersion": "0.1.1-SNAPSHOT",
+      "publicRuntimeSha256": "00cc7ebde1279c1ac3cc6ac0a54498e4598ca4f45700a6799f915ce9dddea991",
+      "mappingManifestSha256": "bac4e0018cc51bd13a7e5ae19116d04cb6b4bc271d3aecfba5e4ac0d27df5c69",
+      "runtimeEvidenceInheritedFromOtherFixture": false,
+      "operationDate": "2026-09-06",
+      "historicalEvidenceImport": true,
+      "gameRerunDuringCorpusIntake": false
+    },
+    "versionSemantics": "The required record version p6-1 identifies the negative fixture revision, not a fabricated mod version.",
+    "metricLimitations": [
+      "Fixture variants are not independently developed third-party mods.",
+      "A passed stage attests only the cited exact source/output hashes.",
+      "Counts of tests and resolved symbols are not counts or percentages of compatible mods."
+    ]
+  },
+  "analysisSummary": {
+    "retainedStandaloneCompatibilityReport": false,
+    "analysisStatus": "FAILED",
+    "detectedMinecraftVersion": null,
+    "detectedForgeVersion": null,
+    "classCount": null,
+    "complexity": null,
+    "riskScore": null,
+    "scannerUnsupportedFeatureLabels": [],
+    "scannerPolicyCaveat": "CompatibilityReport schema 2 calls these labels unsupportedFeatures and retains conversionStatus NOT_IMPLEMENTED. They are analyzer labels, not converter blockers. Actual converter diagnostics and conversion report schema 2 determine refusal/success.",
+    "bytecodeChecks": [],
+    "staticJvmLinkageVerified": false,
+    "sourceModClassesLoaded": false,
+    "outputSizeBytes": null,
+    "conversionScope": "No converted result published."
+  }
+}

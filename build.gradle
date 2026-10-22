@@ -1,0 +1,97 @@
+plugins {
+    id 'base'
+}
+
+group = project_group
+version = project_version
+
+allprojects {
+    group = rootProject.project_group
+    version = rootProject.project_version
+
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'MinecraftForge'
+            url = 'https://maven.minecraftforge.net/'
+        }
+    }
+}
+
+subprojects {
+    plugins.withType(JavaPlugin).configureEach {
+        java {
+            toolchain.languageVersion = JavaLanguageVersion.of(17)
+            withSourcesJar()
+        }
+
+        tasks.withType(JavaCompile).configureEach {
+            options.encoding = 'UTF-8'
+            options.release = 17
+        }
+
+        tasks.withType(Test).configureEach {
+            useJUnitPlatform()
+            testLogging {
+                events 'passed', 'skipped', 'failed'
+            }
+        }
+
+        tasks.withType(AbstractArchiveTask).configureEach {
+            preserveFileTimestamps = false
+            reproducibleFileOrder = true
+        }
+    }
+}
+
+tasks.named('clean') {
+    dependsOn ':legacy-corpus:clean'
+    dependsOn ':legacy-converter:clean', ':legacy-compat-api:clean', ':legacy-runtime:clean', ':legacy-workflow:clean', ':legacy-product:clean'
+}
+
+tasks.named('assemble') {
+    dependsOn ':legacy-corpus:assemble'
+    dependsOn ':legacy-converter:assemble', ':legacy-compat-api:assemble', ':legacy-runtime:assemble', ':legacy-workflow:assemble', ':legacy-product:assemble'
+}
+
+tasks.named('check') {
+    dependsOn 'verifyPublicServerPreflight'
+    dependsOn 'verifyNetworkRuntimeDiagnostics'
+    dependsOn 'verifyNetworkRuntimeInstallation'
+    dependsOn 'verifyNetworkHandshakeDiagnostics'
+    dependsOn ':legacy-corpus:check'
+    dependsOn ':legacy-converter:check', ':legacy-compat-api:check', ':legacy-runtime:check', ':legacy-workflow:check', ':legacy-product:check'
+}
+
+// Windows-only pure QA script tests, not a Minecraft run or an engine dependency.
+tasks.register('verifyPublicServerPreflight', Exec) {
+    group = 'verification'
+    description = 'Tests isolated public-server mode/hash selection without launching games.'
+    onlyIf { System.getProperty('os.name').toLowerCase(java.util.Locale.ROOT).contains('windows') }
+    commandLine 'powershell.exe', '-NoProfile', '-NonInteractive', '-File',
+            rootProject.file('scripts/Test-P6PublicServerPreflight.ps1').absolutePath
+}
+
+tasks.register('verifyNetworkRuntimeDiagnostics', Exec) {
+    group = 'verification'
+    description = 'Tests the exact pinned native networking diagnostic oracle without launching games.'
+    onlyIf { System.getProperty('os.name').toLowerCase(java.util.Locale.ROOT).contains('windows') }
+    commandLine 'powershell.exe', '-NoProfile', '-NonInteractive', '-File',
+            rootProject.file('scripts/Test-NetworkRuntimeDiagnostics.ps1').absolutePath
+}
+
+tasks.register('verifyNetworkRuntimeInstallation', Exec) {
+    group = 'verification'
+    description = 'Tests the pinned FML discovery library inventory without launching games.'
+    onlyIf { System.getProperty('os.name').toLowerCase(java.util.Locale.ROOT).contains('windows') }
+    commandLine 'powershell.exe', '-NoProfile', '-NonInteractive', '-File',
+            rootProject.file('scripts/Test-NetworkRuntimeInstallation.ps1').absolutePath
+}
+
+tasks.register('verifyNetworkHandshakeDiagnostics', Exec) {
+    group = 'verification'
+    description = 'Tests the closed native handshake case/observation/log oracle without games.'
+    onlyIf { System.getProperty('os.name').toLowerCase(java.util.Locale.ROOT).contains('windows') }
+    commandLine 'powershell.exe', '-NoProfile', '-NonInteractive', '-File',
+            rootProject.file('scripts/Test-NetworkHandshakeDiagnostics.ps1').absolutePath
+}

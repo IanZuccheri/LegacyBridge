@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "tag": "legacybridge_datapack:processing_inputs"
+  },
+  "result": "legacybridge_datapack:bridge_block",
+  "experience": 0.25,
+  "cookingtime": 600
+}

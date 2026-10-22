@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-19",
+  "prompt": "LB-09",
+  "cut": "LIFE-CONFIG",
+  "slice": "CLIENT_CONFIG_SCOPE",
+  "status": "PARTIAL_HEADLESS_IMPLEMENTED_NATIVE_NOT_RUN",
+  "next": "LB-09/LIFE-CONFIG/SERVER_CONFIG_SCOPE",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "sourceEventBus": "4.0.0",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetEventBus": "6.2.33",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "7de49d8fd0781033aadd7904f108600168d99e7dcfd3f76d53687b5686c6268b",
+    "bytes": 1750922,
+    "entries": 704,
+    "fileEntries": 655,
+    "previousSha256": "e15e418d4b6a6da9b35934ef1d631a4d62d2faea548dc9d06d77dbe4992ec0ba",
+    "unchangedEntries": 685,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/LifecycleProfileShape$ConfigShape.class",
+      "dev/legacybridge/converter/conversion/LifecycleProfileShape.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/ClientConfigContract$Proof.class",
+      "dev/legacybridge/converter/conversion/ClientConfigContract.class",
+      "dev/legacybridge/runtime/compat/logic/ClientConfigArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "directoryEntries": 49
+  },
+  "catalog": {
+    "changedOldEntries": [],
+    "oldEntries": 38,
+    "newEntries": 40,
+    "addedOperations": [
+      "logic.client-config-manifest.v1",
+      "logic.client-config-bindings.v1"
+    ],
+    "scope": "OFFLINE_METADATA_ONLY",
+    "executableRuntimeAbiChanged": false
+  },
+  "fixture": {
+    "path": "fixtures/client-config-1.16.5/build/libs/legacybridge-client-config-1.16.5-1.0.0.jar",
+    "bytes": 8959,
+    "sha256": "e7f3287f141f4145d15cb2e615ff5f570ab80ac7423f7abc8bcf481c04c5e699",
+    "ownedClasses": 4,
+    "ownedMethods": 14,
+    "modId": "legacybridge_clientconfig",
+    "version": "1.0.0",
+    "loader": "Forge 36.2.42",
+    "nativeValidation": "NOT_RUN"
+  },
+  "candidate": {
+    "sha256": "6daad5b824642a3f9b15089050429aa4807a204dc24ddb8d7f4c06003d7d626a",
+    "bytes": 7411,
+    "kind": "PRIVATE_SERIALIZED_JAR",
+    "published": false,
+    "installed": false,
+    "originalExecuted": false,
+    "sourceTargetReadbackProof": "MATCHED",
+    "bytecode": "PASSED_STATIC_REOPENED",
+    "offlineLinkage": "PASSED_SCOPED",
+    "lambdaSites": 3,
+    "sourceAndTargetFields": 22,
+    "sourceAndTargetMethodReferences": 28,
+    "runtimeValidation": "NOT_RUN"
+  },
+  "implementation": {
+    "entryPoints": [
+      "LogicPreservingConverter.planClientConfig",
+      "LegacyEngineService.planClientConfig"
+    ],
+    "reuses": [
+      "LifecycleProfileShape.validateConfig",
+      "VerifiedLogicMappings",
+      "LoggedClassRemapper",
+      "LogicBodyPreservation",
+      "OfflineLinkageVerifier",
+      "CompositionCandidateBuilder",
+      "OperationControl bounded worker"
+    ],
+    "admission": "ClientConfigContract derives roles, exact forward guard/skip target, common registration envelope, native schema, explicit MOD listener and queued post-load read",
+    "proofStages": [
+      "SOURCE",
+      "TARGET",
+      "SERIALIZED_READBACK"
+    ],
+    "reportSchema": 1,
+    "transformationLogSchema": 1,
+    "publicProfiles": 6,
+    "publicApplyChanged": false,
+    "originalJarPreserved": true,
+    "resourcesPreservedByteForByte": true,
+    "adapterAbiVersionChanged": false,
+    "fixtureClassesOrGameSourcesPackaged": false
+  },
+  "data": {
+    "profile": "build/client-config-20260919/mapping-profile.properties",
+    "scope": "EXPLICIT_LOCAL_DEVELOPMENT_INPUT_NOT_EMBEDDED_PUBLIC_DATA",
+    "newHiddenDownload": false,
+    "sourceArchiveSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetArchiveSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "extraInventory": [
+      {
+        "name": "Forge 1.16.5-36.2.42 launcher",
+        "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+      },
+      {
+        "name": "mergetool-1.0.9-api.jar",
+        "sha256": "46d9d0b4a42ab220a2baa25807bc7a076c2cb51594fa6c013c595f43b92956b3"
+      },
+      {
+        "name": "mergetool-1.1.5-api.jar",
+        "sha256": "39d9a3d9277c1402b8e7b97f917ce278241cf1796312aec85b87f19a376dd99a"
+      }
+    ],
+    "redistributionPermissionExpanded": false
+  },
+  "validation": {
+    "serial": true,
+    "commandPrefix": "JAVA_HOME=C:/Program Files/Java/jdk-17; gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT",
+    "commonFlags": "--max-workers=1 --console=plain",
+    "optIn": "-PverifyCompositionEnvironment=true -PlogicMappingProfile=<absolute build/client-config-20260919/mapping-profile.properties>",
+    "runs": [
+      {
+        "log": "build/client-config-20260919/fixture-build-01.log",
+        "tasks": "-p fixtures/client-config-1.16.5 build",
+        "status": "PASS",
+        "seconds": 6
+      },
+      {
+        "log": "build/client-config-20260919/compile-01.log",
+        "tasks": ":legacy-converter:compileTestJava",
+        "status": "PASS",
+        "seconds": 23
+      },
+      {
+        "log": "build/client-config-20260919/client-01.log",
+        "tasks": ":legacy-converter:test --tests '*ClientConfigIntegrationTest'",
+        "tests": 44,
+        "failures": 8,
+        "errors": 0,
+        "skips": 0,
+        "status": "FAILED_RETAINED",
+        "seconds": 35,
+        "reason": "Missing CLIENT metadataOperation switch cases rejected serialization; four positives and four downstream cancellation assertions failed. Exact operation entries added; no validation bypass."
+      },
+      {
+        "log": "build/client-config-20260919/client-02.log",
+        "tests": 44,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "status": "PASS",
+        "seconds": 37
+      },
+      {
+        "log": "build/client-config-20260919/client-03.log",
+        "tests": 46,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "status": "PASS",
+        "seconds": 32,
+        "scope": "Independent registration-prefix/init/item proof tightened; same-size early-effect and duplicate-state-field negative cases added."
+      },
+      {
+        "log": "build/client-config-20260919/focused-01.log",
+        "tests": 409,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "status": "PASS",
+        "seconds": 88,
+        "scope": "18 focused composition/constructor/hierarchy/interface/receiver/event/client-config/mapping/linkage/lifecycle suites; explicit opt-in."
+      },
+      {
+        "log": "build/client-config-20260919/regressions-01.log",
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "status": "PASS",
+        "seconds": 114,
+        "scope": "Six old profile/adapter suites. CLI service glob did not match its actual name here; its 12 cases were explicitly run in final-package-01."
+      },
+      {
+        "log": "build/client-config-20260919/fixture-build-02.log",
+        "tasks": "-p fixtures/client-config-1.16.5 build",
+        "status": "PASS",
+        "seconds": 4,
+        "scope": "Corrected authored fixture descriptions/pt_br label only; earlier original hash 287827676bc377c114fafa066610f63daeab559183f18fe0c7722518671e2bf7/candidate bddd6868445eb837cbcae974731a83a26f23a0b0ba9066ba9f0e8c325710c762 retained in earlier XML. Final 46 cases rerun against final fixture."
+      },
+      {
+        "log": "build/client-config-20260919/final-package-01.log",
+        "tasks": ":legacy-converter:test --tests '*ClientConfigIntegrationTest' --tests '*CliEngineServiceTest' assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+        "tests": 58,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "status": "PASS",
+        "seconds": 45,
+        "scope": "Final fixture 46 cases plus CLI/service 12; all-module assemble, final archive audits, consumer boundary and installed CLI smoke."
+      },
+      {
+        "log": "build/client-config-20260919/contract-final-01.log",
+        "tasks": ":legacy-corpus:test --tests '*PromptContractVerifierTest' :legacy-corpus:verifyPromptContract assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+        "status": "PASS_WITH_EXPLICIT_SKIPS",
+        "tests": 77,
+        "passed": 75,
+        "failures": 0,
+        "errors": 0,
+        "skips": 2,
+        "seconds": 42,
+        "artifactHashUnchanged": true
+      }
+    ],
+    "distinctEngineCases": 456,
+    "newEngineCases": 46,
+    "countsAreModsOrNativeProof": false,
+    "contractValidation": {
+      "status": "PASS_WITH_EXPLICIT_SKIPS",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "reason": "Existing Windows symlink privilege gates; skipped is not passed",
+      "repositoryVerifier": "PASS"
+    },
+    "fullUnfilteredSuite": "NOT_RUN",
+    "native": "NOT_RUN",
+    "distinctCaseCounting": "Union of classname + JUnit testcase name across focused-01, regressions-01 and final-package-01 XML: 456. Runs overlap, not summed."
+  },
+  "notRun": [
+    "Original/converted Minecraft clients",
+    "Dedicated server or real physical-side classloader proof",
+    "Native configuration loading/correction/reload",
+    "Behavior/thread comparison",
+    "GUI, activation, multiplayer, reconnect",
+    "Fresh installation/cacheless or offline runtime qualification",
+    "Full unfiltered suites"
+  ],
+  "limitations": [
+    "Finite boolean/int startup snapshot only, no arbitrary configuration schemas or gameplay",
+    "No SERVER config, reload handlers, sync, custom specs/filenames/validators or client game APIs",
+    "Static effect/linkage proof is not JVM/Forge lifecycle or behavior validation",
+    "LIFE-EVENTS and COMPOSE-01 acceptance prerequisites remain PARTIAL",
+    "New private operation still needs explicit complete local development inventories, not generic embedded mappings"
+  ],
+  "boundaries": {
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "licenseChanged": false,
+    "newRealModAcquisition": false,
+    "corpusRealReleases": 3,
+    "completeRealPortsValidated": 0,
+    "published": false,
+    "gamesStarted": false,
+    "screenAutomation": false
+  }
+}

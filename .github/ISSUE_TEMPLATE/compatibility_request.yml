@@ -1,0 +1,57 @@
+name: Compatibility request
+description: Document a missing mod pattern without treating it as supported.
+title: "[Compatibility] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Requests guide fixture selection; they do not promise a port or release date.
+        Most real mods are outside the current simple-content-v1 profile. Please share publisher/source links or an authorized original reproduction, not private binaries or full mappings.
+  - type: input
+    id: project
+    attributes:
+      label: Mod name and official project URL
+    validations:
+      required: true
+  - type: input
+    id: release
+    attributes:
+      label: Exact source version and SHA-256
+      description: Include Minecraft and Forge requirements. A filename alone is not proof of version.
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: Source and license
+      description: Link the exact source release and license, or describe your permission to supply a minimal fixture. Mark unknown permissions as unknown; do not upload the mod to establish them.
+    validations:
+      required: true
+  - type: textarea
+    id: missing_behavior
+    attributes:
+      label: Smallest behavior to reproduce
+      description: What observable behavior is missing? Include dependencies, side, lifecycle and persistence/networking requirements where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: current_result
+    attributes:
+      label: Current LegacyBridge result
+      description: State the LegacyBridge version/hash, operation and diagnostic. Distinguish not attempted, analyzed, blocked, converted, bytecode validated, startup, gameplay and multiplayer.
+    validations:
+      required: true
+  - type: textarea
+    id: contribution
+    attributes:
+      label: Available reproduction or contribution
+      description: Optional original fixture, API comparison or proposed isolated test. Do not attach private mods or copyrighted game sources/assets.
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Before submitting
+      options:
+        - label: I understand that this request does not imply compatibility or permission to redistribute a converted mod.
+          required: true
+        - label: I removed secrets and private data, and have permission to share every attachment.
+          required: true

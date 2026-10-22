@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-13",
+  "prompt": "LB-05",
+  "cut": "INSTALL-PROMOTION",
+  "slice": "PRESERVED_ADD_ONLY_INSTALL",
+  "status": "IMPLEMENTED_HEADLESS_SCOPED; PARENT_PARTIAL; PUBLIC_PROMOTION_NOT_ENABLED",
+  "baseline": {
+    "sourceMinecraft": "1.16.5", "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "implementation": {
+    "api": "PreservedAddOnlyInstaller.apply/inspect/recover; explicit PreservedInstallApproval and current InstallSession; synchronous bounded worker API",
+    "reportType": "LEGACY_PRESERVED_ADD_ONLY_INSTALL",
+    "installSchemaVersion": 1,
+    "profile": "logic-preserving-v1",
+    "recipe": "INDEPENDENT_LOGIC_READBACK_V1",
+    "approval": "DEVELOPER_EXPLICIT_SELECTION; externally selected admission/plan pins and nonce; not a signature, saved PASS or authentication token",
+    "admissionValidation": "Fresh full reviewed bundle plus original/private candidate inspection on every operation; exact rules, bytecode/linkage/resource/metadata/ABI checks reused, no duplicate conversion rules",
+    "commit": "One independent forced private copy, forced immutable plan, same-filesystem create-new hard link, fingerprint/identity/installed-set revalidation and immutable checkpoint",
+    "recovery": "Explicit resume or restore; restore intent persisted before owned unlink; no reapply once restoration started; missing committed artifact without restore intent refuses reconstruction",
+    "guards": "Shared installer JVM/file lock; seven fixed directory guards; original/staged/admission/plan/payload/data pins; actual loaded-ID/file snapshot required; current set and projected dependency closure checked",
+    "existingV1V2Changed": false,
+    "publicUiChanged": false,
+    "engineProfilesAndAdaptersChanged": false,
+    "automaticRestart": false,
+    "originalClassesExecuted": false,
+    "conversionInvoked": false,
+    "limits": {"candidates": 1, "artifactBytes": 67108864, "inflatedBytes": 536870912, "capturedBytes": 268435456, "cooperativeSeconds": 180,
+      "transactions": 32, "transactionEntries": 128, "journalBytes": 65536, "installedEntries": 1024, "installedJars": 256, "dependencies": 4096},
+    "sourceHashes": {
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedAddOnlyInstaller.java": "ee40de48b56e2754eb8875519d940f35eb50638cc9fe040919f7e04120e9e25f",
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedInstallApproval.java": "5c3c9990bad2874e80406d27acea725e2085aaa5b6e669d87e63428997115387",
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedInstallJournal.java": "a1a44122a4e81c393c7b13c93fa6d06131f5452645417341d78648154c2d157b",
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedInstallResult.java": "1abcb49df4053cf6b29c88f802dd9990f970eca8b93eaa7535b9c410e39196dc",
+      "legacy-product/src/main/java/dev/legacybridge/product/install/PreservedAdmissionStore.java": "e95d505fe8e41176dc11797e62a3cb46675c8d089817fe648f79c234dbb56797",
+      "legacy-product/src/test/java/dev/legacybridge/product/install/PreservedAddOnlyInstallerTest.java": "d1a1e407f468e6b743b4b84065eb99fa480d392fd31be32907d6c298a7abd718",
+      "legacy-product/src/test/java/dev/legacybridge/product/install/PreservedInstallBoundaryTest.java": "d4b6c29469efdcc395431791734aa7e0b659bbbadc304208a5c3a89cdf08001d",
+      "tools/PreservedInstallRecoveryProbe.java": "2332d21a67e9bfdf7dd95e451e75235b1478ddc0b93e67262ca21b50f5a0b7f0"
+    }
+  },
+  "inputs": {
+    "original": {"path": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar", "sha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f"},
+    "converted": {"path": "build/logic-preserving-v1/converted.jar", "sha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d", "modId": "legacybridge_logic", "modVersion": "1.0.0", "classes": 6, "methods": 25},
+    "mappingData": {"path": "build/logic-preserving-v1/mapping-bundle", "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb", "rights": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION", "embedded": false, "downloaded": false},
+    "targetSource": {"artifact": "fmlloader-1.20.1-47.4.23-sources.jar", "sha256": "7917b9e169ed8d1f34299ebd6c8136f310a176754b52b1e492b86638aa059667", "reread": ["net/minecraftforge/fml/loading/ModSorter.java verifyDependencyVersions", "net/minecraftforge/fml/loading/moddiscovery/ModsFolderLocator.java scanCandidates"]},
+    "jdkSourceBaselineSha256": "24fee80297ef15a886e283a31ac4eca18888ca8e942a21afb3f60a8535dc573b"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "8dbd54f4e6139a223e1e8d6665e2818baf3c0877189b0ec9ea607034857f3a35",
+    "bytes": 1525546, "entries": 622,
+    "baselineSha256": "4e41fd7e69eac085e9932690d7eee8e7aa68335b754ac1fbaa94979610abd545",
+    "baselineArchive": "build/preserved-install-20260913/LegacyBridge-baseline.jar",
+    "unchangedPriorEntries": 611, "addedEntries": 9, "removedEntries": 0,
+    "changedPriorEntries": ["dev/legacybridge/product/install/PreservedAdmissionStore.class", "dev/legacybridge/product/install/PreservedAdmissionStore$Rejected.class"],
+    "deltaScope": "Shared admission recheck composition plus nine new approval/install/journal/result classes. V1/V2 installer/journal/TransactionFiles, engine, six profiles, runtime/ABI, UI, mappings, libraries, services/notices unchanged",
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "validation": {
+    "initial": {"result": "PASS_UNIT_AND_BUILD_ONLY", "productTests": 108, "passed": 108, "failures": 0, "errors": 0, "skips": 0,
+      "duration": "6m24s", "tasks": 46, "executedTasks": 16, "upToDateTasks": 30, "log": "build/preserved-install-20260913/initial.log",
+      "artifactSha256": "c834678e6fc540408eddc1b78c110caf2b2e3fef8cdd14be98a854af3751e542",
+      "logSha256": "e73455dcdfba28aa48a3679a2f36b2d89e011c73ca2ccc3e5c16b6354a69238f"},
+    "fixedBuild": {"status": "PASS", "log": "build/preserved-install-20260913/fixed.log",
+      "logSha256": "c17b397d43401aadad8c98ed146c03015c6c26d3e2e22a11930bd79fe950fef6",
+      "duration": "6m40s", "tasks": 51, "executedTasks": 19, "upToDateTasks": 32,
+      "product": {"tests": 112, "passed": 112, "failures": 0, "errors": 0, "skips": 0, "newCases": 41, "xml": "build/preserved-install-20260913/test-results-fixed"},
+      "contract": {"tests": 77, "passed": 75, "failures": 0, "errors": 0, "skips": 2, "skipReason": "Windows symlink privileges unavailable", "xml": "build/preserved-install-20260913/contract-results-fixed"},
+      "tasksInvoked": [":legacy-product:test --tests *Preserved*Test --tests *AddOnlyInstallerTest --tests *TransactionalInstallerTest --rerun", ":legacy-corpus:test --tests *PromptContractVerifierTest --rerun", "assemble", ":legacy-product:verifyProductJar", ":legacy-runtime:verifyRuntimeJar", ":legacy-converter:verifyEngineConsumerBoundary", ":legacy-converter:smokeInstalledCli"],
+      "options": "Java17 JAVA_HOME explicit; Windows-ROOT TLS trust provider; --max-workers=1 --console=plain; explicit -PadmissionOriginal/-PadmissionCandidate/-PadmissionBundle from inputs above",
+      "scope": "Focused fresh cases and all-module assemble/package/CLI checks; not a rerun of every extensive suite or a game launch"},
+    "finalProcessRecovery": {
+      "status": "PASS_SCOPED", "root": "${DEVELOPER_HOME}/AppData/Local/Temp/lbpi-57c33d0f",
+      "archive": "build/preserved-install-20260913/isolated", "helper": "tools/PreservedInstallRecoveryProbe.java",
+      "productSha256": "8dbd54f4e6139a223e1e8d6665e2818baf3c0877189b0ec9ea607034857f3a35",
+      "classpath": "Separately compiled helper classes + copied public LegacyBridge.jar + explicit CLI-distribution platform libraries, excluding legacy-* engine/compat/development JARs; no original/candidate/mods directory on classpath",
+      "jvm": "Java17.0.12 -Xmx512m -Duser.home=<empty home> -Dgradle.user.home=<empty gradle> -Xlog:class+load=info:file=<action>-classes.log; sequential processes only",
+      "session": "Synthetic trusted loaded-ID/file snapshot; actual copied public runtime scanned as next-launch metadata. This is NOT an actual Forge ModList/session",
+      "admissionId": "78595e44-8aa0-4c53-adad-22aec09bc3c4", "admissionSha256": "3fd9aec04e7f4ca2f2c3b3c13a68e7d36d3b9e631dea0996311a88ff35740e18",
+      "approvalId": "427a03ed-f157-43aa-835d-c398c981b4ff", "installId": "3f1cd92c-ff49-41c5-9397-dff548d33018",
+      "installPlanSha256": "7e089dbf07be80556478963b8cc30acec1c997fd46715bfa79ef3dddfa6228bc",
+      "observations": [
+        "Initially only public runtime JAR in disposable mods; source and candidate copied independently",
+        "apply-stop exit 81 after actual hard-link publication; 14 retained guards",
+        "Two new resume JVMs exit 0, COMMITTED, original unchanged; guards 14 to 0; second call leaves identical path/hash tree",
+        "restore-stop exit 82 after actual owned unlink with durable intent; 14 retained guards",
+        "New resume JVM exit 1 expected refusal: RESTORING cannot reapply; entire game path/hash tree including all retained guards unchanged",
+        "Two new restore JVMs exit 0, RESTORED; retained guards 0; second restore identical path/hash tree; only original public runtime remains in mods",
+        "Original/candidate hashes still exact; user.home files 0; gradle.user.home files 0; no original/candidate/payload/.gradle class sources in traces"
+      ],
+      "logsSha256": {
+        "apply.log": "a044cba05d432c3489aaf8f3ce3ac730e04bd9c7cb6258f33170418c675a8b6b",
+        "resume-1.log": "6976865533c43292619ffdcbf64e3e61b4f292819394d409d63da821ad212dcc",
+        "restore-stop.log": "9948896e92c7c22cbaa993e3541580f88a851715f4f8831968b134bdcc242d30",
+        "refused-resume.log": "14233f9e4bb4e2bd06bbf4103a0345f74e3afcfc4d857e59cc485d42fe49e774",
+        "restore-1.log": "3e824209fa5d249402e2c00a6759b017adf0c1d8706dc0c4a6f92f25d723e59e",
+        "restore-1-classes.log": "bef2cda06417b01e551dabbd14f539222f29a3f8818e079ea6fbecf450c3abbb"
+      },
+      "limits": "Developer Java filesystem test, not ordinary Forge/JiJ/JPMS, native UI/discovery/behavior, OS network isolation or physical power-loss proof. Explicit local full bundle still required; no private data redistributed. Only helper processes halted; no user process terminated"
+    },
+    "knownFailureAndFix": {
+      "archive": "build/preserved-install-20260913/attempt-1",
+      "root": "${DEVELOPER_HOME}/AppData/Local/Temp/lbpi-dcacc1ff",
+      "artifactSha256": "c834678e6fc540408eddc1b78c110caf2b2e3fef8cdd14be98a854af3751e542",
+      "observed": "Helper halt 81 after publication; two new JVM resumes committed/idempotent and cleaned 14 guards. Helper halt 82 after restore unlink. Invalid RESUME correctly refused reinstallation but cleaned 14 retained guards before refusing; no-files-changed oracle FAILED. Original/staging hashes unchanged; no reapply occurred",
+      "cause": "Invalid recovery direction was checked in perform, after revisit cleaned retained guards",
+      "fix": "Reject RESUME for RESTORING/RESTORED before any guard cleanup/creation; added regression with retained live guard identities",
+      "scope": "Recovered files are retained privately, not deleted or automatically replayed; failure is not native game, filesystem corruption or power-loss evidence"
+    },
+    "nativeClient": "NOT_RUN", "nativeServer": "NOT_RUN", "nativeUi": "NOT_RUN", "behavior": "NOT_RUN", "multiplayer": "NOT_RUN",
+    "forgeJiJModuleQualification": "NOT_RUN", "physicalDiskFullPowerLoss": "NOT_RUN", "certifiedLauncherRestart": "UNSUPPORTED",
+    "osEnforcedOffline": "NOT_RUN"
+  },
+  "limitsAndNext": {
+    "headlessScope": "Static real fixture pair and Java filesystem/process tests only; no original class, Minecraft, server, native UI, world or launcher execution",
+    "filesystems": "Canonical paths and cooperative locks are not a hostile-process sandbox. File force is not directory fsync or universal power-loss durability. Windows derived guard paths over 247 chars refused. Same-filesystem hard links required",
+    "notImplemented": ["public preserved Convert/Apply", "coordinator/shutdown/history integration", "preserved updates or generic uninstall", "composition/cohort installation", "recovery with lost source/staging/data", "automatic pre-discovery repair", "hot activation", "world migration", "universal mappings or modpack behavior"],
+    "rights": "No license/billing/acquisition/publication change; no private bundle/fixture/helper embedded",
+    "nextPrompt": "LB-01", "nextCut": "PRODUCT-COMPOSED", "nextSlice": "PRESERVED_INSTALL_COORDINATOR",
+    "nextAction": "Reuse existing bounded coordinator for explicit developer review/jobs/receipts/history and shutdown/world exclusion; no public profile promotion, repeated disk installer, new harness campaign or Minecraft launch",
+    "acceptance": "LB-05 / INSTALL-PROMOTION remains PARTIAL; COMPOSE-01, DEPS-COHORT, native artifact/profile gates remain required"
+  }
+}

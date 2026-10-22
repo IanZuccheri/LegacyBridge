@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[36]"
+license="All Rights Reserved"
+[[mods]]
+modId="legacybridge_suite"
+version="${file.jarVersion}"
+displayName="LegacyBridge Lifecycle Suite Fixture"
+description="Original COMMON reload, events, late registry and typed commands fixture; not a released mod."
+[[dependencies.legacybridge_suite]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_suite]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"

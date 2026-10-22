@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_PRESERVED_MANAGED_UPDATE_EVIDENCE",
+  "reviewedAt": "2026-09-19",
+  "contract": {
+    "prompt": "LB-05", "cut": "INSTALL-PROMOTION", "slice": "PRESERVED_MANAGED_UPDATES",
+    "implementation": "IMPLEMENTED_DEVELOPER_BACKEND", "acceptance": "PARTIAL",
+    "next": {"prompt": "LB-01", "cut": "PRODUCT-COMPOSED", "slice": "PRESERVED_UPDATE_COORDINATOR"}
+  },
+  "baseline": {"sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23", "java": "17.0.12", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "5123677d79126509f338eeb6a00bb7c742ae0eb7ce4cc8fde56d5547d50d2440",
+    "bytes": 1639625, "entries": 668, "unchanged": 658,
+    "changed": ["dev/legacybridge/product/install/PreservedAddOnlyInstaller.class", "dev/legacybridge/product/install/PreservedInstallJournal.class"],
+    "added": [
+      "dev/legacybridge/product/install/PreservedUpdateApproval.class",
+      "dev/legacybridge/product/install/PreservedUpdateInstaller$Boundary.class",
+      "dev/legacybridge/product/install/PreservedUpdateInstaller$Hook.class",
+      "dev/legacybridge/product/install/PreservedUpdateInstaller$Inputs.class",
+      "dev/legacybridge/product/install/PreservedUpdateInstaller.class",
+      "dev/legacybridge/product/install/PreservedUpdateJournal$Mark.class",
+      "dev/legacybridge/product/install/PreservedUpdateJournal$Plan.class",
+      "dev/legacybridge/product/install/PreservedUpdateJournal.class"
+    ],
+    "removed": [], "unexpectedChanges": []
+  },
+  "previousArtifact": {
+    "path": "build/preserved-updates-20260919/LegacyBridge-baseline.jar",
+    "sha256": "6adff85b4a8d716188b49498c3112e2062bfc1374b13a519d2199adea5adc165", "bytes": 1618829, "entries": 660
+  },
+  "inputs": {
+    "original": {"path": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar",
+      "sha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f", "version": "1.0.0"},
+    "candidate": {"path": "build/logic-preserving-v1/converted.jar",
+      "sha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d", "version": "1.0.0"},
+    "updatedFixture": {
+      "recipe": "PreservedUpdateInstallerTest.versionFixture: authored original only, change TOML/manifest version from 1.0.0 to 1.0.1, fixed ZIP timestamps, unchanged class/resource bytes, actual LegacyEngineService LOGIC_PRESERVING_V1 conversion",
+      "sourceSha256": "71abbc4eb9b6b5cf6e942f7878eee006515ce524777464bedcf439e58417c547",
+      "candidateSha256": "d6b7051dd301a58b2aeda595124e797e1f30b6a1f898225698d35cba83fea644",
+      "version": "1.0.1", "storage": "JUnit-owned temporary directories; deterministic pins emitted in retained XML; not a newly acquired real mod"
+    },
+    "mappingData": {"path": "build/logic-preserving-v1/mapping-bundle",
+      "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+      "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION", "embedded": false},
+    "sourceAudit": [
+      {"artifact": "JDK 17.0.12 lib/src.zip", "sha256": "24fee80297ef15a886e283a31ac4eca18888ca8e942a21afb3f60a8535dc573b", "read": "Files.createLink/delete delegate to filesystem provider; no universal identity-checked atomic unlink"},
+      {"artifact": "fmlloader-1.20.1-47.4.23-sources.jar", "sha256": "7917b9e169ed8d1f34299ebd6c8136f310a176754b52b1e492b86638aa059667", "read": "ModsFolderLocator direct .jar discovery; ModSorter mandatory/present optional version checking before normal loading"}
+    ]
+  },
+  "implementation": [
+    "Explicit typed replacement admission plus canonical owned predecessor/plan pin and fresh consent nonce; worker-only API, no controller/UI promotion",
+    "Existing independent admission readback for old and new artifacts, same reviewed full data, strict ID/newer numeric version and actual unloaded source/payload/destination aliases",
+    "Shared installed inventory/lock/file primitives; projected version/dependency/duplicate checks and mandatory inbound consumer refusal before retirement",
+    "Independent forced old-byte backup and new payload before immutable update plan, durable retire intent and owned old-link removal",
+    "New complete publication under derived UUID name, COMMITTED checkpoint and explicit RESTORE intent/new unlink/old identity relink",
+    "Fresh readback, correct recovery direction before guard cleanup, idempotence and no blind reconstruction from saved state",
+    "Separate exact schema-1 update journal; mixed schemas refused; predecessor journals unchanged",
+    "Live successor blocks predecessor recovery and another update; nonce uniqueness includes both preserved schemas",
+    "No original class execution, new conversion rules, adapter changes, startup services, loaded updates, automatic restart or world changes"
+  ],
+  "validation": {
+    "boundaryCompile": {"status": "PASS", "tests": 3, "log": "build/preserved-updates-20260919/compile-boundary-01.log", "buildSeconds": 25},
+    "initialUpdates": {"status": "PASS", "tests": 37, "passed": 37, "failed": 0, "errors": 0, "skipped": 0,
+      "log": "build/preserved-updates-20260919/updates-02.log", "xml": "build/preserved-updates-20260919/updates-02-xml", "buildSeconds": 431},
+    "broadRegression": {
+      "status": "FAILED_THEN_FAILED_CASES_RETESTED", "tests": 145, "passed": 142, "failed": 3, "errors": 0, "skipped": 0,
+      "log": "build/preserved-updates-20260919/regression-package-03.log", "xml": "build/preserved-updates-20260919/regression-package-03-xml", "buildSeconds": 766,
+      "scope": "All 50 new update cases; preserved add-only/coordinator/preparation/boundary; simple transactional installer/Windows locks; shutdown barrier",
+      "failures": "Only three new child-JVM cases failed: helper classpath omitted the existing runtime-only srgutils library before reaching intended halt boundary"
+    },
+    "finalProcessRecheck": {
+      "status": "PASS", "tests": 12, "passed": 12, "failed": 0, "errors": 0, "skipped": 0,
+      "suites": {"PreservedUpdateInstallerTest": 3, "TransactionalProcessCrashTest": 9},
+      "log": "build/preserved-updates-20260919/process-package-05.log", "xml": "build/preserved-updates-20260919/process-package-05-xml", "buildSeconds": 130,
+      "basis": "Only test helper classpath changed after run03, not production code; all failed cases plus existing users of that helper were rerun. This is not a claim of a single clean 145-case rerun.",
+      "helperObservations": [
+        "halt-RETIRED exit83 -> fresh resume exit0 -> restore exit0 -> repeated restore exit0",
+        "halt-PUBLISHED exit83 -> fresh resume exit0 -> restore exit0 -> repeated restore exit0",
+        "halt-REMOVED exit83 -> fresh invalid resume refused without journal mutation exit0 -> restore exit0 -> repeated restore exit0"
+      ]
+    },
+    "newCasesCovered": {"count": 50, "status": "PASS_ACROSS_SERIAL_RUNS_03_AND_05", "notCompatibleModCount": true},
+    "windowsDenyDelete": "PASS: real FileChannel NOSHARE_DELETE; old publication intact on refusal; explicit resume/restore after release",
+    "injectedWriteFaults": "PASS: private copies/journal/retire/publication/commit/restore; not physical disk-full/power-loss proof",
+    "compilation": "PASS", "allModuleAssemble": "PASS", "publicJarAudit": "PASS", "runtimeJarAudit": "PASS", "engineConsumerBoundary": "PASS", "installedCliSmoke": "PASS",
+    "contract": {"status": "PASS_WITH_EXISTING_PLATFORM_SKIPS", "tests": 77, "passed": 75, "failed": 0, "errors": 0, "skipped": 2,
+      "skips": ["rejectsSymbolicEvidenceWithoutFollowingIt: Windows symlink privilege unavailable", "rejectsSymbolicPromptDirectory: Windows symlink privilege unavailable"],
+      "log": "build/preserved-updates-20260919/contract-package-06.log", "xml": "build/preserved-updates-20260919/contract-package-06-xml", "buildSeconds": 49,
+      "verifier": "PROMPT_CONTRACT_VERIFIED prompts=23 cuts=81 current=LB-01/PRODUCT-COMPOSED evidence=PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "counts": {"ACCEPTED": 15, "PARTIAL": 14, "BLOCKED": 2, "NOT_STARTED": 50},
+      "artifactAndOriginals": "Final artifact, original, converted fixture and LICENSE hashes rechecked unchanged after serial assemble/audits/CLI"},
+    "nativeClient": "NOT_RUN", "nativeServer": "NOT_RUN", "nativeUi": "NOT_RUN", "discovery": "NOT_RUN", "behavior": "NOT_RUN", "multiplayer": "NOT_RUN",
+    "outsideProjectCachelessRuntime": "NOT_RUN", "gamesStarted": 0,
+    "processQualification": "Helper Java filesystem operations on development test classpath; not actual Forge or final packaged-runtime execution"
+  },
+  "failuresAndCorrections": [
+    {"log": "build/preserved-updates-20260919/regression-package-03.log", "cause": "NoClassDefFoundError net/minecraftforge/srgutils/IMappingBuilder in the new child JVMs",
+      "fix": "Explicit code-source anchor for the already declared srgutils:0.6.2 test runtime dependency; no library stub, new production dependency or relaxed gate"},
+    {"log": "build/preserved-updates-20260919/process-package-04.log", "cause": "First helper fix used a class literal unavailable on test compileClasspath because srgutils is deliberately testRuntimeOnly",
+      "fix": "Resolve that one fixed known library class without initialization on the existing runtime loader, then include its code source in child classpath; run05 passed without changing deadlines"}
+  ],
+  "unchanged": ["All six converter profiles and engine bytes", "Runtime/adapters/ABI and included/private-data policy", "Public and developer screens, coordinator and translations", "Simple V1/V2 installer bytes/journals", "Existing admission/journal schemas and source fixtures", "Nested libraries/licenses/services/metadata"],
+  "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+  "limitations": [
+    "Update from preserved add-only schema1 only; update-of-update chains, simple predecessors, composed/cohort profiles unsupported",
+    "Update coordinator, receipt/history integration and developer UI selection not yet implemented; public Apply unchanged",
+    "Mandatory inbound consumers, loaded/unknown artifacts, open worlds, unsupported layouts or uncomparable versions refuse",
+    "Same explicit full bundle and old/new source/staging/admission/private files remain required for recovery",
+    "Independent backup retained for manual recovery if managed identity is lost; no arbitrary damaged-disk reconstruction",
+    "Cooperative lock/deadline/byte budgets are not hostile-process isolation or hard RSS/OS time bounds",
+    "Hard links required; file-content force is not directory fsync, multi-file atomicity or physical power-loss qualification",
+    "No game/client/server/multiplayer qualification, automatic restart, pre-discovery repair, world migration, release promotion, new acquisition, publication or license/billing changes"
+  ]
+}

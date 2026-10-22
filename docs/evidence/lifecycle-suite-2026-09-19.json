@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-19",
+  "prompt": "LB-09",
+  "cuts": [
+    "LIFE-EVENTS",
+    "LIFE-CONFIG",
+    "LIFE-COMMANDS"
+  ],
+  "slice": "CONFIG_RELOAD_SCOPE_AND_TYPED_COMMAND_TREE",
+  "scope": "Finite private seven-class integrated lifecycle candidate; not general Forge lifecycle acceptance",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifactAudit": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "08f5cdfc8bd8b30df3206000f6dd4256777e3a5dcc769bf305ae5ebaa4ee1963",
+    "bytes": 1788455,
+    "entries": 710,
+    "fileEntries": 661,
+    "previousSha256": "42eb62ef337fd4bc08b7aebb6f5d8e634eec682e378172c102e8a2d791e906f4",
+    "unchangedEntries": 692,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/converter/transformation/MappingResolver.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/LifecycleSuiteContract$Proof.class",
+      "dev/legacybridge/converter/conversion/LifecycleSuiteContract.class",
+      "dev/legacybridge/runtime/compat/logic/LifecycleSuiteAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 42,
+      "newEntries": 45
+    },
+    "fixture": {
+      "bytes": 12667,
+      "sha256": "2332eb0aa080143c8d00c027a810e090fc5c6bc96148c7fcfcdf28d5c5fa414a"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "fixture": {
+    "path": "fixtures/lifecycle-suite-1.16.5/build/libs/legacybridge-lifecycle-suite-1.16.5-1.0.0.jar",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "bytes": 12667,
+    "sha256": "2332eb0aa080143c8d00c027a810e090fc5c6bc96148c7fcfcdf28d5c5fa414a",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "candidate": {
+    "bytes": 11295,
+    "kind": "PRIVATE_SERIALIZED_JAR",
+    "sha256": "c5978a81f1ac37e69a5811c8d2a10f40ac171e6da0ac563628551e4e96a2dc71"
+  },
+  "staticProof": {
+    "candidate": {
+      "bytes": 11295,
+      "kind": "PRIVATE_SERIALIZED_JAR",
+      "sha256": "c5978a81f1ac37e69a5811c8d2a10f40ac171e6da0ac563628551e4e96a2dc71"
+    },
+    "candidateIdentity": "lifecycle-suite-candidate-v1",
+    "preservedClassCount": 7,
+    "preservedMethodCount": 34,
+    "sourceLifecycleSuiteContract": {
+      "classesExecuted": false,
+      "commands": {
+        "boolean": {
+          "argument": "enabled",
+          "literal": "flag"
+        },
+        "bus": "FORGE",
+        "config": "READ_CURRENT_NATIVE_VALUES_ON_EACH_INTEGER_EXECUTION",
+        "dispatcher": "FRESH_TREE_PER_REGISTER_COMMANDS_EVENT",
+        "effects": "OWNED_COUNTER_AND_RESULT_ONLY",
+        "execution": "NATIVE_SERVER_COMMAND_CALLER",
+        "integer": {
+          "argument": "value",
+          "literal": "scale",
+          "max": 100,
+          "min": 0
+        },
+        "permission": 2,
+        "root": "bridgesuite"
+      },
+      "configuration": {
+        "atomicSnapshot": false,
+        "filter": "OWNED_SPEC_IDENTITY_AND_COMMON_TYPE",
+        "install": "install",
+        "loading": "loading",
+        "reload": "NATIVE_AFTER_RELOAD_CACHE_INVALIDATION_NOT_REINITIALIZATION",
+        "reloading": "reloading",
+        "scope": "COMMON",
+        "state": {
+          "enabled": "enabled",
+          "factor": "factor",
+          "loads": "loads",
+          "reloads": "reloads"
+        },
+        "sync": "NONE",
+        "thread": "NATIVE_CALLER_OR_FILE_WATCHER_NO_RESCHEDULING"
+      },
+      "contract": "lifecycle-suite-v1",
+      "eventAdmissionView": {
+        "actualQueuedOwner": "dev/legacybridge/fixture/suite/SuiteContent",
+        "actualQueuedWork": "finish",
+        "actualWorkSequence": [
+          "LATE_REGISTRY_READ",
+          "OWNED_EVENT_POST"
+        ],
+        "emitted": false,
+        "proof": {
+          "classesExecuted": false,
+          "contract": "event-priority-cancellation-v1",
+          "installation": "install",
+          "isolatedOracle": {
+            "afterWorkTrace": 12,
+            "beforeWorkTrace": 0,
+            "postReturnsCancelled": true,
+            "qualification": "EXPECTED_NOT_EXECUTED"
+          },
+          "listeners": [
+            {
+              "bus": "FORGE",
+              "method": "cancel",
+              "priority": "HIGH",
+              "receiveCancelled": false
+            },
+            {
+              "bus": "FORGE",
+              "method": "observe",
+              "priority": "LOW",
+              "receiveCancelled": true
+            }
+          ],
+          "roles": {
+            "entry": "dev/legacybridge/fixture/suite/SuiteContent",
+            "event": "dev/legacybridge/fixture/suite/DecisionEvent",
+            "flow": "dev/legacybridge/fixture/suite/EventFlow",
+            "item": "dev/legacybridge/fixture/suite/SuiteItem"
+          },
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1,
+          "setup": {
+            "bus": "MOD",
+            "callback": "setup",
+            "dispatch": "enqueueWork",
+            "phase": "FMLCommonSetupEvent",
+            "priority": "NORMAL",
+            "receiveCancelled": false,
+            "work": "run"
+          },
+          "state": {
+            "cancelled": "cancelled",
+            "trace": "trace"
+          }
+        }
+      },
+      "lateRegistry": {
+        "field": "observedItem",
+        "phase": "COMMON_SETUP_ENQUEUE_WORK",
+        "work": "finish"
+      },
+      "roles": {
+        "commands": "dev/legacybridge/fixture/suite/SuiteCommands",
+        "config": "dev/legacybridge/fixture/suite/SuiteConfig",
+        "entry": "dev/legacybridge/fixture/suite/SuiteContent",
+        "hooks": "dev/legacybridge/fixture/suite/ConfigEvents",
+        "item": "dev/legacybridge/fixture/suite/SuiteItem"
+      },
+      "runtimeValidation": "NOT_RUN",
+      "schema": {
+        "booleanDefault": true,
+        "booleanKey": "enabled",
+        "integerDefault": 3,
+        "integerKey": "factor",
+        "maximum": 8,
+        "minimum": 1
+      },
+      "schemaVersion": 1
+    },
+    "lifecycleSuiteContract": {
+      "classesExecuted": false,
+      "commands": {
+        "boolean": {
+          "argument": "enabled",
+          "literal": "flag"
+        },
+        "bus": "FORGE",
+        "config": "READ_CURRENT_NATIVE_VALUES_ON_EACH_INTEGER_EXECUTION",
+        "dispatcher": "FRESH_TREE_PER_REGISTER_COMMANDS_EVENT",
+        "effects": "OWNED_COUNTER_AND_RESULT_ONLY",
+        "execution": "NATIVE_SERVER_COMMAND_CALLER",
+        "integer": {
+          "argument": "value",
+          "literal": "scale",
+          "max": 100,
+          "min": 0
+        },
+        "permission": 2,
+        "root": "bridgesuite"
+      },
+      "configuration": {
+        "atomicSnapshot": false,
+        "filter": "OWNED_SPEC_IDENTITY_AND_COMMON_TYPE",
+        "install": "install",
+        "loading": "loading",
+        "reload": "NATIVE_AFTER_RELOAD_CACHE_INVALIDATION_NOT_REINITIALIZATION",
+        "reloading": "reloading",
+        "scope": "COMMON",
+        "state": {
+          "enabled": "enabled",
+          "factor": "factor",
+          "loads": "loads",
+          "reloads": "reloads"
+        },
+        "sync": "NONE",
+        "thread": "NATIVE_CALLER_OR_FILE_WATCHER_NO_RESCHEDULING"
+      },
+      "contract": "lifecycle-suite-v1",
+      "eventAdmissionView": {
+        "actualQueuedOwner": "dev/legacybridge/fixture/suite/SuiteContent",
+        "actualQueuedWork": "finish",
+        "actualWorkSequence": [
+          "LATE_REGISTRY_READ",
+          "OWNED_EVENT_POST"
+        ],
+        "emitted": false,
+        "proof": {
+          "classesExecuted": false,
+          "contract": "event-priority-cancellation-v1",
+          "installation": "install",
+          "isolatedOracle": {
+            "afterWorkTrace": 12,
+            "beforeWorkTrace": 0,
+            "postReturnsCancelled": true,
+            "qualification": "EXPECTED_NOT_EXECUTED"
+          },
+          "listeners": [
+            {
+              "bus": "FORGE",
+              "method": "cancel",
+              "priority": "HIGH",
+              "receiveCancelled": false
+            },
+            {
+              "bus": "FORGE",
+              "method": "observe",
+              "priority": "LOW",
+              "receiveCancelled": true
+            }
+          ],
+          "roles": {
+            "entry": "dev/legacybridge/fixture/suite/SuiteContent",
+            "event": "dev/legacybridge/fixture/suite/DecisionEvent",
+            "flow": "dev/legacybridge/fixture/suite/EventFlow",
+            "item": "dev/legacybridge/fixture/suite/SuiteItem"
+          },
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1,
+          "setup": {
+            "bus": "MOD",
+            "callback": "setup",
+            "dispatch": "enqueueWork",
+            "phase": "FMLCommonSetupEvent",
+            "priority": "NORMAL",
+            "receiveCancelled": false,
+            "work": "run"
+          },
+          "state": {
+            "cancelled": "cancelled",
+            "trace": "trace"
+          }
+        }
+      },
+      "lateRegistry": {
+        "field": "observedItem",
+        "phase": "COMMON_SETUP_ENQUEUE_WORK",
+        "work": "finish"
+      },
+      "roles": {
+        "commands": "dev/legacybridge/fixture/suite/SuiteCommands",
+        "config": "dev/legacybridge/fixture/suite/SuiteConfig",
+        "entry": "dev/legacybridge/fixture/suite/SuiteContent",
+        "hooks": "dev/legacybridge/fixture/suite/ConfigEvents",
+        "item": "dev/legacybridge/fixture/suite/SuiteItem"
+      },
+      "runtimeValidation": "NOT_RUN",
+      "schema": {
+        "booleanDefault": true,
+        "booleanKey": "enabled",
+        "integerDefault": 3,
+        "integerKey": "factor",
+        "maximum": 8,
+        "minimum": 1
+      },
+      "schemaVersion": 1
+    },
+    "reopenedLifecycleSuiteContract": {
+      "classesExecuted": false,
+      "commands": {
+        "boolean": {
+          "argument": "enabled",
+          "literal": "flag"
+        },
+        "bus": "FORGE",
+        "config": "READ_CURRENT_NATIVE_VALUES_ON_EACH_INTEGER_EXECUTION",
+        "dispatcher": "FRESH_TREE_PER_REGISTER_COMMANDS_EVENT",
+        "effects": "OWNED_COUNTER_AND_RESULT_ONLY",
+        "execution": "NATIVE_SERVER_COMMAND_CALLER",
+        "integer": {
+          "argument": "value",
+          "literal": "scale",
+          "max": 100,
+          "min": 0
+        },
+        "permission": 2,
+        "root": "bridgesuite"
+      },
+      "configuration": {
+        "atomicSnapshot": false,
+        "filter": "OWNED_SPEC_IDENTITY_AND_COMMON_TYPE",
+        "install": "install",
+        "loading": "loading",
+        "reload": "NATIVE_AFTER_RELOAD_CACHE_INVALIDATION_NOT_REINITIALIZATION",
+        "reloading": "reloading",
+        "scope": "COMMON",
+        "state": {
+          "enabled": "enabled",
+          "factor": "factor",
+          "loads": "loads",
+          "reloads": "reloads"
+        },
+        "sync": "NONE",
+        "thread": "NATIVE_CALLER_OR_FILE_WATCHER_NO_RESCHEDULING"
+      },
+      "contract": "lifecycle-suite-v1",
+      "eventAdmissionView": {
+        "actualQueuedOwner": "dev/legacybridge/fixture/suite/SuiteContent",
+        "actualQueuedWork": "finish",
+        "actualWorkSequence": [
+          "LATE_REGISTRY_READ",
+          "OWNED_EVENT_POST"
+        ],
+        "emitted": false,
+        "proof": {
+          "classesExecuted": false,
+          "contract": "event-priority-cancellation-v1",
+          "installation": "install",
+          "isolatedOracle": {
+            "afterWorkTrace": 12,
+            "beforeWorkTrace": 0,
+            "postReturnsCancelled": true,
+            "qualification": "EXPECTED_NOT_EXECUTED"
+          },
+          "listeners": [
+            {
+              "bus": "FORGE",
+              "method": "cancel",
+              "priority": "HIGH",
+              "receiveCancelled": false
+            },
+            {
+              "bus": "FORGE",
+              "method": "observe",
+              "priority": "LOW",
+              "receiveCancelled": true
+            }
+          ],
+          "roles": {
+            "entry": "dev/legacybridge/fixture/suite/SuiteContent",
+            "event": "dev/legacybridge/fixture/suite/DecisionEvent",
+            "flow": "dev/legacybridge/fixture/suite/EventFlow",
+            "item": "dev/legacybridge/fixture/suite/SuiteItem"
+          },
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1,
+          "setup": {
+            "bus": "MOD",
+            "callback": "setup",
+            "dispatch": "enqueueWork",
+            "phase": "FMLCommonSetupEvent",
+            "priority": "NORMAL",
+            "receiveCancelled": false,
+            "work": "run"
+          },
+          "state": {
+            "cancelled": "cancelled",
+            "trace": "trace"
+          }
+        }
+      },
+      "lateRegistry": {
+        "field": "observedItem",
+        "phase": "COMMON_SETUP_ENQUEUE_WORK",
+        "work": "finish"
+      },
+      "roles": {
+        "commands": "dev/legacybridge/fixture/suite/SuiteCommands",
+        "config": "dev/legacybridge/fixture/suite/SuiteConfig",
+        "entry": "dev/legacybridge/fixture/suite/SuiteContent",
+        "hooks": "dev/legacybridge/fixture/suite/ConfigEvents",
+        "item": "dev/legacybridge/fixture/suite/SuiteItem"
+      },
+      "runtimeValidation": "NOT_RUN",
+      "schema": {
+        "booleanDefault": true,
+        "booleanKey": "enabled",
+        "integerDefault": 3,
+        "integerKey": "factor",
+        "maximum": 8,
+        "minimum": 1
+      },
+      "schemaVersion": 1
+    },
+    "bytecodeValidation": {
+      "inputClasses": 7,
+      "jvmLinkageVerified": false,
+      "modClassesLoaded": false,
+      "offlineLinkageVerified": true,
+      "outputClasses": 7,
+      "serializedJar": true,
+      "status": "PASSED_STATIC_REOPENED"
+    },
+    "serializedOfflineLinkage": {
+      "checkedMethodCount": 34,
+      "classesExecuted": false,
+      "fieldReferenceCount": 59,
+      "lambdaSiteCount": 10,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only the independently re-read seven-class lifecycle composition: native COMMON spec identity/type filtered Loading/Reloading, queued late registry lookup, owned cancelable event and fresh typed integer/boolean command tree. No game execution, general event/config composition, remote synchronization, atomic snapshot or arbitrary command effects."
+      ],
+      "methodReferenceCount": 76,
+      "ownedClassCount": 7,
+      "resolvedClassCount": 95,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "candidateArchiveValidation": {
+      "centralDirectoryAndCrc": true,
+      "entryCount": 16,
+      "modClassesLoaded": false,
+      "ownershipAndHashes": true,
+      "scratchDeleted": true,
+      "status": "PASSED_REOPENED"
+    },
+    "sources": [
+      {
+        "id": "legacy.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+      },
+      {
+        "id": "legacy.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+      },
+      {
+        "id": "legacy.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+      },
+      {
+        "id": "target.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+      },
+      {
+        "id": "target.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+      },
+      {
+        "id": "target.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+      },
+      {
+        "id": "legacy.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+      },
+      {
+        "id": "legacy.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+      },
+      {
+        "id": "legacy.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+      },
+      {
+        "id": "legacy.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+      },
+      {
+        "id": "target.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+      },
+      {
+        "id": "target.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+      },
+      {
+        "id": "target.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+      },
+      {
+        "id": "target.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+      },
+      {
+        "id": "target.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+      },
+      {
+        "id": "target.apiJars[5]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+      },
+      {
+        "id": "target.apiJars[6]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+      }
+    ]
+  },
+  "apiOnlyComparison": {
+    "scope": "Owned probe + exactly one real Brigadier library per isolated JVM; no original or converted mod, Forge or Minecraft classes loaded",
+    "sourceBrigadier": {
+      "version": "1.0.17",
+      "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+    },
+    "targetBrigadier": {
+      "version": "1.1.8",
+      "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+    },
+    "observedPerVersion": {
+      "acceptedExecutions": 8,
+      "rejectedExecutionsWithoutEffects": 18,
+      "dispatcherGenerations": 2,
+      "effectCounter": 8
+    },
+    "sourceTargetEquality": "PASS",
+    "gamePermissionOrLifecycleEvidence": false
+  },
+  "validation": {
+    "fixtureBuild": "PASS",
+    "focusedRegression": {
+      "tests": 582,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "build/lb09-suite-20260919/regression.log",
+      "results": "build/lb09-suite-20260919/regression-results"
+    },
+    "finalEngineRecheck": {
+      "tests": 72,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "newSuiteCases": 55,
+      "overlap": "Included in the 582, not additional distinct cases",
+      "results": "build/lb09-suite-20260919/final-engine-results"
+    },
+    "allModuleAssemble": "PASS",
+    "publicJarAudit": "PASS",
+    "runtimeJarAudit": "PASS",
+    "engineConsumerBoundary": "PASS",
+    "installedCliSmoke": "PASS",
+    "finalBuildLog": "build/lb09-suite-20260919/final-build.log",
+    "contract": {
+      "status": "PASS",
+      "tests": 77,
+      "passed": 75,
+      "skipped": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipReason": "Existing Windows symbolic-link creation assumptions",
+      "log": "build/lb09-suite-20260919/contract-final.log",
+      "cursor": "LB-10/ITEM-EQUIPMENT",
+      "qualification": "Structural paths/dependencies only; does not prove ledger truth or native acceptance"
+    },
+    "fullUnfilteredTests": "NOT_RUN",
+    "client": "NOT_RUN",
+    "dedicatedServer": "NOT_RUN",
+    "nativeOriginalTargetComparison": "NOT_RUN",
+    "reloadInGame": "NOT_RUN",
+    "multiplayer": "NOT_RUN"
+  },
+  "observedFailuresCorrected": [
+    {
+      "phase": "initial compile",
+      "cause": "Java var compound declaration",
+      "fix": "Separate local declarations",
+      "finalStatus": "PASS"
+    },
+    {
+      "phase": "first fixture tests",
+      "tests": 52,
+      "failed": 52,
+      "cause": "Relative developer API profile resolved under the test module, not repository root",
+      "fix": "Use the explicit absolute selected profile; no implicit fallback or download",
+      "finalStatus": "PASS"
+    },
+    {
+      "phase": "second fixture tests",
+      "tests": 54,
+      "failed": 11,
+      "cause": "ASM tree copy retained a shared bootstrap argument array; admission projection changed original tree; source mismatch guard blocked conversion",
+      "fix": "Clone bootstrap arguments before changing the admission-only view; add original-tree immutability regression",
+      "finalStatus": "PASS"
+    }
+  ],
+  "invariants": {
+    "oldAdapterDescriptorsIdentical": 42,
+    "newOfflineOperations": 3,
+    "runtimeExecutableAdaptersUnchanged": true,
+    "publicUiAndInstallersUnchanged": true,
+    "oldSixGrammarsUnchanged": true,
+    "licenseUnchanged": true,
+    "newPublicProfiles": 0,
+    "publicInstallation": "simple-content-v1 unchanged",
+    "originalModClassesExecutedDuringConversion": false,
+    "privateCandidateExported": false,
+    "newRealModsAcquired": 0,
+    "realCorpusReleases": 3,
+    "completeRealPortsQualified": 0,
+    "worldsModified": false
+  },
+  "limits": [
+    "COMMON Loading/Reloading only; CLIENT/SERVER reload, remote config synchronization and Unloading not admitted",
+    "Volatile per-field observations, not an atomic snapshot or serial guarantee for concurrent callbacks",
+    "Only fresh two-branch native integer/boolean command tree with owned primitive effects; no player/world writes or cached dispatcher",
+    "API-only permission predicates do not validate real console/player permissions or server thread behavior",
+    "Broader corpus listeners, command/config layouts and dependencies remain unsupported until separate recipes and native evidence",
+    "COMPOSE-01, LIFE-EVENTS and DEPS-COHORT acceptance prerequisites unchanged; LB-09 remains PARTIAL"
+  ],
+  "next": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "DURABILITY_REPAIR",
+    "reason": "Advance bounded headless implementation without declaring LB-09 native or general coverage complete"
+  }
+}

@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "IRON_HELMET_HEAD_EQUIP_EFFECTS",
+  "outcome": "IMPLEMENTED_GUARDED_RUNTIME_OPERATION_NO_USE_COMPOSITION_OR_CONVERSION_RECIPE",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "e1ff8751475f79ddf7dd2515fb67f570cbd7c498c269398466223c6cdabde763",
+    "bytes": 2068099,
+    "entries": 777,
+    "fileEntries": 727,
+    "previousSha256": "4f973924d4d49706384151c485050634802eaa93091b93bfd963eeadacbb9c6a",
+    "unchangedEntries": 770,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Report.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Side.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/runtime/compat/item/LegacyIronHelmetHeadEquipEffects$ClientReceivers.class",
+      "dev/legacybridge/runtime/compat/item/LegacyIronHelmetHeadEquipEffects.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 67,
+      "newEntries": 68
+    },
+    "operationClasses": [
+      {
+        "runtimeAndProductEqual": true,
+        "sha256": "d883ed2d3f56fa985c5c93fff8a1915613632e99a215ebdaac16080e100f0a88",
+        "entry": "dev/legacybridge/runtime/compat/item/LegacyIronHelmetHeadEquipEffects.class"
+      },
+      {
+        "runtimeAndProductEqual": true,
+        "sha256": "3a4329ff843b2bd80777e898066c3e370bae3338fc8c83401d3243b097820af5",
+        "entry": "dev/legacybridge/runtime/compat/item/LegacyIronHelmetHeadEquipEffects$ClientReceivers.class"
+      }
+    ],
+    "previousHelmetClass": {
+      "unchanged": true,
+      "sha256": "e142fb87d24aa5e284ea71c152b11386f75a5d5a0ebe28031f90012eaeac7365"
+    },
+    "fixture": {
+      "bytes": 5554,
+      "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "operation": {
+    "id": "item.iron-helmet-head-equip-effects.v1",
+    "revision": 1,
+    "phase": "RUNTIME",
+    "class": "dev.legacybridge.runtime.compat.item.LegacyIronHelmetHeadEquipEffects",
+    "method": "equip",
+    "descriptor": "(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V",
+    "guards": [
+      "Non-null arguments",
+      "Exact EquipmentSlot.HEAD",
+      "Exact ServerPlayer or physically guarded exact LocalPlayer/RemotePlayer",
+      "Empty stack or one item of final LegacyIronHelmetItem"
+    ],
+    "implementedEffect": "Native virtual player.playSound(iron equip sound, 1F, 1F) before Player.getInventory().armor.set(HEAD.getIndex(), receivedStack). Empty skips sound and writes same received reference.",
+    "newFailureBoundary": "Unknown receivers, slots and nonempty stack shapes reject before sound or inventory access; this is unsupported invocation, not legacy outcome emulation.",
+    "composedWithUse": false,
+    "conversionRecipeImplemented": false,
+    "invokedAtProductStartup": false,
+    "registeredAtProductStartup": false,
+    "previousOperationUnchanged": "item.iron-helmet-empty-slot.v1 and LegacyIronHelmetItem bytes unchanged"
+  },
+  "fixture": {
+    "path": "fixtures/iron-helmet-1.16.5/build/libs/legacybridge-iron-helmet-1.16.5-1.0.0.jar",
+    "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca",
+    "bytes": 5554,
+    "modId": "legacybridge_iron_helmet",
+    "modVersion": "1.0.0",
+    "registryName": "bridge_helmet",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "validation": {
+    "compile": {
+      "status": "PASS",
+      "duration": "19s",
+      "tasks": [
+        ":legacy-runtime:compileJava",
+        ":legacy-converter:compileJava"
+      ],
+      "log": "build/iron-helmet-head-effects-20261005/compile.log"
+    },
+    "fixture": {
+      "status": "PASS",
+      "duration": "6s",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "task": "-p fixtures/iron-helmet-1.16.5 test --rerun-tasks",
+      "log": "build/iron-helmet-head-effects-20261005/fixture.log"
+    },
+    "focused": {
+      "status": "PASS",
+      "duration": "27s",
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "scope": "Initial new suites before six declaration-drift cases were added; overlaps final regression, not additive test count.",
+      "log": "build/iron-helmet-head-effects-20261005/focused.log",
+      "retainedXml": "build/iron-helmet-head-effects-20261005/focused-xml"
+    },
+    "package": {
+      "status": "PASS",
+      "duration": "34s",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "log": "build/iron-helmet-head-effects-20261005/package.log"
+    },
+    "regression": {
+      "status": "PASS",
+      "tests": 694,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 22,
+      "newTests": 48,
+      "newSuites": [
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetHeadEquipCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetHeadEquipEffectsTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "allSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.CliEngineServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.DatapackProfileIntegrationTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.FoodProfileIntegrationTest",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.IronHelmetInspectionCliTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.ItemAttributeDurabilityIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.ItemAttributeIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.LogicProfileIntegrationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.NetworkProfileIntegrationTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.OwnedStackDamageIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.OwnedStackRepairUseIntegrationTest",
+          "tests": 28,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.AdapterContractIntegrationTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetAdapterCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetContractTest",
+          "tests": 186,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetHeadEquipCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetInspectorTest",
+          "tests": 43,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetEmptySlotAdapterTest",
+          "tests": 103,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetHeadEquipEffectsTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetNativeApiAuditTest",
+          "tests": 106,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.service.IronHelmetInspectionServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.transformation.MappingResolverTest",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "passed": 694,
+      "duration": "4m1s",
+      "log": "build/iron-helmet-head-effects-20261005/regression.log",
+      "retainedXml": "build/iron-helmet-head-effects-20261005/regression-xml",
+      "selectionScript": "build/iron-helmet-head-effects-20261005/regression.ps1",
+      "scope": "22 selected engine suites, not every repository test. Includes six profile regressions, new operations, existing helmet proofs, mapping/catalog boundaries and four unchanged private equipment candidates.",
+      "observedFailures": 0,
+      "preRunCorrections": "Read-only review corrected the new test interpreter's requireNonNull overload and source-only helper lookup before execution. No production guard was relaxed.",
+      "warnings": "Existing deprecated-API compilation notes only. Memory limits unchanged."
+    },
+    "installedCli": {
+      "status": "PASS_EXPECTED_UNSUPPORTED",
+      "exitCode": 3,
+      "constructorRecognized": true,
+      "result": "UNSUPPORTED",
+      "blockers": [
+        "HELMET_EQUIPMENT_TYPE_CONTRACT_CHANGED",
+        "HELMET_USE_CONTRACT_CHANGED",
+        "HELMET_INHERITED_BEHAVIOR_UNQUALIFIED"
+      ],
+      "report": "build/iron-helmet-head-effects-20261005/installed-inspection.json",
+      "reportSha256": "7056df4b6ddc22683d60b04a7238c9a29ea5d6ae27058049fc952ef05ad765c8",
+      "stderrBytes": 0,
+      "operation": {
+        "adapter": {
+          "descriptor": "(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/EquipmentSlot;Lnet/minecraft/world/item/ItemStack;)V",
+          "id": "item.iron-helmet-head-equip-effects.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.item.LegacyIronHelmetHeadEquipEffects",
+          "method": "equip",
+          "revision": 1
+        },
+        "composedWithUse": false,
+        "conversionRecipeImplemented": false,
+        "nativeValidation": "NOT_RUN",
+        "preconditions": [
+          "Non-null player, HEAD slot and stack",
+          "Exact ServerPlayer, or physical-client-only exact LocalPlayer/RemotePlayer; custom subclasses rejected",
+          "Empty stack, or one item of the final LegacyIronHelmetItem type; no arbitrary armor",
+          "Copy ownership, native thread, caller closure and external sound listeners are not established by these guards"
+        ],
+        "runtimeArtifactVerified": false,
+        "scope": "Fixed HEAD sound-before-write effect with exact native player, slot and stack guards; not wired into use"
+      }
+    },
+    "contract": {
+      "status": "PASS_WITH_PLATFORM_SKIPS",
+      "duration": "40s",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Native symlink creation unavailable; explicit platform-assumption skips, not passes.",
+      "log": "build/iron-helmet-head-effects-20261005/contract.log",
+      "prompts": 23,
+      "cuts": 81,
+      "cursor": "LB-10/ITEM-EQUIPMENT",
+      "evidenceCheck": "PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE"
+    }
+  },
+  "sourceReview": {
+    "sourceBinarySha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03",
+    "targetBinarySha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee",
+    "sourceSourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "nativeSourcesRedistributed": false,
+    "primaryOrientation": "https://docs.minecraftforge.net/en/1.20.1/concepts/sides/",
+    "orientationLimit": "Physical/logical side distinction and separate client reference holder only. Exact signatures, receiver hierarchies and bodies read from pinned local native binaries/sources.",
+    "nativeSourceEffect": "PlayerEntity.setItemSlot HEAD path calls protected virtual LivingEntity.playEquipSound before inventory.armor.set; fixed iron material selects equip sound with virtual playSound and literal volume/pitch1.",
+    "nativeTargetDifference": "Player.setItemSlot verifies, writes, then calls onEquipItem with firstTick/spectator/silent gates and GameEvent.EQUIP; the new operation intentionally does not invoke it.",
+    "receiverClosure": "Pinned exact ServerPlayer/LocalPlayer/RemotePlayer and their reviewed ancestors do not override setter/inventory getter or source protected equip helper. Only local player overrides playSound; native dispatch retained.",
+    "sourceServerSound": "PlaySoundAtEntityEvent does not apply its changed pitch to the inspected server call.",
+    "targetServerSound": "PlayLevelSoundEvent.AtPosition applies newPitch and uses seeded sound, Holder/range; no arbitrary-listener equivalence.",
+    "clientSound": "PlaySoundAtEntityEvent becomes PlayLevelSoundEvent.AtEntity; native virtual dispatch alone does not adapt listeners.",
+    "bytecodeScope": "Interprets actual original setter/helper and compiled target operation as bounded data. Trace equality only for admitted sound-call/write endpoints; neither platform implementation is executed."
+  },
+  "data": {
+    "kind": "EXPLICIT_LOCAL_FULL_ENVIRONMENT",
+    "mappingProfile": "build/item-attributes-20261001/mapping-profile.properties",
+    "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312",
+    "includedInPublicJar": false,
+    "hiddenDownload": false
+  },
+  "preservation": {
+    "previousCatalogDescriptors": 67,
+    "changedPreviousCatalogDescriptors": 0,
+    "newCatalogDescriptors": 1,
+    "publicProfilesUnchanged": 6,
+    "publicConversionAndApply": "simple-content-v1",
+    "runtimeIdentityAndVersionUnchanged": true,
+    "reportSchemasUnchanged": true,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "licenseChanged": false,
+    "newModAcquisition": false,
+    "publication": false,
+    "previousCandidates": [
+      {
+        "suite": "OwnedStackRepairUseIntegrationTest",
+        "candidateSha256": "d7dbb4ca43e8b20a42fb4d0180050def1b7b7b4ad7ae48f96effece25e1c6c96",
+        "inputSha256": "420f710dadb3134c500dc1c1fc7077ed183758db6531416093454cca72b90d2a",
+        "unchanged": true
+      },
+      {
+        "suite": "OwnedStackDamageIntegrationTest",
+        "candidateSha256": "19081664b6a4ec70645d00788aced828cd6a04e9ffd3631e3277fe645cce5828",
+        "inputSha256": "a6099857d7a2e4e3cb2db6d67ce1db23d08d2ba9c17b732c380d2d7b64f09793",
+        "unchanged": true
+      },
+      {
+        "suite": "ItemAttributeDurabilityIntegrationTest",
+        "candidateSha256": "dbe6a5acd96b29ae771156bed7e231f443148d74bea6bfcb7159b895cee491eb",
+        "inputSha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16",
+        "unchanged": true
+      },
+      {
+        "suite": "ItemAttributeIntegrationTest",
+        "candidateSha256": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+        "inputSha256": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99",
+        "unchanged": true
+      }
+    ]
+  },
+  "qualification": {
+    "sourceModClassesExecuted": false,
+    "runtimeAdapterExecuted": false,
+    "minecraftClassesExecuted": false,
+    "candidateGenerated": false,
+    "installationAllowed": false,
+    "gameClient": "NOT_RUN",
+    "gameServer": "NOT_RUN",
+    "nativeBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "headlessBodyProof": "FINITE_CALL_BOUNDARY_NOT_NATIVE_BEHAVIOR"
+  },
+  "limitations": [
+    "Armor conversion remains UNSUPPORTED; no real corpus release is newly converted or qualified.",
+    "The previous use operation still invokes its previous target setter; the new effect is deliberately not silently wired into it.",
+    "The synthetic logicalClient value is inert argument-flow coverage; it is not an executed native side or a valid constructed ServerPlayer-on-client-world scenario. Physical CLIENT with ServerPlayer has a separate integrated-process guard test.",
+    "Tests do not prove audible playback, source/target Forge listener equivalence, native classloading, prediction, multiplayer or synchronization.",
+    "Copy ownership, slot-hook closure, occupancy and held-stack consumption are caller obligations not supplied by the standalone effect.",
+    "Unknown player subclasses are explicitly refused; transformed platform methods or external cohorts are not authenticated by class identity.",
+    "Inherited dispenser/Equipable/rendering/trim, construction, anvil/wear and persistence still block constructor lowering.",
+    "No mapping confidence promotion, new public profile, install authority or fabricated TransformationLog.",
+    "Memory/queue/runtime limits unchanged; no new RSS, isolation or adversarial qualification."
+  ],
+  "continuation": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "IRON_HELMET_DISPENSER_CLOSED_RECEIVERS",
+    "plan": "docs/IRON_HELMET_DISPENSER_PLAN.md",
+    "reason": "Implement the constructor-installed finite dispenser path, preserving first eligible selection/split/drop chance/persistence with a separate silent Mob operation. Do not repeat delivered player HEAD operation or silently broaden its immutable item guard.",
+    "gamesAuthorized": false,
+    "countsUnchanged": {
+      "ACCEPTED": 15,
+      "PARTIAL": 19,
+      "BLOCKED": 2,
+      "NOT_STARTED": 45
+    }
+  },
+  "localEvidenceFiles": [
+    {
+      "path": "build/iron-helmet-head-effects-20261005/compile.log",
+      "bytes": 5116,
+      "sha256": "a7dd61feacf8694a721c3253ec32901851aa9975d602260aec9ce4fb16dfa8b2"
+    },
+    {
+      "path": "build/iron-helmet-head-effects-20261005/contract.log",
+      "bytes": 24626,
+      "sha256": "7e94f7b7d5835b47e064ac505e04c851c0a773fb6660a86dffb38a04e00d1260"
+    },
+    {
+      "path": "build/iron-helmet-head-effects-20261005/fixture.log",
+      "bytes": 4386,
+      "sha256": "c5ba300e043138f939da5ca735e3b098495e4c0707400dd95cb4cbd24e6fe4a0"
+    },
+    {
+      "path": "build/iron-helmet-head-effects-20261005/focused.log",
+      "bytes": 21830,
+      "sha256": "870cc023fc9713c68c770431de67d6d8d1c3b61d691afc02e7620ecd17caddc0"
+    },
+    {
+      "path": "build/iron-helmet-head-effects-20261005/installed-cli-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/iron-helmet-head-effects-20261005/installed-inspection.json",
+      "bytes": 58977,
+      "sha256": "7056df4b6ddc22683d60b04a7238c9a29ea5d6ae27058049fc952ef05ad765c8"
+    },
+    {
+      "path": "build/iron-helmet-head-effects-20261005/package.log",
+      "bytes": 10522,
+      "sha256": "9971e72861273366b1ff2048138cbe2fd752e297c471b7875e9fc5b8350a6350"
+    },
+    {
+      "path": "build/iron-helmet-head-effects-20261005/regression.log",
+      "bytes": 182616,
+      "sha256": "0cb0af8e014fc842d30cc693230205d38ccec48ffda3483a0d5fa22ed3a89254"
+    }
+  ]
+}

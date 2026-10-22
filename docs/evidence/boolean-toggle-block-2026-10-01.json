@@ -1,0 +1,1200 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "prompt": "LB-10",
+  "cut": "BLOCK-STATE",
+  "slice": "BOOLEAN_TOGGLE_USE",
+  "scope": "Private finite preserved two-state Block interaction; no public-profile or native gameplay promotion",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "fixture": {
+    "path": "fixtures/boolean-toggle-block-1.16.5/build/libs/legacybridge-boolean-toggle-block-1.16.5-1.0.0.jar",
+    "bytes": 8688,
+    "sha256": "e1a5860b711a2bdeaa11e6d0201d241c2560652b334df76155a52ab8fa1377ee",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "mappingProfile": {
+    "path": "build/client-config-20260919/mapping-profile.properties",
+    "sha256": "ac622b0d6aff4e53f4f8e3210699267292dce6b2f77c443af4981c032433b2df",
+    "bytes": 3068
+  },
+  "implementation": {
+    "classes": 2,
+    "methods": 8,
+    "property": "active",
+    "default": false,
+    "logicalClient": "SUCCESS_WITHOUT_WORLD_WRITE",
+    "logicalServer": "ONE_SETBLOCK_AT_CALLBACK_POSITION_WITH_CYCLED_CALLBACK_STATE_AND_FLAGS_3_THEN_CONSUME",
+    "worldWriteResult": "IGNORED_NOT_ASSERTED_SUCCESS",
+    "resources": "Three exact models and two matching variants preserved byte-for-byte",
+    "requiredOverrides": "Independent source/target declaration, nearest-owner, access/finality/opcode and reopened linkage proof",
+    "materialRecipe": "Existing full-cube PLAIN_BLOCK_PROPERTIES; not the half-shape operation",
+    "candidateApi": "LegacyEngineService.planBooleanToggleBlock",
+    "authority": "Immutable proof/hash only; serialized bytes reopened and discarded"
+  },
+  "nativeSourceAudit": {
+    "sourceArchive": {
+      "coordinate": "net.minecraftforge:forge:1.16.5-36.2.42_mapped_official_1.16.5:sources",
+      "sha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376"
+    },
+    "targetArchive": {
+      "coordinate": "net.minecraftforge:forge:1.20.1-47.4.23_mapped_official_1.20.1:sources",
+      "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+    },
+    "test": "BooleanToggleNativeApiAuditTest",
+    "method": "Bounded bytecode-as-data selection interpreter and exact-body checks; no native class loading",
+    "checked": [
+      "BooleanProperty factory and two-value collection",
+      "StateHolder.cycle erased return/cast and both-value selection",
+      "Three-argument setBlock delegates same arguments with update limit 512",
+      "SUCCESS/CONSUME consumption and swing",
+      "Target-only stats distinction"
+    ],
+    "notProved": [
+      "Native state table initialization",
+      "World write success",
+      "Dispatch, thread, reach, protection or Forge cancellation",
+      "Neighbor effects, network synchronization or native gameplay"
+    ],
+    "resources": {
+      "legacyClientSha256": "00b5ebbc33e95ea88c1ab80601599c9827e9aa861d93ccc2cfcbbfd996e86263",
+      "targetClientSha256": "56b71336d2b4fdffd197f56595b0da93e32a946f78f382a299b8f4b92758bb0f",
+      "identicalSourceTargetReferences": [
+        {
+          "path": "assets/minecraft/textures/block/stone.png",
+          "sha256": "0096954ee757a2184f96e5e300953a6c41855ee49e8e5ad90aeeb0444953fd9d"
+        },
+        {
+          "path": "assets/minecraft/textures/block/cobblestone.png",
+          "sha256": "2431a28eaaf9a728a6bf6bfad515a2db74932d5091604c8c66c500734e21883a"
+        },
+        {
+          "path": "assets/minecraft/models/block/cube_all.json",
+          "sha256": "be3205d629ffb9e03834c3d1d083f8a2c62e9f9ae80820755129408634e9144a"
+        },
+        {
+          "path": "assets/minecraft/models/block/stone.json",
+          "sha256": "c0734082e7f1e2f44809737b2fbe1136fc7304bde7232e45fbe921884a4a327e"
+        },
+        {
+          "path": "assets/minecraft/models/block/cobblestone.json",
+          "sha256": "dee026b80b7b77c5d540d75b91cfaec770245a2e7affb53555e9e4ad3ddb551f"
+        }
+      ],
+      "nativeResourcesCopiedIntoProduct": false
+    }
+  },
+  "validation": {
+    "fixtureBuild": {
+      "status": "PASSED",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "initialFocused": {
+      "status": "PASSED",
+      "tests": 502,
+      "notAdditive": true
+    },
+    "regression": {
+      "status": "PASSED",
+      "tests": 2157,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "includesNewCases": 514
+    },
+    "finalFocused": {
+      "status": "PASSED",
+      "tests": 520,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "newCasesAfterRegression": 6,
+      "overlapsRegression": 514,
+      "suites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.BooleanToggleBlockIntegrationTest",
+          "skipped": 0,
+          "errors": 0,
+          "tests": 112,
+          "failures": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.BooleanToggleBlockArtifactPlanTest",
+          "skipped": 0,
+          "errors": 0,
+          "tests": 54,
+          "failures": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.BooleanToggleBlockContractTest",
+          "skipped": 0,
+          "errors": 0,
+          "tests": 228,
+          "failures": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.BooleanToggleMappingIntegrationTest",
+          "skipped": 0,
+          "errors": 0,
+          "tests": 114,
+          "failures": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.BooleanToggleNativeApiAuditTest",
+          "skipped": 0,
+          "errors": 0,
+          "tests": 12,
+          "failures": 0
+        }
+      ]
+    },
+    "uniqueEngineCases": 2163,
+    "package": {
+      "status": "PASSED",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ]
+    },
+    "contract": {
+      "status": "PASSED",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skipNames": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Existing Windows symbolic-link privilege assumptions",
+      "prompts": 23,
+      "cuts": 81,
+      "current": "LB-10/ITEM-EQUIPMENT",
+      "meaning": "Path/schema/prerequisite consistency only; no native execution or evidence freshness inference"
+    },
+    "interpretation": "Counts are static test cases, not compatible mods or native behavior observations"
+  },
+  "failuresAndCorrections": [
+    {
+      "kind": "TEST_COVERAGE_REVIEW",
+      "finding": "Initial parity test skipped simple/datapack public dispatch.",
+      "correction": "Added six enum-profile cases through actual service.plan and service.convert; all refuse, preserve original and publish nothing.",
+      "productionRegression": false
+    }
+  ],
+  "artifactAudit": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "51c10faafa03ccea5e9c3a79240244baa12d59b33e9db8c7840d7dcb165ebe06",
+    "bytes": 1894054,
+    "entries": 732,
+    "fileEntries": 683,
+    "previousSha256": "34d622b16f000e7570bc5bf3816d169c7de246a3bb1ae3441d6a62e6c0627529",
+    "unchangedEntries": 712,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/ContentResourceValidator.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/PlainBlockLowering.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/BooleanToggleBlockContract$Names.class",
+      "dev/legacybridge/converter/conversion/BooleanToggleBlockContract$Proof.class",
+      "dev/legacybridge/converter/conversion/BooleanToggleBlockContract.class",
+      "dev/legacybridge/runtime/compat/logic/BooleanToggleBlockArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 56,
+      "newEntries": 58
+    },
+    "fixture": {
+      "bytes": 8688,
+      "sha256": "e1a5860b711a2bdeaa11e6d0201d241c2560652b334df76155a52ab8fa1377ee"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "staticProof": {
+    "schemaVersion": 1,
+    "input": {
+      "fileName": "legacybridge-boolean-toggle-block-1.16.5-1.0.0.jar",
+      "sha256": "e1a5860b711a2bdeaa11e6d0201d241c2560652b334df76155a52ab8fa1377ee"
+    },
+    "candidate": {
+      "bytes": 7535,
+      "kind": "PRIVATE_SERIALIZED_JAR",
+      "sha256": "f1fc4c26f3d6f69be0c26673ee2d69c815233d8e7593e443574f8ba6432c83e3"
+    },
+    "reportType": "LEGACY_BOOLEAN_TOGGLE_BLOCK_CANDIDATE",
+    "candidateIdentity": "boolean-toggle-block-candidate-v1",
+    "booleanToggleVariant": "BOOLEAN_TOGGLE_USE",
+    "sourceBooleanToggleBlockContract": {
+      "block": "dev/legacybridge/fixture/booleantoggle/BooleanToggleBlock",
+      "classesExecuted": false,
+      "contract": "boolean-toggle-block-with-item-v1",
+      "entry": "dev/legacybridge/fixture/booleantoggle/BooleanToggleContent",
+      "interaction": {
+        "additionalEffects": "NONE",
+        "client": "SUCCESS_WITHOUT_WRITE",
+        "dispatch": "NATIVE_USE_CALLBACK",
+        "position": "CALLBACK_ARGUMENT",
+        "server": "CYCLE_CALLBACK_STATE_ONCE",
+        "serverResult": "CONSUME",
+        "setBlockResult": "IGNORED_NOT_ASSUMED_SUCCESS",
+        "updateFlags": 3,
+        "world": "CALLBACK_ARGUMENT",
+        "writes": 1
+      },
+      "plainContent": {
+        "block": {
+          "hardness": 2,
+          "material": "STONE",
+          "noOcclusion": false,
+          "requiredTargetTag": "minecraft:mineable/pickaxe",
+          "requiresCorrectTool": false,
+          "resistance": 6,
+          "sound": "STONE",
+          "targetInstrument": "BASEDRUM",
+          "targetMapColor": "STONE"
+        },
+        "blockItem": {
+          "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+          "creativeTab": "NONE",
+          "stackSize": 32
+        },
+        "classesExecuted": false,
+        "contract": "plain-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/booleantoggle/BooleanToggleContent",
+        "modId": "legacybridge_boolean_toggle",
+        "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+        "registryName": "bridge_block",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1
+      },
+      "propertyField": "ACTIVE",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "state": {
+        "default": false,
+        "property": "active",
+        "stateBuilder": "SINGLE_OWNED_STATIC_NATIVE_PROPERTY",
+        "values": [
+          false,
+          true
+        ]
+      }
+    },
+    "booleanToggleBlockContract": {
+      "block": "dev/legacybridge/fixture/booleantoggle/BooleanToggleBlock",
+      "classesExecuted": false,
+      "contract": "boolean-toggle-block-with-item-v1",
+      "entry": "dev/legacybridge/fixture/booleantoggle/BooleanToggleContent",
+      "interaction": {
+        "additionalEffects": "NONE",
+        "client": "SUCCESS_WITHOUT_WRITE",
+        "dispatch": "NATIVE_USE_CALLBACK",
+        "position": "CALLBACK_ARGUMENT",
+        "server": "CYCLE_CALLBACK_STATE_ONCE",
+        "serverResult": "CONSUME",
+        "setBlockResult": "IGNORED_NOT_ASSUMED_SUCCESS",
+        "updateFlags": 3,
+        "world": "CALLBACK_ARGUMENT",
+        "writes": 1
+      },
+      "plainContent": {
+        "block": {
+          "hardness": 2,
+          "material": "STONE",
+          "noOcclusion": false,
+          "requiredTargetTag": "minecraft:mineable/pickaxe",
+          "requiresCorrectTool": false,
+          "resistance": 6,
+          "sound": "STONE",
+          "targetInstrument": "BASEDRUM",
+          "targetMapColor": "STONE"
+        },
+        "blockItem": {
+          "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+          "creativeTab": "NONE",
+          "stackSize": 32
+        },
+        "classesExecuted": false,
+        "contract": "plain-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/booleantoggle/BooleanToggleContent",
+        "modId": "legacybridge_boolean_toggle",
+        "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+        "registryName": "bridge_block",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1
+      },
+      "propertyField": "ACTIVE",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "state": {
+        "default": false,
+        "property": "active",
+        "stateBuilder": "SINGLE_OWNED_STATIC_NATIVE_PROPERTY",
+        "values": [
+          false,
+          true
+        ]
+      }
+    },
+    "reopenedBooleanToggleBlockContract": {
+      "block": "dev/legacybridge/fixture/booleantoggle/BooleanToggleBlock",
+      "classesExecuted": false,
+      "contract": "boolean-toggle-block-with-item-v1",
+      "entry": "dev/legacybridge/fixture/booleantoggle/BooleanToggleContent",
+      "interaction": {
+        "additionalEffects": "NONE",
+        "client": "SUCCESS_WITHOUT_WRITE",
+        "dispatch": "NATIVE_USE_CALLBACK",
+        "position": "CALLBACK_ARGUMENT",
+        "server": "CYCLE_CALLBACK_STATE_ONCE",
+        "serverResult": "CONSUME",
+        "setBlockResult": "IGNORED_NOT_ASSUMED_SUCCESS",
+        "updateFlags": 3,
+        "world": "CALLBACK_ARGUMENT",
+        "writes": 1
+      },
+      "plainContent": {
+        "block": {
+          "hardness": 2,
+          "material": "STONE",
+          "noOcclusion": false,
+          "requiredTargetTag": "minecraft:mineable/pickaxe",
+          "requiresCorrectTool": false,
+          "resistance": 6,
+          "sound": "STONE",
+          "targetInstrument": "BASEDRUM",
+          "targetMapColor": "STONE"
+        },
+        "blockItem": {
+          "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+          "creativeTab": "NONE",
+          "stackSize": 32
+        },
+        "classesExecuted": false,
+        "contract": "plain-block-with-item-v1",
+        "entry": "dev/legacybridge/fixture/booleantoggle/BooleanToggleContent",
+        "modId": "legacybridge_boolean_toggle",
+        "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+        "registryName": "bridge_block",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1
+      },
+      "propertyField": "ACTIVE",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "state": {
+        "default": false,
+        "property": "active",
+        "stateBuilder": "SINGLE_OWNED_STATIC_NATIVE_PROPERTY",
+        "values": [
+          false,
+          true
+        ]
+      }
+    },
+    "resourceValidation": {
+      "baseResourceContract": "simple-content-v1; tag references restricted to local closure",
+      "contract": "datapack-recipes-v1",
+      "differences": [
+        "Target cooking recipe-book category defaults to MISC; client grouping is not validated."
+      ],
+      "provenance": "docs/RESOURCE_API_BASELINES.md",
+      "recipes": [
+        {
+          "disposition": "PRESERVE_BYTES",
+          "format": "minecraft:crafting_shapeless",
+          "path": "data/legacybridge_boolean_toggle/recipes/bridge_block.json",
+          "reason": "Pinned serializer schema and closed ingredient/result references validated; no rewrite necessary",
+          "rule": "resource.recipe.crafting_shapeless.preserve.v1",
+          "sha256": "5d485c178d096ad04f86d77874c27241518ca78333a83aef3299a9b5d03ceec7"
+        }
+      ],
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "source": "minecraft:1.16.5/forge:36.2.42",
+      "status": "PASSED_REOPENED",
+      "target": "minecraft:1.20.1/forge:47.4.23",
+      "unsupported": [
+        "conditional recipes",
+        "custom serializers and ingredients",
+        "NBT recipe results",
+        "external tag composition",
+        "loot tables and global loot modifiers",
+        "advancements",
+        "functions and commands",
+        "animated textures",
+        "custom model behavior",
+        "local Ogg audio"
+      ]
+    },
+    "sourceOfflineLinkage": {
+      "checkedMethodCount": 8,
+      "classesExecuted": false,
+      "fieldReferenceCount": 21,
+      "lambdaSiteCount": 2,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only the independently re-read false-default active BooleanProperty program: logical-client SUCCESS without a write; server cycle of the actual callback state and exactly one setBlock at the callback position with flags 3, ignored boolean result, then CONSUME. Required native callbacks, inherited declarations, finality, access and opcodes are independently checked. No arbitrary interaction, other world access, write-success guarantee, main-thread/reach/protection qualification, synchronization or native gameplay execution."
+      ],
+      "methodReferenceCount": 26,
+      "ownedClassCount": 2,
+      "resolvedClassCount": 80,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "targetOfflineLinkage": {
+      "checkedMethodCount": 8,
+      "classesExecuted": false,
+      "fieldReferenceCount": 22,
+      "lambdaSiteCount": 2,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only the independently re-read false-default active BooleanProperty program: logical-client SUCCESS without a write; server cycle of the actual callback state and exactly one setBlock at the callback position with flags 3, ignored boolean result, then CONSUME. Required native callbacks, inherited declarations, finality, access and opcodes are independently checked. No arbitrary interaction, other world access, write-success guarantee, main-thread/reach/protection qualification, synchronization or native gameplay execution."
+      ],
+      "methodReferenceCount": 28,
+      "ownedClassCount": 2,
+      "resolvedClassCount": 91,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "serializedOfflineLinkage": {
+      "checkedMethodCount": 8,
+      "classesExecuted": false,
+      "fieldReferenceCount": 22,
+      "lambdaSiteCount": 2,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only the independently re-read false-default active BooleanProperty program: logical-client SUCCESS without a write; server cycle of the actual callback state and exactly one setBlock at the callback position with flags 3, ignored boolean result, then CONSUME. Required native callbacks, inherited declarations, finality, access and opcodes are independently checked. No arbitrary interaction, other world access, write-success guarantee, main-thread/reach/protection qualification, synchronization or native gameplay execution."
+      ],
+      "methodReferenceCount": 28,
+      "ownedClassCount": 2,
+      "resolvedClassCount": 91,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "candidateArchiveValidation": {
+      "centralDirectoryAndCrc": true,
+      "entryCount": 14,
+      "modClassesLoaded": false,
+      "ownershipAndHashes": true,
+      "scratchDeleted": true,
+      "status": "PASSED_REOPENED"
+    },
+    "preservedClassCount": 2,
+    "preservedMethodCount": 8,
+    "replacedClassCount": 0,
+    "runtimeValidation": "NOT_RUN",
+    "transformationSummary": {
+      "schemaVersion": 1,
+      "entryCount": 130
+    },
+    "artifactEntries": [
+      {
+        "path": "META-INF/MANIFEST.MF",
+        "sourceSha256": "3561debf0ab2c78fbb4a70c05d06583210d05fd68df9279736d9879e8d69f47c",
+        "targetSha256": "170896e5c64eeb2cad857a8d66605b3b459d977f45072a7b94a9a50f4d8b5395",
+        "disposition": "REWRITE",
+        "operation": "metadata.boolean-toggle-block-candidate-identity"
+      },
+      {
+        "path": "META-INF/legacybridge/legacybridge_boolean_toggle/adapters.json",
+        "sourceSha256": null,
+        "targetSha256": "888b9c0cce09282d23f2ef009eca83614c9aeefacdba7b7912db7ccbc847d706",
+        "disposition": "GENERATE",
+        "operation": "metadata.boolean-toggle-block-adapter-bindings"
+      },
+      {
+        "path": "META-INF/mods.toml",
+        "sourceSha256": "453b0275bfe3cde22e8cd8e4381c1822ed1317881d0964bbb3e23865c870142a",
+        "targetSha256": "26b195f0e539acd92f55addc6390e2cbfc6cd618505a02985d929a61e7d44468",
+        "disposition": "REWRITE",
+        "operation": "metadata.mod-dependencies"
+      },
+      {
+        "path": "assets/legacybridge_boolean_toggle/blockstates/bridge_block.json",
+        "sourceSha256": "fca1c905fc2f457b0d92b095f66d17d34f6b2362a85dbe96e1bfffe1f180fadc",
+        "targetSha256": "fca1c905fc2f457b0d92b095f66d17d34f6b2362a85dbe96e1bfffe1f180fadc",
+        "disposition": "PRESERVE_BYTES",
+        "operation": "data.recipe-resources"
+      },
+      {
+        "path": "assets/legacybridge_boolean_toggle/lang/en_us.json",
+        "sourceSha256": "a6990380735f79db03a75e929b03c57bfdea328808b5fda3a350f6b0f9b51037",
+        "targetSha256": "a6990380735f79db03a75e929b03c57bfdea328808b5fda3a350f6b0f9b51037",
+        "disposition": "PRESERVE_BYTES",
+        "operation": "data.recipe-resources"
+      },
+      {
+        "path": "assets/legacybridge_boolean_toggle/lang/pt_br.json",
+        "sourceSha256": "fe33eda42bcee220cdca02d616aa4c8959ffafa995f895a54941b971fce23f2d",
+        "targetSha256": "fe33eda42bcee220cdca02d616aa4c8959ffafa995f895a54941b971fce23f2d",
+        "disposition": "PRESERVE_BYTES",
+        "operation": "data.recipe-resources"
+      },
+      {
+        "path": "assets/legacybridge_boolean_toggle/models/block/bridge_block.json",
+        "sourceSha256": "739ba34afcea2bcdd06741ea0a853009d60616c0930091a37d1502fa4950ec19",
+        "targetSha256": "739ba34afcea2bcdd06741ea0a853009d60616c0930091a37d1502fa4950ec19",
+        "disposition": "PRESERVE_BYTES",
+        "operation": "data.recipe-resources"
+      },
+      {
+        "path": "assets/legacybridge_boolean_toggle/models/block/bridge_block_active.json",
+        "sourceSha256": "eb1389a662bdbe3bc1cabc260212916a7c8240e20d7fcd5964ad02dfb4186af1",
+        "targetSha256": "eb1389a662bdbe3bc1cabc260212916a7c8240e20d7fcd5964ad02dfb4186af1",
+        "disposition": "PRESERVE_BYTES",
+        "operation": "data.recipe-resources"
+      },
+      {
+        "path": "assets/legacybridge_boolean_toggle/models/item/bridge_block.json",
+        "sourceSha256": "274fca005fcb004d1ec2af1a575d63bf92670a2e58b737f67ef3f70e35927bb0",
+        "targetSha256": "274fca005fcb004d1ec2af1a575d63bf92670a2e58b737f67ef3f70e35927bb0",
+        "disposition": "PRESERVE_BYTES",
+        "operation": "data.recipe-resources"
+      },
+      {
+        "path": "data/legacybridge_boolean_toggle/recipes/bridge_block.json",
+        "sourceSha256": "5d485c178d096ad04f86d77874c27241518ca78333a83aef3299a9b5d03ceec7",
+        "targetSha256": "5d485c178d096ad04f86d77874c27241518ca78333a83aef3299a9b5d03ceec7",
+        "disposition": "PRESERVE_BYTES",
+        "operation": "data.recipe-resources"
+      },
+      {
+        "path": "data/minecraft/tags/blocks/mineable/pickaxe.json",
+        "sourceSha256": null,
+        "targetSha256": "aad1b483dff4a7859e7ac0ea95d5816396063add33cd94bc1fee1f2e68a545ed",
+        "disposition": "GENERATE",
+        "operation": "metadata.stone-mining-tag"
+      },
+      {
+        "path": "dev/legacybridge/fixture/booleantoggle/BooleanToggleBlock.class",
+        "sourceSha256": "d8c8c45d9eab72e7e53e45d623c1628c2e6743f44db5b1a25492b26c4235385d",
+        "targetSha256": "a398a1590c5246a77005f4deb79a9d46d44172ef8230ac69c8bf6d0e42cbf12c",
+        "disposition": "REWRITE",
+        "operation": "logic.owned-bodies"
+      },
+      {
+        "path": "dev/legacybridge/fixture/booleantoggle/BooleanToggleContent.class",
+        "sourceSha256": "246ee708600f7bf332d927a89ce45ff9774b040cfb95f4b7829f0da03b7c5d06",
+        "targetSha256": "7386cd9a117efbc025d1355ac5b58c6650e4d80011d9d53d09073ae67eafeeb0",
+        "disposition": "REWRITE",
+        "operation": "logic.owned-bodies"
+      },
+      {
+        "path": "pack.mcmeta",
+        "sourceSha256": "55f1202e96180f9830fd8186dc245252cdcef9d77b67e25aad0307d1fd98c832",
+        "targetSha256": "c22cd0408d0325ce02668ee1d063c0dbb8d1c81392e9866446127c05c08b6f33",
+        "disposition": "REWRITE",
+        "operation": "metadata.pack-format"
+      }
+    ]
+  },
+  "authority": {
+    "publicProfileCount": 6,
+    "publicProfilesChanged": false,
+    "applyChanged": false,
+    "runtimeIdentityChanged": false,
+    "originalsExecuted": false,
+    "gameClientStarted": false,
+    "gameServerStarted": false,
+    "screenAutomation": false,
+    "installed": false,
+    "worldsModified": false,
+    "licenseChanged": false,
+    "downloadedMods": false,
+    "published": false
+  },
+  "deferred": {
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "cachelessAdvancedConversion": "NOT_RUN",
+    "completeUnfilteredTestSuite": "NOT_RUN",
+    "acceptanceStatus": "PARTIAL",
+    "releaseQualification": "EXPERIMENTAL_BETA"
+  },
+  "next": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "IRON_SWORD_SEMANTIC_CONTRACT",
+    "status": "AUDITED_NOT_IMPLEMENTED",
+    "audit": "docs/IRON_SWORD_API_AUDIT.md",
+    "semanticBlockers": [
+      "Material predicates are not globally equivalent to reloadable SWORD_EFFICIENT",
+      "ToolActions and sweep context differ",
+      "Constructor-only proof cannot authorize whole inherited behavior"
+    ],
+    "requiresStillPending": [
+      "COMPOSE-01",
+      "LIFE-EVENTS"
+    ],
+    "constraints": "Develop fixture and exact semantic recipe or return MANUAL/UNSUPPORTED with no eligible output. No implicit target-native migration approval."
+  },
+  "evidenceFiles": [
+    {
+      "path": "build/boolean-toggle-20261001/audit.ps1",
+      "sha256": "ffa32d07afc80235674444534e89d4cbf664fc4b64bf66aca7190496a0a66133",
+      "bytes": 3116
+    },
+    {
+      "path": "build/boolean-toggle-20261001/compile.log",
+      "sha256": "e3228db6372ca51be3a7bffdb68bd27afd720c34854fadd8ed2db4a368a9c170",
+      "bytes": 7044
+    },
+    {
+      "path": "build/boolean-toggle-20261001/fixture-build.log",
+      "sha256": "513c33206dbe828711006422921b1edf5690e336ffcaf245cc36c06a89010d8f",
+      "bytes": 6572
+    },
+    {
+      "path": "build/boolean-toggle-20261001/focused.log",
+      "sha256": "3e98ecdf466f5ab602f3cef5c8ba696f1696d28c995c818910ad3d0164ebd368",
+      "bytes": 142352
+    },
+    {
+      "path": "build/boolean-toggle-20261001/focused-final.log",
+      "sha256": "0053bdb687a3d723c45ed320f195e10acd6689d67c31094af751cbd8d847ab1f",
+      "bytes": 147544
+    },
+    {
+      "path": "build/boolean-toggle-20261001/focused-final-results/TEST-dev.legacybridge.converter.cli.BooleanToggleBlockIntegrationTest.xml",
+      "sha256": "495e32bde3b751662555d9242c234e724ee516f68a4a74726b6173d171241676",
+      "bytes": 270896
+    },
+    {
+      "path": "build/boolean-toggle-20261001/focused-final-results/TEST-dev.legacybridge.converter.conversion.BooleanToggleBlockArtifactPlanTest.xml",
+      "sha256": "3da19b899da607092519e2457d1a7cfd99329ab621d22b883d6695d685dbad4c",
+      "bytes": 8249
+    },
+    {
+      "path": "build/boolean-toggle-20261001/focused-final-results/TEST-dev.legacybridge.converter.conversion.BooleanToggleBlockContractTest.xml",
+      "sha256": "5b96fa2447e8e00ca00107fdc0d3f1f458d6ae4e6d27a19a658c3d9103cd2123",
+      "bytes": 33028
+    },
+    {
+      "path": "build/boolean-toggle-20261001/focused-final-results/TEST-dev.legacybridge.converter.conversion.logic.BooleanToggleMappingIntegrationTest.xml",
+      "sha256": "d2acbbd8900cc7679ce06b08c8b39f57c5db1daf16400c5b19927efc2f731ba1",
+      "bytes": 17743
+    },
+    {
+      "path": "build/boolean-toggle-20261001/focused-final-results/TEST-dev.legacybridge.converter.conversion.logic.BooleanToggleNativeApiAuditTest.xml",
+      "sha256": "9848cb8354f4144b7d9d4c80f9de3906d57461136064025cb5b76cd46f0adea5",
+      "bytes": 2055
+    },
+    {
+      "path": "build/boolean-toggle-20261001/package.log",
+      "sha256": "b5a6e353e0b9bfeac7a2a316afa5a3e11ef1caef5c455df492af57ec735fe961",
+      "bytes": 10806
+    },
+    {
+      "path": "build/boolean-toggle-20261001/package.ps1",
+      "sha256": "d42a9e9a90810fcb888e5a7df4b623c9eae6c31c4dfbbed078209f14682d7a24",
+      "bytes": 582
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression.ps1",
+      "sha256": "20cfcd647779eff35deb40dc7af35de41ee536a98d2a7314b973cb0d7dd96cb0",
+      "bytes": 2408
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-final.log",
+      "sha256": "156c447eaf5e098c7c23df27d0dcdf2d190ce1339aca0952bb339fb03b54e9c5",
+      "bytes": 532038
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.BooleanToggleBlockIntegrationTest.xml",
+      "sha256": "16f527dcb2c33dd4b8fbc1bc03f56126a7b65b5eef78353316e7d55e0236a0e4",
+      "bytes": 270084
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.CliEngineServiceTest.xml",
+      "sha256": "3339521490c7be55927cbd312c764cc318928b50b8bffe0931b1c54849cb93fc",
+      "bytes": 3119
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.ClientConfigIntegrationTest.xml",
+      "sha256": "21a9d36e5430e2ce013e72d20df82762034cd8871b1abf489e12b54e56e21cf3",
+      "bytes": 134991
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest.xml",
+      "sha256": "6607eb2cc600c98794f20fcc8249bf0dc3c14349851e14637f55031d39ef76e1",
+      "bytes": 187987
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.DatapackProfileIntegrationTest.xml",
+      "sha256": "5991c5f82f2c2c621d9ed7cf53432ff115c53c08aeb01b0cffc0899fbc10642a",
+      "bytes": 1120
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.DurableItemIntegrationTest.xml",
+      "sha256": "2b79df8abdbcbeed0c41c1440e5b47217f74bfc7f9ca712bede5e24c31bfbf7b",
+      "bytes": 112614
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.EventPriorityIntegrationTest.xml",
+      "sha256": "97a8fe2518d7f2b5fa589497beddcc4b77f243778782201ab3a30f0191405f3d",
+      "bytes": 119900
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.FoodProfileIntegrationTest.xml",
+      "sha256": "c3b6cda025c2e645d21b320e6c92da501de1e6a084a5480aaff630a2455f5467",
+      "bytes": 2641
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.HorizontalBlockIntegrationTest.xml",
+      "sha256": "28d3e6445a1439e07f564b121dfa85a661b1ca5697b987bdc122a8fd5f55f3c2",
+      "bytes": 252191
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.HorizontalTransformsIntegrationTest.xml",
+      "sha256": "bcd6906c4a1f3415ed7823edb1c7dfcabaebbfbb60857c905eafc205486e71dd",
+      "bytes": 299787
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest.xml",
+      "sha256": "7a25295e5ab08f6136b55686389a78eee236111de704bcd06280b18c435ae1b7",
+      "bytes": 965
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.LifecycleSuiteIntegrationTest.xml",
+      "sha256": "0f8563b495d7141386b2e2700d5026b6bc426e216274f404ea22c41ce693b2f6",
+      "bytes": 241060
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.LogicProfileIntegrationTest.xml",
+      "sha256": "103ee1d6252595c050a95f3b8c45bf59aea03f2f1b436b02b87b60fe2420e512",
+      "bytes": 953
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.NetworkProfileIntegrationTest.xml",
+      "sha256": "d6761a24b55c4847e7218beffed1e30a1b9fe33e0a389a5267f82c37ef1438f7",
+      "bytes": 4552
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.OwnedConstructorsIntegrationTest.xml",
+      "sha256": "7c2534af3148110ddf93934118de3e130459955884f958dda8616f6470f522ab",
+      "bytes": 113565
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.OwnedHierarchyIntegrationTest.xml",
+      "sha256": "79ba337e01c94d07dd31d45061a6e1a1bf8f94b130cdb7872425b59005d8b5e7",
+      "bytes": 134465
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.OwnedInterfaceIntegrationTest.xml",
+      "sha256": "3c7bbee4f18a37bd5411707f7f186a3f08ce27ef85b56540aa39c6845383f4c7",
+      "bytes": 122209
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.OwnedReceiverIntegrationTest.xml",
+      "sha256": "24d23fe7ad9353c4d9e1cbbc2e9ca59b33b8136583325a775ef93f050c007088",
+      "bytes": 113152
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.PlainBlockIntegrationTest.xml",
+      "sha256": "6fecf5c89d77303e592ef62615c1bad878db383aa65db8b0cac5f9905effc094",
+      "bytes": 148457
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.ServerConfigIntegrationTest.xml",
+      "sha256": "b84d55120f35964e6b6b5b961a0f066ca3662362905db77be1fbe7b09e2952ad",
+      "bytes": 149207
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.StaticShapeBlockIntegrationTest.xml",
+      "sha256": "4f9b2937200da839f708691427dfb1e93dee9e2f3fdd9bd2a804bcc06814ff69",
+      "bytes": 209545
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.cli.StaticShapeSelfDropIntegrationTest.xml",
+      "sha256": "f2ebba8824a932c2ebd8a3d870f1c4622527ea285e5f47ef3702150b27b0d9cd",
+      "bytes": 203973
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.AdapterContractIntegrationTest.xml",
+      "sha256": "19c17adb12b8ed30cef304a57fb13114eb52cfbfc62274bf3e6f42530b6e9916",
+      "bytes": 1660
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.BooleanToggleBlockArtifactPlanTest.xml",
+      "sha256": "7e9b7383b48f85e921d1275f6900355abd8fa5a2c4a1540545d47a4ac1af61d0",
+      "bytes": 8213
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.BooleanToggleBlockContractTest.xml",
+      "sha256": "4bd2805508ffa4e235f29c0616fd91ffe7c576bb87bb42520230254d90fe09e2",
+      "bytes": 32978
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.CompositionArtifactPlanTest.xml",
+      "sha256": "8ea6a4045a360b01172f3bb1bc16e33e4fb02c437a1a0a033df39c2b678ce259",
+      "bytes": 2571
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.HorizontalBlockArtifactPlanTest.xml",
+      "sha256": "5daafffe555ccce37f5eec8ab8ceb9df575eb1e3c19157792db71c8764727214",
+      "bytes": 3418
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.HorizontalBlockContractTest.xml",
+      "sha256": "58041926787aa6c63412a2af51e4740b90929d22efa8cc9f10676e1374e5075e",
+      "bytes": 24503
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.LifecycleContractAdapterTest.xml",
+      "sha256": "6df800ef52e9972f89e8b426f5b53d364a43082241326e7a20b3ec50f24aa388",
+      "bytes": 1058
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.LifecycleMetadataTest.xml",
+      "sha256": "42c9992448b368857e60431fc1687eb66369314a1519077278202fcca1a02966",
+      "bytes": 3204
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.LifecycleProfileShapeTest.xml",
+      "sha256": "ca33e6bfd0d0c53f643177450ee94830f7920cea18b3f3c45bc71cfa7036e44c",
+      "bytes": 4912
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.BooleanToggleMappingIntegrationTest.xml",
+      "sha256": "0d56ec6f26b79b1f58f920025cc5f4e35a78333c75a8283a218bd96a5ceb47b9",
+      "bytes": 17752
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.BooleanToggleNativeApiAuditTest.xml",
+      "sha256": "6f0a55915878c251cb1a38d2d07b8c818f9cb8f5f641ef8ad8a28435dbc1b97a",
+      "bytes": 2051
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalMappingIntegrationTest.xml",
+      "sha256": "0523503b906bafe8701022039d326ac209374cfcfca5f92c925950314bad5bbe",
+      "bytes": 4601
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalOrientationApiAuditTest.xml",
+      "sha256": "4bc52a11f6f27cfd9ffe8b272108de0a62f73f1eb35771541973e7f47ffb182c",
+      "bytes": 4863
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalTransformsMappingIntegrationTest.xml",
+      "sha256": "a1bd03f21b7786c609e6d742b4e6a90119354ff72023d002b750899d2c3a3a1c",
+      "bytes": 3860
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.StaticShapeMappingIntegrationTest.xml",
+      "sha256": "65e48cea1234face5b49c470d31bb9c50064781ab118db37a02b7f174ed1e760",
+      "bytes": 7837
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.StaticShapeNativeApiAuditTest.xml",
+      "sha256": "a7b2dc42447a82db4ac4fb277ffd800f1ca84e8cfa94d1a0b3c974989a0f8395",
+      "bytes": 1534
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.logic.VerifiedLogicMappingsTest.xml",
+      "sha256": "080037b12e31291015a9d52fceab6572cfbf46125ffddc64e6b63a6f20a31ac6",
+      "bytes": 2654
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.LogicProfileShapeTest.xml",
+      "sha256": "f22868da888a2f7f307f31d6ab87e7c4c840446f99c1dee1460693f982546dd9",
+      "bytes": 2111
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.PlainBlockArtifactPlanTest.xml",
+      "sha256": "f08cbe2e0e3fdb80ccbadc1fda08a00eb3874852cf69093bec3090e5c248ded1",
+      "bytes": 3189
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.PlainBlockContractTest.xml",
+      "sha256": "3cfcf86ed7db91fc04c8aa73e5a982584c332c0b5eea25000dbedbcebadd9028",
+      "bytes": 4969
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.PlainBlockLoweringIntegrationTest.xml",
+      "sha256": "a2bfc7e85da92192f128686dfee97da4c8dc3e92fcac4f5fe86f07ed7959bdc9",
+      "bytes": 611
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.StaticShapeBlockArtifactPlanTest.xml",
+      "sha256": "fabf1f4e0754ff8f87e00d705c0d94516c6cae5faa110d60aebc91559482480b",
+      "bytes": 7127
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.StaticShapeBlockContractTest.xml",
+      "sha256": "5432293b8152b6d8fd3ec6db67f96adb12acbd2b6a6ef0b9199641efd6826d70",
+      "bytes": 21076
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.conversion.StaticShapeLootContractTest.xml",
+      "sha256": "95a3fb0c2e3ec8b491ad4db3569e39298cb45d91253daeccd934998975363c57",
+      "bytes": 12398
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.transformation.linkage.OfflineLinkageVerifierTest.xml",
+      "sha256": "afb9ed4b83ae8bb0533e18a368217550e43e7e94a72c968b8eed241dc36bd973",
+      "bytes": 6028
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedConstructorGraphTest.xml",
+      "sha256": "e6f66e572e42d9e0215059ebc86a0eb1ed9d03b27cc58ff3eb5a230730c35104",
+      "bytes": 2669
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedInterfaceDefaultsTest.xml",
+      "sha256": "11a14b65a11574b6e25af1aac5c1fbfaacb44a8e33b09ab5701396f2648ca458",
+      "bytes": 3848
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedItemHierarchyTest.xml",
+      "sha256": "831d38a0d9a314decde16c452587adcad81ab11afde87d709d035e44679530a9",
+      "bytes": 3328
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedReceiverHandlesTest.xml",
+      "sha256": "7d5739d982fd38bb382bcf6f4f3f1ebf8142f318dd73c400ea9151e65c854434",
+      "bytes": 5643
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.converter.transformation.MappingResolverTest.xml",
+      "sha256": "96e24ad57dd932f5a29b7ff97515de3ef1b12492452e91e2fddba5160e3c67e0",
+      "bytes": 3209
+    },
+    {
+      "path": "build/boolean-toggle-20261001/regression-results/TEST-dev.legacybridge.runtime.compat.logic.StaticShapeRecipeContractTest.xml",
+      "sha256": "7024f352e5372f23643556a9355ebc010a89e2bb81c9c7bad40505694197ee3c",
+      "bytes": 1913
+    },
+    {
+      "path": "build/client-config-20260919/mapping-profile.properties",
+      "sha256": "ac622b0d6aff4e53f4f8e3210699267292dce6b2f77c443af4981c032433b2df",
+      "bytes": 3068
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/build/test-results/test/TEST-dev.legacybridge.fixture.booleantoggle.BooleanToggleFixtureArtifactTest.xml",
+      "sha256": "6ed719b961a86be4145dcf288116085f88c183840b185ef6e5104cef1a282eca",
+      "bytes": 1025
+    },
+    {
+      "path": "build/boolean-toggle-20261001/contract.log",
+      "sha256": "2b7c58b78e169b7687add42c4181d4191ac50eedc730e38fc404175e07d14cb9",
+      "bytes": 22604
+    },
+    {
+      "path": "legacy-corpus/build/test-results/test/TEST-dev.legacybridge.corpus.PromptContractVerifierTest.xml",
+      "sha256": "5e153165263ca06170d79a8824422a5c1aa7bdd0a4c50f5506e9d721c50680ec",
+      "bytes": 9786
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/build.gradle",
+      "sha256": "0a5a34d1d108e5deb1a27e91a7cda3c4a0ca5cdc8bc290be47d3acdbad1486b7",
+      "bytes": 1441
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/README.md",
+      "sha256": "772abba9233221d0f2d3812aa8e55decf5160f2a23ba30fad56e89983efb6893",
+      "bytes": 2018
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/settings.gradle",
+      "sha256": "e44bad34e7e57a8b3f89a6b044286815f4e662fcb867b785932bf203a6f73716",
+      "bytes": 229
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/java/dev/legacybridge/fixture/booleantoggle/BooleanToggleBlock.java",
+      "sha256": "b5f9935c637936c6b0afb5d27fd1f435a0bf51abea5a8b9f430ce8fb2a28f788",
+      "bytes": 1449
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/java/dev/legacybridge/fixture/booleantoggle/BooleanToggleContent.java",
+      "sha256": "5ed7150d65207a67506835d1601412a610ee33d0da012e9f6f778464cbc71dab",
+      "bytes": 1708
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/assets/legacybridge_boolean_toggle/blockstates/bridge_block.json",
+      "sha256": "fca1c905fc2f457b0d92b095f66d17d34f6b2362a85dbe96e1bfffe1f180fadc",
+      "bytes": 195
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/assets/legacybridge_boolean_toggle/lang/en_us.json",
+      "sha256": "a6990380735f79db03a75e929b03c57bfdea328808b5fda3a350f6b0f9b51037",
+      "bytes": 71
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/assets/legacybridge_boolean_toggle/lang/pt_br.json",
+      "sha256": "fe33eda42bcee220cdca02d616aa4c8959ffafa995f895a54941b971fce23f2d",
+      "bytes": 73
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/assets/legacybridge_boolean_toggle/models/block/bridge_block.json",
+      "sha256": "739ba34afcea2bcdd06741ea0a853009d60616c0930091a37d1502fa4950ec19",
+      "bytes": 99
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/assets/legacybridge_boolean_toggle/models/block/bridge_block_active.json",
+      "sha256": "eb1389a662bdbe3bc1cabc260212916a7c8240e20d7fcd5964ad02dfb4186af1",
+      "bytes": 105
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/assets/legacybridge_boolean_toggle/models/item/bridge_block.json",
+      "sha256": "274fca005fcb004d1ec2af1a575d63bf92670a2e58b737f67ef3f70e35927bb0",
+      "bytes": 65
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/data/legacybridge_boolean_toggle/recipes/bridge_block.json",
+      "sha256": "5d485c178d096ad04f86d77874c27241518ca78333a83aef3299a9b5d03ceec7",
+      "bytes": 198
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/META-INF/mods.toml",
+      "sha256": "453b0275bfe3cde22e8cd8e4381c1822ed1317881d0964bbb3e23865c870142a",
+      "bytes": 645
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/main/resources/pack.mcmeta",
+      "sha256": "55f1202e96180f9830fd8186dc245252cdcef9d77b67e25aad0307d1fd98c832",
+      "bytes": 127
+    },
+    {
+      "path": "fixtures/boolean-toggle-block-1.16.5/src/test/java/dev/legacybridge/fixture/booleantoggle/BooleanToggleFixtureArtifactTest.java",
+      "sha256": "cbb87f34d58880fd18122a0e4674036915a0494f256c38bf9736d7f56825cd5d",
+      "bytes": 6519
+    },
+    {
+      "path": "legacy-compat-api/src/main/java/dev/legacybridge/runtime/compat/AdapterCatalog.java",
+      "sha256": "135b3369639b065708634c72cf8c80363a2f7cce51666ff01203f73dc03d94ca",
+      "bytes": 37009
+    },
+    {
+      "path": "legacy-compat-api/src/main/java/dev/legacybridge/runtime/compat/logic/BooleanToggleBlockArtifactAdapter.java",
+      "sha256": "7c2c8b453a061b77a3a42e9b733cc05fe610b83f046db168621b16fd7744a1cf",
+      "bytes": 2407
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/BooleanToggleBlockContract.java",
+      "sha256": "59a3dacabbf5108f8247cb3f3196be42d769874cf21c4c0ddac091902ba3cb7e",
+      "bytes": 16611
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/CompositionArtifactPlan.java",
+      "sha256": "a29a79f924e9095a93db64650ca41a4c140f0b835261f48967e253f36acb5a9e",
+      "bytes": 24264
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/CompositionCandidateBuilder.java",
+      "sha256": "437424f14ab0a67db19d8ca71da6e6a6dfa4488bf49283dca186ce7cb625bb10",
+      "bytes": 32697
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/ContentResourceValidator.java",
+      "sha256": "1d77703151aebae88fbf01d8887b3f50f00e404018726dd1e82813284c9470ee",
+      "bytes": 47791
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.java",
+      "sha256": "c8b85d09532e5fe9b5f5704b4f667a4ea6063fdfe790b082c89cc0e8e79f00e4",
+      "bytes": 102292
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/LogicPreservingConverter.java",
+      "sha256": "f25de7b348875e63f6b83dde262ddd1c0e4a36050787b36689edf1bae5ef518d",
+      "bytes": 64800
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/PlainBlockLowering.java",
+      "sha256": "5b407769b2d928acf4e1d3101f8653ff2fe2a3d2817a34a11f3236ed3952cb8e",
+      "bytes": 6884
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/TransformationBindings.java",
+      "sha256": "a44d16ac09352a061b35d95f78bc3ee45a2c8a133d8a69693a6b5442188d1579",
+      "bytes": 8072
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/service/LegacyEngineService.java",
+      "sha256": "27cd8b5e9bad5ba46a80c062cdfa178716d5f4e2d78c976509a1abd8716e6bc5",
+      "bytes": 36490
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.java",
+      "sha256": "ea5d1fce89e48a2b9b208e2a63b756e1c6926e295e9f495dbec4dabb8d0907cb",
+      "bytes": 67365
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/cli/BooleanToggleBlockIntegrationTest.java",
+      "sha256": "fd327374e3cc09bdb7233fcd5cab923756b96f9eda0ddc99a02aa9495c27e3d3",
+      "bytes": 36557
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/conversion/BooleanToggleBlockArtifactPlanTest.java",
+      "sha256": "30ed59084358ccad444af00fc3b9e41d4a2bf8d15295928843bd2ed6b290c2b4",
+      "bytes": 15764
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/conversion/BooleanToggleBlockContractTest.java",
+      "sha256": "2d2d283a5edba9304b16221291cd1ee95536d0e50a19abe840030067ca7b9c72",
+      "bytes": 34223
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/conversion/logic/BooleanToggleMappingIntegrationTest.java",
+      "sha256": "a868883b8a4235522442e25ffc62a4df282b7d6d2421efaa53fe620ff7747213",
+      "bytes": 12888
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/conversion/logic/BooleanToggleNativeApiAuditTest.java",
+      "sha256": "4deb4d81a3707463c50352c28746f61c4adccfc46aae63e453c44e3e682c2067",
+      "bytes": 12435
+    },
+    {
+      "path": "legacy-product/build.gradle",
+      "sha256": "8d863e61fae0a8deb07fb43b3340e781bb00c5cc7c6d9413c8f788ce301f0fe8",
+      "bytes": 20547
+    }
+  ]
+}
+

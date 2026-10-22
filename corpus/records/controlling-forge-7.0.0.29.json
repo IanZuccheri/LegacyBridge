@@ -1,0 +1,508 @@
+{
+  "schemaVersion": 1,
+  "id": "controlling-forge-7.0.0.29",
+  "kind": "REAL_MOD",
+  "projectKey": "modrinth:xv94TkTM",
+  "version": "7.0.0.29",
+  "artifact": {
+    "fileName": "Controlling-7.0.0.29.jar",
+    "sha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+    "sizeBytes": 51888
+  },
+  "authorization": {
+    "basis": "SPDX_LICENSE",
+    "license": "MIT",
+    "redistributeBinary": false,
+    "evidence": [
+      "license-upstream",
+      "license-snapshot"
+    ]
+  },
+  "source": {
+    "loader": "Forge",
+    "minecraftVersions": [
+      "1.16.5"
+    ],
+    "forgeBuild": "36.0.0",
+    "forgeVersionEvidence": "Release-associated immutable source configuration: https://github.com/jaredlll08/Controlling/blob/1975807fd663f62d5631f94b9dee19372a5a2d08/build.gradle. Build target Minecraft 1.16.5 / Forge 36.0.0; binary source reproducibility NOT_VERIFIED. Release-associated source configuration; not a claim that binary build was reproduced."
+  },
+  "dependencies": [
+    "forge [34,); mandatory=true; side=CLIENT; ordering=NONE",
+    "minecraft [1.16.3,); mandatory=true; side=CLIENT; ordering=NONE"
+  ],
+  "detectedFeatures": [
+    "ACCESS_TRANSFORMER",
+    "CLIENT_RENDERING",
+    "GUI",
+    "LEGACY_EVENTS",
+    "RESOURCE_PACK_METADATA",
+    "RESOURCE_ASSET_LANG",
+    "RESOURCE_CONFIGURATION"
+  ],
+  "blockers": [
+    "Side-specific dependencies require manual review."
+  ],
+  "output": {
+    "status": "BLOCKED",
+    "sha256": null
+  },
+  "stages": {
+    "analyzable": {
+      "status": "PASSED",
+      "evidence": [
+        "analysis"
+      ]
+    },
+    "convertible": {
+      "status": "BLOCKED",
+      "evidence": [
+        "conversion"
+      ]
+    },
+    "bytecodeValidated": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverInitializes": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "clientBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "serverBehavior": {
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    "multiplayer": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "evidence": [
+    {
+      "id": "license-upstream",
+      "type": "AUTHORIZATION",
+      "sourceSha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+      "targetSha256": null,
+      "sha256": "f915f0337aae5963d0426091c4e5dac1aac79128872e1c679be6b95aed66e25b",
+      "url": "https://raw.githubusercontent.com/jaredlll08/Controlling/1975807fd663f62d5631f94b9dee19372a5a2d08/LICENSE"
+    },
+    {
+      "id": "license-snapshot",
+      "type": "AUTHORIZATION",
+      "sourceSha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+      "targetSha256": null,
+      "sha256": "f915f0337aae5963d0426091c4e5dac1aac79128872e1c679be6b95aed66e25b",
+      "path": "corpus/licenses/controlling/LICENSE"
+    },
+    {
+      "id": "analysis",
+      "type": "ANALYSIS",
+      "sourceSha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+      "targetSha256": null,
+      "sha256": "2376ce1e7d647ae22cc76df95626a33e3bd0a7ef33f6c0de3b455a8bd04dab32",
+      "path": "build/corpus-intake/observations/controlling-forge-7.0.0.29/analysis.json"
+    },
+    {
+      "id": "conversion",
+      "type": "CONVERSION",
+      "sourceSha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+      "targetSha256": null,
+      "sha256": "822cccafdd985b0a7bf2b56cc3e40e3f8889a6b9ab67cca18ba773a5928be423",
+      "path": "build/corpus-intake/observations/controlling-forge-7.0.0.29/conversion.json"
+    }
+  ],
+  "structuredMetadata": {
+    "modId": "controlling",
+    "modDisplayName": "Controlling",
+    "provenance": {
+      "platform": "Modrinth",
+      "projectId": "xv94TkTM",
+      "versionId": "Z7UMwzSN",
+      "versionUrl": "https://modrinth.com/mod/controlling/version/Z7UMwzSN",
+      "metadataUrl": "https://api.modrinth.com/v2/version/Z7UMwzSN",
+      "publishedAt": "2023-06-09T02:31:43.119855Z",
+      "declaredGameVersions": [
+        "1.16.5"
+      ],
+      "declaredLoaders": [
+        "forge"
+      ],
+      "declaredThirdPartyDependencies": []
+    },
+    "acquisition": {
+      "originalRelativePath": "build/corpus-intake/public/controlling/Controlling-7.0.0.29.jar",
+      "downloadUrl": "https://cdn.modrinth.com/data/xv94TkTM/versions/Z7UMwzSN/Controlling-7.0.0.29.jar",
+      "publisherSha512": "247ebb1d3d62f4d0e7fda3a1f6c5ebfcea0637fd4694134628a702cee8cb557f75ee19838886b5c2203750a539d6d69cdf9acd694b862bd34a8af4d70b45506f",
+      "receiptRelativePath": "build/corpus-intake/public/controlling/acquisition.json",
+      "rightsReviewedAt": "2026-09-06",
+      "originalCodeExecuted": false,
+      "localOnly": true,
+      "privateArtifact": false,
+      "packaged": false,
+      "redistributed": false
+    },
+    "rightsReview": {
+      "status": "LOCAL_ACQUISITION_STATIC_ANALYSIS_MODIFICATION_ALLOWED",
+      "licenseSpdx": "MIT",
+      "licenseSnapshot": "corpus/licenses/controlling/LICENSE",
+      "licenseUrl": "https://raw.githubusercontent.com/jaredlll08/Controlling/1975807fd663f62d5631f94b9dee19372a5a2d08/LICENSE",
+      "licenseSha256": "f915f0337aae5963d0426091c4e5dac1aac79128872e1c679be6b95aed66e25b",
+      "sourceCommit": "1975807fd663f62d5631f94b9dee19372a5a2d08",
+      "releaseAssociation": "The exact Modrinth 7.0.0.29 changelog links this commit as its newest change. The moving 1.16 branch has later changes and was not used as release evidence.",
+      "permissionBasis": "MIT expressly permits use, copying and modification. Preserve copyright and permission notices. No binary redistribution is performed by this corpus intake.",
+      "binarySourceReproducibility": "NOT_VERIFIED",
+      "redistributionSelected": false
+    },
+    "sourceBuildEvidence": {
+      "url": "https://github.com/jaredlll08/Controlling/blob/1975807fd663f62d5631f94b9dee19372a5a2d08/build.gradle",
+      "minecraftVersion": "1.16.5",
+      "forgeVersion": "36.0.0",
+      "javaTarget": "1.8",
+      "scope": "Release-associated source configuration; not a claim that binary build was reproduced."
+    },
+    "integrity": {
+      "beforeRecordWrite": {
+        "sha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+        "sizeBytes": 51888,
+        "verifiedAtUtc": "2026-09-06T06:36:19.6673543Z"
+      },
+      "analysisInputSha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+      "conversionInputSha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+      "originalUnchangedFromAcquisition": true,
+      "afterInitialRecordWrite": {
+        "sha256": "b2eb85d83bcd953d37f0d629013bd1f386b1927e2a46c70df155060c8d072cdc",
+        "sizeBytes": 51888,
+        "verifiedAtUtc": "2026-09-06T06:38:35.5100230Z"
+      }
+    },
+    "rawModsTomlAnalysis": {
+      "present": true,
+      "parsed": true,
+      "modLoader": "javafml",
+      "loaderVersion": "[34,)",
+      "mods": [
+        {
+          "modId": "controlling",
+          "version": "${file.jarVersion}",
+          "displayName": "Controlling"
+        }
+      ],
+      "dependencies": [
+        {
+          "ownerModId": "controlling",
+          "modId": "forge",
+          "mandatoryDeclared": true,
+          "mandatory": true,
+          "versionRange": "[34,)",
+          "ordering": "NONE",
+          "side": "CLIENT"
+        },
+        {
+          "ownerModId": "controlling",
+          "modId": "minecraft",
+          "mandatoryDeclared": true,
+          "mandatory": true,
+          "versionRange": "[1.16.3,)",
+          "ordering": "NONE",
+          "side": "CLIENT"
+        }
+      ]
+    },
+    "rawManifestAnalysis": {
+      "present": true,
+      "parsed": true,
+      "attributes": {
+        "Implementation-Title": "_Minecraft_Mods_Controlling_1.16",
+        "Implementation-Version": "7.0.0.29"
+      },
+      "valuesTruncated": false
+    },
+    "dependencyInterpretation": "The top-level dependencies array contains only declared mods.toml dependencies. Publisher mod dependencies are separate. Inferred packages below are not verified external mod requirements and may be platform libraries or scanner false positives; a truncated list is not a complete dependency inventory.",
+    "fullDeclaredDependencies": [
+      {
+        "ownerModId": "controlling",
+        "modId": "forge",
+        "mandatoryDeclared": true,
+        "mandatory": true,
+        "versionRange": "[34,)",
+        "ordering": "NONE",
+        "side": "CLIENT"
+      },
+      {
+        "ownerModId": "controlling",
+        "modId": "minecraft",
+        "mandatoryDeclared": true,
+        "mandatory": true,
+        "versionRange": "[1.16.3,)",
+        "ordering": "NONE",
+        "side": "CLIENT"
+      }
+    ],
+    "inferredThirdPartyDependencies": [
+      {
+        "identifier": "[Lcom.blamejared.controlling.client.gui",
+        "source": "INFERRED_PACKAGE",
+        "mandatory": false,
+        "versionRange": ""
+      }
+    ],
+    "thirdPartyDependenciesTruncated": true
+  },
+  "analysisSummary": {
+    "observationScope": "Static engine analysis and attempted conversion only. COMPLETE means bounded archive/bytecode scanning completed, not complete semantic understanding or compatibility. No original mod class was executed. No converted output exists.",
+    "tool": {
+      "name": "LegacyBridge Converter",
+      "version": "0.1.1-SNAPSHOT",
+      "policyVersion": "2026-09-v2"
+    },
+    "schemaVersion": 2,
+    "assessment": {
+      "analysisStatus": "COMPLETE",
+      "sourceProfile": "FORGE_1_16_5_CANDIDATE",
+      "conversionStatus": "NOT_IMPLEMENTED",
+      "executionStatus": "NOT_TESTED"
+    },
+    "assessmentCaveat": "analysis.assessment.conversionStatus=NOT_IMPLEMENTED is the analyzer-only schema statement, not the separately executed conversion outcome; the actual converter returned ABORTED.",
+    "detectedMinecraftVersion": "1.16.5",
+    "detectedForgeVersion": "36.x",
+    "sourceDetectionCaveat": "The analyzer's Forge36.x family is a heuristic; the exact source build configuration is recorded separately and is not a reproduced binary build attestation.",
+    "classCount": 26,
+    "classMajorVersions": {
+      "52": 26
+    },
+    "unreadableClassCount": 0,
+    "nativeMethodCount": 0,
+    "previewClassCount": 0,
+    "complexity": "COMPLEX",
+    "riskScore": 37,
+    "countInterpretation": "Reference/class/occurrence counts characterize this exact static input only. They are not a compatible-mod percentage, whole-mod unlock count, runtime validation or multiplayer evidence.",
+    "minecraftReferenceCount": 1080,
+    "minecraftReferencesTruncated": false,
+    "minecraftReferenceExternalityComplete": true,
+    "forgeReferenceCount": 76,
+    "forgeReferencesTruncated": false,
+    "forgeReferenceExternalityComplete": true,
+    "packagesUsedTruncated": true,
+    "featureDetectionEvidence": [
+      {
+        "id": "ACCESS_TRANSFORMER",
+        "occurrenceCount": 1,
+        "analyzerEvidenceTruncated": false,
+        "evidenceSamples": [
+          "META-INF/accesstransformer.cfg"
+        ],
+        "corpusSamplesTruncated": false
+      },
+      {
+        "id": "CLIENT_RENDERING",
+        "occurrenceCount": 49,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "com/blamejared/controlling/api/events/KeyEntryRenderEvent.class#TYPE:com/mojang/blaze3d/matrix/MatrixStack()Lcom/mojang/blaze3d/matrix/MatrixStack;",
+          "com/blamejared/controlling/api/events/KeyEntryRenderEvent.class#TYPE:com/mojang/blaze3d/matrix/MatrixStack(Lcom/blamejared/controlling/client/gui/GuiNewKeyBindingList$KeyEntry;Lcom/mojang/blaze3d/matrix/MatrixStack;IIIIIIIZF)V",
+          "com/blamejared/controlling/api/events/KeyEntryRenderEvent.class#TYPE:com/mojang/blaze3d/matrix/MatrixStackLcom/mojang/blaze3d/matrix/MatrixStack;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "GUI",
+        "occurrenceCount": 528,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "com/blamejared/controlling/api/events/KeyEntryListenersEvent.class#TYPE:net/minecraft/client/gui/IGuiEventListener()Ljava/util/List<Lnet/minecraft/client/gui/IGuiEventListener;>;",
+          "com/blamejared/controlling/api/events/KeyEntryListenersEvent.class#TYPE:net/minecraft/client/gui/IGuiEventListenerLjava/util/List<Lnet/minecraft/client/gui/IGuiEventListener;>;",
+          "com/blamejared/controlling/api/events/KeyEntryListenersEvent.class#TYPE:net/minecraft/client/gui/widget/button/Button()Lnet/minecraft/client/gui/widget/button/Button;"
+        ],
+        "corpusSamplesTruncated": true
+      },
+      {
+        "id": "LEGACY_EVENTS",
+        "occurrenceCount": 40,
+        "analyzerEvidenceTruncated": true,
+        "evidenceSamples": [
+          "com/blamejared/controlling/Controlling.class#FIELD:net/minecraftforge/common/MinecraftForge.EVENT_BUSLnet/minecraftforge/eventbus/api/IEventBus;",
+          "com/blamejared/controlling/Controlling.class#METHOD:net/minecraftforge/eventbus/api/IEventBus.addListener(Ljava/util/function/Consumer;)V",
+          "com/blamejared/controlling/Controlling.class#METHOD:net/minecraftforge/eventbus/api/IEventBus.register(Ljava/lang/Object;)V"
+        ],
+        "corpusSamplesTruncated": true
+      }
+    ],
+    "detectionCaveat": "Feature categories are static API-reference/entry-marker signals, not exhaustive semantic proofs. REFLECTION means observed reflective API references, not a complete set of dynamically constructed targets. Absence of a category does not establish absence of behavior; evidence samples and package lists may be truncated.",
+    "content": {
+      "observedFileCount": 49,
+      "assetEntryCount": 19,
+      "dataPackEntryCount": 0,
+      "assetNamespaces": {
+        "namespaceCount": 1,
+        "samples": [
+          "controlling"
+        ],
+        "samplesTruncated": false
+      },
+      "dataNamespaces": {
+        "namespaceCount": 0,
+        "samples": [],
+        "samplesTruncated": false
+      },
+      "categories": {
+        "PACK_METADATA": {
+          "entryCount": 1,
+          "samples": [
+            "pack.mcmeta"
+          ],
+          "samplesTruncated": false
+        },
+        "ASSET_LANG": {
+          "entryCount": 19,
+          "samples": [
+            "assets/controlling/lang/de_de.json",
+            "assets/controlling/lang/en_ca.json",
+            "assets/controlling/lang/en_pt.json",
+            "assets/controlling/lang/en_ud.json",
+            "assets/controlling/lang/en_us.json",
+            "assets/controlling/lang/es_es.json",
+            "assets/controlling/lang/fr_fr.json",
+            "assets/controlling/lang/it_it.json",
+            "assets/controlling/lang/ja_jp.json",
+            "assets/controlling/lang/kk_kz.json",
+            "assets/controlling/lang/ko_kr.json",
+            "assets/controlling/lang/pl_pl.json",
+            "assets/controlling/lang/pt_br.json",
+            "assets/controlling/lang/ru_ru.json",
+            "assets/controlling/lang/ta_in.json",
+            "assets/controlling/lang/tr_tr.json"
+          ],
+          "samplesTruncated": true
+        },
+        "CONFIGURATION": {
+          "entryCount": 2,
+          "samples": [
+            "META-INF/accesstransformer.cfg",
+            "META-INF/mods.toml"
+          ],
+          "samplesTruncated": false
+        }
+      }
+    },
+    "mixins": [],
+    "accessTransformers": [
+      {
+        "path": "META-INF/accesstransformer.cfg",
+        "parsed": true,
+        "declarationCount": 3,
+        "attributes": {
+          "rules": [
+            "public net.minecraft.client.gui.screen.ControlsScreen field_146494_r",
+            "public net.minecraft.client.gui.screen.SettingsScreen field_228182_a_",
+            "public net.minecraft.client.util.InputMappings$Input field_199875_d"
+          ]
+        },
+        "diagnostics": [],
+        "truncated": false,
+        "partial": false
+      }
+    ],
+    "coremods": [],
+    "findings": [
+      {
+        "code": "LB-F002",
+        "severity": "BLOCKER",
+        "category": "feature",
+        "message": "Access transformers require explicit symbol remapping and are not supported.",
+        "evidence": [
+          "META-INF/accesstransformer.cfg"
+        ]
+      },
+      {
+        "code": "LB-B006",
+        "severity": "WARNING",
+        "category": "sides",
+        "message": "References to net.minecraft.client require physical-side review.",
+        "evidence": [
+          "net/minecraft/client/AbstractOption",
+          "net/minecraft/client/GameSettings",
+          "net/minecraft/client/MainWindow",
+          "net/minecraft/client/Minecraft",
+          "net/minecraft/client/gui/AbstractGui",
+          "net/minecraft/client/gui/FontRenderer",
+          "net/minecraft/client/gui/IGuiEventListener",
+          "net/minecraft/client/gui/screen/ControlsScreen",
+          "net/minecraft/client/gui/screen/MouseSettingsScreen",
+          "net/minecraft/client/gui/screen/Screen",
+          "net/minecraft/client/gui/widget/TextFieldWidget",
+          "net/minecraft/client/gui/widget/Widget"
+        ]
+      },
+      {
+        "code": "LB-P001",
+        "severity": "INFO",
+        "category": "profile",
+        "message": "Metadata and bytecode are consistent with a Forge 1.16.5 candidate; this is not proof of compatibility.",
+        "evidence": [
+          "javaClassMajor<=52",
+          "loaderVersionIntersectsMajor=36",
+          "minecraftDependency=1.16.5"
+        ]
+      },
+      {
+        "code": "LB-P003",
+        "severity": "INFO",
+        "category": "conversion",
+        "message": "Conversion is intentionally not implemented in report schema v2.",
+        "evidence": []
+      }
+    ],
+    "conversionObservation": {
+      "status": "ABORTED",
+      "compatibilityStatus": "UNSUPPORTED",
+      "diagnostics": [
+        "Side-specific dependencies require manual review."
+      ],
+      "bytecodeExecuted": false,
+      "bytecodeModified": false,
+      "transformationsCommitted": false,
+      "reportType": "LEGACY_CONVERSION",
+      "schemaVersion": 2,
+      "supportProfile": "simple-content-v1",
+      "targetMinecraft": "1.20.1",
+      "targetForge": "47.4.23",
+      "runtimeRequired": "legacybridge_runtime",
+      "runtimeVersion": "0.1.1-SNAPSHOT"
+    },
+    "conversionFirstFailureOnly": true,
+    "sourceReviewedRemainingDependencies": {
+      "status": "REVIEWED_SOURCE_HYPOTHESES_NOT_ADDITIONAL_CONVERTER_RESULTS",
+      "sourceCommit": "1975807fd663f62d5631f94b9dee19372a5a2d08",
+      "reviewPath": "corpus/intake/semantic-review.md",
+      "clusters": [
+        "Client-side discovery and display-test extension semantics",
+        "ControlsScreen replacement and three access-transformer declarations",
+        "Keybinding/modifier mutation, conflict detection, reset and persistence",
+        "Keyboard/mouse focus, filtering, narration and GUI scaling",
+        "Custom key-entry rendering/listener/mouse API events"
+      ],
+      "guaranteedWholeModUnlocks": 0,
+      "implementedByThisCorpus": false
+    },
+    "validationScope": {
+      "bytecodeValidation": "NOT_RUN: the input was parsed; no generated target bytecode exists to validate.",
+      "client": "NOT_RUN: no converted artifact exists.",
+      "server": "NOT_RUN: no converted artifact exists.",
+      "behavior": "NOT_RUN: source review is not behavioral execution.",
+      "multiplayer": "NOT_RUN: no connected players or server/client test was run for this mod."
+    },
+    "limitations": [
+      "The inferred package '[Lcom.blamejared.controlling.client.gui' is an own-array-name scanner artifact, not an established external mod dependency. The raw report is retained unchanged.",
+      "Source-to-binary reproducibility and upstream runtime baseline behavior were not validated.",
+      "No claim of client/server compatibility follows from publisher side metadata.",
+      "The corpus is a three-project convenience sample and cannot estimate ecosystem coverage."
+    ]
+  }
+}

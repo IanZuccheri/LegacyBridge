@@ -1,0 +1,8 @@
+Copyright (c) 2026 LegacyBridge contributors. All rights reserved.
+
+No permission is granted to copy, modify, distribute, sublicense, or sell this
+software without prior written permission from the copyright holder.
+
+Third-party Minecraft mods remain subject to their own licenses. LegacyBridge
+does not grant permission to transform or redistribute any third-party mod.
+

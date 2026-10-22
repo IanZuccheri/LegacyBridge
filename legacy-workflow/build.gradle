@@ -1,0 +1,44 @@
+plugins {
+    id 'java-library'
+}
+
+base {
+    archivesName = 'legacy-workflow'
+}
+
+// Internal, JDK-only product contracts. Not a player mod or an installer.
+dependencies {
+    testImplementation platform("org.junit:junit-bom:${rootProject.junit_version}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.register('verifyWorkflowBoundary') {
+    group = 'verification'
+    description = 'Checks that product contracts remain a dependency-free, non-bootstrap internal library.'
+    dependsOn tasks.named('jar')
+    inputs.file(tasks.named('jar').flatMap { it.archiveFile })
+    doLast {
+        if (!configurations.runtimeClasspath.files.empty) {
+            throw new GradleException('legacy-workflow must not acquire runtime library or game dependencies')
+        }
+        def archive = tasks.named('jar').get().archiveFile.get().asFile
+        def zip = new java.util.zip.ZipFile(archive)
+        try {
+            def forbidden = zip.entries().collect { it.name }.findAll { entry ->
+                entry == 'META-INF/mods.toml' || entry.startsWith('META-INF/services/') ||
+                    entry.endsWith('.jar') || (entry.endsWith('.class') &&
+                        !entry.startsWith('dev/legacybridge/workflow/'))
+            }
+            if (!forbidden.empty) {
+                throw new GradleException("Workflow contracts must not contain mods, bootstrap services or foreign classes: ${forbidden}")
+            }
+        } finally {
+            zip.close()
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('verifyWorkflowBoundary')
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-05",
+  "cut": "JOB-INSTALL-RECEIPTS",
+  "scope": "Append-only presentation receipts after controller Apply/recovery. No history reader, conversion expansion or native acceptance.",
+  "authorization": "User explicitly requested continued work without Minecraft open. No games, desktop automation or new original acquisitions.",
+  "versions": {"sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": "17.0.12+8", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "baselinePublicArtifact": {
+    "path": "build/job-install-receipts-2026-09-07-run1/baseline-LegacyBridge.jar",
+    "sha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6",
+    "bytes": 1208820,
+    "nativeEvidence": "docs/evidence/embedded-simple-native-ui-2026-09-07.json",
+    "transferAcceptanceToNewArtifact": false
+  },
+  "currentPublicArtifact": {"path": "legacy-product/build/libs/LegacyBridge.jar", "sha256": "6e168fd729b7d3e45b45d95ca4e161d7d7db83c4ee054516d2ab8c17b030efd1", "bytes": 1212567, "qualification": "STATIC_BUILD_ONLY_NATIVE_NOT_RUN"},
+  "productionSource": {
+    "path": "legacy-product/src/main/java/dev/legacybridge/product/controller/ConversionController.java",
+    "sha256": "59cef431e12496d619bb3cd55fea9ab199ca370e802a45c5442b0e52cd6b62b4"
+  },
+  "testSources": [
+    {"path": "legacy-product/src/test/java/dev/legacybridge/product/controller/JobInstallationReceiptTest.java", "sha256": "76836c0a8edfc040728956849421698fbb5abb84299cc6a690d7f0920f328d9e"},
+    {"path": "legacy-product/src/test/java/dev/legacybridge/product/controller/ReceiptSourceFixture.java", "sha256": "6720942dac19296b1a3421f6ee05935ac8b0312047fe5b691e31b556c72a35c0"},
+    {"path": "legacy-product/src/test/java/dev/legacybridge/product/install/ReceiptInstallerFixtures.java", "sha256": "d27a5badbacf72ce8f913221a0148d2cfdfa633e08453d7bf6bc95874948b166"}
+  ],
+  "testBoundary": {
+    "originals": "Small authored Java-8 ASM jars generated deterministically in JUnit TempDir; no original class execution.",
+    "conversion": "Real default engine, included simple-content contracts, actual staging and report writing; no CLI main/stdout/exit.",
+    "installation": "Actual TransactionalInstaller on isolated temporary files and inert platform metadata; not Forge discovery.",
+    "faults": "Explicit test-only PUBLISHED/index0 IOException, post-commit test-directory collision, pre-transaction exceptions and malformed returned entries; not physical power loss/disk full.",
+    "session": "Synthetic loaded-ID set/world-open flag; no real world, player or multiplayer.",
+    "receiptSchema": 2,
+    "transactionJournalSchemaChanged": false,
+    "adapterAbiChanged": false,
+    "conversionProfilesChanged": false
+  },
+  "commands": {
+    "targeted": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' :legacy-product:test --tests '*JobInstallationReceiptTest' --no-daemon --max-workers=1",
+    "root": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' build --no-daemon --max-workers=1"
+  },
+  "runs": [
+    {"log": "build/job-install-receipts-2026-09-07-run1/tests-1.log", "sha256": "3916507d433a3d917fd888baeea2d1664feae4175af1bcf64ef2a0e6f5abdb40", "exitCode": 1, "status": "FAIL", "cause": "New test called InstallException with four instead of five arguments; corrected before subsequent runs. No tests executed."},
+    {"log": "build/job-install-receipts-2026-09-07-run1/tests-2.log", "sha256": "6e7b1373dbd94f7f5cae2d4aa95d425708a151166ff179861db20421aafca2c1", "exitCode": 0, "status": "PASS", "tests": 9, "failures": 0, "errors": 0, "skipped": 0, "note": "Initial nine cases; additional malformed-return and sticky-diagnostic checks followed."},
+    {"log": "build/job-install-receipts-2026-09-07-run1/tests-3.log", "sha256": "6874a613d66c429a71c457993433c14e3d74883facca74892df972ca878e90b0", "xml": "build/job-install-receipts-2026-09-07-run1/targeted-tests-3.xml", "xmlSha256": "ed74baf2ce50f7239810ab921c36759e39c18ca5ac3ce5481fc6c03c20fd8891", "exitCode": 0, "status": "PASS", "tests": 13, "failures": 0, "errors": 0, "skipped": 0}
+  ],
+  "rootBuild": {
+    "status": "PASS",
+    "log": "build/job-install-receipts-2026-09-07-run1/build-3.log",
+    "sha256": "80c04275257589aaa692c8538d802e2c04e308be60e73faa914efd5e453d1b98",
+    "exitCode": 0,
+    "elapsed": "5m 37s",
+    "productTests": {"fresh": true, "tests": 105, "failures": 0, "errors": 0, "skipped": 0, "newReceiptCases": 14, "xmlDirectory": "build/job-install-receipts-2026-09-07-run1/root-tests-3", "receiptXmlSha256": "0f474bc26bf8448773bb88600f57870686802c4289d19ec2b73ba29b8af5df1c"},
+    "otherModuleTests": "UP_TO_DATE; not counted as newly executed",
+    "packaging": "PASS: one runtime identity, unchanged JiJ, no platform/logging duplicates or private mappings",
+    "contract": "PASS: 23 prompts, 79 cuts; before cursor handoff",
+    "rootInvocation": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' build :legacy-corpus:verifyPublicEvidence '--args=.. build/job-install-receipts-2026-09-07-run1/baseline-index.json' --no-daemon --max-workers=1",
+    "earlierRootRun": {"log": "build/job-install-receipts-2026-09-07-run1/build-1.log", "sha256": "42e1133c33ae3a5cffd507e0634b220a505ea85f3f8604463924519e8ddadc0f", "exitCode": 0, "freshProductTests": 104, "note": "Passed before final missing-recovery-entry regression and deterministic fixture timestamp fix."},
+    "failedInvocation": {"log": "build/job-install-receipts-2026-09-07-run1/build-2.log", "sha256": "fe046bd379dfba8a0c77ff4786ad14d723cf7b9ed5b5376abf7581fa0aef72b2", "exitCode": 1, "cause": "PowerShell/batch quoting split a spaced repository argument into task Mine; task selection failed before tests. Corrected to explicit module-relative repository argument."}
+  },
+  "historicalIntegrity": {
+    "status": "PASS_HISTORICAL_ONLY",
+    "index": "build/job-install-receipts-2026-09-07-run1/baseline-index.json",
+    "sha256": "fbd7be719665b52dba1d1e7650a020f29d78c0bee8aa2b75e80d0bf37fc9f96d",
+    "change": "Only E190 location redirected to retained baseline JAR. Original source index, all hashes and assertions unchanged.",
+    "files": 192, "assertions": 61, "gameLaunches": 0, "qualifiesCurrentPublicJar": false
+  },
+  "acceptance": "HEADLESS_RECEIPT_CORRECTION_ONLY",
+  "dimensions": {
+    "controllerReceiptTests": "PASS_14_SCOPED",
+    "sourceExecution": "NOT_RUN",
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "realDiscovery": "NOT_RUN",
+    "gameplay": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "publicOnlyNativeCommitInterruption": "PENDING"
+  },
+  "remaining": [
+    "Bounded read-only schema-1/2 receipt history and validation; no rehydrated Apply authority.",
+    "Explicit journal reconciliation for crash after commit but before receipt, and real discovery separate from history.",
+    "Native regression/qualification of the changed public artifact when separately authorized.",
+    "LB-06 and LB-12 native gates remain open; other profiles and corpus intake are not promoted."
+  ]
+}

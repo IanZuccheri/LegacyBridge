@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_horizontal_block"
+version="1.0.0"
+displayName="LegacyBridge Horizontal Block Fixture"
+authors="LegacyBridge contributors"
+description='''Original Forge 1.16.5 comparison fixture with one native stone-material block, its late-resolved BlockItem, and a recipe.'''
+
+[[dependencies.legacybridge_horizontal_block]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_horizontal_block]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"

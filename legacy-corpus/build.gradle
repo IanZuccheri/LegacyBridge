@@ -1,0 +1,214 @@
+plugins {
+    id 'application'
+}
+
+// Development evidence tool only. Never a dependency of legacy-product/runtime.
+def cliLogging = configurations.create('cliLogging') {
+    canBeConsumed = false
+    canBeResolved = true
+    transitive = false
+}
+
+base { archivesName = 'legacy-corpus' }
+
+// Protocol conformance only: compile the JDK-only recorder into test classes, never an artifact.
+// Native Minecraft entrypoints and standalone probe test suites are deliberately not included.
+sourceSets.test.java.srcDir rootProject.file('fixtures/composition-probe-common/src/main/java')
+
+dependencies {
+    implementation project(':legacy-converter')
+    // Development-only relinking audit. Never added to legacy-product/runtime.
+    implementation "org.ow2.asm:asm-util:${rootProject.asm_version}"
+    implementation "org.ow2.asm:asm-tree:${rootProject.asm_version}"
+    add(cliLogging.name, "org.slf4j:slf4j-simple:${rootProject.slf4j_version}")
+    testImplementation platform("org.junit:junit-bom:${rootProject.junit_version}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+application {
+    mainClass = 'dev.legacybridge.corpus.CorpusVerifier'
+    applicationName = 'legacy-corpus'
+}
+
+distributions.main.contents { from(cliLogging) { into 'lib' } }
+tasks.named('startScripts') { classpath += cliLogging }
+tasks.named('run', JavaExec) { classpath += cliLogging }
+
+tasks.register('relinkLibrary', JavaExec) {
+    group = 'verification'
+    description = 'Explicit local SRG Utils prepare/build/replace in new directories; no game, install, network or rights approval.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.relink.SrgRelinkTool'
+    maxHeapSize = '512m'
+}
+
+tasks.named('test') {
+    systemProperty 'legacybridge.relinkProduct', providers.gradleProperty('relinkProduct').getOrElse('')
+    systemProperty 'legacybridge.relinkAnnotations', providers.gradleProperty('relinkAnnotations').getOrElse('')
+    systemProperty 'legacybridge.relinkCliLibraries', providers.gradleProperty('relinkCliLibraries').getOrElse('')
+    systemProperty 'legacybridge.relinkFixture', providers.gradleProperty('relinkFixture').getOrElse('')
+    systemProperty 'legacybridge.relinkEvidence', providers.gradleProperty('relinkEvidence').getOrElse('')
+}
+
+tasks.register('verifyCatalog', JavaExec) {
+    group = 'verification'
+    description = 'Verifies bounded corpus records and available local evidence hashes; does not execute mods.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CorpusVerifier'
+    args 'verify', rootProject.file('corpus').absolutePath
+}
+
+tasks.named('check') { dependsOn tasks.named('verifyCatalog') }
+
+tasks.register('verifyPromptContract', JavaExec) {
+    group = 'verification'
+    description = 'Verifies prompt IDs, paths, dependencies and recorded status consistency without changing the contract or running mods.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.PromptContractVerifier'
+    args rootProject.projectDir.absolutePath
+}
+
+tasks.named('check') { dependsOn tasks.named('verifyPromptContract') }
+
+// Opt-in: private local evidence is intentionally absent from a clean checkout.
+// Unit tests run in check; do not download/recreate missing evidence to pass this task.
+tasks.register('verifyPublicEvidence', JavaExec) {
+    group = 'verification'
+    description = 'Read-only digest/assertion checks of the current partial public evidence index; never runs Minecraft or approves a gate.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.PublicEvidenceVerifier'
+    maxHeapSize = '256m'
+    args rootProject.projectDir.absolutePath, 'docs/evidence/public-current-index-2026-09-07.json'
+}
+
+// Explicit local observations only. A normal build runs synthetic checker tests, never games.
+tasks.register('verifyCompositionObservations', JavaExec) {
+    group = 'verification'
+    description = 'Checks selected composition artifacts and recorded observations without executing mods or approving runtime gates.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionObservationVerifier'
+    maxHeapSize = '256m'
+    doFirst {
+        def index = providers.gradleProperty('compositionObservationIndex').orNull
+        if (!index) throw new GradleException('Provide -PcompositionObservationIndex=<reviewed repository-relative JSON path>')
+        args rootProject.projectDir.absolutePath, index
+    }
+}
+
+// Read-only metadata plans and recorded post-exit checks. Neither task launches/stages Minecraft.
+tasks.register('planCompositionRun', JavaExec) {
+    group = 'verification'
+    description = 'Emits a bounded, hash-bound disposable composition plan; never copies files or executes it.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionRunPlanner'
+    maxHeapSize = '256m'
+    doFirst {
+        def role = providers.gradleProperty('compositionRunRole').orNull
+        def runId = providers.gradleProperty('compositionRunId').orNull
+        def javaHome = providers.gradleProperty('compositionJavaHome').orNull
+        if (!role || !runId || !javaHome) throw new GradleException('Provide compositionRunRole, compositionRunId and compositionJavaHome explicitly')
+        args rootProject.projectDir.absolutePath, role, runId, javaHome
+    }
+}
+
+tasks.register('verifyCompositionExit', JavaExec) {
+    group = 'verification'
+    description = 'Checks selected recorded post-exit logs and observations; does not observe a live process or approve execution.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionExitVerifier'
+    maxHeapSize = '256m'
+    doFirst {
+        def observations = providers.gradleProperty('compositionObservationIndex').orNull
+        def exits = providers.gradleProperty('compositionExitIndex').orNull
+        if (!observations || !exits) throw new GradleException('Provide compositionObservationIndex and compositionExitIndex explicitly')
+        args rootProject.projectDir.absolutePath, observations, exits
+    }
+}
+
+// Opt-in development-only copying. NOT a launcher, installer or normal check dependency.
+tasks.register('stageCompositionRun', JavaExec) {
+    group = 'verification'
+    description = 'Creates new private QA copies from an explicitly reviewed plan digest; never arms or executes probes.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionRunStager'
+    maxHeapSize = '256m'
+    doFirst {
+        def required = ['compositionRunRole', 'compositionRunId', 'compositionJavaHome', 'compositionReviewedPlanSha256']
+        def selected = required.collect { providers.gradleProperty(it).orNull }
+        if (selected.any { !it }) throw new GradleException('Provide explicitly: ' + required.join(', '))
+        args([rootProject.projectDir.absolutePath] + selected)
+    }
+}
+
+// Existing unarmed stages only; this never invokes stored game arguments or the inert session.
+tasks.register('verifyCompositionStage', JavaExec) {
+    group = 'verification'
+    description = 'Revalidates an existing unarmed QA tree against reviewed plan/receipt digests; read-only, never a launcher.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionStagedRunVerifier'
+    maxHeapSize = '256m'
+    doFirst {
+        def required = ['compositionRunRole', 'compositionRunId', 'compositionJavaHome', 'compositionReviewedPlanSha256', 'compositionReviewedReceiptSha256']
+        def selected = required.collect { providers.gradleProperty(it).orNull }
+        if (selected.any { !it }) throw new GradleException('Provide explicitly: ' + required.join(', '))
+        args([rootProject.projectDir.absolutePath] + selected)
+    }
+}
+
+// Static file-layout policy only. No native process, arming, mutation or content acceptance.
+tasks.register('reviewCompositionOutputs', JavaExec) {
+    group = 'verification'
+    description = 'Reviews finite native output layout against a verified unarmed stage; never executes Minecraft or validates native behavior.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionNativeOutputPolicy'
+    maxHeapSize = '256m'
+    doFirst {
+        def required = ['compositionRunRole', 'compositionRunId', 'compositionJavaHome', 'compositionReviewedPlanSha256', 'compositionReviewedReceiptSha256']
+        def selected = required.collect { providers.gradleProperty(it).orNull }
+        if (selected.any { !it }) throw new GradleException('Provide explicitly: ' + required.join(', '))
+        args([rootProject.projectDir.absolutePath] + selected)
+    }
+}
+
+// Opt-in read-only review; missing files are reported, never generated or inferred as a successful native run.
+tasks.register('reviewCompositionContent', JavaExec) {
+    group = 'verification'
+    description = 'Checks finite native config defaults and necessary output presence without executing or arming Minecraft.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionNativeContentReview'
+    maxHeapSize = '256m'
+    doFirst {
+        def required = ['compositionRunRole', 'compositionRunId', 'compositionJavaHome', 'compositionReviewedPlanSha256', 'compositionReviewedReceiptSha256']
+        def selected = required.collect { providers.gradleProperty(it).orNull }
+        if (selected.any { !it }) throw new GradleException('Provide explicitly: ' + required.join(', '))
+        args([rootProject.projectDir.absolutePath] + selected)
+    }
+}
+
+// Proposal only: prints authored settings and hashes, never writes to or arms an existing stage.
+tasks.register('planCompositionSettings', JavaExec) {
+    group = 'verification'
+    description = 'Proposes exact versioned QA settings from a verified unarmed stage; no config writes or game execution.'
+    dependsOn tasks.named('classes')
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.legacybridge.corpus.CompositionLaunchConfigurationPlan'
+    maxHeapSize = '256m'
+    doFirst {
+        def required = ['compositionRunRole', 'compositionRunId', 'compositionJavaHome', 'compositionReviewedPlanSha256', 'compositionReviewedReceiptSha256']
+        def selected = required.collect { providers.gradleProperty(it).orNull }
+        if (selected.any { !it }) throw new GradleException('Provide explicitly: ' + required.join(', '))
+        args([rootProject.projectDir.absolutePath] + selected)
+    }
+}

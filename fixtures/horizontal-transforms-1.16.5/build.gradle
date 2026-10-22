@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+
+group = 'dev.legacybridge.fixture'
+version = '1.0.0'
+base.archivesName = 'legacybridge-horizontal-transforms-1.16.5'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 8
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.16.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.42'
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('jar', Jar) {
+    manifest.attributes(
+        'Implementation-Title': 'LegacyBridge Horizontal Transforms Fixture',
+        'Implementation-Version': project.version,
+        'Implementation-Vendor': 'LegacyBridge contributors',
+        'LegacyBridge-Fixture': 'horizontal-transforms-v1'
+    )
+    finalizedBy 'reobfJar'
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+    dependsOn 'reobfJar'
+    systemProperty 'fixture.jar', tasks.named('jar', Jar).get().archiveFile.get().asFile.absolutePath
+    testLogging {
+        events 'failed', 'skipped'
+        exceptionFormat 'full'
+    }
+}

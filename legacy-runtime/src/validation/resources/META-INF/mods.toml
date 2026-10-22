@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="[47,48)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_validation"
+version="1.0.0"
+displayName="LegacyBridge Validation Harness"
+description='''Test-only content verification; never packaged in the player runtime JAR.'''
+
+[[dependencies.legacybridge_validation]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.23,48)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_validation]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.20.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_validation]]
+modId="legacybridge_runtime"
+mandatory=true
+versionRange="[0.1.0-SNAPSHOT,0.2.0)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.legacybridge_validation]]
+modId="legacybridge_example"
+mandatory=true
+versionRange="[1.0.0]"
+ordering="AFTER"
+side="BOTH"

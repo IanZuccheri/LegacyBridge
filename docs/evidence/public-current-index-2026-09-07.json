@@ -1,0 +1,2173 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_PUBLIC_EVIDENCE_INDEX",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-06",
+  "cut": "PUBLIC-CURRENT-E2E",
+  "qualification": "PARTIAL",
+  "publicSha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6",
+  "publicArtifact": "E190",
+  "boundary": "Read-only integrity and exact recorded JSON assertions only. Human-authored claims and evidence categories are not independently certified. No game/test execution or contract promotion.",
+  "files": [
+    {
+      "id": "E001",
+      "path": "build/embedded-simple-content-v1/build-1.log",
+      "bytes": 190636,
+      "sha256": "08b807160820bf9251eed29557e1e0ba9ae34627a8d585766e4089fa1772d6e3",
+      "kind": "LOG"
+    },
+    {
+      "id": "E002",
+      "path": "build/embedded-simple-content-v1/build-2.log",
+      "bytes": 189682,
+      "sha256": "0a27ebef82ca010e9afafc5189c4d178187d0c2a8d4e4f818815a966ac9e119a",
+      "kind": "LOG"
+    },
+    {
+      "id": "E003",
+      "path": "build/embedded-simple-content-v1/cacheless-reports/cacheless-engine-evidence.json",
+      "bytes": 1806,
+      "sha256": "98e118aab2ade0850cd657a5aba4b444557350ff108a1ad3de193e67759ef50c",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E004",
+      "path": "build/embedded-simple-content-v1/full-environment-tests/legacy-converter/TEST-dev.legacybridge.converter.mapping.builtin.EmbeddedSimpleContentEnvironmentTest.xml",
+      "bytes": 763,
+      "sha256": "4588ce18d245588ebe9057fc6c6a51ed118a0dad4c0c4fb424f625dd4541a788",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E005",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/client-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "LOG"
+    },
+    {
+      "id": "E006",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/client-stdout.log",
+      "bytes": 7995,
+      "sha256": "2ab4f0ca8e559932ac4751ef8205d1aa7ad50d8c2298e3b594cd0e4d696e74e7",
+      "kind": "LOG"
+    },
+    {
+      "id": "E007",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/logs-debug.log",
+      "bytes": 66697,
+      "sha256": "0fc6819d6d457960351b2b0e8faaae85872dcc87f944f8cb25f5078269143ace",
+      "kind": "LOG"
+    },
+    {
+      "id": "E008",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/logs-latest.log",
+      "bytes": 9509,
+      "sha256": "803b3cff87e5f9eb030b8473f89922245c6c4ee6e5f6a5eaa3ea15642d34b751",
+      "kind": "LOG"
+    },
+    {
+      "id": "E009",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/class-load-ui-r1-activation.log",
+      "bytes": 5013993,
+      "sha256": "0920b6134860372040517f6af287dd2a8e6373b8da0aa81929b080cb648aeaf5",
+      "kind": "LOG"
+    },
+    {
+      "id": "E010",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/client-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "LOG"
+    },
+    {
+      "id": "E011",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/client-stdout.log",
+      "bytes": 19177,
+      "sha256": "96b1c8d4ebc91bd4ddace56d44a24e1a22ef7563b2c9c786e9d836df5f175d4c",
+      "kind": "LOG"
+    },
+    {
+      "id": "E012",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/logs-debug.log",
+      "bytes": 105639,
+      "sha256": "c77e6764d7df94600221b4c036577d4836247aa897273951d043fb35ff965611",
+      "kind": "LOG"
+    },
+    {
+      "id": "E013",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/logs-latest.log",
+      "bytes": 23831,
+      "sha256": "5a0c738226fe60a7a6421115a9a5f402bcd409e2f2ac3d95459bde0a4a00d0fe",
+      "kind": "LOG"
+    },
+    {
+      "id": "E014",
+      "path": "build/embedded-simple-ui-2026-09-07-run1/preparation.json",
+      "bytes": 2019,
+      "sha256": "1eed6c7fcff6e81ae082b3014c46dcd3f5205658de84db56c0aeaa64145c3fb0",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E015",
+      "path": "build/embedded-simple/client/legacybridge/input/corrupt.jar",
+      "bytes": 63,
+      "sha256": "60fec3f17d8ba46fdbe3bb1ea7c0494238cb2ee6bac86adc7ff793dc4223939c",
+      "kind": "JAR"
+    },
+    {
+      "id": "E016",
+      "path": "build/embedded-simple/client/legacybridge/input/corrupted.jar",
+      "bytes": 67,
+      "sha256": "8e6ab5f23959a26445fedefff5135d045bd4b48c962dad0da542139f7c2fc95f",
+      "kind": "JAR"
+    },
+    {
+      "id": "E017",
+      "path": "build/embedded-simple/client/legacybridge/input/legacybridge-example-1.16.5-1.0.0.jar",
+      "bytes": 9534,
+      "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "kind": "JAR"
+    },
+    {
+      "id": "E018",
+      "path": "build/embedded-simple/client/legacybridge/input/p6-cancel-bounded.jar",
+      "bytes": 12340435,
+      "sha256": "17b74d20cb9dfccb9b3afafa76698c9ebf0ae7b410fc4454ccd345b93d77e3c7",
+      "kind": "JAR"
+    },
+    {
+      "id": "E019",
+      "path": "build/embedded-simple/client/legacybridge/input/p6-dependency.jar",
+      "bytes": 6274,
+      "sha256": "b2c13f8d1aa97f1b81328c3d25378a03f156b31da95c6e4d47d795255a854482",
+      "kind": "JAR"
+    },
+    {
+      "id": "E020",
+      "path": "build/embedded-simple/client/legacybridge/input/p6-duplicate-a.jar",
+      "bytes": 6225,
+      "sha256": "4254c8f063b76411c024c15d3254f24c7870bb4652fe97495df882f43f7e7957",
+      "kind": "JAR"
+    },
+    {
+      "id": "E021",
+      "path": "build/embedded-simple/client/legacybridge/input/p6-duplicate-b.jar",
+      "bytes": 6225,
+      "sha256": "4254c8f063b76411c024c15d3254f24c7870bb4652fe97495df882f43f7e7957",
+      "kind": "JAR"
+    },
+    {
+      "id": "E022",
+      "path": "build/embedded-simple/client/legacybridge/input/p6-unsupported.jar",
+      "bytes": 6527,
+      "sha256": "10c99a4e1434dbfd80aee62ddc6220fac1aa82cd9539acbec8dc04a32cb504f7",
+      "kind": "JAR"
+    },
+    {
+      "id": "E023",
+      "path": "build/embedded-simple/client/legacybridge/reports/073a57aa-6d72-4115-9bc9-c701f0169759/conversion.json",
+      "bytes": 28821,
+      "sha256": "2a07014f6bc560ee88cb481df97c9955cfce8bce7c215ceecc7f315e6045c526",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E024",
+      "path": "build/embedded-simple/client/legacybridge/reports/073a57aa-6d72-4115-9bc9-c701f0169759/transformation-log.json",
+      "bytes": 25325,
+      "sha256": "d2de8e7d2c7efd049813b86b8bebf00d5c95ff5acd5a3af8e318c103a06901f0",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E025",
+      "path": "build/embedded-simple/client/legacybridge/reports/10653136-de30-4019-a126-630077b0b50d/analysis.json",
+      "bytes": 45178,
+      "sha256": "97b57fb286791071255cf40aa4802f274c4749fbe9a2fd852f24be9842b75f6f",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E026",
+      "path": "build/embedded-simple/client/legacybridge/reports/10653136-de30-4019-a126-630077b0b50d/job-0c49f976-1e89-474b-814f-0753c2faea8d.json",
+      "bytes": 561,
+      "sha256": "721977235f38f1f8823f35bd314355633505418b0a5d6f8c752a499ab3f4e78b",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E027",
+      "path": "build/embedded-simple/client/legacybridge/reports/1aedb3cb-def8-442c-be72-fc0cb46d9a52/conversion.json",
+      "bytes": 48952,
+      "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E028",
+      "path": "build/embedded-simple/client/legacybridge/reports/1aedb3cb-def8-442c-be72-fc0cb46d9a52/transformation-log.json",
+      "bytes": 30186,
+      "sha256": "3d18d3113f8301e9c333e18f0ddebc20a91b3d1e0834ed707363393acef29098",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E029",
+      "path": "build/embedded-simple/client/legacybridge/reports/48a0753a-79e7-44e7-88c2-cf3c2bfacb5b/analysis.json",
+      "bytes": 44934,
+      "sha256": "a54ce2aa479d691f7eda620bfde1ee2775dca88f44a80f3eaa8a91c8295831b2",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E030",
+      "path": "build/embedded-simple/client/legacybridge/reports/48a0753a-79e7-44e7-88c2-cf3c2bfacb5b/job-d85861ca-0a40-4be6-90ff-1ea87f07774d.json",
+      "bytes": 590,
+      "sha256": "2019c2911e8e80667456a071089b08b480206c76665029b3e5f58ba582a5ae01",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E031",
+      "path": "build/embedded-simple/client/legacybridge/reports/51b37153-200e-4ef0-8dde-c5e84190b7d8/conversion.json",
+      "bytes": 48952,
+      "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E032",
+      "path": "build/embedded-simple/client/legacybridge/reports/51b37153-200e-4ef0-8dde-c5e84190b7d8/transformation-log.json",
+      "bytes": 30186,
+      "sha256": "3d18d3113f8301e9c333e18f0ddebc20a91b3d1e0834ed707363393acef29098",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E033",
+      "path": "build/embedded-simple/client/legacybridge/reports/5d069ee9-a46a-4787-8aab-c4efc9c9584a/conversion.json",
+      "bytes": 2360,
+      "sha256": "c7bfadea84c6932e3d54391f970641648a6ab84dab4072fd3cd7fadee1372480",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E034",
+      "path": "build/embedded-simple/client/legacybridge/reports/5d069ee9-a46a-4787-8aab-c4efc9c9584a/transformation-log.json",
+      "bytes": 61,
+      "sha256": "e970e7fd510e0ebe15a5735595927a64d50814a98db3618ef014cf9069ae29b1",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E035",
+      "path": "build/embedded-simple/client/legacybridge/reports/7b2cc733-0578-4035-925c-ac2e7d79b33b/conversion.json",
+      "bytes": 48952,
+      "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E036",
+      "path": "build/embedded-simple/client/legacybridge/reports/7b2cc733-0578-4035-925c-ac2e7d79b33b/transformation-log.json",
+      "bytes": 30186,
+      "sha256": "3d18d3113f8301e9c333e18f0ddebc20a91b3d1e0834ed707363393acef29098",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E037",
+      "path": "build/embedded-simple/client/legacybridge/reports/914c2689-c1ea-45de-9461-57d45964c5bc/analysis.json",
+      "bytes": 45207,
+      "sha256": "7b384f314dab304513a16f49ca494d1c062c0fdd29b843d29cc86e1c8203e0fe",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E038",
+      "path": "build/embedded-simple/client/legacybridge/reports/914c2689-c1ea-45de-9461-57d45964c5bc/job-37179089-400b-4d12-bafc-1a852ed7635f.json",
+      "bytes": 716,
+      "sha256": "ccbf0230670ba3272dbfe738ea1a635a030b5e295ef86242ebd80cfed9bbd45f",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E039",
+      "path": "build/embedded-simple/client/legacybridge/reports/930faac4-e48a-453e-99ea-cca77d66fa36/analysis.json",
+      "bytes": 45362,
+      "sha256": "ec1ded2911445b32a009d880064e447a393a300bb9c985a7b1de150e460c2373",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E040",
+      "path": "build/embedded-simple/client/legacybridge/reports/930faac4-e48a-453e-99ea-cca77d66fa36/job-156c38c5-7706-45e0-853a-1859f354470c.json",
+      "bytes": 574,
+      "sha256": "7d7a914e7c07b63952b1109d998ff0a52cb326acab0dcad47d3fa89bdfe75462",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E041",
+      "path": "build/embedded-simple/client/legacybridge/reports/ad431313-3f05-4009-ac6f-80ec027bd41c/analysis.json",
+      "bytes": 44934,
+      "sha256": "a54ce2aa479d691f7eda620bfde1ee2775dca88f44a80f3eaa8a91c8295831b2",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E042",
+      "path": "build/embedded-simple/client/legacybridge/reports/ad431313-3f05-4009-ac6f-80ec027bd41c/job-d9a37f5b-f442-437f-a514-4ea74916543e.json",
+      "bytes": 590,
+      "sha256": "793a10eec794269cafdbcc640b77333e029a663dcfcebda615b541625eca725d",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E043",
+      "path": "build/embedded-simple/client/legacybridge/reports/adde901e-a271-4bd5-a380-adfbd36a034f/analysis.json",
+      "bytes": 44934,
+      "sha256": "a54ce2aa479d691f7eda620bfde1ee2775dca88f44a80f3eaa8a91c8295831b2",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E044",
+      "path": "build/embedded-simple/client/legacybridge/reports/adde901e-a271-4bd5-a380-adfbd36a034f/job-e489d32d-27a7-4a2e-b663-fe1e6d4c8376.json",
+      "bytes": 590,
+      "sha256": "13638139fc53106ed4235dc33584ca4122ff7094deaaa5bc61a8a413263a1d29",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E045",
+      "path": "build/embedded-simple/client/legacybridge/reports/b4f28154-80fa-49e3-addd-47e662bc7fc9/analysis.json",
+      "bytes": 45362,
+      "sha256": "ec1ded2911445b32a009d880064e447a393a300bb9c985a7b1de150e460c2373",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E046",
+      "path": "build/embedded-simple/client/legacybridge/reports/b4f28154-80fa-49e3-addd-47e662bc7fc9/job-b216a203-6597-4451-ae9f-5ca53ab40288.json",
+      "bytes": 497,
+      "sha256": "fdac4dd92319bfbc52945eeb15b057b89e1abebacc2fa61c4c67ad6d1c194315",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E047",
+      "path": "build/embedded-simple/client/legacybridge/reports/b59bebaa-aa50-4d1f-b8f5-e4f00971b9be/analysis.json",
+      "bytes": 44701,
+      "sha256": "94fcee6c31350878a332563630831d2546657b64361049f437023435cbacb4ed",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E048",
+      "path": "build/embedded-simple/client/legacybridge/reports/b59bebaa-aa50-4d1f-b8f5-e4f00971b9be/job-03b86bd6-03e1-40af-a42a-89071c204036.json",
+      "bytes": 566,
+      "sha256": "a611456dc318aa1139910f564e833e3b124d1b0cd3aeca18836964a2fad567a7",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E049",
+      "path": "build/embedded-simple/client/legacybridge/reports/b95a1bb2-ea5a-4bff-9f03-a674fd7cc17d/conversion.json",
+      "bytes": 48378,
+      "sha256": "4f15564181912549fce5e98d256820249caea44072896d6a80844d4a12f4f305",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E050",
+      "path": "build/embedded-simple/client/legacybridge/reports/b95a1bb2-ea5a-4bff-9f03-a674fd7cc17d/transformation-log.json",
+      "bytes": 29779,
+      "sha256": "2f8513244f15fa53771a444ca82eeb1315c9a6ff6a42d1e8eda4ef478ebb0896",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E051",
+      "path": "build/embedded-simple/client/legacybridge/reports/c1f1aff8-3b19-4ab2-9f42-9c6e1116cd3b/conversion.json",
+      "bytes": 51890,
+      "sha256": "5fec8770ed608ceb61b7ed458b3bca3788b12ce4060ef4152d070ac0bcab0dc8",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E052",
+      "path": "build/embedded-simple/client/legacybridge/reports/c1f1aff8-3b19-4ab2-9f42-9c6e1116cd3b/transformation-log.json",
+      "bytes": 29779,
+      "sha256": "2f8513244f15fa53771a444ca82eeb1315c9a6ff6a42d1e8eda4ef478ebb0896",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E053",
+      "path": "build/embedded-simple/client/legacybridge/reports/ca34da12-2653-4e19-98f1-7791e86f1fc0/analysis.json",
+      "bytes": 44701,
+      "sha256": "94fcee6c31350878a332563630831d2546657b64361049f437023435cbacb4ed",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E054",
+      "path": "build/embedded-simple/client/legacybridge/reports/ca34da12-2653-4e19-98f1-7791e86f1fc0/job-9f50bfb0-0b08-4bc0-81e3-00a5e78d75a7.json",
+      "bytes": 629,
+      "sha256": "34d5f6d1d0da0f0320eb48db011431d2e165d505898a8d607ff45dd1f25d54ed",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E055",
+      "path": "build/embedded-simple/client/legacybridge/reports/cf2e527e-6699-4aec-ac45-6c2a1063f1cb/conversion.json",
+      "bytes": 48378,
+      "sha256": "4f15564181912549fce5e98d256820249caea44072896d6a80844d4a12f4f305",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E056",
+      "path": "build/embedded-simple/client/legacybridge/reports/cf2e527e-6699-4aec-ac45-6c2a1063f1cb/transformation-log.json",
+      "bytes": 29779,
+      "sha256": "2f8513244f15fa53771a444ca82eeb1315c9a6ff6a42d1e8eda4ef478ebb0896",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E057",
+      "path": "build/embedded-simple/client/legacybridge/reports/e0948693-6c61-4573-be05-d501ff885448/analysis.json",
+      "bytes": 45362,
+      "sha256": "ec1ded2911445b32a009d880064e447a393a300bb9c985a7b1de150e460c2373",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E058",
+      "path": "build/embedded-simple/client/legacybridge/reports/e0948693-6c61-4573-be05-d501ff885448/job-af07c6d7-a2ef-4776-a7f5-60f7ff3fdc38.json",
+      "bytes": 497,
+      "sha256": "5b4c6f60a79d2811f45b9dc13b0188c51a919f49be98c6be3563751814a003c3",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E059",
+      "path": "build/embedded-simple/client/legacybridge/reports/ea1cf2ef-ba68-4c67-8f85-de03a7c0eab8/analysis.json",
+      "bytes": 44701,
+      "sha256": "94fcee6c31350878a332563630831d2546657b64361049f437023435cbacb4ed",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E060",
+      "path": "build/embedded-simple/client/legacybridge/reports/ea1cf2ef-ba68-4c67-8f85-de03a7c0eab8/job-d72a4bf4-0db1-422c-ae07-683372402fb2.json",
+      "bytes": 566,
+      "sha256": "f88ff34baf8c04006c66bad8b1103c0ae4e4ea43937a2ff8ba16017c0164c4f8",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E061",
+      "path": "build/embedded-simple/client/legacybridge/staging/120a9305-1a66-47dd-b97a-3dd2699ef1aa/converted.jar",
+      "bytes": 6592,
+      "sha256": "a83745ced0b97d431902ad8c6d06e4b43fb5ebe2eebe2e67524ad6c9ee044cc4",
+      "kind": "JAR"
+    },
+    {
+      "id": "E062",
+      "path": "build/embedded-simple/client/legacybridge/staging/8476ad15-d819-4b25-a486-b4fdf2676f6f/converted.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "kind": "JAR"
+    },
+    {
+      "id": "E063",
+      "path": "build/embedded-simple/client/legacybridge/staging/8c0ca236-e7f1-43f4-ba48-86a224fc4ccd/converted.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "kind": "JAR"
+    },
+    {
+      "id": "E064",
+      "path": "build/embedded-simple/client/legacybridge/staging/d0b23f57-d9b5-411e-af70-caa7a125fa82/converted.jar",
+      "bytes": 6592,
+      "sha256": "a83745ced0b97d431902ad8c6d06e4b43fb5ebe2eebe2e67524ad6c9ee044cc4",
+      "kind": "JAR"
+    },
+    {
+      "id": "E065",
+      "path": "build/embedded-simple/client/legacybridge/staging/d8c48101-62a2-4355-82bf-b6478ccbed98/converted.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "kind": "JAR"
+    },
+    {
+      "id": "E066",
+      "path": "build/embedded-simple/client/legacybridge/staging/df07dd50-d678-4bc1-b353-be9982373bf6/converted.jar",
+      "bytes": 7837048,
+      "sha256": "9858512148b4562a7e205e39a259276b1c82cc1876928f6b4b026d1842138c32",
+      "kind": "JAR"
+    },
+    {
+      "id": "E067",
+      "path": "build/embedded-simple/client/legacybridge/transactions/add-only.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "SOURCE"
+    },
+    {
+      "id": "E068",
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/checkpoint-committed--1.json",
+      "bytes": 252,
+      "sha256": "561a88e6f1bec5fdd78738f5b5c2c67523738b57b4183232ee648b61e577291a",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E069",
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/checkpoint-installed-0.json",
+      "bytes": 251,
+      "sha256": "2f5fe38844907dad86d3bf96a93ef0500d6cc0e28506b951bc67d8dda03128b5",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E070",
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/payload-0.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "kind": "JAR"
+    },
+    {
+      "id": "E071",
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/pending-46b162da-39ce-408d-af6c-695623f96095.json",
+      "bytes": 874,
+      "sha256": "02f74e002bc99a0c60470f5bf0e70625652271c320a7def09e3e8390fd0f46ed",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E072",
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/pending-960daf5b-bc50-462b-aeee-b4c6d57ee6db.json",
+      "bytes": 251,
+      "sha256": "2f5fe38844907dad86d3bf96a93ef0500d6cc0e28506b951bc67d8dda03128b5",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E073",
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/pending-ec8a5420-8883-4724-a579-303b5cf8c7e5.json",
+      "bytes": 252,
+      "sha256": "561a88e6f1bec5fdd78738f5b5c2c67523738b57b4183232ee648b61e577291a",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E074",
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/plan-v2.json",
+      "bytes": 874,
+      "sha256": "02f74e002bc99a0c60470f5bf0e70625652271c320a7def09e3e8390fd0f46ed",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E075",
+      "path": "build/embedded-simple/client/mods/legacybridge-legacybridge_example-c0051adc-3a21-4469-a9ec-6f50d91fe1e8-0.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "kind": "JAR"
+    },
+    {
+      "id": "E076",
+      "path": "build/embedded-simple/client/mods/LegacyBridge.jar",
+      "bytes": 1208820,
+      "sha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6",
+      "kind": "JAR"
+    },
+    {
+      "id": "E077",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-01-main-menu.png",
+      "bytes": 912743,
+      "sha256": "aa30623fb44c8176bb8bec484e4da3cd6136fe51dab5f249c0037c31fdc5fb36",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E078",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-02-inventory.png",
+      "bytes": 98237,
+      "sha256": "dcfeb790db6a4fab39eb53d872fb56c617d4eaaa4332c8e4cb7136539b575537",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E079",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-03-inventory-ready.png",
+      "bytes": 105880,
+      "sha256": "d596814788937cc8a14fdd55d58393ff6edcc6cae0167843fc5e85f8f7045cf6",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E080",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-04-convert-blank-data.png",
+      "bytes": 94178,
+      "sha256": "82947bc94438609a57e945810da67d0a7a5d48730913848566c3c70b13e1f562",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E081",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-05-converted.png",
+      "bytes": 95003,
+      "sha256": "26c648a9320cd3da0d75c471475ddf4bbb7e07d8f00172b2c2972f3d073702d8",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E082",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-06-technical-details.png",
+      "bytes": 140288,
+      "sha256": "f8d5c1a1f7c81189523b3c1ef6c09feea3c4a490f419101153393076027ece43",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E083",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-07-search-continue.png",
+      "bytes": 97015,
+      "sha256": "451091fe883443e6ade7ca65700e5c7204588b7187235cbb8dade77668bf98d6",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E084",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-08-two-conversions-staging.png",
+      "bytes": 100638,
+      "sha256": "42a0f38bf4356c121e1f9d70cfc6219f699ce2f93c9c18d50d667af1b9d71f1e",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E085",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-09-continued-not-active.png",
+      "bytes": 840733,
+      "sha256": "dfd2bd7cca8b4dea4b1e385d840e8927f974e39e2fff4a5a7a65e0ba30e6aafc",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E086",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-10-reopened.png",
+      "bytes": 98237,
+      "sha256": "dcfeb790db6a4fab39eb53d872fb56c617d4eaaa4332c8e4cb7136539b575537",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E087",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-11-keyboard-selection.png",
+      "bytes": 107569,
+      "sha256": "cf66219d2f04e5a3dff170b27c1d69d3d2f6b368d186d0adcab5176275fbc509",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E088",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-12-apply-selection.png",
+      "bytes": 116134,
+      "sha256": "82347a3810c8bf872bd7775fff727699b2432097853f7de2369aa51b2598e86f",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E089",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-13-apply-close-confirmation.png",
+      "bytes": 89074,
+      "sha256": "d762c3f3e184c74281fd32aba276f881a6bc134bfb51ae31aa7dc2b3675616af",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E090",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-14-next-launch-title.png",
+      "bytes": 866692,
+      "sha256": "65e88617c325591f7e06f2254307648c3a95923f6f31a8c3a8bab4032e475693",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E091",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-15-forge-mod-list.png",
+      "bytes": 98251,
+      "sha256": "f9c764fe76a7af1a54481a37767ad8bd3bde06c0ac9116dcd80d51f34e2bcd3a",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E092",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-16-fixture-recognized.png",
+      "bytes": 105931,
+      "sha256": "86861c436e677e2a03f915fc415050b5267a9e0e5f6c15af859ad1ffe4fdb84c",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E093",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-17-new-world-screen.png",
+      "bytes": 72479,
+      "sha256": "4329c0fa076eb24191fe32053f82d4b147378d3316bf6f5fa5154596e8195053",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E094",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-18-world-options.png",
+      "bytes": 74848,
+      "sha256": "44a7f4892579708a5936d23645e84ee8261ffa75eb7701dc038774bd0b9093de",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E095",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-19-new-world-type.png",
+      "bytes": 75966,
+      "sha256": "05b5435fb76e323df6298ce86fd5c9b1221abbb2d66b8cd1d5aab76ee07513aa",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E096",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-20-flat-seed.png",
+      "bytes": 75884,
+      "sha256": "76d7d518651aa7686611f6cf30c03199b47a34c5f04a44362b474bcd9eec2725",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E097",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-21-world-created-settings.png",
+      "bytes": 75119,
+      "sha256": "d891d2a2720bcc1de1772a6a4990bee562ccb784889175a6cb68b71f0bb5f64c",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E098",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-22-world-ready.png",
+      "bytes": 150818,
+      "sha256": "a0b1f4ecd70011700b72bb693063aaf085fe2c49b37e8392c87613d41b76b721",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E099",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-23-ingots-table.png",
+      "bytes": 212737,
+      "sha256": "8e65cd09faaa335ceacc5ed3287d71e3184d67dcd3ee9a1d25a8c7049210dc0f",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E100",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-24-crafting-empty.png",
+      "bytes": 159542,
+      "sha256": "3f89f71ebc73f3e09becda58371ef4779e4a9b97b6646f4973826ae032712613",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E101",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-25-eight-no-result.png",
+      "bytes": 155625,
+      "sha256": "dfe3f0c9383967ba98467d1b2f50f6cf27790ad4a1b0f1d6d552c49d3dbf883b",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E102",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-26-nine-recipe-result.png",
+      "bytes": 156261,
+      "sha256": "9142ddfca6ce467ef32def1a9bd23b49c331f556c2d512c567d97e96eecf75b7",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E103",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-27-inputs-consumed-one-block.png",
+      "bytes": 157224,
+      "sha256": "b8c41bd78ee78ecabc6221b12392968ad8b4ad3b8ed028d3271b3aa201ebc030",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E104",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-28-crafted-block-placed.png",
+      "bytes": 174785,
+      "sha256": "65d7f9f6350ca4187670344073e5c3260f1478417a24e285e97272f22cf85fa1",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E105",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-29-translation-inventory.png",
+      "bytes": 148804,
+      "sha256": "9e123337079fe0cfc50bca81ce4bfe06d87b5d288d227d221eb8fc009a52a12c",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E106",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-30-pt-br-item.png",
+      "bytes": 145804,
+      "sha256": "17b6b716131781e470a379f03bb86933d4834a5fb4e5a679b1e3cead5811edd5",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E107",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-31-pt-br-block.png",
+      "bytes": 145387,
+      "sha256": "522239035dcd58457964c975ec30850a069f946621a43518ed26849ec072916c",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E108",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-32-pause.png",
+      "bytes": 158104,
+      "sha256": "70d2a1e275e893d67209daddc86ab3c3dd40b512965ec94e52e916be9de1e2b6",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E109",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-33-options.png",
+      "bytes": 168942,
+      "sha256": "b863f0d9ae6d1b9cd3eab681f5c701f638e8168fe637926033bdb9a88dde35e2",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E110",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-34-language-list.png",
+      "bytes": 98990,
+      "sha256": "2db586ac20584cdb4933ee0e6ae7a0e592c050d8a6b9f6cf36bac71a3ed4c354",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E111",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-35-language-scroll.png",
+      "bytes": 96712,
+      "sha256": "1ffb76f7e29514be3425dc4c58fb39c523998a537b9b2158e572a607cab39e48",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E112",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-36-language-english.png",
+      "bytes": 95097,
+      "sha256": "ded81cd431edf4ec250b5f8a262253b249ee32c31273c2974deea544bcea4236",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E113",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-37-english-visible.png",
+      "bytes": 98120,
+      "sha256": "24cd53a3b8c1686cee5924601bc5bbd120a701616875e69563a3f65b987b53b1",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E114",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-38-english-options.png",
+      "bytes": 167723,
+      "sha256": "16b651b67abf02bec5ff4e0d7bae594857cceebdbb8c600ca5f126778456f260",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E115",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-39-en-us-item.png",
+      "bytes": 145737,
+      "sha256": "8d1df1d324129015b7dac676f470af03e238d2dce40eb0f912b73b1100b2d77e",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E116",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-40-en-us-block.png",
+      "bytes": 145549,
+      "sha256": "575346a62ed4c880ce0923995985c710323a8d5df1098245acddda5107a41c0a",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E117",
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-41-saved-title-en-us.png",
+      "bytes": 938080,
+      "sha256": "a206d6308de31fcfafcbb2307624536cc0b8b6b555a5c99f753e2e3604cacbf9",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E118",
+      "path": "build/embedded-simple/evidence/public-neg-r1-01-title.png",
+      "bytes": 881307,
+      "sha256": "985885ab964964499449794eddaf113faba73ad10276d906c457ef884d949b56",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E119",
+      "path": "build/embedded-simple/evidence/public-neg-r1-02-inventory.png",
+      "bytes": 98366,
+      "sha256": "607550c5d7879a372891114d50c39e12ba8eb2dee2264339bf6cebf7721dffe5",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E120",
+      "path": "build/embedded-simple/evidence/public-neg-r1-03-inventory-ready.png",
+      "bytes": 116499,
+      "sha256": "33126ffbfaacaa32d96a582be66ff01f01f9872c88430b4c4404a9481c94995d",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E121",
+      "path": "build/embedded-simple/evidence/public-neg-r1-04-duplicates.png",
+      "bytes": 115960,
+      "sha256": "808df21afbbf5b9d711d20ba5f4d1f8fb20bda35463f4ac4ddc02193dbc3a59b",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E122",
+      "path": "build/embedded-simple/evidence/public-neg-r1-05-duplicate-selection-refused.png",
+      "bytes": 109087,
+      "sha256": "fa8d72e4027f87ae593e1bc38553873c44cf6020979a215c7b7c3bcf22a72ff4",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E123",
+      "path": "build/embedded-simple/evidence/public-neg-r1-06-corrupt-details.png",
+      "bytes": 118739,
+      "sha256": "fe8e1512149cc01bca43bf88605dc031cd9c50717a0dbd686624637e09e175f5",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E124",
+      "path": "build/embedded-simple/evidence/public-neg-r1-07-two-selected.png",
+      "bytes": 129412,
+      "sha256": "7c7b340f333c36dadc2df90b66dcbff80a78ae831c9a41508430f152b531fbe2",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E125",
+      "path": "build/embedded-simple/evidence/public-neg-r1-08-batch-running.png",
+      "bytes": 94826,
+      "sha256": "c35fc55d5252b1c9310e74835d891a9d94a48b6451c2b3f02c4bcc846b596055",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E126",
+      "path": "build/embedded-simple/evidence/public-neg-r1-09-two-blocked.png",
+      "bytes": 98746,
+      "sha256": "aee9a3eca84476aefb6d6bf37534d39c5d3dd7e4eb0d01e18884eecf9d900cfb",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E127",
+      "path": "build/embedded-simple/evidence/public-neg-r1-10-dependency-details.png",
+      "bytes": 139896,
+      "sha256": "5a7faef1bfb447fa6daf8936c6c65d307b227800f3fb16499d3c711d0b775f71",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E128",
+      "path": "build/embedded-simple/evidence/public-neg-r1-11-unsupported-details.png",
+      "bytes": 145592,
+      "sha256": "c4dd7d0a26ca9b5615d21797da66dce7042cdbf90f271117b511759dcb0a2cef",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E129",
+      "path": "build/embedded-simple/evidence/public-neg-r1-12-cancel-control-selected.png",
+      "bytes": 100538,
+      "sha256": "a6326e2661157ebbc9490eb4a132db1a2228eb3e7f9feb686011637cd47daaac",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E130",
+      "path": "build/embedded-simple/evidence/public-neg-r1-13-cancel-request.png",
+      "bytes": 92509,
+      "sha256": "b9d61cb7e9b101497c645aabfb9e72822a012154e698cc3ab52e0a5b770c7322",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E131",
+      "path": "build/embedded-simple/evidence/public-neg-r1-14-write-control-selected.png",
+      "bytes": 97442,
+      "sha256": "6ff88c3d46ac52374fd6d7eae8519c7e35822761df433df29ee66ed653976292",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E132",
+      "path": "build/embedded-simple/evidence/public-neg-r1-15-write-denied.png",
+      "bytes": 98566,
+      "sha256": "18f33ae8b024b60f78a472a5cb7120f27fff66a32c65a18388879ad625b5e1cd",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E133",
+      "path": "build/embedded-simple/evidence/public-neg-r1-16-write-details.png",
+      "bytes": 127521,
+      "sha256": "78193607e9716eeac17658a3fbb25533c66d06c2f58d538f5b0f9da071ba39e3",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E134",
+      "path": "build/embedded-simple/evidence/public-neg-r1-17-after-permission-restore.png",
+      "bytes": 98697,
+      "sha256": "38583f3945e07da704a839f59ba7271e98dd4d37c5ace1fa040ee53266fef52a",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E135",
+      "path": "build/embedded-simple/evidence/public-neg-r1-18-permission-recovery-converted.png",
+      "bytes": 100190,
+      "sha256": "54697a8134ade5fa4bd2b9349f635cf9db65ac8980557a84536de1cffc838c61",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E136",
+      "path": "build/embedded-simple/evidence/public-neg-r1-19-title-unchanged.png",
+      "bytes": 877890,
+      "sha256": "dfa2e7d1ca91d603debb49bd4ac92e91a7fa12d0383d60faa48105b6928e5c7d",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E137",
+      "path": "build/embedded-simple/evidence/public-neg-r2-01-bounded-inventory.png",
+      "bytes": 108211,
+      "sha256": "788b657854cebdce72ec38e5e43b3784181d11fb74d751f7ee3a49dcebf81b89",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E138",
+      "path": "build/embedded-simple/evidence/public-neg-r2-02-cancel-request.png",
+      "bytes": 95703,
+      "sha256": "03880e48593c907b684ef4eea4d1afd67f215f571c4e67b74ea74a091ab22112",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E139",
+      "path": "build/embedded-simple/evidence/public-neg-r2-03-first-attempt-converted.png",
+      "bytes": 93025,
+      "sha256": "c43ec6fb952c704c2b61cf353285d6010dfb829caa4568423c142ab3cac46bfc",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E140",
+      "path": "build/embedded-simple/evidence/public-neg-r2-04-second-progress.png",
+      "bytes": 94707,
+      "sha256": "8e812071573f4b5f0614da4486bd0afecce20208eaa23b1a01e919af4d26ace7",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E141",
+      "path": "build/embedded-simple/evidence/public-neg-r2-05-second-cancel.png",
+      "bytes": 97377,
+      "sha256": "97c8ba6701fa4956d3c3850cad48a2880efea5d10b0a5a9a4167f2651fc66edc",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E142",
+      "path": "build/embedded-simple/evidence/public-neg-r2-06-terminal-cancel.png",
+      "bytes": 97377,
+      "sha256": "97c8ba6701fa4956d3c3850cad48a2880efea5d10b0a5a9a4167f2651fc66edc",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E143",
+      "path": "build/embedded-simple/evidence/public-neg-r2-07-cancel-details.png",
+      "bytes": 122427,
+      "sha256": "29f45c82d762352583fa35f42a11ec981a4520ac9c792d85df1ea7b06427f64b",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E144",
+      "path": "build/embedded-simple/evidence/public-neg-r2-08-before-close-active.png",
+      "bytes": 99603,
+      "sha256": "545680c908a88c116c44cc5167ffb122b89960da198bdfef6e95fcef7e328beb",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E145",
+      "path": "build/embedded-simple/evidence/public-neg-r2-09-title-after-close.png",
+      "bytes": 936174,
+      "sha256": "08f4d90a0276581c6459b5dc3b1dd02f2edaf2884923176559ca928176827103",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E146",
+      "path": "build/embedded-simple/evidence/public-neg-r2-10-reopened-usable.png",
+      "bytes": 108231,
+      "sha256": "aeff72d01f3df4e22600ae6588d6c2add1f9d4e82ca2cb603c71f65384b0e87b",
+      "kind": "SCREENSHOT"
+    },
+    {
+      "id": "E147",
+      "path": "build/embedded-simple/server/embedded-simple-server-classloading.log",
+      "bytes": 3996625,
+      "sha256": "14a9a39a0bda7229e09149a16341f82d511c6cc4be13cc37257939a316921f3e",
+      "kind": "LOG"
+    },
+    {
+      "id": "E148",
+      "path": "build/embedded-simple/server/embedded-simple-server-commands.log",
+      "bytes": 1077,
+      "sha256": "665d457c52d203516dca956194b3082498e4208ca5121a1440e90a85b12c9db1",
+      "kind": "LOG"
+    },
+    {
+      "id": "E149",
+      "path": "build/embedded-simple/server/embedded-simple-server-receipt.json",
+      "bytes": 3121,
+      "sha256": "8eca4f2c09b66dfbab567e5920203eb1ed8e93205ce5088b8cb6c1cf02133bb6",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E150",
+      "path": "build/embedded-simple/server/embedded-simple-server-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "LOG"
+    },
+    {
+      "id": "E151",
+      "path": "build/embedded-simple/server/embedded-simple-server-stdout.log",
+      "bytes": 16343,
+      "sha256": "9f4a5c3b4756d2d6a7ac6eeaca7c749cd679744ff82a829561f98252f1420d0d",
+      "kind": "LOG"
+    },
+    {
+      "id": "E152",
+      "path": "build/public-current-negatives-2026-09-07-run1/bounded-control-cli.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "LOG"
+    },
+    {
+      "id": "E153",
+      "path": "build/public-current-negatives-2026-09-07-run1/bounded-control-conversion.json",
+      "bytes": 51906,
+      "sha256": "d890a99490e43c8d47b290d83b683e6520b673c44ca585efc09de847e4048e7a",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E154",
+      "path": "build/public-current-negatives-2026-09-07-run1/bounded-control-converted.jar",
+      "bytes": 7837048,
+      "sha256": "9858512148b4562a7e205e39a259276b1c82cc1876928f6b4b026d1842138c32",
+      "kind": "JAR"
+    },
+    {
+      "id": "E155",
+      "path": "build/public-current-negatives-2026-09-07-run1/bounded-control2-conversion.json",
+      "bytes": 51907,
+      "sha256": "afb3f455b56164e49977b53cec4f04ad7b92f374867cda93bb579646b5840df7",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E156",
+      "path": "build/public-current-negatives-2026-09-07-run1/bounded-control2-converted.jar",
+      "bytes": 7837048,
+      "sha256": "9858512148b4562a7e205e39a259276b1c82cc1876928f6b4b026d1842138c32",
+      "kind": "JAR"
+    },
+    {
+      "id": "E157",
+      "path": "build/public-current-negatives-2026-09-07-run1/bounded-control2-stderr.log",
+      "bytes": 78,
+      "sha256": "6aca31fe9c6cabfb53f1e94c7c6c368039e526da47f5870463e321f416fe10b3",
+      "kind": "LOG"
+    },
+    {
+      "id": "E158",
+      "path": "build/public-current-negatives-2026-09-07-run1/bounded-control2-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "LOG"
+    },
+    {
+      "id": "E159",
+      "path": "build/public-current-negatives-2026-09-07-run1/build-final.log",
+      "bytes": 35862,
+      "sha256": "fb7fe59d6d792c41bd9aeecf0521afa56530948e0c667b664a0604cea7e62a3a",
+      "kind": "LOG"
+    },
+    {
+      "id": "E160",
+      "path": "build/public-current-negatives-2026-09-07-run1/build-helper.log",
+      "bytes": 18968,
+      "sha256": "6b7cf490e0a6a510c81e1b1737baa4bff9040d8fdb10f8d7fcc8faf2b31d97f0",
+      "kind": "LOG"
+    },
+    {
+      "id": "E161",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.controller.ConversionControllerTest.xml",
+      "bytes": 3554,
+      "sha256": "2f815cd90f45d3ff23d78c14b348a43a934d879e4a961de035e13da9a18d6593",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E162",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.controller.ConversionQueueTest.xml",
+      "bytes": 1693,
+      "sha256": "3c5bb37ee7ddcc2773a9f8b29c8b54c9e3e3d584cc91825b62c2841f91ecf828",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E163",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.controller.InstallationControllerTest.xml",
+      "bytes": 1048,
+      "sha256": "add68a3e84720f9a3655a701b8b11d565556a803290d76fe295e04b0afc51ba6",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E164",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.controller.InstallationShutdownBarrierTest.xml",
+      "bytes": 1627,
+      "sha256": "704270eb536ceca7ef189872b65c5c19175e27a2d2977381939ca09724252c52",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E165",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.install.AddOnlyInstallerTest.xml",
+      "bytes": 3771,
+      "sha256": "4567b3a722f3ebc66221c670f1f290186cc2abad63c8c567357efd9b22f055fc",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E166",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.install.TransactionalInstallerTest.xml",
+      "bytes": 3941,
+      "sha256": "52c1308354dba23170a92a75e4b90618d9a8e8c4fc76825cd2b2af892fb07379",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E167",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.install.TransactionalProcessCrashTest.xml",
+      "bytes": 710,
+      "sha256": "38182bb7fa98b4cf16e0ac9bb1e043210e1be2540aa36937e4a558d256e17bf9",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E168",
+      "path": "build/public-current-negatives-2026-09-07-run1/final-product-test-results/TEST-dev.legacybridge.product.install.TransactionalWindowsLockTest.xml",
+      "bytes": 698,
+      "sha256": "4645ff303dbcf4c227d2704126fb9f5ba706816ecf2384765258db20f47c4e66",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E169",
+      "path": "build/public-current-negatives-2026-09-07-run1/fixture-manifest.json",
+      "bytes": 1850,
+      "sha256": "0bf9c414f04a066f50051c0bc9c7d961d7950b618da286dd3b75ab44d5ecad8b",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E170",
+      "path": "build/public-current-negatives-2026-09-07-run1/headless-recovery-tests.log",
+      "bytes": 7614,
+      "sha256": "aa0b8eb661241303d491e61c33e2eadd799a63c4adbd777133df3a63967ed9e1",
+      "kind": "LOG"
+    },
+    {
+      "id": "E171",
+      "path": "build/public-current-negatives-2026-09-07-run1/headless-test-results/TEST-dev.legacybridge.product.install.TransactionalProcessCrashTest.xml",
+      "bytes": 709,
+      "sha256": "1fc5f648ca4453f202e488189b3f47baa7a90b16e69e13ecf6f68f63fa74a6f9",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E172",
+      "path": "build/public-current-negatives-2026-09-07-run1/headless-test-results/TEST-dev.legacybridge.product.install.TransactionalWindowsLockTest.xml",
+      "bytes": 697,
+      "sha256": "26471e5c08ade7f64fb2ebbc1c68163fbb74fe54f586cdd4fc1e022bac8363ef",
+      "kind": "TEST_RESULT"
+    },
+    {
+      "id": "E173",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-1/class-load-negatives-r1.log",
+      "bytes": 4102380,
+      "sha256": "0518c2b694be024f18564ac33cad03d7e5eaed015618fd2ed9e1a92a4174cbea",
+      "kind": "LOG"
+    },
+    {
+      "id": "E174",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-1/client-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "LOG"
+    },
+    {
+      "id": "E175",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-1/client-stdout.log",
+      "bytes": 8086,
+      "sha256": "c054fb6b1050de5474c193f5424fc09a59178ed50b130621b2d09f92b2df2674",
+      "kind": "LOG"
+    },
+    {
+      "id": "E176",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-1/logs-debug.log",
+      "bytes": 70264,
+      "sha256": "9191cb4da0ccf42a99dd20016bd68c28aa684bf2b5f2a09dcd9c51fd288546b2",
+      "kind": "LOG"
+    },
+    {
+      "id": "E177",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-1/logs-latest.log",
+      "bytes": 9626,
+      "sha256": "aff499c4845eb45aa497e6f3c41338f1e9d3dacc60dd6c7bd95834ba8922aa41",
+      "kind": "LOG"
+    },
+    {
+      "id": "E178",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-2/class-load-negatives-r2.log",
+      "bytes": 4097232,
+      "sha256": "abb5184f08255fad3c391d125dabb780ae4a1e0affcf37f558233f647fd78fde",
+      "kind": "LOG"
+    },
+    {
+      "id": "E179",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-2/client-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "LOG"
+    },
+    {
+      "id": "E180",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-2/client-stdout.log",
+      "bytes": 8086,
+      "sha256": "3dec9f20bbd87bde774092f480babfce57de40484f0c885c3cf55e7ccddf024f",
+      "kind": "LOG"
+    },
+    {
+      "id": "E181",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-2/logs-debug.log",
+      "bytes": 70264,
+      "sha256": "63c6e35195f34a4a973ad51f129607d068db4869f908180b3964fba2dabbe086",
+      "kind": "LOG"
+    },
+    {
+      "id": "E182",
+      "path": "build/public-current-negatives-2026-09-07-run1/launch-2/logs-latest.log",
+      "bytes": 9626,
+      "sha256": "426a34bdf48333031ed5deb022e7c0266270353345be30fe310854879c360b69",
+      "kind": "LOG"
+    },
+    {
+      "id": "E183",
+      "path": "build/public-current-negatives-2026-09-07-run1/p6-cancel-bounded-first.jar",
+      "bytes": 12340435,
+      "sha256": "17b74d20cb9dfccb9b3afafa76698c9ebf0ae7b410fc4454ccd345b93d77e3c7",
+      "kind": "JAR"
+    },
+    {
+      "id": "E184",
+      "path": "build/public-current-negatives-2026-09-07-run1/p6-cancel-bounded.jar",
+      "bytes": 12340435,
+      "sha256": "17b74d20cb9dfccb9b3afafa76698c9ebf0ae7b410fc4454ccd345b93d77e3c7",
+      "kind": "JAR"
+    },
+    {
+      "id": "E185",
+      "path": "build/public-current-negatives-2026-09-07-run1/p6-cancel-small-input.jar",
+      "bytes": 6124,
+      "sha256": "eb62c092c79887c3c5528e530c099bfeb569d01cfe22272257d583d6e4875e60",
+      "kind": "JAR"
+    },
+    {
+      "id": "E186",
+      "path": "docs/evidence/embedded-simple-content-2026-09-07.json",
+      "bytes": 7467,
+      "sha256": "f1329f2a9c5420082d622ededb843553f933f2df7d7a09809f93980287d4add4",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E187",
+      "path": "docs/evidence/embedded-simple-native-ui-2026-09-07.json",
+      "bytes": 36371,
+      "sha256": "a11e387591074fb18a2e698bc6044fcc6f161968fc6a650c6d6a0b24b373049c",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E188",
+      "path": "docs/evidence/public-current-negatives-2026-09-07.json",
+      "bytes": 45319,
+      "sha256": "03a22661be5f879c5d048967640788724157ad61bc83e9774c06d8ddd915827c",
+      "kind": "LEDGER"
+    },
+    {
+      "id": "E189",
+      "path": "fixtures/simple-content-1.16.5/build/libs/legacybridge-example-1.16.5-1.0.0.jar",
+      "bytes": 9534,
+      "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "kind": "JAR"
+    },
+    {
+      "id": "E190",
+      "path": "legacy-product/build/libs/LegacyBridge.jar",
+      "bytes": 1208820,
+      "sha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6",
+      "kind": "JAR"
+    },
+    {
+      "id": "E191",
+      "path": "scripts/P6_BOUNDED_CANCELLATION_FIXTURE.md",
+      "bytes": 2577,
+      "sha256": "6b79a04433aaf6b0b1aff297b88a837faecb4fa2e2967db01d4a465f1ebd48b0",
+      "kind": "SOURCE"
+    },
+    {
+      "id": "E192",
+      "path": "scripts/P6BoundedCancellationFixture.java",
+      "bytes": 6290,
+      "sha256": "fd242b24ecfa1e08fa990f39e54e1debe8e4da136fb3c4e5795fa04c00b7c82d",
+      "kind": "SOURCE"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "POSITIVE_PUBLIC_PATH",
+      "file": "E187",
+      "pointer": "/artifacts/37/path",
+      "expected": "legacy-product/build/libs/LegacyBridge.jar"
+    },
+    {
+      "id": "POSITIVE_PUBLIC_HASH",
+      "file": "E187",
+      "pointer": "/artifacts/37/sha256",
+      "expected": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6"
+    },
+    {
+      "id": "NEGATIVE_PUBLIC_HASH",
+      "file": "E188",
+      "pointer": "/baseline/publicSha256",
+      "expected": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6"
+    },
+    {
+      "id": "STATIC_PUBLIC_HASH",
+      "file": "E186",
+      "pointer": "/publicArtifact/sha256",
+      "expected": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6"
+    },
+    {
+      "id": "SERVER_PUBLIC_HASH",
+      "file": "E149",
+      "pointer": "/publicSha256",
+      "expected": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6"
+    },
+    {
+      "id": "BASELINE_MC_SOURCE",
+      "file": "E187",
+      "pointer": "/baseline/sourceMinecraft",
+      "expected": "1.16.5"
+    },
+    {
+      "id": "BASELINE_FORGE_SOURCE",
+      "file": "E187",
+      "pointer": "/baseline/sourceForge",
+      "expected": "36.2.42"
+    },
+    {
+      "id": "BASELINE_MC_TARGET",
+      "file": "E187",
+      "pointer": "/baseline/targetMinecraft",
+      "expected": "1.20.1"
+    },
+    {
+      "id": "BASELINE_FORGE_TARGET",
+      "file": "E187",
+      "pointer": "/baseline/targetForge",
+      "expected": "47.4.23"
+    },
+    {
+      "id": "BASELINE_ADAPTER",
+      "file": "E187",
+      "pointer": "/baseline/runtimeVersion",
+      "expected": "0.1.1-SNAPSHOT"
+    },
+    {
+      "id": "INPUT_HASH",
+      "file": "E186",
+      "pointer": "/fixture/sourceSha256",
+      "expected": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947"
+    },
+    {
+      "id": "OUTPUT_HASH",
+      "file": "E186",
+      "pointer": "/fixture/convertedSha256",
+      "expected": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "id": "SERVER_OUTPUT_HASH",
+      "file": "E149",
+      "pointer": "/convertedSha256",
+      "expected": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "id": "CACHE_OUTPUT_HASH",
+      "file": "E003",
+      "pointer": "/convertedJarSha256",
+      "expected": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "id": "INITIAL_PUBLIC_ONLY_FILE",
+      "file": "E187",
+      "pointer": "/launches/0/modsBefore/0",
+      "expected": "LegacyBridge.jar"
+    },
+    {
+      "id": "INITIAL_TITLE_COUNT",
+      "file": "E187",
+      "pointer": "/launches/0/titleModsLoaded",
+      "expected": 3
+    },
+    {
+      "id": "POS_STATUS_INVENTORY",
+      "file": "E187",
+      "pointer": "/dimensions/0/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_INVENTORY",
+      "file": "E187",
+      "pointer": "/dimensions/0/id",
+      "expected": "INVENTORY"
+    },
+    {
+      "id": "POS_STATUS_UI_CONVERSION",
+      "file": "E187",
+      "pointer": "/dimensions/1/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_UI_CONVERSION",
+      "file": "E187",
+      "pointer": "/dimensions/1/id",
+      "expected": "UI_CONVERSION"
+    },
+    {
+      "id": "POS_STATUS_CONTINUE_WITHOUT_ACTIVATION",
+      "file": "E187",
+      "pointer": "/dimensions/2/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_CONTINUE_WITHOUT_ACTIVATION",
+      "file": "E187",
+      "pointer": "/dimensions/2/id",
+      "expected": "CONTINUE_WITHOUT_ACTIVATION"
+    },
+    {
+      "id": "POS_STATUS_APPROVED_ADD_AND_MANUAL_CLOSE",
+      "file": "E187",
+      "pointer": "/dimensions/3/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_APPROVED_ADD_AND_MANUAL_CLOSE",
+      "file": "E187",
+      "pointer": "/dimensions/3/id",
+      "expected": "APPROVED_ADD_AND_MANUAL_CLOSE"
+    },
+    {
+      "id": "POS_STATUS_NEXT_LAUNCH_DISCOVERY",
+      "file": "E187",
+      "pointer": "/dimensions/4/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_NEXT_LAUNCH_DISCOVERY",
+      "file": "E187",
+      "pointer": "/dimensions/4/id",
+      "expected": "NEXT_LAUNCH_DISCOVERY"
+    },
+    {
+      "id": "POS_STATUS_NATIVE_RECIPE",
+      "file": "E187",
+      "pointer": "/dimensions/5/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_NATIVE_RECIPE",
+      "file": "E187",
+      "pointer": "/dimensions/5/id",
+      "expected": "NATIVE_RECIPE"
+    },
+    {
+      "id": "POS_STATUS_NATIVE_BLOCK_AND_CONSERVATION",
+      "file": "E187",
+      "pointer": "/dimensions/6/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_NATIVE_BLOCK_AND_CONSERVATION",
+      "file": "E187",
+      "pointer": "/dimensions/6/id",
+      "expected": "NATIVE_BLOCK_AND_CONSERVATION"
+    },
+    {
+      "id": "POS_STATUS_RELOAD",
+      "file": "E187",
+      "pointer": "/dimensions/7/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "POS_ID_RELOAD",
+      "file": "E187",
+      "pointer": "/dimensions/7/id",
+      "expected": "RELOAD"
+    },
+    {
+      "id": "POS_STATUS_ASSETS_AND_TRANSLATIONS",
+      "file": "E187",
+      "pointer": "/dimensions/8/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "POS_ID_ASSETS_AND_TRANSLATIONS",
+      "file": "E187",
+      "pointer": "/dimensions/8/id",
+      "expected": "ASSETS_AND_TRANSLATIONS"
+    },
+    {
+      "id": "POS_STATUS_ASM_AND_REFERENCES",
+      "file": "E187",
+      "pointer": "/dimensions/9/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "POS_ID_ASM_AND_REFERENCES",
+      "file": "E187",
+      "pointer": "/dimensions/9/id",
+      "expected": "ASM_AND_REFERENCES"
+    },
+    {
+      "id": "POS_STATUS_ORIGINAL_AND_RESOURCES",
+      "file": "E187",
+      "pointer": "/dimensions/10/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "POS_ID_ORIGINAL_AND_RESOURCES",
+      "file": "E187",
+      "pointer": "/dimensions/10/id",
+      "expected": "ORIGINAL_AND_RESOURCES"
+    },
+    {
+      "id": "NEG_STATUS_CORRUPT_INPUT",
+      "file": "E188",
+      "pointer": "/nativeGates/0/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "NEG_ID_CORRUPT_INPUT",
+      "file": "E188",
+      "pointer": "/nativeGates/0/id",
+      "expected": "CORRUPT_INPUT"
+    },
+    {
+      "id": "NEG_STATUS_DUPLICATE_INPUT_MODID",
+      "file": "E188",
+      "pointer": "/nativeGates/1/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "NEG_ID_DUPLICATE_INPUT_MODID",
+      "file": "E188",
+      "pointer": "/nativeGates/1/id",
+      "expected": "DUPLICATE_INPUT_MODID"
+    },
+    {
+      "id": "NEG_STATUS_MISSING_DEPENDENCY",
+      "file": "E188",
+      "pointer": "/nativeGates/2/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "NEG_ID_MISSING_DEPENDENCY",
+      "file": "E188",
+      "pointer": "/nativeGates/2/id",
+      "expected": "MISSING_DEPENDENCY"
+    },
+    {
+      "id": "NEG_STATUS_UNSUPPORTED_RESOURCE",
+      "file": "E188",
+      "pointer": "/nativeGates/3/status",
+      "expected": "PASS"
+    },
+    {
+      "id": "NEG_ID_UNSUPPORTED_RESOURCE",
+      "file": "E188",
+      "pointer": "/nativeGates/3/id",
+      "expected": "UNSUPPORTED_RESOURCE"
+    },
+    {
+      "id": "NEG_STATUS_MULTI_SELECTION_QUEUE",
+      "file": "E188",
+      "pointer": "/nativeGates/4/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "NEG_ID_MULTI_SELECTION_QUEUE",
+      "file": "E188",
+      "pointer": "/nativeGates/4/id",
+      "expected": "MULTI_SELECTION_QUEUE"
+    },
+    {
+      "id": "NEG_STATUS_WRITE_FAILURE_AND_PERMISSION_RECOVERY",
+      "file": "E188",
+      "pointer": "/nativeGates/5/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "NEG_ID_WRITE_FAILURE_AND_PERMISSION_RECOVERY",
+      "file": "E188",
+      "pointer": "/nativeGates/5/id",
+      "expected": "WRITE_FAILURE_AND_PERMISSION_RECOVERY"
+    },
+    {
+      "id": "NEG_STATUS_EXPLICIT_CANCEL",
+      "file": "E188",
+      "pointer": "/nativeGates/6/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "NEG_ID_EXPLICIT_CANCEL",
+      "file": "E188",
+      "pointer": "/nativeGates/6/id",
+      "expected": "EXPLICIT_CANCEL"
+    },
+    {
+      "id": "NEG_STATUS_CLOSE_ACTIVE_SCREEN",
+      "file": "E188",
+      "pointer": "/nativeGates/7/status",
+      "expected": "PASS_BOUNDED"
+    },
+    {
+      "id": "NEG_ID_CLOSE_ACTIVE_SCREEN",
+      "file": "E188",
+      "pointer": "/nativeGates/7/id",
+      "expected": "CLOSE_ACTIVE_SCREEN"
+    },
+    {
+      "id": "DEDICATED_STATUS",
+      "file": "E149",
+      "pointer": "/status",
+      "expected": "PASSED"
+    },
+    {
+      "id": "DEDICATED_NO_QA",
+      "file": "E149",
+      "pointer": "/qaMod",
+      "expected": false
+    },
+    {
+      "id": "CACHELESS_STATUS",
+      "file": "E003",
+      "pointer": "/status",
+      "expected": "PASSED"
+    },
+    {
+      "id": "CACHELESS_NO_RUNTIME",
+      "file": "E003",
+      "pointer": "/runtimeLaunched",
+      "expected": false
+    },
+    {
+      "id": "CACHELESS_NO_BUNDLE",
+      "file": "E003",
+      "pointer": "/externalMappingBundlePresent",
+      "expected": false
+    },
+    {
+      "id": "HEADLESS_STATUS",
+      "file": "E188",
+      "pointer": "/headlessRecovery/status",
+      "expected": "PASSED"
+    },
+    {
+      "id": "HEADLESS_COUNT",
+      "file": "E188",
+      "pointer": "/headlessRecovery/tests",
+      "expected": 4
+    }
+  ],
+  "observations": [
+    {
+      "id": "INITIAL_PUBLIC_ONLY_MENU",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "INITIAL_PUBLIC_ONLY_FILE",
+        "INITIAL_TITLE_COUNT"
+      ],
+      "evidence": [
+        "E187",
+        "E077",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Recorded initial public-only menu; expected count includes Minecraft and Forge. No new launch performed by this verifier."
+    },
+    {
+      "id": "POS_INVENTORY",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_INVENTORY",
+        "POS_ID_INVENTORY"
+      ],
+      "evidence": [
+        "E187",
+        "E079",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Genuine source detected Forge 1.16.5 candidate with modId/version/size/hash; inert corrupt input INVALID and not selectable."
+    },
+    {
+      "id": "POS_UI_CONVERSION",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_UI_CONVERSION",
+        "POS_ID_UI_CONVERSION"
+      ],
+      "evidence": [
+        "E187",
+        "E080",
+        "E081",
+        "E082",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Three real UI conversions with empty optional data field, visible converting and converted states, details show report paths and finite-profile limits. Same input/report/output hashes."
+    },
+    {
+      "id": "POS_CONTINUE_WITHOUT_ACTIVATION",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_CONTINUE_WITHOUT_ACTIVATION",
+        "POS_ID_CONTINUE_WITHOUT_ACTIVATION"
+      ],
+      "evidence": [
+        "E187",
+        "E083",
+        "E084",
+        "E085",
+        "E086",
+        "E087",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Second conversion completed; title still 3 mods loaded and mods directory still only public JAR before Apply. Closing/reopening screen did not load fixture."
+    },
+    {
+      "id": "POS_APPROVED_ADD_AND_MANUAL_CLOSE",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_APPROVED_ADD_AND_MANUAL_CLOSE",
+        "POS_ID_APPROVED_ADD_AND_MANUAL_CLOSE"
+      ],
+      "evidence": [
+        "E187",
+        "E088",
+        "E089",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Only third result approved via native installation screen and Apply and close confirmation. One committed ADD before exit 0; original not moved."
+    },
+    {
+      "id": "POS_NEXT_LAUNCH_DISCOVERY",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_NEXT_LAUNCH_DISCOVERY",
+        "POS_ID_NEXT_LAUNCH_DISCOVERY"
+      ],
+      "evidence": [
+        "E187",
+        "E090",
+        "E091",
+        "E092",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Separate normal launch has four loaded mods; native Forge list shows LegacyBridge Example 1.0.0 DONE. Class-load trace binds generated class to installed converted JAR."
+    },
+    {
+      "id": "POS_NATIVE_RECIPE",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_NATIVE_RECIPE",
+        "POS_ID_NATIVE_RECIPE"
+      ],
+      "evidence": [
+        "E187",
+        "E100",
+        "E101",
+        "E102",
+        "E103",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Nine ingots granted, no block granted before test. Actual 3x3 table with eight filled slots gives no result; ninth gives one block. Taking result consumes all nine, inventory contains exactly one block."
+    },
+    {
+      "id": "POS_NATIVE_BLOCK_AND_CONSERVATION",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_NATIVE_BLOCK_AND_CONSERVATION",
+        "POS_ID_NATIVE_BLOCK_AND_CONSERVATION"
+      ],
+      "evidence": [
+        "E187",
+        "E104",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Actual right-click places crafted block at 1,-60,1, turquoise model/texture visible; conditional native execute confirms exact registry ID; inventory becomes empty. Later grants are only for translation QA."
+    },
+    {
+      "id": "POS_RELOAD",
+      "dimension": "NATIVE_CLIENT_LOG",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_RELOAD",
+        "POS_ID_RELOAD"
+      ],
+      "evidence": [
+        "E187",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Actual /reload parses seven recipes and 1271 advancements without parser errors. No second crafting cycle after reload claimed."
+    },
+    {
+      "id": "POS_ASSETS_AND_TRANSLATIONS",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_ASSETS_AND_TRANSLATIONS",
+        "POS_ID_ASSETS_AND_TRANSLATIONS"
+      ],
+      "evidence": [
+        "E187",
+        "E104",
+        "E106",
+        "E107",
+        "E115",
+        "E116",
+        "E117",
+        "E008",
+        "E013"
+      ],
+      "boundary": "Native item/block icons and placed block render. pt_br Lingote da Ponte / Bloco da Ponte; native language change/reload to en_us Bridge Ingot / Bridge Block. Sound resource bytes preserved but audible playback NOT_RUN."
+    },
+    {
+      "id": "POS_ASM_AND_REFERENCES",
+      "dimension": "STATIC",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_ASM_AND_REFERENCES",
+        "POS_ID_ASM_AND_REFERENCES"
+      ],
+      "evidence": [
+        "E187"
+      ],
+      "boundary": "Conversion report schema 2: CheckClassAdapter dataflow and offline target reference-type analysis PASSED. jvmLinkageVerified=false and modClassesLoaded=false remain explicit; runtime evidence is separate."
+    },
+    {
+      "id": "POS_ORIGINAL_AND_RESOURCES",
+      "dimension": "STATIC",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "POS_STATUS_ORIGINAL_AND_RESOURCES",
+        "POS_ID_ORIGINAL_AND_RESOURCES"
+      ],
+      "evidence": [
+        "E187"
+      ],
+      "boundary": "Original SHA unchanged; all 12 original assets/data entries byte-identical. Existing rule adds pickaxe tag; sole output class is generated mod bootstrap."
+    },
+    {
+      "id": "NEG_CORRUPT_INPUT",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_CORRUPT_INPUT",
+        "NEG_ID_CORRUPT_INPUT"
+      ],
+      "evidence": [
+        "E188",
+        "E123",
+        "E177",
+        "E182"
+      ],
+      "boundary": "corrupt.jar: INVALID / MALFORMED_ZIP, disabled conversion; real details with remediation."
+    },
+    {
+      "id": "NEG_DUPLICATE_INPUT_MODID",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_DUPLICATE_INPUT_MODID",
+        "NEG_ID_DUPLICATE_INPUT_MODID"
+      ],
+      "evidence": [
+        "E188",
+        "E121",
+        "E122",
+        "E177",
+        "E182"
+      ],
+      "boundary": "Both displayed Duplicate mod ID; Space did not check the selected duplicate, Convert disabled. This is input inventory, not a newly executed installed-ID conflict."
+    },
+    {
+      "id": "NEG_MISSING_DEPENDENCY",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_MISSING_DEPENDENCY",
+        "NEG_ID_MISSING_DEPENDENCY"
+      ],
+      "evidence": [
+        "E188",
+        "E127",
+        "E177",
+        "E182"
+      ],
+      "boundary": "BLOCKED / UNSUPPORTED: mandatory p6_missing_dependency requires manual migration, null artifact."
+    },
+    {
+      "id": "NEG_UNSUPPORTED_RESOURCE",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_UNSUPPORTED_RESOURCE",
+        "NEG_ID_UNSUPPORTED_RESOURCE"
+      ],
+      "evidence": [
+        "E188",
+        "E128",
+        "E177",
+        "E182"
+      ],
+      "boundary": "BLOCKED / UNSUPPORTED / RESOURCE_OUTSIDE_SUBSET for p6_probe.json, null artifact."
+    },
+    {
+      "id": "NEG_MULTI_SELECTION_QUEUE",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_MULTI_SELECTION_QUEUE",
+        "NEG_ID_MULTI_SELECTION_QUEUE"
+      ],
+      "evidence": [
+        "E188",
+        "E124",
+        "E125",
+        "E126",
+        "E177",
+        "E182"
+      ],
+      "boundary": "Two checked inputs queued; one CONVERTING while the other QUEUED, then independent BLOCKED results. Not queue saturation or all scheduling modes."
+    },
+    {
+      "id": "NEG_WRITE_FAILURE_AND_PERMISSION_RECOVERY",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_WRITE_FAILURE_AND_PERMISSION_RECOVERY",
+        "NEG_ID_WRITE_FAILURE_AND_PERMISSION_RECOVERY"
+      ],
+      "evidence": [
+        "E188",
+        "E132",
+        "E133",
+        "E135",
+        "E177",
+        "E182"
+      ],
+      "boundary": "A no-inheritance, current-user CreateFiles/CreateDirectories deny ACE on only the owned staging directory produced FAILED / IO_ERROR and null artifact. Finally restored access rules, owner/group/protection; zero deny ACEs remain. A fresh empty native create/delete proof and later actual UI conversion succeeded."
+    },
+    {
+      "id": "NEG_EXPLICIT_CANCEL",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_EXPLICIT_CANCEL",
+        "NEG_ID_EXPLICIT_CANCEL"
+      ],
+      "evidence": [
+        "E188",
+        "E140",
+        "E141",
+        "E142",
+        "E143",
+        "E177",
+        "E182"
+      ],
+      "boundary": "Tiny control completed before cancellation; bounded first request was unavailable during the pipeline and later CONVERTED, not counted. Bounded second attempt captured progress before Cancel and reached CANCELLED before publication."
+    },
+    {
+      "id": "NEG_CLOSE_ACTIVE_SCREEN",
+      "dimension": "NATIVE_CLIENT",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "NEG_STATUS_CLOSE_ACTIVE_SCREEN",
+        "NEG_ID_CLOSE_ACTIVE_SCREEN"
+      ],
+      "evidence": [
+        "E188",
+        "E144",
+        "E145",
+        "E146",
+        "E177",
+        "E182"
+      ],
+      "boundary": "Captured third bounded job CONVERTING, pressed actual Escape, returned to title (four loaded mods). Persisted job CANCELLED, null artifact; reopened converter still listed valid input. Historical job rehydration remains unimplemented."
+    },
+    {
+      "id": "DEDICATED_FINITE",
+      "dimension": "NATIVE_SERVER",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "DEDICATED_STATUS",
+        "SERVER_PUBLIC_HASH",
+        "SERVER_OUTPUT_HASH",
+        "DEDICATED_NO_QA"
+      ],
+      "evidence": [
+        "E149",
+        "E151",
+        "E147",
+        "E150",
+        "E148"
+      ],
+      "boundary": "Same-hash native dedicated readiness, registry/tag checks and reload, not crafting, client assets, multiplayer or network-isolated offline gameplay."
+    },
+    {
+      "id": "CACHELESS_STATIC",
+      "dimension": "STATIC",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "CACHELESS_STATUS",
+        "CACHELESS_NO_RUNTIME",
+        "CACHE_OUTPUT_HASH",
+        "CACHELESS_NO_BUNDLE"
+      ],
+      "evidence": [
+        "E003"
+      ],
+      "boundary": "CLI/service parity and bounded test-only file/network tripwire; not a production sandbox or network-isolated Minecraft execution."
+    },
+    {
+      "id": "HEADLESS_RECOVERY",
+      "dimension": "HEADLESS",
+      "state": "RECORDED_PASS",
+      "assertions": [
+        "HEADLESS_STATUS",
+        "HEADLESS_COUNT"
+      ],
+      "evidence": [
+        "E188",
+        "E171",
+        "E172",
+        "E170"
+      ],
+      "boundary": "Installer test-classpath helper JVM halts and real Windows sharing handles. Not public-only native client interruption."
+    },
+    {
+      "id": "PUBLIC_CLIENT_COMMIT_INTERRUPTION",
+      "dimension": "NATIVE_CLIENT",
+      "state": "PENDING",
+      "assertions": [],
+      "evidence": [],
+      "boundary": "Not run. HEADLESS_ONLY remains in force; requires explicit renewed UI authorization and a validated external boundary oracle."
+    },
+    {
+      "id": "INSTALLED_ID_AND_DEPENDENCY_CONFLICT_MATRIX",
+      "dimension": "NATIVE_CLIENT",
+      "state": "PENDING",
+      "assertions": [],
+      "evidence": [],
+      "boundary": "Input-duplicate and converter dependency refusals do not establish native installed-ID/dependency installation scenarios. Existing unit coverage remains separate."
+    },
+    {
+      "id": "NATIVE_GUI_SCALE_RESIZE_QUEUE_MATRIX",
+      "dimension": "NATIVE_CLIENT",
+      "state": "PENDING",
+      "assertions": [],
+      "evidence": [],
+      "boundary": "Current-hash captures do not cover the complete scale/resize/queue saturation matrix."
+    },
+    {
+      "id": "PERSISTENT_JOB_INSTALL_LINKAGE",
+      "dimension": "REVIEW",
+      "state": "PENDING",
+      "assertions": [],
+      "evidence": [],
+      "boundary": "Known UI-PROMOTION limitation: COMMITTED journal does not rewrite saved CONVERTED job receipts to PENDING_RESTART; no automatic rehydration."
+    },
+    {
+      "id": "NETWORK_ISOLATED_OFFLINE_GAMEPLAY",
+      "dimension": "REVIEW",
+      "state": "NOT_CLAIMED",
+      "assertions": [],
+      "evidence": [],
+      "boundary": "No claim follows from this finite simple-content evidence campaign."
+    },
+    {
+      "id": "AUTOMATIC_LAUNCHER_RESTART",
+      "dimension": "REVIEW",
+      "state": "NOT_CLAIMED",
+      "assertions": [],
+      "evidence": [],
+      "boundary": "No claim follows from this finite simple-content evidence campaign."
+    },
+    {
+      "id": "MULTIPLAYER_QUALIFICATION",
+      "dimension": "REVIEW",
+      "state": "NOT_CLAIMED",
+      "assertions": [],
+      "evidence": [],
+      "boundary": "No claim follows from this finite simple-content evidence campaign."
+    }
+  ]
+}

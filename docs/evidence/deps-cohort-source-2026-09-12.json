@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-12",
+  "prompt": "LB-19",
+  "cut": "DEPS-COHORT",
+  "status": "PARTIAL",
+  "implementedSlice": "SOURCE_COHORT_INSPECTION_V1",
+  "baseline": {"sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": 17, "gradle": "8.8", "forgeGradle": "6.0.54", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "sourceApiAudit": {
+    "legacySourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetJavaFmlSourcesSha256": "1d786de4b0701e82d871f3ed6ac663d1ffa443ca9af21e97ef6cfc3c263278c1",
+    "reRead": ["net/minecraftforge/fml/common/Mod.java in both exact releases", "Existing metadata graph and offline linkage/access implementations"],
+    "semanticMappingAdded": false,
+    "sourceOnlyExternalRoots": ["JDK17 declarations from jrt", "Forge @Mod annotation"]
+  },
+  "explicitLocalData": {"path": "build/logic-preserving-v1/mapping-bundle", "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb", "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION", "bundledInPublicJar": false},
+  "fixtures": {
+    "path": "fixtures/dependency-cohort-1.16.5",
+    "rights": "Original authored sources under repository all-rights-reserved license; no grant to redistribute private/game data.",
+    "library": {"file": "legacybridge-cohort-library-1.16.5-1.0.0.jar", "sha256": "7ccceb72ef6d1518310b21253acf18cff0502e8f06a892758ea254ae799f5cd4", "bytes": 2697, "classes": 2},
+    "consumer": {"file": "legacybridge-cohort-consumer-1.16.5-1.0.0.jar", "sha256": "a67a24e331c1d81b5e85ce267c9d55e622294f01134cdc9cca8cdcad76e7e8f1", "bytes": 2272, "classes": 1},
+    "build": {"result": "PASS", "command": "gradlew.bat -p fixtures/dependency-cohort-1.16.5 build --max-workers=1 --no-daemon --console=plain", "log": "build/deps-cohort-20260912/fixture-final-build.log", "logSha256": "5099cb61ef509f38d5bec22b970d7381f8fdba651c5735d05881b0e6b711125c", "duration": "11s", "tasks": 11, "executed": 7, "upToDate": 4, "fixtureTestTask": "NO_SOURCE", "gamesStarted": 0},
+    "originalHashesRevalidatedAfterInspection": true,
+    "sourceCodeExecuted": false,
+    "targetPairProduced": false,
+    "expectedButNotObserved": {"evaluate5": 17, "evaluate0": 2, "negative": "IllegalArgumentException"}
+  },
+  "validation": {
+    "firstFocusedAttempt": {"result": "FAIL", "tests": 24, "passed": 23, "failed": 1, "log": "build/deps-cohort-20260912/focused-first.log", "cause": "Test expected an order containing only the two selected JARs, but the existing graph correctly also includes platform nodes.", "fix": "Assert required relative order and retained platform nodes; no dependency rule relaxed."},
+    "intermediateFocused": {"result": "PASS", "tests": 95, "failed": 0, "errors": 0, "skipped": 0, "log": "build/deps-cohort-20260912/focused-final.log"},
+    "hardenedFocused": {"result": "PASS", "tests": 96, "failed": 0, "errors": 0, "skipped": 0, "log": "build/deps-cohort-20260912/focused-hardened.log", "change": "Direct declared provider API filter also blocks unused constant-pool borrowing."},
+    "finalFocused": {
+      "result": "PASS", "tests": 98, "passed": 98, "failed": 0, "errors": 0, "skipped": 0, "newTests": 37,
+      "duration": "22s", "tasks": 15, "executed": 5, "upToDate": 10,
+      "command": "gradlew.bat :legacy-converter:test --tests *Cohort*Test --tests *DependencyGraphVerifierTest --tests *OfflineLinkageVerifierTest --tests *CliEngineServiceTest -PcohortBundle=<explicit full local bundle> -PcohortEvidence=build/deps-cohort-20260912 --max-workers=1 --console=plain",
+      "log": "build/deps-cohort-20260912/focused-release.log", "logSha256": "b138a3bc7d172b702ef19216f0030ef78beaa435b71b553354e2864755dc2766",
+      "suites": {"CohortSourceInspectorTest": 27, "CohortInspectionCliTest": 7, "CohortInspectionEnvironmentTest": 3, "DependencyGraphVerifierTest": 18, "OfflineLinkageVerifierTest": 31, "CliEngineServiceTest": 12},
+      "realInspection": {"result": "SOURCE_LINKAGE_ONLY", "path": "build/deps-cohort-20260912/real-source-inspection.json", "sha256": "ad46c7be90a6f98e2ddf92125a66dac341d2b9a0d4878d42c39c0631fb2dd129", "cliServiceJsonByteEquivalent": true, "fixtureClassesExecuted": false},
+      "additionalCases": ["Actual Windows hard-link duplicate identity rejected", "Corrupted ZIP rejected", "Unused constant-pool provider requires direct declared dependency"],
+      "scope": "Focused engine checks and existing regressions, not the extensive root/corpus/native test campaign."
+    },
+    "package": {
+      "result": "PASS", "duration": "1m7s", "tasks": 48, "executed": 27, "upToDate": 21,
+      "command": "gradlew.bat assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli :legacy-corpus:verifyPromptContract --max-workers=1 --console=plain",
+      "trustArguments": ["-Djavax.net.ssl.trustStore=NONE", "-Djavax.net.ssl.trustStoreType=Windows-ROOT"],
+      "trustMeaning": "Existing Windows root trust provider; TLS validation not disabled.",
+      "log": "build/deps-cohort-20260912/package.log", "logSha256": "420a8f8aceb0861fcda2f000ab91d7a5aff34780602cc49552eacdbe297dfb06",
+      "contractMarker": "PROMPT_CONTRACT_VERIFIED prompts=23 cuts=80 current=LB-19/DEPS-COHORT evidence=PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "interpretation": "All modules assembled, installed CLI help smoke and artifact audits passed. Not full root test/corpus campaign, Minecraft or server startup.",
+      "finalMetadataRecheckLog": "build/deps-cohort-20260912/final-metadata-check.log"
+    },
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "behaviorComparison": "NOT_RUN",
+    "multiplayer": "NOT_RUN"
+  },
+  "previousPublicArtifact": {"sha256": "bbeff878e50c69d42418f4ed2341d5a161330aef450cc73dc2801078207f48b1", "preservedPath": "build/deps-cohort-20260912/baseline-LegacyBridge.jar"},
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar", "sha256": "362b6757cde2ec0a935ddbd3d0112b2060719f9881ab8a993f3f3e907dd83d45", "sizeBytes": 1349997, "entries": 549,
+    "entryHashComparison": {"unchanged": 537, "changed": 2, "added": 10, "removed": 0, "changedScope": "LegacyEngineService and its generated switch helper", "addedScope": "CohortSourceInspector and CohortInspectionRequest with nested types", "runtimeAdaptersProfilesDataUiAndLibrariesByteIdentical": true, "method": "SHA-256 of each uncompressed ZIP entry against the hash-verified archived previous public JAR."},
+    "fixtureHarnessAndCliClassesPackaged": false,
+    "nativeQualification": "NOT_RUN"
+  },
+  "restrictions": {"minecraftProcessesStarted": 0, "screenAutomationUsed": false, "publicProfilesAdded": false, "conversionRulesChanged": false, "adaptersChanged": false, "installerAdmissionChanged": false, "historicalEvidenceRebound": false, "newModsAcquired": false, "published": false},
+  "limitations": ["Only source closure and finite offline linkage, not conversion or target semantics.", "Complete selected set on BOTH sides; direct mandatory BOTH edges needed for cross-JAR declarations.", "One mod per JAR; split packages/JiJ/services/reflection/native hooks remain refused.", "Resource paths inventoried, not schemas or behavior validated.", "Payload limits and cooperative cancellation are not an OS/heap sandbox.", "Existing single-mod profiles and public Apply do not accept a cohort report."],
+  "handoff": {"nextPrompt": "LB-19", "nextCut": "DEPS-COHORT", "nextSlice": "FINITE_TARGET_PAIR", "work": "Implement exact per-artifact target recipes and validate two private candidates together; do not drop dependencies or expand native QA harnesses automatically.", "acceptancePrerequisitesUnchanged": true}
+}

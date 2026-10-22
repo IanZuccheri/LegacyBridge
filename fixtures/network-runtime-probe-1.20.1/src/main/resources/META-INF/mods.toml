@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+[[mods]]
+modId="legacybridge_network_probe"
+version="1.0.0"
+displayName="LegacyBridge Network Runtime Probe 1.20.1"
+authors="LegacyBridge contributors"
+description='''Separate test-only native two-client network observation. Never a product dependency.'''
+[[dependencies.legacybridge_network_probe]]
+modId="forge"
+mandatory=true
+versionRange="[47.4.23,48)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_network_probe]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_network_probe]]
+modId="legacybridge_network"
+mandatory=true
+versionRange="[1.0.0]"
+ordering="AFTER"
+side="BOTH"

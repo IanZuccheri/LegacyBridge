@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_PRESERVED_PREPARATION_EVIDENCE",
+  "reviewedAt": "2026-09-19",
+  "contract": {
+    "prompt": "LB-01", "cut": "PRODUCT-COMPOSED", "slice": "PRESERVED_PREPARATION_WORKFLOW",
+    "implementation": "IMPLEMENTED_STATIC", "acceptance": "PARTIAL",
+    "next": { "prompt": "LB-05", "cut": "INSTALL-PROMOTION", "slice": "PRESERVED_MANAGED_UPDATES" }
+  },
+  "baseline": {
+    "sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23", "java": "17.0.12", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "6adff85b4a8d716188b49498c3112e2062bfc1374b13a519d2199adea5adc165",
+    "bytes": 1618829, "entries": 660, "unchanged": 627,
+    "changed": [
+      "assets/legacybridge_runtime/lang/en_us.json",
+      "assets/legacybridge_runtime/lang/pt_br.json",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen$Consent.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen$Line.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen$Lines.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen.class",
+      "dev/legacybridge/product/controller/ConversionController$1.class",
+      "dev/legacybridge/product/controller/ConversionController$2.class",
+      "dev/legacybridge/product/controller/ConversionController$ControllerFailure.class",
+      "dev/legacybridge/product/controller/ConversionController$InstallationObservation.class",
+      "dev/legacybridge/product/controller/ConversionController$InstallView.class",
+      "dev/legacybridge/product/controller/ConversionController$JobRecord.class",
+      "dev/legacybridge/product/controller/ConversionController$Phase.class",
+      "dev/legacybridge/product/controller/ConversionController$PreservedReview.class",
+      "dev/legacybridge/product/controller/ConversionController$RealPreservedOperations.class",
+      "dev/legacybridge/product/controller/ConversionController$View.class",
+      "dev/legacybridge/product/controller/ConversionController.class",
+      "dev/legacybridge/product/install/PreservedAdmissionStore$Boundary.class",
+      "dev/legacybridge/product/install/PreservedAdmissionStore$Rejected.class",
+      "dev/legacybridge/product/install/PreservedAdmissionStore.class"
+    ],
+    "added": [
+      "dev/legacybridge/product/client/PreservedPreparationScreen$Line.class",
+      "dev/legacybridge/product/client/PreservedPreparationScreen$Lines.class",
+      "dev/legacybridge/product/client/PreservedPreparationScreen$Page.class",
+      "dev/legacybridge/product/client/PreservedPreparationScreen.class",
+      "dev/legacybridge/product/controller/ConversionController$PreparationHook.class",
+      "dev/legacybridge/product/controller/PreservedPreparationForm$Field.class",
+      "dev/legacybridge/product/controller/PreservedPreparationForm$InvalidField.class",
+      "dev/legacybridge/product/controller/PreservedPreparationForm.class",
+      "dev/legacybridge/product/controller/PreservedPreparationRequest$Candidate.class",
+      "dev/legacybridge/product/controller/PreservedPreparationRequest.class",
+      "dev/legacybridge/product/controller/PreservedPreparationView$State.class",
+      "dev/legacybridge/product/controller/PreservedPreparationView.class",
+      "dev/legacybridge/product/install/PreservedAdmissionStore$Preparation.class"
+    ],
+    "removed": [], "unexpectedChanges": []
+  },
+  "previousArtifact": {
+    "path": "build/preserved-preparation-20260919/LegacyBridge-baseline.jar",
+    "sha256": "b1d8e46e6270bcb8e0034c80bdf00420f4469e163c8c58b5792b163a13af878e",
+    "bytes": 1583691, "entries": 647
+  },
+  "inputs": {
+    "original": {
+      "path": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar",
+      "sha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f"
+    },
+    "candidate": {
+      "path": "build/logic-preserving-v1/converted.jar",
+      "sha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d"
+    },
+    "fullData": {
+      "path": "build/logic-preserving-v1/mapping-bundle",
+      "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+      "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION", "embedded": false
+    },
+    "targetSource": {
+      "artifact": "forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+      "inspection": "READ_ONLY: Screen rebuildWidgets/resize/removed/setInitialFocus; EditBox responder/cursor/length/editability; AbstractSelectionList and AbstractContainerEventHandler focus/scroll",
+      "newLegacyApiMappings": false
+    }
+  },
+  "implementation": [
+    "Explicit developer-only typed original conversion or existing-candidate import; ordinary controller and public simple-content route unchanged",
+    "Actual LegacyEngineService analysis/conversion/independent inspection and PreservedAdmissionStore reused without executing original classes",
+    "Single existing coordinator, engine worker, queue and host-session source; no CLI, extra executor, cached PASS or native calls on worker",
+    "Canonical input/staging paths, loaded-file refusal, explicit source/candidate/full-data hashes and fresh session check before admission",
+    "One-shot bounded admission preparation with real progress and cancellation/publication barrier; interrupted binding stays recoverable",
+    "At most five operation reports; original report schemas preserved; schema-1 LEGACY_PRESERVED_PREPARATION summary never grants installation authority",
+    "No overwrite of originals/unknown reports; summary write failure revokes readiness while preserving complete candidate/admission recovery evidence",
+    "Client-only preparation child screen, bounded form/edit invalidation, explicit use-admission handoff; fresh review and separate consent still mandatory",
+    "en_us/pt_br, native widgets/focus/cursor/scroll/resize handling; no visual runtime validation"
+  ],
+  "validation": {
+    "initialWorkflow": { "status": "PASS", "tests": 13, "failed": 0, "errors": 0, "skipped": 0,
+      "log": "build/preserved-preparation-20260919/workflow-tests-02.log", "xml": "build/preserved-preparation-20260919/workflow-tests-02-xml" },
+    "regression": {
+      "status": "PASS", "tests": 196, "passed": 196, "failed": 0, "errors": 0, "skipped": 0, "newTests": 23,
+      "log": "build/preserved-preparation-20260919/regression-package-03.log",
+      "xml": "build/preserved-preparation-20260919/regression-package-03-xml", "buildSeconds": 376,
+      "suites": {
+        "ConversionControllerTest": 19, "ConversionQueueTest": 8, "InstallationControllerTest": 4,
+        "InstallationShutdownBarrierTest": 7, "JobHistoryControllerTest": 4, "JobInstallationReceiptTest": 14,
+        "PreservedDeveloperClientBoundaryTest": 4, "PreservedDeveloperFormTest": 12, "PreservedInstallCoordinatorTest": 11,
+        "PreservedPreparationFormTest": 7, "PreservedPreparationWorkflowTest": 13, "HistoryClientBoundaryTest": 2,
+        "PreservedInstallReceiptsTest": 18, "PreservedAddOnlyInstallerTest": 38, "PreservedAdmissionBoundaryTest": 1,
+        "PreservedAdmissionContractTest": 3, "PreservedAdmissionStoreTest": 28, "PreservedInstallBoundaryTest": 3
+      }
+    },
+    "finalFocused": {
+      "status": "PASS", "tests": 52, "passed": 52, "failed": 0, "errors": 0, "skipped": 0,
+      "log": "build/preserved-preparation-20260919/final-focused-04.log",
+      "xml": "build/preserved-preparation-20260919/final-focused-04-xml", "buildSeconds": 92,
+      "purpose": "Repeat all new workflow/form tests, admission-store suite and client boundary after neutral candidate label and callback assertion correction"
+    },
+    "compilation": "PASS", "allModuleAssemble": "PASS", "publicJarAudit": "PASS", "runtimeJarAudit": "PASS",
+    "engineConsumerBoundary": "PASS", "installedCliSmoke": "PASS",
+    "fixtureConversion": "PASS: actual original -> engine -> exact known output SHA-256 -> independent inspection -> private admission; no mods writes until independent review and explicit confirmation",
+    "installerTestPlatform": "INERT_SYNTHETIC_METADATA_ONLY; not Forge execution",
+    "contract": {
+      "status": "PASS_WITH_PLATFORM_SKIPS", "tests": 77, "passed": 75, "failed": 0, "errors": 0, "skipped": 2,
+      "skipReason": "Existing symbolic evidence/directory tests require unavailable Windows symlink privileges; no simulated native pass",
+      "log": "build/preserved-preparation-20260919/contract-package-05.log",
+      "xml": "build/preserved-preparation-20260919/contract-package-05-xml", "buildSeconds": 49,
+      "verification": "23 prompts / 81 cuts; LB-05/INSTALL-PROMOTION; PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "packageRecheck": "PASS with unchanged final SHA-256 after documentation/status updates"
+    },
+    "nativeClient": "NOT_RUN", "nativeServer": "NOT_RUN", "nativeUi": "NOT_RUN", "discovery": "NOT_RUN",
+    "activation": "NOT_RUN", "behavior": "NOT_RUN", "multiplayer": "NOT_RUN", "outsideProjectCachelessRuntime": "NOT_RUN",
+    "gamesStarted": 0
+  },
+  "failuresAndCorrections": [
+    { "log": "build/preserved-preparation-20260919/compile-01.log", "status": "FAILED_THEN_FIXED",
+      "cause": "New preparationReport helper passed Object to the existing Map<String,Object>-only JSON serializer",
+      "fix": "Validate object/map/string keys, build typed map, reuse serializer without unsafe cast; all later builds pass" },
+    { "status": "REVIEW_CORRECTION_RETESTED",
+      "cause": "Assertion inside progress observer could be isolated by the established observer-failure policy",
+      "fix": "Capture cancellation return value in callback and assert outside it on the test thread; final admission suite passes" }
+  ],
+  "unchanged": [
+    "Engine and all six profiles; runtime/adapters/ABI; transformation and report schemas",
+    "Add-only/transactional/preserved installers and journals; admission-store handle/progress is the scoped addition",
+    "Included mapping data, nested dependencies, licenses, ordinary conversion/history screens and public menu enablement"
+  ],
+  "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+  "limits": [
+    "Developer logic-preserving-v1 only; composition/cohort/public promotion remain gated",
+    "Explicit reviewed local full data required and not redistributed",
+    "Cooperative deadlines/byte budgets are not hard heap/RSS limits or OS sandboxing",
+    "Complete candidate or admission recovery material can remain after later cancellation/failure, without readiness or consent",
+    "Preparation reports are displayed as informational paths/copyable details, not yet indexed in saved-report browser",
+    "Admission resume is explicit existing store API; corrupt/unbound orphans are not silently repaired",
+    "Managed preserved updates, automatic restart and pre-discovery recovery remain unsupported",
+    "No release acceptance, new mod acquisition, publication, monetization or license change"
+  ]
+}

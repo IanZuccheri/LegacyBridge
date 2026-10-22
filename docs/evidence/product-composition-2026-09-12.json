@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-12",
+  "prompt": "LB-01",
+  "cut": "PRODUCT-COMPOSED",
+  "status": "PARTIAL",
+  "implementedSlice": "TYPED_STATIC_INSPECTION_AND_NATIVE_SCREEN",
+  "baseline": {"sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": 17, "gradle": "8.8", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "sourceApiAudit": {
+    "legacySourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "reRead": ["1.16.5 GuiScreenEvent.InitGuiEvent/addWidget", "1.20.1 Screen.setInitialFocus/removed/resize"],
+    "newMappingEquivalences": false
+  },
+  "fixture": {
+    "path": "fixtures/composed-logic-recipes-1.16.5/build/libs/legacybridge-composed-logic-recipes-1.16.5-1.0.0.jar",
+    "sha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+    "usedAs": "Original static data, copied to disposable test input; never put on a game classpath.",
+    "preserved": true
+  },
+  "explicitLocalData": {
+    "path": "build/logic-preserving-v1/mapping-bundle",
+    "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+    "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION",
+    "bundledInPublicJar": false,
+    "automaticDownload": false
+  },
+  "previousPublicArtifact": {"sha256": "b3c6c1f98b2af0d91141b9b48f21ec3fd7e1baba8af878a083ce0dc20c5a6330", "preservedPath": "build/product-composition-20260912/baseline-LegacyBridge.jar", "archiveHashVerified": true},
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "bbeff878e50c69d42418f4ed2341d5a161330aef450cc73dc2801078207f48b1",
+    "sizeBytes": 1322909,
+    "entries": 539,
+    "entryHashComparison": {
+      "unchanged": 520,
+      "changed": 12,
+      "added": 7,
+      "removed": 0,
+      "changedScope": "en_us/pt_br, ConversionScreen and ConversionController with its nested classes",
+      "addedScope": "CompositionScreen/Line/Lines and CompositionInspectionView/Gate/Operation/Status",
+      "engineRuntimeAdaptersDataAndLibrariesByteIdentical": true,
+      "method": "Compare SHA-256 of each uncompressed entry against the hash-verified archived previous public JAR."
+    }
+  },
+  "validation": {
+    "firstFocusedAttempt": {"result": "FAIL", "tests": 8, "passed": 7, "failed": 1, "duration": "2m34s", "log": "build/product-composition-20260912/focused.log", "cause": "Negative test setup called a CREATE_NEW fixture writer over its already-created disposable input; FileAlreadyExistsException, before controller behavior was tested.", "fix": "Generate a separate disposable replacement fixture and explicitly replace only the test input bytes; original fixture untouched."},
+    "focusedFinal": {
+      "result": "PASS",
+      "tests": 23, "passed": 23, "failed": 0, "errors": 0, "skipped": 0,
+      "duration": "36s", "tasks": 11, "executed": 2, "upToDate": 9,
+      "command": "gradlew.bat :legacy-product:test --tests *CompositionInspection*Test --tests *ConversionQueueTest --tests *JobHistoryControllerTest --tests *HistoryClientBoundaryTest -PproductCompositionBundle=<explicit existing full bundle> -PproductCompositionFixture=<exact original fixture> --console=plain",
+      "log": "build/product-composition-20260912/focused-final.log",
+      "xmlDirectory": "legacy-product/build/test-results/test",
+      "cases": ["5 new product inspection policy/controller cases", "4 new actual-fixture/full-bundle cases", "8 existing queue cases", "4 existing history controller cases", "2 static client boundary cases, extended to include CompositionScreen"],
+      "actualEngineEquality": "Product nested engine report equals a fresh LegacyEngineService.previewLogicWithRecipes result after canonical parsing.",
+      "ordinaryConversion": "Existing simple-content conversion still BLOCKED for the composed fixture.",
+      "nativeExecution": "NOT_RUN"
+    },
+    "package": {
+      "result": "PASS", "duration": "52s", "tasks": 45, "executed": 15, "upToDate": 30,
+      "command": "gradlew.bat assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-corpus:verifyPromptContract --console=plain",
+      "trustArguments": ["-Djavax.net.ssl.trustStore=NONE", "-Djavax.net.ssl.trustStoreType=Windows-ROOT"],
+      "trustMeaning": "Existing Windows root trust provider; TLS validation not disabled.",
+      "log": "build/product-composition-20260912/package.log",
+      "contractMarker": "PROMPT_CONTRACT_VERIFIED prompts=23 cuts=80 current=LB-19/DEPS-COHORT evidence=PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "warning": "Existing separate ProductClientProbe ResourceLocation(String,String) deprecation/removal warning; compiled but not run or included in public JAR.",
+      "interpretation": "All modules assembled and package audits passed. Not a full root test/corpus campaign or native startup."
+    }
+  },
+  "restrictions": {"minecraftProcessesStarted": 0, "screenAutomationUsed": false, "publicProfileAdded": false, "conversionRulesChanged": false, "adaptersChanged": false, "installerAdmissionChanged": false, "historicalEvidenceRebound": false, "publicationOrAcquisition": false},
+  "limitations": ["Only the existing finite logic-plus-recipes combination can pass static inspection.", "No converted JAR or candidate export from this screen; no inspection-to-Apply authority.", "Explicit full local data still required for this advanced path; embedded simple data unchanged.", "No native UI, keyboard/GUI-scale/resize, dedicated-server or behavior qualification of the new JAR.", "Report serialization is capped at 2 MiB, not a hard heap sandbox; path checks do not eliminate hostile concurrent filesystem races.", "Public promotion, dependency closure and installer contracts remain incomplete; Experimental/Beta, rights/release gates remain open."],
+  "handoff": {"nextPrompt": "LB-19", "nextCut": "DEPS-COHORT", "firstSlice": "Authored library plus consumer: explicit artifact ownership/dependency API and finite offline linkage. No public cohort promotion or silent dependency removal.", "acceptancePrerequisitesUnchanged": true}
+}

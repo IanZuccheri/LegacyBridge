@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+group = 'dev.legacybridge.fixture'
+version = '1.0.0'
+base.archivesName = 'legacybridge-cohort-library-1.16.5'
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.release = 8 }
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+minecraft { mappings channel: 'official', version: '1.16.5' }
+repositories { mavenCentral() }
+dependencies { minecraft 'net.minecraftforge:forge:1.16.5-36.2.42' }
+sourceSets {
+    consumer {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+    }
+}
+tasks.named('jar', Jar) {
+    manifest.attributes('Implementation-Title': 'LegacyBridge Cohort Library', 'Implementation-Version': project.version,
+            'LegacyBridge-Fixture': 'deps-cohort-source-v1')
+    finalizedBy 'reobfJar'
+}
+tasks.register('consumerJar', Jar) {
+    archiveBaseName = 'legacybridge-cohort-consumer-1.16.5'
+    from sourceSets.consumer.output
+    manifest.attributes('Implementation-Title': 'LegacyBridge Cohort Consumer', 'Implementation-Version': project.version,
+            'LegacyBridge-Fixture': 'deps-cohort-source-v1')
+    finalizedBy 'reobfConsumerJar'
+}
+reobf { consumerJar {} }
+tasks.named('assemble') { dependsOn 'consumerJar' }

@@ -1,0 +1,563 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "OWNED_STACK_REPAIR_USE",
+  "outcome": "IMPLEMENTED_PRIVATE_STATIC_CANDIDATE_NOT_PUBLIC_OR_NATIVE_SUPPORT",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "8a3f06dbf466b792658b978339a548eeba062fcb9bfc90364f59b1142f197bbb",
+    "bytes": 2016756,
+    "entries": 760,
+    "fileEntries": 711,
+    "previousSha256": "698fc48e00a55ebfa92a9b4c9f00234ce447d25dc6dd0c149977b83e1a8e3453",
+    "unchangedEntries": 742,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/OwnedStackRepairUseContract$Names.class",
+      "dev/legacybridge/converter/conversion/OwnedStackRepairUseContract$Proof.class",
+      "dev/legacybridge/converter/conversion/OwnedStackRepairUseContract.class",
+      "dev/legacybridge/runtime/compat/logic/OwnedStackRepairUseArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 64,
+      "newEntries": 66
+    },
+    "fixture": {
+      "bytes": 6687,
+      "sha256": "420f710dadb3134c500dc1c1fc7077ed183758db6531416093454cca72b90d2a"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "fixture": {
+    "path": "fixtures/owned-stack-repair-use-1.16.5/build/libs/legacybridge-owned-stack-repair-use-1.16.5-1.0.0.jar",
+    "bytes": 6687,
+    "sha256": "420f710dadb3134c500dc1c1fc7077ed183758db6531416093454cca72b90d2a",
+    "modId": "legacybridge_stack_use",
+    "modVersion": "1.0.0",
+    "registryName": "bridge_stack_use_item",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "candidate": {
+    "schemaVersion": 1,
+    "status": "CANDIDATE_VALIDATED",
+    "reportType": "LEGACY_OWNED_STACK_REPAIR_USE_CANDIDATE",
+    "candidateIdentity": "owned-stack-repair-use-candidate-v1",
+    "input": {
+      "fileName": "legacybridge-owned-stack-repair-use-1.16.5-1.0.0.jar",
+      "sha256": "420f710dadb3134c500dc1c1fc7077ed183758db6531416093454cca72b90d2a"
+    },
+    "archive": {
+      "bytes": 5460,
+      "kind": "PRIVATE_SERIALIZED_JAR",
+      "sha256": "d7dbb4ca43e8b20a42fb4d0180050def1b7b7b4ad7ae48f96effece25e1c6c96"
+    },
+    "originalContract": {
+      "classesExecuted": false,
+      "client": "SUCCESS_WITH_SAME_STACK; NO_HELPER_OR_MUTATION; PREDICTED_CONSUMPTION_AND_SWING",
+      "contract": "owned-stack-repair-use-v1",
+      "durability": 128,
+      "entry": "dev/legacybridge/fixture/stackuse/OwnedStackRepairUseContent",
+      "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+      "factory": "createItem",
+      "handLookup": "EXACTLY_ONCE_ON_RECEIVED_PLAYER_WITH_RECEIVED_HAND",
+      "helper": "repairOne",
+      "helperProof": {
+        "classesExecuted": false,
+        "contract": "owned-stack-damage-v1",
+        "durability": 128,
+        "entry": "dev/legacybridge/fixture/stackuse/OwnedStackRepairUseContent",
+        "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+        "factory": "createItem",
+        "guards": [
+          "RECEIVED_STACK_NOT_NULL",
+          "RECEIVED_STACK_ITEM_IS_THIS",
+          "NATIVE_IS_DAMAGED",
+          "OBSERVED_DAMAGE_GREATER_THAN_ZERO",
+          "OBSERVED_DAMAGE_AT_MOST_NATIVE_MAXIMUM"
+        ],
+        "helper": "repairOne",
+        "item": "dev/legacybridge/fixture/stackuse/StackRepairUseItem",
+        "maxStackSize": 1,
+        "modId": "legacybridge_stack_use",
+        "mutation": "EXACTLY_ONE_SET_DAMAGE_VALUE_OF_OBSERVED_DAMAGE_MINUS_ONE_ON_RECEIVED_STACK",
+        "nativeData": "FORGE_HOOKS_AND_NATIVE_NUMERIC_NBT_COERCION; NOT_RAW_NBT_OR_MALFORMED_DATA_VALIDATION",
+        "registryName": "bridge_stack_use_item",
+        "returns": "FALSE_BEFORE_WRITE_ON_ANY_FAILED_GUARD; TRUE_AFTER_SINGLE_WRITE",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "threadAuthorityAndSynchronization": "CALLER_CONTRACT_NOT_IMPLEMENTED_OR_QUALIFIED",
+        "trigger": "NONE; PUBLIC_OWNED_HELPER_ONLY",
+        "wearBreakageAnvilMending": "NOT_IMPLEMENTED"
+      },
+      "item": "dev/legacybridge/fixture/stackuse/StackRepairUseItem",
+      "maxStackSize": 1,
+      "modId": "legacybridge_stack_use",
+      "nativeBypass": "FORGE_CANCELLATION_COOLDOWN_SPECTATOR_AND_PRIOR_BLOCK_ENTITY_INTERACTION_RETAINED",
+      "nativeCreativeUse": "NATIVE_CALLER_RESTORES_PRIOR_DAMAGE; HELPER_TRUE_IS_NOT_PERSISTENT_CREATIVE_REPAIR",
+      "normalization": "CHECKED_DEEP_ADMISSION_VIEW_ONLY; NEVER_TRANSFORMED_OR_EMITTED",
+      "registryName": "bridge_stack_use_item",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "server": "ONE_THIS_HELPER_CALL; TRUE_CONSUME_OR_FALSE_PASS_WITH_SAME_STACK",
+      "threadAuthorityAndSynchronization": "NATIVE_CALLER_PATH_UNMODIFIED; ARBITRARY_CALLER_AUTHORITY_AND_SYNC_NOT_QUALIFIED"
+    },
+    "targetContract": {
+      "classesExecuted": false,
+      "client": "SUCCESS_WITH_SAME_STACK; NO_HELPER_OR_MUTATION; PREDICTED_CONSUMPTION_AND_SWING",
+      "contract": "owned-stack-repair-use-v1",
+      "durability": 128,
+      "entry": "dev/legacybridge/fixture/stackuse/OwnedStackRepairUseContent",
+      "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+      "factory": "createItem",
+      "handLookup": "EXACTLY_ONCE_ON_RECEIVED_PLAYER_WITH_RECEIVED_HAND",
+      "helper": "repairOne",
+      "helperProof": {
+        "classesExecuted": false,
+        "contract": "owned-stack-damage-v1",
+        "durability": 128,
+        "entry": "dev/legacybridge/fixture/stackuse/OwnedStackRepairUseContent",
+        "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+        "factory": "createItem",
+        "guards": [
+          "RECEIVED_STACK_NOT_NULL",
+          "RECEIVED_STACK_ITEM_IS_THIS",
+          "NATIVE_IS_DAMAGED",
+          "OBSERVED_DAMAGE_GREATER_THAN_ZERO",
+          "OBSERVED_DAMAGE_AT_MOST_NATIVE_MAXIMUM"
+        ],
+        "helper": "repairOne",
+        "item": "dev/legacybridge/fixture/stackuse/StackRepairUseItem",
+        "maxStackSize": 1,
+        "modId": "legacybridge_stack_use",
+        "mutation": "EXACTLY_ONE_SET_DAMAGE_VALUE_OF_OBSERVED_DAMAGE_MINUS_ONE_ON_RECEIVED_STACK",
+        "nativeData": "FORGE_HOOKS_AND_NATIVE_NUMERIC_NBT_COERCION; NOT_RAW_NBT_OR_MALFORMED_DATA_VALIDATION",
+        "registryName": "bridge_stack_use_item",
+        "returns": "FALSE_BEFORE_WRITE_ON_ANY_FAILED_GUARD; TRUE_AFTER_SINGLE_WRITE",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "threadAuthorityAndSynchronization": "CALLER_CONTRACT_NOT_IMPLEMENTED_OR_QUALIFIED",
+        "trigger": "NONE; PUBLIC_OWNED_HELPER_ONLY",
+        "wearBreakageAnvilMending": "NOT_IMPLEMENTED"
+      },
+      "item": "dev/legacybridge/fixture/stackuse/StackRepairUseItem",
+      "maxStackSize": 1,
+      "modId": "legacybridge_stack_use",
+      "nativeBypass": "FORGE_CANCELLATION_COOLDOWN_SPECTATOR_AND_PRIOR_BLOCK_ENTITY_INTERACTION_RETAINED",
+      "nativeCreativeUse": "NATIVE_CALLER_RESTORES_PRIOR_DAMAGE; HELPER_TRUE_IS_NOT_PERSISTENT_CREATIVE_REPAIR",
+      "normalization": "CHECKED_DEEP_ADMISSION_VIEW_ONLY; NEVER_TRANSFORMED_OR_EMITTED",
+      "registryName": "bridge_stack_use_item",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "server": "ONE_THIS_HELPER_CALL; TRUE_CONSUME_OR_FALSE_PASS_WITH_SAME_STACK",
+      "threadAuthorityAndSynchronization": "NATIVE_CALLER_PATH_UNMODIFIED; ARBITRARY_CALLER_AUTHORITY_AND_SYNC_NOT_QUALIFIED"
+    },
+    "reopenedContract": {
+      "classesExecuted": false,
+      "client": "SUCCESS_WITH_SAME_STACK; NO_HELPER_OR_MUTATION; PREDICTED_CONSUMPTION_AND_SWING",
+      "contract": "owned-stack-repair-use-v1",
+      "durability": 128,
+      "entry": "dev/legacybridge/fixture/stackuse/OwnedStackRepairUseContent",
+      "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+      "factory": "createItem",
+      "handLookup": "EXACTLY_ONCE_ON_RECEIVED_PLAYER_WITH_RECEIVED_HAND",
+      "helper": "repairOne",
+      "helperProof": {
+        "classesExecuted": false,
+        "contract": "owned-stack-damage-v1",
+        "durability": 128,
+        "entry": "dev/legacybridge/fixture/stackuse/OwnedStackRepairUseContent",
+        "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+        "factory": "createItem",
+        "guards": [
+          "RECEIVED_STACK_NOT_NULL",
+          "RECEIVED_STACK_ITEM_IS_THIS",
+          "NATIVE_IS_DAMAGED",
+          "OBSERVED_DAMAGE_GREATER_THAN_ZERO",
+          "OBSERVED_DAMAGE_AT_MOST_NATIVE_MAXIMUM"
+        ],
+        "helper": "repairOne",
+        "item": "dev/legacybridge/fixture/stackuse/StackRepairUseItem",
+        "maxStackSize": 1,
+        "modId": "legacybridge_stack_use",
+        "mutation": "EXACTLY_ONE_SET_DAMAGE_VALUE_OF_OBSERVED_DAMAGE_MINUS_ONE_ON_RECEIVED_STACK",
+        "nativeData": "FORGE_HOOKS_AND_NATIVE_NUMERIC_NBT_COERCION; NOT_RAW_NBT_OR_MALFORMED_DATA_VALIDATION",
+        "registryName": "bridge_stack_use_item",
+        "returns": "FALSE_BEFORE_WRITE_ON_ANY_FAILED_GUARD; TRUE_AFTER_SINGLE_WRITE",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "threadAuthorityAndSynchronization": "CALLER_CONTRACT_NOT_IMPLEMENTED_OR_QUALIFIED",
+        "trigger": "NONE; PUBLIC_OWNED_HELPER_ONLY",
+        "wearBreakageAnvilMending": "NOT_IMPLEMENTED"
+      },
+      "item": "dev/legacybridge/fixture/stackuse/StackRepairUseItem",
+      "maxStackSize": 1,
+      "modId": "legacybridge_stack_use",
+      "nativeBypass": "FORGE_CANCELLATION_COOLDOWN_SPECTATOR_AND_PRIOR_BLOCK_ENTITY_INTERACTION_RETAINED",
+      "nativeCreativeUse": "NATIVE_CALLER_RESTORES_PRIOR_DAMAGE; HELPER_TRUE_IS_NOT_PERSISTENT_CREATIVE_REPAIR",
+      "normalization": "CHECKED_DEEP_ADMISSION_VIEW_ONLY; NEVER_TRANSFORMED_OR_EMITTED",
+      "registryName": "bridge_stack_use_item",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "server": "ONE_THIS_HELPER_CALL; TRUE_CONSUME_OR_FALSE_PASS_WITH_SAME_STACK",
+      "threadAuthorityAndSynchronization": "NATIVE_CALLER_PATH_UNMODIFIED; ARBITRARY_CALLER_AUTHORITY_AND_SYNC_NOT_QUALIFIED"
+    },
+    "bodyPreservation": "CHECKED_OPCODES_CONTROL_FLOW_LITERALS_FIELD_CONSTANTS_AND_DEBUG",
+    "classCount": 2,
+    "methodCount": 6,
+    "publicationAllowed": false,
+    "runtimeValidation": "NOT_RUN",
+    "sourceLinkage": "PASSED_SCOPED",
+    "targetLinkage": "PASSED_SCOPED",
+    "reopenedLinkage": "PASSED_SCOPED",
+    "bytecodeValidation": {
+      "inputClasses": 2,
+      "jvmLinkageVerified": false,
+      "modClassesLoaded": false,
+      "offlineLinkageVerified": true,
+      "outputClasses": 2,
+      "serializedJar": true,
+      "status": "PASSED_STATIC_REOPENED"
+    },
+    "archiveValidation": {
+      "centralDirectoryAndCrc": true,
+      "entryCount": 10,
+      "modClassesLoaded": false,
+      "ownershipAndHashes": true,
+      "scratchDeleted": true,
+      "status": "PASSED_REOPENED"
+    },
+    "resourceValidation": {
+      "baseResourceContract": "simple-content-v1; tag references restricted to local closure",
+      "contract": "datapack-recipes-v1",
+      "differences": [
+        "Target cooking recipe-book category defaults to MISC; client grouping is not validated."
+      ],
+      "provenance": "docs/RESOURCE_API_BASELINES.md",
+      "recipes": [
+        {
+          "disposition": "PRESERVE_BYTES",
+          "format": "minecraft:crafting_shapeless",
+          "path": "data/legacybridge_stack_use/recipes/bridge_stack_use_item.json",
+          "reason": "Pinned serializer schema and closed ingredient/result references validated; no rewrite necessary",
+          "rule": "resource.recipe.crafting_shapeless.preserve.v1",
+          "sha256": "4de6bf1ba4b41ee9ab7a605c728f1cfeb6b9cf8b765c4ad8c86ea904a4ac00d6"
+        }
+      ],
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "source": "minecraft:1.16.5/forge:36.2.42",
+      "status": "PASSED_REOPENED",
+      "target": "minecraft:1.20.1/forge:47.4.23",
+      "unsupported": [
+        "conditional recipes",
+        "custom serializers and ingredients",
+        "NBT recipe results",
+        "external tag composition",
+        "loot tables and global loot modifiers",
+        "advancements",
+        "functions and commands",
+        "animated textures",
+        "custom model behavior",
+        "local Ogg audio"
+      ]
+    },
+    "transformationLogSchemaVersion": 1,
+    "transformationCount": 75,
+    "transformationKinds": [
+      {
+        "kind": "DESCRIPTOR_REMAP",
+        "count": 39
+      },
+      {
+        "kind": "CLASS_REMAP",
+        "count": 20
+      },
+      {
+        "kind": "METHOD_REMAP",
+        "count": 11
+      },
+      {
+        "kind": "FIELD_REMAP",
+        "count": 1
+      },
+      {
+        "kind": "RESOURCE_REWRITE",
+        "count": 4
+      }
+    ],
+    "privateBindings": {
+      "adapters": [
+        {
+          "descriptor": "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;",
+          "id": "logic.symbol-contracts.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.logic.PreservedLogicAdapter",
+          "method": "remapDescriptor",
+          "revision": 1
+        },
+        {
+          "descriptor": "(Ljava/lang/String;)[B",
+          "id": "item.owned-stack-repair-use-manifest.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.logic.OwnedStackRepairUseArtifactAdapter",
+          "method": "targetManifest",
+          "revision": 1
+        },
+        {
+          "descriptor": "()Ljava/util/Map;",
+          "id": "item.owned-stack-repair-use-bindings.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.logic.OwnedStackRepairUseArtifactAdapter",
+          "method": "bindingTree",
+          "revision": 1
+        },
+        {
+          "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+          "id": "registry.mod-metadata.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+          "method": "targetRanges",
+          "revision": 1
+        },
+        {
+          "descriptor": "(I)I",
+          "id": "client.resource-pack.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+          "method": "targetFormat",
+          "revision": 1
+        }
+      ],
+      "runtimeVersion": "0.1.1-SNAPSHOT",
+      "schemaVersion": 1
+    },
+    "output": null,
+    "pipeline": [
+      "ClassReader",
+      "LegacyReferenceScanner",
+      "OwnedStackRepairUseGraphBoundsAndContract",
+      "SourceOfflineLinkage",
+      "ExactRecipeMappingResolver",
+      "ClassRemapper",
+      "DescriptorTransformer",
+      "TargetOfflineLinkage",
+      "ClassWriter",
+      "CheckClassAdapter",
+      "FinalOfflineLinkage"
+    ]
+  },
+  "previousCandidateParity": [
+    {
+      "suite": "OwnedStackDamageIntegrationTest",
+      "input": "a6099857d7a2e4e3cb2db6d67ce1db23d08d2ba9c17b732c380d2d7b64f09793",
+      "actual": "19081664b6a4ec70645d00788aced828cd6a04e9ffd3631e3277fe645cce5828",
+      "expected": "19081664b6a4ec70645d00788aced828cd6a04e9ffd3631e3277fe645cce5828",
+      "unchanged": true
+    },
+    {
+      "suite": "ItemAttributeDurabilityIntegrationTest",
+      "input": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16",
+      "actual": "dbe6a5acd96b29ae771156bed7e231f443148d74bea6bfcb7159b895cee491eb",
+      "expected": "dbe6a5acd96b29ae771156bed7e231f443148d74bea6bfcb7159b895cee491eb",
+      "unchanged": true
+    },
+    {
+      "suite": "ItemAttributeIntegrationTest",
+      "input": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99",
+      "actual": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+      "expected": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+      "unchanged": true
+    }
+  ],
+  "mappingInputs": {
+    "profile": "build/item-attributes-20261001/mapping-profile.properties",
+    "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312",
+    "explicitLocalData": true,
+    "classpathFallback": false,
+    "embeddedInProduct": false,
+    "guavaRequiredForThisSlice": false,
+    "provenance": [
+      "docs/OWNED_STACK_DAMAGE_API_AUDIT.md",
+      "docs/OWNED_STACK_REPAIR_USE_API_AUDIT.md"
+    ],
+    "sourceForgeSources": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetForgeSources": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+  },
+  "validation": {
+    "regression": {
+      "status": "PASS",
+      "tests": 6944,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 78,
+      "newTests": 1932,
+      "newSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.OwnedStackRepairUseIntegrationTest",
+          "tests": 28,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.OwnedStackRepairUseMappingIntegrationTest",
+          "tests": 638,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.OwnedStackRepairUseArtifactPlanTest",
+          "tests": 55,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.OwnedStackRepairUseContractTest",
+          "tests": 509,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.transformation.linkage.OwnedStackRepairUseOfflineLinkageTest",
+          "tests": 702,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "elapsed": "9m23s",
+      "log": "build/owned-stack-repair-use-candidate-20261005/regression-final.log",
+      "commandScript": "build/owned-stack-repair-use-candidate-20261005/regression.ps1"
+    },
+    "initialFocused": {
+      "status": "FAILED_CORRECTED",
+      "tests": 1908,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "elapsed": "1m57s",
+      "log": "build/owned-stack-repair-use-candidate-20261005/focused-1.log",
+      "xml": "build/owned-stack-repair-use-candidate-20261005/focused-1-xml",
+      "cause": "Private official-named Player hand getter shadows survive normalization without inheriting the SRG spelling; nearest production-name resolution missed these unreviewed declarations in the compiler.",
+      "correction": "Compiler now inspects Player and all native ancestors/interfaces, rejecting official or production getter declarations outside LivingEntity regardless of visibility. Preserved failing tests and added 24 ancestor/interface negatives; independent linkage already had its own production-namespace shadow guard.",
+      "subsequentFullRegression": "PASS"
+    },
+    "originalArchiveTests": {
+      "status": "PASS",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "rerun": true,
+      "elapsed": "20s",
+      "log": "build/owned-stack-repair-use-candidate-20261005/original-fixture.log",
+      "originalClassesExecuted": false
+    },
+    "packaging": {
+      "status": "PASS",
+      "elapsed": "40s",
+      "log": "build/owned-stack-repair-use-candidate-20261005/package.log",
+      "commandScript": "build/owned-stack-repair-use-candidate-20261005/package.ps1",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ]
+    },
+    "contract": {
+      "status": "PASS_WITH_EXISTING_ENVIRONMENT_SKIPS",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Windows symbolic-link privilege unavailable; skipped cases are not PASS",
+      "elapsed": "42s",
+      "log": "build/owned-stack-repair-use-candidate-20261005/contract.log",
+      "verifier": "23 prompts / 81 cuts verified; structural paths only, not evidence freshness or truth"
+    },
+    "native": {
+      "client": "NOT_RUN",
+      "dedicatedServer": "NOT_RUN",
+      "behavior": "NOT_RUN",
+      "multiplayer": "NOT_RUN",
+      "reason": "Headless only; source observations and static preservation do not qualify game execution"
+    }
+  },
+  "next": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "IRON_HELMET_SEMANTIC_INSPECTION",
+    "status": "READ_ONLY_API_DIFFERENCE_IDENTIFIED_NOT_IMPLEMENTED",
+    "plan": "docs/IRON_HELMET_NEXT_SLICE.md",
+    "implementation": "Create authored original and typed/CLI semantic inspection. Armor constructor changes contextually and occupied-slot swapping differs; no automatic conversion recipe yet.",
+    "mappingRecipeImplemented": false,
+    "native": "NOT_RUN"
+  },
+  "invariants": {
+    "runtimeIdentityUnchanged": true,
+    "publicProfiles": 6,
+    "publicConvertApply": "simple-content-v1 unchanged",
+    "priorAdaptersUnchanged": 64,
+    "newOfflineAdapters": 2,
+    "originalClassesExecuted": false,
+    "platformClassesTransformed": false,
+    "fixtureBundled": false,
+    "oldGameOrPrivateMappingsBundled": false,
+    "licenseChanged": false,
+    "thirdPartyAcquisition": false,
+    "publication": false,
+    "gamesOrScreensOpened": false
+  },
+  "contractCounts": {
+    "prompts": 23,
+    "cuts": 81,
+    "accepted": 15,
+    "partial": 19,
+    "blocked": 2,
+    "notStarted": 45,
+    "meaning": "Unweighted acceptance counts, not work percentage or mod compatibility"
+  },
+  "remaining": [
+    "Native endpoint and ordinary gameplay comparison, creative restoration, cancellation/cooldown/spectator bypass and synchronization",
+    "Arbitrary item-use, caller thread/world/player authority or per-click/packet guarantees",
+    "Wear/breakage, repair costs, anvil, mending, tools/armor and generic NBT",
+    "Prerequisite acceptance, public profile/installation promotion and broader composition",
+    "No claim of whole real-mod unlock or near-universal compatibility"
+  ]
+}

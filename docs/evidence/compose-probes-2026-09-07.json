@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Separate native source/target composition probes compiled against pinned APIs, JDK-only collector and synthetic protocol/filesystem/session tests. No game execution.",
+  "authorization": "Headless implementation/build/tests only. No Minecraft client/server, screen/focus/input, original fixture execution, new mod acquisition or publication.",
+  "previousEvidence": "docs/evidence/compose-observations-2026-09-07.json",
+  "documentation": "docs/COMPOSITION_PROBES.md",
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": 17,
+    "forgeGradle": "6.0.54",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "selectedArtifacts": "docs/evidence/compose-observation-index-2026-09-07.json",
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+    "bytes": 1280333,
+    "zipEntries": 526,
+    "unchanged": true,
+    "qualification": "STATIC_BUILD_PACKAGE_ONLY_NATIVE_NOT_RUN",
+    "changes": "NONE to product, runtime, converter, rules, adapters, six existing profiles or authored original. Corpus includes shared recorder only in test sourceSet."
+  },
+  "compiledProbes": [
+    {
+      "role": "SOURCE",
+      "path": "fixtures/composition-runtime-probe-1.16.5/build/libs/legacybridge-composition-probe-1.16.5-1.0.0.jar",
+      "sha256": "2b377a93d803ef74ef581539d9ffcc38bb05eefe5577f489ea66ccf8b8c91a4d",
+      "bytes": 39895,
+      "classfileMajor": 52,
+      "modId": "legacybridge_composition_probe",
+      "version": "1.0.0",
+      "execution": "NOT_RUN"
+    },
+    {
+      "role": "TARGET",
+      "path": "fixtures/composition-runtime-probe-1.20.1/build/libs/legacybridge-composition-probe-1.20.1-1.0.0.jar",
+      "sha256": "67610871517d8adca83ff7ca028995542d9800b2bb899a01c708e8d2d8459bf2",
+      "bytes": 39895,
+      "classfileMajor": 61,
+      "modId": "legacybridge_composition_probe",
+      "version": "1.0.0",
+      "execution": "NOT_RUN"
+    }
+  ],
+  "sources": [
+    {
+      "path": "fixtures/composition-runtime-probe-1.16.5/src/main/java/dev/legacybridge/validation/composition/CompositionRuntimeProbe.java",
+      "sha256": "d72242e1d0c939ae78bb17ff69b9d3cab2a67433366b7086891202da3828e26a",
+      "bytes": 16449
+    },
+    {
+      "path": "fixtures/composition-runtime-probe-1.20.1/src/main/java/dev/legacybridge/validation/composition/CompositionRuntimeProbe.java",
+      "sha256": "eeaa0acc057d4ad67033f8ee37719fbf777f5369a018108357fa715ff0b960e1",
+      "bytes": 16980
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/main/java/dev/legacybridge/validation/composition/ProbeSession.java",
+      "sha256": "aac8b3acd453c7d768b288664d6fc85bf3cf455f3fecf8d35dfc5ea0e75f984b",
+      "bytes": 12673
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/main/java/dev/legacybridge/validation/composition/ProbeFiles.java",
+      "sha256": "a46aea09cb7bd4dfc3d2ba5a95cab401ed335d4f67ea9e4e12366ba724e04aaf",
+      "bytes": 10166
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/main/java/dev/legacybridge/validation/composition/ProbeJson.java",
+      "sha256": "9e844f1e520cf42c338f4ba4788daf43a25e46655d5e4b55e088fdfaa7fe5e1d",
+      "bytes": 3354
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/main/java/dev/legacybridge/validation/composition/BehaviorCapture.java",
+      "sha256": "f16ebff6de79b3fc32d70ba55c97910bc33a307cbbcc086e68bc049234cb9b23",
+      "bytes": 2829
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/test/java/dev/legacybridge/validation/composition/ProbeSessionTest.java",
+      "sha256": "a6804c40c4bff50a35452769fe9254027f9f5eeb8a9908d27e468e0903085c7b",
+      "bytes": 36061
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/test/java/dev/legacybridge/validation/composition/ProbeFilesTest.java",
+      "sha256": "c5e12deb24462deba3404fa2d7089cc30509e8d26d87718e8328777dd28900b0",
+      "bytes": 12221
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/test/java/dev/legacybridge/validation/composition/ProbeJsonTest.java",
+      "sha256": "f3bcd3f92f131ba29eff098f555f4e0f49b1ba774e435251308d4d86c19abb36",
+      "bytes": 6711
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/test/java/dev/legacybridge/validation/composition/BehaviorCaptureTest.java",
+      "sha256": "76c94f1b55ec7c8773d1f5d27d8d8002631ca3d92e04191596871476ed67098f",
+      "bytes": 18252
+    },
+    {
+      "path": "fixtures/composition-probe-common/src/test/java/dev/legacybridge/validation/composition/ProbeArtifactTest.java",
+      "sha256": "e05499a9a63e3a9ce4e2aa72791317100c79757cf41d31c4a66e18c8cff1d008",
+      "bytes": 10133
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/validation/composition/ProbeConformanceTest.java",
+      "sha256": "d01b9607deecd60f6d376be5f6273c38b855d071ec34bd0820638e0d35bf515e",
+      "bytes": 15982
+    },
+    {
+      "path": "legacy-corpus/build.gradle",
+      "sha256": "0c84c2476443cb6e4d7bd82cd9c8e8ac2a6196c307445658c3417234531f9de8",
+      "bytes": 3620
+    },
+    {
+      "path": "fixtures/composition-runtime-probe-1.16.5/build.gradle",
+      "sha256": "60bbed2f1f264a5041d3c174c2dfe0b6bd7b35ae2cd9288045d3a0e35db28c47",
+      "bytes": 1641
+    },
+    {
+      "path": "fixtures/composition-runtime-probe-1.20.1/build.gradle",
+      "sha256": "305b9919424975e074579f716196a11ad88a725a4d2a38a6a37130cda0365bf7",
+      "bytes": 1642
+    },
+    {
+      "path": "fixtures/composition-runtime-probe-1.16.5/src/main/resources/META-INF/mods.toml",
+      "sha256": "bc30b5bd3c02946a3294fe28e89a5f9a7f0acebb63289575c2764919883039b3",
+      "bytes": 785
+    },
+    {
+      "path": "fixtures/composition-runtime-probe-1.20.1/src/main/resources/META-INF/mods.toml",
+      "sha256": "a4e16045da931ad8d28954c48521e2c7804a6c8399c64c26347afb3a6256361c",
+      "bytes": 939
+    }
+  ],
+  "apiAudit": {
+    "method": "Read-only exact local mapped source ZIP inspection and launcher/fml javap, followed by native probe compilation. No source copying or class execution.",
+    "sourceMappedArchiveSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetMappedArchiveSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "sourceLauncherArchiveSha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f",
+    "targetFmlLoaderSourcesSha256": "7917b9e169ed8d1f34299ebd6c8136f310a176754b52b1e492b86638aa059667",
+    "targetFmlCoreSourcesSha256": "fc6df13c54c211ea9c0220ec76a2ebe1e573187112467cfc1397a25fee191ec1",
+    "reviewed": [
+      "Main and world-option ordering",
+      "MinecraftServer started event, running loop and halt(false)",
+      "Forge server events, ModList and actual ModFile path",
+      "ForgeVersion and FMLPaths",
+      "ItemStack.hasFoil/enchant/isEnchanted and owned helper accessor",
+      "Version-specific furnace constructor/binding/tick APIs",
+      "Recipe selection, ingredient serialization, actual tag members and registry IDs"
+    ],
+    "conversionMappingsAdded": 0,
+    "launchFinding": "Public events occur after native world access. Constructor checks selected cwd/world absence only. An external runner must own launch args and forbid arbitrary world/universe overrides; Started path assertion is before probe mutation, not a pre-load sandbox.",
+    "shutdownFinding": "halt(false) avoids self-join and requests normal shutdown; capture marker is not completed save/close/process exit evidence."
+  },
+  "validation": {
+    "sourceCompile": {
+      "status": "PASS",
+      "elapsed": "17s",
+      "log": "build/compose-probes-2026-09-07-run1/source-compile.log",
+      "logSha256": "4a54d3871c42f1259fc699e4add841d14dfdb869070a4479bf98931bd36fec24"
+    },
+    "sourceBuild": {
+      "status": "PASS",
+      "elapsed": "38s",
+      "tests": 123,
+      "passed": 123,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "build/compose-probes-2026-09-07-run1/source-build.log",
+      "logSha256": "7ecfcc2fb70eb9e74800631a174e8289e4a789d20927990c7e62b363a271346f",
+      "xml": "build/compose-probes-2026-09-07-run1/probe-1.16.5-xml"
+    },
+    "targetBuild": {
+      "status": "PASS",
+      "elapsed": "46s",
+      "tests": 123,
+      "passed": 123,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "build/compose-probes-2026-09-07-run1/target-build.log",
+      "logSha256": "69db2491a768a4abfc59933c07f6605963c713f2f2d617eee5470c18a5a15bea",
+      "xml": "build/compose-probes-2026-09-07-run1/probe-1.20.1-xml"
+    },
+    "probeSuiteBreakdown": {
+      "BehaviorCaptureTest": 21,
+      "ProbeArtifactTest": 6,
+      "ProbeFilesTest": 20,
+      "ProbeJsonTest": 13,
+      "ProbeSessionTest": 63
+    },
+    "probeTestBoundary": "Same 123 tests executed separately in both exact development classpaths. Common delegates use no native or fixture classes; six ZIP tests inspect the real reobfuscated probe artifact. Real Windows junction/hard-link cases passed. Counts are not supported-mod counts.",
+    "compilerWarnings": "Source reports use of deprecated APIs. Target reports deprecated APIs and three ResourceLocation constructor removal warnings in the actual pinned Forge 47.4.23 source. Compilation succeeds without suppressing diagnostics or upgrading dependencies.",
+    "rootBuild": {
+      "status": "PASS",
+      "elapsed": "1m39s",
+      "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build :legacy-converter:installDist -PverifyCompositionEnvironment=true -PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties --no-daemon --max-workers=1",
+      "log": "build/compose-probes-2026-09-07-run1/root-build.log",
+      "logSha256": "7787decb2786deaf96b315ad94b2962b9540b22c5a8e0ed8cab9321ca13007e5",
+      "tasks": {
+        "actionable": 69,
+        "executed": 25,
+        "upToDate": 44
+      },
+      "freshCorpus": {
+        "tests": 292,
+        "passed": 288,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      "newRecorderCheckerTests": {
+        "tests": 5,
+        "passed": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "boundary": "Synthetic inert artifacts/proofs and fake delegates; actual recorder JSON/logs pass through independent checker, never substituted as native evidence."
+      },
+      "freshSkips": [
+        "CorpusVerifierTest.refusesNativeSymlinkRecordWhenCreationIsPermitted",
+        "PromptContractVerifierTest.rejectsSymbolicEvidenceWithoutFollowingIt",
+        "PromptContractVerifierTest.rejectsSymbolicPromptDirectory",
+        "PublicEvidenceVerifierTest.symlinkEvidenceRefusesWhenPlatformAllowsItsCreation"
+      ],
+      "skipReason": "Four pre-existing tests conditional on native symlink creation privilege/support. Skipped, not passed. New Windows junction and hard-link tests actually passed.",
+      "upToDateTestTasks": [
+        "legacy-converter:test",
+        "legacy-product:test",
+        "legacy-runtime:test",
+        "legacy-workflow:test"
+      ],
+      "upToDateXmlSnapshotNotFresh": {
+        "converter": {
+          "tests": 844,
+          "passed": 778,
+          "skipped": 66
+        },
+        "product": {
+          "tests": 155,
+          "passed": 155,
+          "skipped": 0
+        },
+        "runtime": {
+          "tests": 30,
+          "passed": 30,
+          "skipped": 0
+        },
+        "workflow": {
+          "tests": 32,
+          "passed": 32,
+          "skipped": 0
+        }
+      },
+      "archivedXml": "build/compose-probes-2026-09-07-run1/root-build-xml",
+      "contract": "PASS: 23 prompts, 79 cuts, LB-08/COMPOSE-01. Structure/path validation only.",
+      "packageAudit": "PASS: public artifact unchanged, 526 entries; corpus main JAR 23 entries. No shared/native QA classes in either artifact.",
+      "existingChecks": "PASS: CLI smoke, engine boundary, pinned Forge API anchors, workflow/runtime/package checks and existing headless networking/public-server preflight scripts; no games."
+    },
+    "realArtifactIndex": {
+      "status": "PASS",
+      "observedState": "NOT_RUN",
+      "filesChecked": 5,
+      "bytesChecked": 1402016,
+      "sourceIntact": true,
+      "candidateIntact": true,
+      "runs": null,
+      "gameExecutionVerified": false,
+      "installationAllowed": false,
+      "log": "build/compose-probes-2026-09-07-run1/real-index.log",
+      "logSha256": "31f976c280c4028a29acdbce7baf5d780e145cac94e6b0f6e1400bfd4c4991a2"
+    },
+    "postDocumentationVerificationLog": "build/compose-probes-2026-09-07-run1/closeout-build.log",
+    "originalNative": "NOT_RUN",
+    "targetNative": "NOT_RUN",
+    "nativeBehaviorParity": "NOT_RUN",
+    "clientAssetsTranslations": "NOT_RUN",
+    "resourceReload": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "nativeSaveCloseExit": "NOT_RUN",
+    "newConversion": "NOT_RUN_NO_RULE_CHANGE"
+  },
+  "limitations": [
+    "Probes compile; startup and finite native behavior have not been executed or accepted.",
+    "External disposable launch planner/exit collector remains unimplemented. Existing probes are not safe arbitrary-launcher sandboxing.",
+    "Native furnace manual tick driver uses a temporary empty support furnace in a future disposable world; it is not live-world scheduling, XP, persistence, drops, reload or multiplayer validation.",
+    "CAPTURED precedes completed native shutdown and is not PASS. Marker, matching records or exit code alone cannot attest native execution.",
+    "Bounded trusted local tree only. No directory-fsync guarantee, hostile-writer sandbox or automatic crash recovery; uncertain private files remain explicit.",
+    "Injected write faults do not prove physical disk-full behavior. Hard-link support is required; unknown replacements are preserved, not overwritten.",
+    "Compile-time development caches remain provisioned for QA builds. No new offline/cacheless runtime claim.",
+    "No gameplay source, old platform archive, fixtures or QA probes are included in the public JAR. No new public dependency, compatibility expansion, acquisition or publication."
+  ],
+  "next": {
+    "prompt": "LB-08",
+    "cut": "COMPOSE-01",
+    "headless": "Implement and test disposable run planner and post-exit collector with exact bounded launch args/cwd, canonical fresh paths, no tokens, complete stdout/stderr and failure/exit/hash evidence; tests must not launch games.",
+    "nativeGate": "Separate original/target execution remains mandatory and unauthorized. Keep COMPOSE-01 PARTIAL; LINKAGE-GENERAL and public composition/UI/installation remain locked."
+  }
+}

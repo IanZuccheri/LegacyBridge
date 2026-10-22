@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+[[mods]]
+modId="lb_cohort_consumer"
+version="1.0.0"
+displayName="LegacyBridge Cohort Consumer Fixture"
+description="Observable library call: evaluate(5) is expected to return 17; native QA not run."
+[[dependencies.lb_cohort_consumer]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.lb_cohort_consumer]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.lb_cohort_consumer]]
+modId="lb_cohort_library"
+mandatory=true
+versionRange="[1.0.0]"
+ordering="AFTER"
+side="BOTH"

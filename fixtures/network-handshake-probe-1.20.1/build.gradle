@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+group = 'dev.legacybridge.validation'
+version = '1.0.0'
+base.archivesName = 'legacybridge-network-handshake-probe-1.20.1'
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.release = 17 }
+tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+minecraft { mappings channel: 'official', version: '1.20.1' }
+repositories { mavenCentral() }
+// Separate JDK debugger controller: never a mod, runtime dependency or public JAR.
+sourceSets { trace }
+// Reuse existing test-only native fixture access/transport, not converter rules.
+sourceSets.main.java {
+    srcDir '../network-runtime-probe-1.20.1/src/main/java'
+    include '**/Handshake*.java', '**/FixtureAccess.java', '**/RawTransport.java', '**/QaCommand.java'
+}
+dependencies {
+    traceImplementation 'com.google.code.gson:gson:2.10'
+    testImplementation sourceSets.trace.output
+    minecraft 'net.minecraftforge:forge:1.20.1-47.4.23'
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.register('traceJar', Jar) {
+    archiveBaseName = 'legacybridge-network-read-trace'
+    from sourceSets.trace.output
+}
+tasks.named('assemble') { dependsOn 'traceJar' }
+tasks.named('jar', Jar) {
+    manifest.attributes('Implementation-Title': 'LegacyBridge Handshake QA Only', 'Implementation-Version': project.version)
+    finalizedBy 'reobfJar'
+}
+tasks.named('test', Test) {
+    useJUnitPlatform()
+    dependsOn 'reobfJar'
+    systemProperty 'probe.jar', tasks.named('jar', Jar).get().archiveFile.get().asFile.absolutePath
+    testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+}

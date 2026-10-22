@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "IRON_SWORD_SEMANTIC_CONTRACT",
+  "outcome": "IMPLEMENTED_READ_ONLY_INSPECTION_WITH_UNSUPPORTED_SEMANTIC_MIGRATION",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "sourceClassJava": 8,
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "fac41032e378c7e9c3b5085f956eb403a97182bc82568a1b847b402503ce09f2",
+    "bytes": 1938006,
+    "entries": 745,
+    "fileEntries": 696,
+    "previousSha256": "51c10faafa03ccea5e9c3a79240244baa12d59b33e9db8c7840d7dcb165ebe06",
+    "unchangedEntries": 730,
+    "changedEntries": [
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/IronSwordContract$Names.class",
+      "dev/legacybridge/converter/conversion/IronSwordContract$Proof.class",
+      "dev/legacybridge/converter/conversion/IronSwordContract.class",
+      "dev/legacybridge/converter/conversion/IronSwordInspector$1.class",
+      "dev/legacybridge/converter/conversion/IronSwordInspector$2.class",
+      "dev/legacybridge/converter/conversion/IronSwordInspector$Refused.class",
+      "dev/legacybridge/converter/conversion/IronSwordInspector.class",
+      "dev/legacybridge/converter/conversion/logic/IronSwordApiAudit$Report.class",
+      "dev/legacybridge/converter/conversion/logic/IronSwordApiAudit$Side.class",
+      "dev/legacybridge/converter/conversion/logic/IronSwordApiAudit.class",
+      "dev/legacybridge/converter/service/IronSwordInspection$Identity.class",
+      "dev/legacybridge/converter/service/IronSwordInspection.class",
+      "dev/legacybridge/converter/service/IronSwordInspectionRequest.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 58,
+      "newEntries": 58
+    },
+    "fixture": {
+      "bytes": 5457,
+      "sha256": "bd69f9b847308160c35bf9cbf4fcef89c0655904738e16cf2eacd55b97f02027"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "fixture": {
+    "path": "fixtures/iron-sword-1.16.5/build/libs/legacybridge-iron-sword-1.16.5-1.0.0.jar",
+    "bytes": 5457,
+    "sha256": "bd69f9b847308160c35bf9cbf4fcef89c0655904738e16cf2eacd55b97f02027",
+    "modId": "legacybridge_iron_sword",
+    "modVersion": "1.0.0",
+    "registryName": "bridge_sword",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "implementation": {
+    "classes": 1,
+    "methods": 3,
+    "constructor": "SwordItem(IRON,3,-2.4F,fresh Item.Properties)",
+    "sourceBytecode": "ASM_AND_OFFLINE_LINKAGE_PASSED",
+    "apiAudit": "EXACT_DECLARATIONS_ONLY_WITH_SEPARATELY_LABELLED_PINNED_BODY_FACTS",
+    "resources": "FINITE_SOURCE_SCHEMA_AND_REVIEWED_REFERENCES_NOT_GAME_LOADING",
+    "service": "LegacyEngineService.inspectIronSword",
+    "cli": "inspect-iron-sword <jar> --input-sha256 <sha> --mapping-profile <explicit-profile>",
+    "schema": "LEGACY_IRON_SWORD_SEMANTIC_INSPECTION/1",
+    "status": "UNSUPPORTED",
+    "candidateGenerated": false,
+    "transformationCount": 0,
+    "blockers": [
+      "SWORD_MINING_CONTRACT_CHANGED",
+      "SWORD_TOOL_ACTION_CONTRACT_CHANGED",
+      "SWORD_INHERITED_BEHAVIOR_UNQUALIFIED"
+    ],
+    "limits": {
+      "capturedBytes": 2097152,
+      "capturedFiles": 16,
+      "classBytes": 131072,
+      "resourceBytes": 65536,
+      "maxStack": 64,
+      "maxLocals": 64
+    },
+    "memoryLimitQualification": "Cooperative bounded operations, not hard JVM heap isolation"
+  },
+  "validation": {
+    "regression": {
+      "status": "PASSED",
+      "tests": 2475,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "newCases": 312,
+      "newSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.IronSwordInspectionCliTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronSwordContractTest",
+          "tests": 180,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronSwordInspectorTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronSwordNativeApiAuditTest",
+          "tests": 84,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.service.IronSwordInspectionServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "priorCases": 2163,
+      "notAdditiveWithFocused": true,
+      "log": "build/iron-sword-20261001/regression-final.log"
+    },
+    "fixtureBuild": {
+      "status": "PASSED",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "assembly": {
+      "status": "PASSED",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "log": "build/iron-sword-20261001/package.log"
+    },
+    "installedInspection": {
+      "status": "PASSED_EXPECTED_UNSUPPORTED",
+      "exitCode": 3,
+      "constructorRecognized": true,
+      "candidateGenerated": false,
+      "originalUnchanged": true,
+      "windowsCommand": "cmd /d /q /c legacy-converter.bat inspect-iron-sword ...",
+      "note": "Parent environment enabled batch echo. Initial wrapper capture was not plain JSON; rerun in explicit quiet child cmd passed without changing scripts or environment settings."
+    },
+    "contract": {
+      "status": "PASSED",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skipReason": "Existing Windows symlink privilege assumptions; not native/game qualification",
+      "verifiedPrompts": 23,
+      "verifiedCuts": 81,
+      "current": "LB-10/ITEM-EQUIPMENT",
+      "qualification": "Contract paths and status invariants only; not evidence freshness or execution inference",
+      "log": "build/iron-sword-20261001/contract.log"
+    },
+    "developmentFailuresResolved": [
+      "Wrong RegistryObject package in source-only API roots corrected to net/minecraftforge/fml/RegistryObject.",
+      "IForgeRegistry declaration added because it occurs in the exact DeferredRegister.create descriptor; source linkage no longer rejects the valid diagnostic fixture."
+    ],
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "nativeBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "screenAutomation": "NOT_RUN",
+    "gameClassesExecuted": false,
+    "originalModClassesExecuted": false
+  },
+  "data": {
+    "operationalSource": "EXPLICIT_LOCAL_PROFILE_NO_IMPLICIT_CACHE_DISCOVERY_OR_DOWNLOAD",
+    "profile": "build/client-config-20260919/mapping-profile.properties",
+    "profileSha256": "ac622b0d6aff4e53f4f8e3210699267292dce6b2f77c443af4981c032433b2df",
+    "sourceApiSha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03",
+    "targetApiSha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee",
+    "sourceReview": "docs/IRON_SWORD_API_AUDIT.md"
+  },
+  "next": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "OWNED_ATTRIBUTE_MODIFIERS",
+    "status": "SOURCE_AUDIT_AND_ORIGINAL_FIXTURE_PREPARED_CONVERSION_NOT_IMPLEMENTED",
+    "fixture": {
+      "path": "fixtures/item-attributes-1.16.5/build/libs/legacybridge-item-attributes-1.16.5-1.0.0.jar",
+      "bytes": 6686,
+      "sha256": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99"
+    },
+    "fixtureTests": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "originalClasses": 2,
+    "originalMethods": 6,
+    "observedProductionOverride": "func_111205_h",
+    "observedInheritedFields": [
+      "field_111210_e",
+      "field_185050_h"
+    ],
+    "audit": "docs/ITEM_ATTRIBUTE_API_AUDIT.md",
+    "mappingProfile": {
+      "path": "build/item-attributes-20261001/mapping-profile.properties",
+      "bytes": 3446,
+      "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312"
+    },
+    "mappingInspection": {
+      "report": {
+        "path": "build/item-attributes-20261001/mappings.json",
+        "bytes": 111724,
+        "sha256": "7540e876f20d52818dcd5835ca39de2ee67410b4b6383d04a4fcde56f7b85ef4"
+      },
+      "exitCode": 1,
+      "mappingSourcesComplete": true,
+      "readableClasses": 2,
+      "bytecodeModified": false,
+      "unresolved": 18,
+      "conversionStatus": "NOT_IMPLEMENTED",
+      "countsAreNotCompatibilityPercentages": true
+    },
+    "requiredWork": [
+      "Strict source/target owned-attribute contract",
+      "Exact mapping recipes and protected inherited field access",
+      "Explicit Guava ABI/linkage from selected data",
+      "Private serialization/readback and negative cases",
+      "Native qualification only after separate authorization"
+    ]
+  },
+  "boundaries": {
+    "sixPublicProfilesUnchanged": true,
+    "allSixRefuseSwordFixture": true,
+    "publicInstall": "SIMPLE_CONTENT_V1_UNCHANGED",
+    "runtimeIdentityUnchanged": true,
+    "adapterCatalogUnchanged": true,
+    "compatibilityReportSchemaUnchanged": true,
+    "transformationLogSchemaUnchanged": true,
+    "licenseUnchanged": true,
+    "downloadedMods": false,
+    "published": false
+  },
+  "contractCounts": {
+    "ACCEPTED": 15,
+    "PARTIAL": 19,
+    "BLOCKED": 2,
+    "NOT_STARTED": 45,
+    "notCompatibilityMetric": true
+  },
+  "logsAndArtifacts": [
+    {
+      "path": "fixtures/item-attributes-1.16.5/build/libs/legacybridge-item-attributes-1.16.5-1.0.0.jar",
+      "bytes": 6686,
+      "sha256": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99"
+    },
+    {
+      "path": "build/iron-sword-20261001/fixture.log",
+      "bytes": 5322,
+      "sha256": "2c9a66b1ae8df97bbb3adf631201744cb086ac0c3add4e2d500a43209f22ff7d"
+    },
+    {
+      "path": "build/iron-sword-20261001/regression-final.log",
+      "bytes": 612436,
+      "sha256": "f81af2ad7d3465194ef1b5d928657ea779726a72a341328fd26849d171bbd5ca"
+    },
+    {
+      "path": "build/iron-sword-20261001/package.log",
+      "bytes": 10872,
+      "sha256": "9fa1fd031bcadee48aaac7341dcda67ff4f433c4e08d1eaf3c47d1413023f536"
+    },
+    {
+      "path": "build/iron-sword-20261001/attributes-fixture.log",
+      "bytes": 6376,
+      "sha256": "a3143a564ed67a2da0e85e4b67575bc4679d98919b237c5072efe88e6e8f9036"
+    },
+    {
+      "path": "build/iron-sword-20261001/installed-quiet-inspection.json",
+      "bytes": 107232,
+      "sha256": "afba24533cde9735e70a4c26a89cdf7b295b1a6c7c94fc73d06456d4dde23f53"
+    },
+    {
+      "path": "build/item-attributes-20261001/mappings.json",
+      "bytes": 111724,
+      "sha256": "7540e876f20d52818dcd5835ca39de2ee67410b4b6383d04a4fcde56f7b85ef4"
+    },
+    {
+      "path": "build/item-attributes-20261001/mapping-profile.properties",
+      "bytes": 3446,
+      "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312"
+    }
+  ]
+}
+

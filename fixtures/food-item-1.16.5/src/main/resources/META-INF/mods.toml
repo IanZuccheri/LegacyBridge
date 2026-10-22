@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_food"
+version="1.0.0"
+displayName="LegacyBridge Food Item Fixture"
+authors="LegacyBridge contributors"
+description='''Original Forge 1.16.5 runtime-comparison fixture with one plain native food item and no custom callbacks.'''
+
+[[dependencies.legacybridge_food]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_food]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"

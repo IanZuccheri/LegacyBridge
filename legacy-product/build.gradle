@@ -1,0 +1,307 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version "${forgegradle_version}"
+}
+
+// Explicit dependency allowlist, never fromRuntimeConfiguration: Forge supplies
+// exactly ASM 9.9.1 and NightConfig 3.6.4 in the pinned ordinary installation.
+jarJar.enable()
+evaluationDependsOn(':legacy-converter')
+evaluationDependsOn(':legacy-runtime')
+evaluationDependsOn(':legacy-compat-api')
+evaluationDependsOn(':legacy-workflow')
+def engineSources = project(':legacy-converter').sourceSets.main
+def runtimeSources = project(':legacy-runtime').sourceSets.main
+def compatibilitySources = project(':legacy-compat-api').sourceSets.main
+def workflowSources = project(':legacy-workflow').sourceSets.main
+def ownModules = engineSources.output + runtimeSources.output + compatibilitySources.output + workflowSources.output
+
+sourceSets {
+    main {
+        compileClasspath += ownModules
+        runtimeClasspath += ownModules
+    }
+    test {
+        compileClasspath += ownModules
+        runtimeClasspath += ownModules
+    }
+    validation {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+configurations {
+    validationImplementation.extendsFrom implementation
+    validationRuntimeOnly.extendsFrom runtimeOnly
+    srgSources { canBeConsumed = false; canBeResolved = true; transitive = false }
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    // JarJar controls packaging/negotiation, not the Java compilation classpath.
+    compileOnly 'net.minecraftforge:srgutils:0.6.2'
+    jarJar(group: 'net.minecraftforge', name: 'srgutils', version: '[0.6.2,0.6.3)') {
+        jarJar.pin(it, '0.6.2')
+        transitive = false
+    }
+    srgSources 'net.minecraftforge:srgutils:0.6.2:sources'
+    testImplementation platform("org.junit:junit-bom:${rootProject.junit_version}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly 'net.minecraftforge:srgutils:0.6.2'
+}
+
+tasks.named('processResources', ProcessResources) {
+    filesMatching('META-INF/mods.toml') {
+        expand(project_version: project_version, forge_version: forge_version, minecraft_version: minecraft_version)
+    }
+    inputs.properties(project_version: project_version, forge_version: forge_version, minecraft_version: minecraft_version)
+}
+
+tasks.named('test', Test) {
+    systemProperty 'legacybridge.admissionCandidate', providers.gradleProperty('admissionCandidate').getOrElse('')
+    systemProperty 'legacybridge.admissionOriginal', providers.gradleProperty('admissionOriginal').getOrElse('')
+    systemProperty 'legacybridge.admissionBundle', providers.gradleProperty('admissionBundle').getOrElse('')
+    systemProperty 'legacybridge.savedReportFixture', providers.gradleProperty('savedReportFixture').getOrElse('')
+    systemProperty 'legacybridge.productCompositionBundle', providers.gradleProperty('productCompositionBundle').getOrElse('')
+    systemProperty 'legacybridge.productCompositionFixture', providers.gradleProperty('productCompositionFixture').getOrElse('')
+    systemProperty 'legacybridge.productCohortBundle', providers.gradleProperty('productCohortBundle').getOrElse('')
+    systemProperty 'legacybridge.productCohortFixtureRoot', providers.gradleProperty('productCohortFixtureRoot').getOrElse('')
+    systemProperty 'legacybridge.productCohortEvidence', providers.gradleProperty('productCohortEvidence').getOrElse('')
+}
+
+def productJar = tasks.named('jarJar', Jar) {
+    archiveFileName = 'LegacyBridge.jar'
+    duplicatesStrategy = DuplicatesStrategy.FAIL
+    from(runtimeSources.output) { exclude 'META-INF/mods.toml' }
+    from(compatibilitySources.output)
+    from(workflowSources.output)
+    from(engineSources.output) {
+        exclude 'dev/legacybridge/converter/cli/**', 'simplelogger.properties'
+    }
+    from(rootProject.file('LICENSE')) { into 'META-INF'; rename { 'LICENSE_legacybridge_runtime' } }
+    from(rootProject.files('LICENSING.md', 'LINKING_EXCEPTION.md')) { into 'META-INF/legacybridge/legal' }
+    from(project.configurations.srgSources) {
+        into 'META-INF/legacybridge/legal'
+        rename { 'srgutils-0.6.2-sources.zip' }
+    }
+    manifest {
+        attributes(
+                'Implementation-Title': 'LegacyBridge',
+                'Implementation-Version': project.version,
+                'Implementation-Vendor': 'LegacyBridge contributors',
+                'FMLModType': 'MOD',
+                'LegacyBridge-Packaging': 'platform-provided-and-explicit-jarjar-v1',
+                'LegacyBridge-Adapter-Version': project.version,
+                'LegacyBridge-Capability-Catalog': 'META-INF/legacybridge/runtime-capabilities.json',
+                'LegacyBridge-Transformations-Enabled': 'false',
+                'LegacyBridge-Mapping-Data': 'embedded-simple-content-contract-v1',
+                'LegacyBridge-Project-License': 'GPL-3.0-only-with-Minecraft-linking-exception',
+                'LegacyBridge-Source': 'https://github.com/IanZuccheri/LegacyBridge',
+                'LegacyBridge-Release-Status': 'experimental-native-qualification-pending'
+        )
+    }
+    finalizedBy 'reobfJarJar'
+}
+tasks.named('jar', Jar) { archiveClassifier = 'development-only' }
+tasks.named('assemble') { dependsOn productJar }
+
+tasks.register('verifyProductJar') {
+    group = 'verification'
+    description = 'Audits the exact final public archive, its one nested library and unchanged adapter identity.'
+    dependsOn productJar, 'reobfJarJar', ':legacy-runtime:jar', ':legacy-runtime:reobfJar'
+    inputs.file(productJar.flatMap { it.archiveFile })
+    doLast {
+        def archive = productJar.get().archiveFile.get().asFile
+        def zip = new java.util.zip.ZipFile(archive)
+        try {
+            def names = zip.entries().collect { it.name }
+            if (names.size() != names.toSet().size()) throw new GradleException('Duplicate public JAR entries')
+            def required = [
+                    'META-INF/LICENSE_legacybridge_runtime',
+                    'META-INF/legacybridge/legal/LICENSING.md',
+                    'META-INF/legacybridge/legal/LINKING_EXCEPTION.md',
+                    'META-INF/mods.toml', 'META-INF/jarjar/metadata.json',
+                    'META-INF/legacybridge/adapters.json', 'META-INF/legacybridge/runtime-capabilities.json',
+                    'META-INF/legacybridge/compatibility-report-v2.schema.json',
+                    'META-INF/legacybridge/legal/THIRD_PARTY_NOTICES.md',
+                    'META-INF/legacybridge/legal/MCPConfig-LICENSE.txt',
+                    'META-INF/legacybridge/simple-content-v1/source-contract-v1.tsv',
+                    'META-INF/legacybridge/simple-content-v1/NOTICE.md',
+                    'META-INF/legacybridge/cohort-preview-v1/platform-contract-v1.tsv',
+                    'META-INF/legacybridge/cohort-preview-v1/NOTICE.md',
+                    'META-INF/legacybridge/cohort-preview-v1/LICENSE-LGPL-2.1.txt',
+                    'META-INF/legacybridge/legal/LGPL-2.1.txt',
+                    'META-INF/legacybridge/legal/srgutils-0.6.2-sources.zip',
+                    'dev/legacybridge/runtime/LegacyBridgeRuntime.class',
+                    'dev/legacybridge/runtime/compat/registry/SimpleContentAdapter.class',
+                    'dev/legacybridge/converter/service/LegacyEngineService.class',
+                    'dev/legacybridge/converter/transformation/linkage/OwnedConstructorGraph.class',
+                    'dev/legacybridge/runtime/compat/logic/ConstructorArtifactAdapter.class',
+                    'dev/legacybridge/converter/transformation/linkage/OwnedItemHierarchy.class',
+                    'dev/legacybridge/runtime/compat/logic/HierarchyArtifactAdapter.class',
+                    'dev/legacybridge/converter/transformation/linkage/OwnedInterfaceDefaults.class',
+                    'dev/legacybridge/runtime/compat/logic/InterfaceArtifactAdapter.class',
+                    'dev/legacybridge/runtime/compat/logic/StaticShapeBlockArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/StaticShapeBlockContract.class',
+                    'dev/legacybridge/converter/conversion/BooleanToggleBlockContract.class',
+                    'dev/legacybridge/runtime/compat/logic/BooleanToggleBlockArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/StaticShapeLootContract.class',
+                    'dev/legacybridge/runtime/compat/logic/HorizontalBlockArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/HorizontalBlockContract.class',
+                    'dev/legacybridge/runtime/compat/logic/PlainBlockArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/PlainBlockContract.class',
+                    'dev/legacybridge/converter/conversion/PlainBlockLowering.class',
+                    'dev/legacybridge/converter/conversion/logic/PlainBlockApiRecipe.class',
+                    'dev/legacybridge/runtime/compat/logic/DurableItemArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/DurableItemContract.class',
+                    'dev/legacybridge/runtime/compat/logic/LifecycleSuiteAdapter.class',
+                    'dev/legacybridge/converter/conversion/LifecycleSuiteContract.class',
+                    'dev/legacybridge/runtime/compat/logic/ServerConfigArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/ServerConfigContract.class',
+                    'dev/legacybridge/runtime/compat/logic/ClientConfigArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/ClientConfigContract.class',
+                    'dev/legacybridge/runtime/compat/logic/EventArtifactAdapter.class',
+                    'dev/legacybridge/converter/conversion/EventPriorityContract.class',
+                    'dev/legacybridge/runtime/compat/logic/ReceiverArtifactAdapter.class',
+                    'dev/legacybridge/converter/transformation/linkage/OwnedReceiverHandles.class',
+                    'dev/legacybridge/converter/service/CohortInspectionRequest.class',
+                    'dev/legacybridge/converter/service/CohortPlanningRequest.class',
+                    'dev/legacybridge/converter/conversion/CohortTargetPlanner.class',
+                    'dev/legacybridge/runtime/compat/registry/CohortMetadataAdapter.class',
+                    'dev/legacybridge/converter/conversion/dependency/CohortSourceInspector.class',
+                    'dev/legacybridge/converter/mapping/builtin/EmbeddedSimpleContentData.class',
+                    'dev/legacybridge/workflow/BridgeWorkspace.class',
+                    'dev/legacybridge/product/client/ClientMenuHooks.class',
+                    'dev/legacybridge/product/client/PreservedDeveloperScreen.class',
+                    'dev/legacybridge/product/client/PreservedPreparationScreen.class',
+                    'dev/legacybridge/product/controller/PreservedPreparationRequest.class',
+                    'dev/legacybridge/product/controller/PreservedPreparationView.class',
+                    'dev/legacybridge/product/controller/PreservedPreparationForm.class',
+                    'dev/legacybridge/product/install/PreservedUpdateInstaller.class',
+                    'dev/legacybridge/product/install/PreservedUpdateApproval.class',
+                    'dev/legacybridge/product/install/PreservedUpdatePreview.class',
+                    'dev/legacybridge/product/controller/PreservedUpdateSelection.class',
+                    'dev/legacybridge/product/controller/PreservedUpdateView.class',
+                    'dev/legacybridge/product/history/PreservedUpdateReceipts.class',
+                    'dev/legacybridge/product/controller/PreservedDeveloperForm.class',
+                    'dev/legacybridge/product/controller/PreservedDeveloperForm$Kind.class',
+                    'dev/legacybridge/product/controller/PreservedHostSession.class',
+                    'dev/legacybridge/product/client/ConversionScreen.class',
+                    'dev/legacybridge/product/client/ConversionEntryList.class',
+                    'dev/legacybridge/product/client/JobDetailsScreen.class',
+                    'dev/legacybridge/product/client/TransactionScreen.class',
+                    'dev/legacybridge/product/controller/JobView.class',
+                    'dev/legacybridge/product/history/JobHistory.class',
+                    'dev/legacybridge/product/history/JobHistoryReader.class',
+                    'dev/legacybridge/product/history/HistoryPresentation.class',
+                    'dev/legacybridge/product/client/HistoryScreen.class',
+                    'dev/legacybridge/product/client/HistoryDetailsScreen.class',
+                    'dev/legacybridge/product/client/CompositionScreen.class',
+                    'dev/legacybridge/product/controller/CompositionInspectionView.class',
+                    'dev/legacybridge/product/client/CohortScreen.class',
+                    'dev/legacybridge/product/controller/CohortInspectionView.class',
+                    'dev/legacybridge/product/controller/CohortPresentation.class',
+                    'dev/legacybridge/product/controller/InstallationShutdownBarrier.class',
+                    'dev/legacybridge/product/install/AddOnlyInstaller.class',
+                    'dev/legacybridge/product/install/TransactionalInstaller.class',
+                    'dev/legacybridge/product/install/TransactionResult.class',
+                    'assets/legacybridge_runtime/lang/en_us.json', 'assets/legacybridge_runtime/lang/pt_br.json'
+            ]
+            required.each { if (!names.contains(it)) throw new GradleException("Missing public entry: ${it}") }
+            names.each { name ->
+                if (name.startsWith('META-INF/services/') || name.endsWith('module-info.class') ||
+                        name.startsWith('/') || name.contains('..') || name.contains('\\') ||
+                        name ==~ /META-INF\/.*\.(SF|RSA|DSA|EC)/ ||
+                        name.startsWith('dev/legacybridge/converter/cli/') || name.startsWith('dev/legacybridge/corpus/') ||
+                        name.startsWith('dev/legacybridge/validation/') ||
+                        name.startsWith('dev/legacybridge/product/validation/') || name.contains('CachelessEngineProbe') || name.contains('CompositionQa') ||
+                        name.startsWith('fixtures/') || name.endsWith('.lbmap') || name.endsWith('.lbapi') ||
+                        name == 'simplelogger.properties' || name.startsWith('META-INF/versions/') ||
+                        (name.endsWith('.class') && !name.startsWith('dev/legacybridge/'))) {
+                    throw new GradleException("Forbidden public entry: ${name}")
+                }
+            }
+            def textEntry = { String path -> zip.getInputStream(zip.getEntry(path)).withCloseable { it.getText('UTF-8') } }
+            def toml = textEntry('META-INF/mods.toml')
+            if (!toml.contains('modId="legacybridge_runtime"') || !toml.contains('version="' + project_version + '"') ||
+                    !toml.contains('versionRange="[' + forge_version + ']"') || toml.contains('${')) {
+                throw new GradleException('Public identity/version/pinned platform metadata drift')
+            }
+            def parser = new groovy.json.JsonSlurper()
+            def english = parser.parseText(textEntry('assets/legacybridge_runtime/lang/en_us.json'))
+            def portuguese = parser.parseText(textEntry('assets/legacybridge_runtime/lang/pt_br.json'))
+            if (english.keySet() != portuguese.keySet()) throw new GradleException('English/Portuguese UI key mismatch')
+            english.each { key, value ->
+                def translated = portuguese[key]
+                if (!(value instanceof String) || !(translated instanceof String) || value.isBlank() || translated.isBlank() ||
+                        (value =~ /%(?:\d+\$)?[sd]/).findAll().sort() != (translated =~ /%(?:\d+\$)?[sd]/).findAll().sort()) {
+                    throw new GradleException("Invalid UI translation/placeholder parity: ${key}")
+                }
+            }
+            def jij = parser.parseText(textEntry('META-INF/jarjar/metadata.json'))
+            if (jij.jars.size() != 1 || jij.jars[0].identifier.group != 'net.minecraftforge' ||
+                    jij.jars[0].identifier.artifact != 'srgutils' || jij.jars[0].version.artifactVersion != '0.6.2' ||
+                    jij.jars[0].version.range != '[0.6.2,0.6.3)') throw new GradleException('Unexpected JarJar dependency set')
+            def nestedPath = jij.jars[0].path
+            if (names.findAll { it.endsWith('.jar') } != [nestedPath]) throw new GradleException('Unexpected nested binaries')
+            byte[] nestedBytes = zip.getInputStream(zip.getEntry(nestedPath)).withCloseable { it.bytes }
+            def sha256 = { byte[] bytes -> java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance('SHA-256').digest(bytes)) }
+            byte[] contract = zip.getInputStream(zip.getEntry('META-INF/legacybridge/simple-content-v1/source-contract-v1.tsv')).withCloseable { it.bytes }
+            if (contract.length != 6603 || sha256(contract) != '4868d957c3da0707f1178f809f452e43022aa1205d3a803501f563dc37a91170') {
+                throw new GradleException('Embedded finite simple-content contract differs from the reviewed baseline')
+            }
+            byte[] cohortContract = zip.getInputStream(zip.getEntry('META-INF/legacybridge/cohort-preview-v1/platform-contract-v1.tsv')).withCloseable { it.bytes }
+            if (cohortContract.length != 537 || sha256(cohortContract) != '20fda70724153dee806f1fa20812a4cc8713da440d58692255d8597d1503eafe')
+                throw new GradleException('Embedded finite cohort contract differs from reviewed declarations')
+            if (sha256(nestedBytes) != 'f10b366cdc4df20de8a50511f49fded5ea0fe8f7a476ff984a12f65a1602533e') {
+                throw new GradleException('SRG Utils binary differs from the reviewed publication')
+            }
+            byte[] sourceBytes = zip.getInputStream(zip.getEntry('META-INF/legacybridge/legal/srgutils-0.6.2-sources.zip')).withCloseable { it.bytes }
+            if (sha256(sourceBytes) != '3f0c9f692d6243ef6c854408aa93b47ccb77343cc6d80d8a5d85c16b46f93dec') {
+                throw new GradleException('SRG Utils sources differ from the reviewed publication')
+            }
+            def original = project.configurations.jarJar.resolvedConfiguration.resolvedArtifacts.find {
+                it.moduleVersion.id.group == 'net.minecraftforge' && it.name == 'srgutils'
+            }.file
+            if (!java.util.Arrays.equals(nestedBytes, original.bytes)) throw new GradleException('Embedded srgutils must be unchanged')
+            def nested = new java.util.zip.ZipInputStream(new ByteArrayInputStream(nestedBytes))
+            try {
+                def entry
+                def seen = [] as Set
+                while ((entry = nested.nextEntry) != null) {
+                    if (!seen.add(entry.name) || entry.name.startsWith('META-INF/services/') ||
+                            (entry.name.endsWith('.class') && !entry.name.startsWith('net/minecraftforge/srgutils/'))) {
+                        throw new GradleException("Unexpected nested library entry: ${entry.name}")
+                    }
+                }
+            } finally { nested.close() }
+            def runtimeJar = new java.util.zip.ZipFile(project(':legacy-runtime').tasks.named('jar').get().archiveFile.get().asFile)
+            try {
+                ['META-INF/legacybridge/adapters.json', 'META-INF/legacybridge/runtime-capabilities.json'].each { path ->
+                    byte[] expected = runtimeJar.getInputStream(runtimeJar.getEntry(path)).withCloseable { it.bytes }
+                    byte[] actual = zip.getInputStream(zip.getEntry(path)).withCloseable { it.bytes }
+                    if (!java.util.Arrays.equals(expected, actual)) throw new GradleException("Runtime catalog drift: ${path}")
+                }
+            } finally { runtimeJar.close() }
+            logger.lifecycle('Verified LegacyBridge.jar: one runtime identity, one unchanged JiJ library, no platform/logging duplicates or private mappings')
+        } finally { zip.close() }
+    }
+}
+tasks.named('check') { dependsOn 'verifyProductJar' }
+
+// Separate QA artifact, never included in the public archive or installed for a player.
+tasks.register('validationJar', Jar) {
+    archiveBaseName = 'legacybridge-product-probe'
+    archiveClassifier = 'validation-only'
+    from sourceSets.validation.output
+    manifest { attributes('FMLModType': 'MOD') }
+    finalizedBy 'reobfValidationJar'
+}
+reobf {
+    validationJar { classpath.from(sourceSets.validation.compileClasspath) }
+}

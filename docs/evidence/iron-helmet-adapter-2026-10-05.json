@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "IRON_HELMET_EMPTY_SLOT_ADAPTER",
+  "outcome": "IMPLEMENTED_RUNTIME_OPERATION_NO_CONVERSION_RECIPE",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "4f973924d4d49706384151c485050634802eaa93091b93bfd963eeadacbb9c6a",
+    "bytes": 2064207,
+    "entries": 775,
+    "fileEntries": 725,
+    "previousSha256": "f1060ce5d598195e0cfdeff3f8f9d9fe5e25d69556f8cd59f039c7604c13721d",
+    "unchangedEntries": 767,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/IronHelmetInspector.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Report.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Side.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/runtime/compat/item/",
+      "dev/legacybridge/runtime/compat/item/LegacyIronHelmetItem.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 66,
+      "newEntries": 67
+    },
+    "fixture": {
+      "bytes": 5554,
+      "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "operation": {
+    "id": "item.iron-helmet-empty-slot.v1",
+    "revision": 1,
+    "phase": "RUNTIME",
+    "class": "dev.legacybridge.runtime.compat.item.LegacyIronHelmetItem",
+    "method": "create",
+    "descriptor": "()Ldev/legacybridge/runtime/compat/item/LegacyIronHelmetItem;",
+    "shape": "Final stateless ArmorItem subclass; fixed no-arg IRON/HELMET/fresh Properties constructor, static factory and native use override.",
+    "compiledClassSha256": "e142fb87d24aa5e284ea71c152b11386f75a5d5a0ebe28031f90012eaeac7365",
+    "compiledClassBytes": 2881,
+    "runtimeAndProductClassBytesEqual": true,
+    "sourceCanonicalUseInstructions": 30,
+    "conversionRecipeImplemented": false,
+    "invokedAtProductStartup": false,
+    "registeredAtProductStartup": false
+  },
+  "fixture": {
+    "path": "fixtures/iron-helmet-1.16.5/build/libs/legacybridge-iron-helmet-1.16.5-1.0.0.jar",
+    "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca",
+    "bytes": 5554,
+    "modId": "legacybridge_iron_helmet",
+    "modVersion": "1.0.0",
+    "registryName": "bridge_helmet",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "validation": {
+    "compile": {
+      "status": "PASS",
+      "duration": "52s",
+      "tasks": [
+        ":legacy-runtime:compileJava",
+        ":legacy-converter:compileJava"
+      ],
+      "log": "build/iron-helmet-adapter-20261005/compile.log"
+    },
+    "fixture": {
+      "status": "PASS",
+      "duration": "7s",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "task": "-p fixtures/iron-helmet-1.16.5 test --rerun-tasks",
+      "log": "build/iron-helmet-adapter-20261005/fixture.log"
+    },
+    "regression": {
+      "status": "PASS",
+      "tests": 646,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 20,
+      "newTests": 105,
+      "helmetTests": 467,
+      "helmetSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.IronHelmetInspectionCliTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetAdapterCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetContractTest",
+          "tests": 186,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetInspectorTest",
+          "tests": 43,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetEmptySlotAdapterTest",
+          "tests": 103,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetNativeApiAuditTest",
+          "tests": 106,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.service.IronHelmetInspectionServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "passed": 646,
+      "duration": "4m49s",
+      "log": "build/iron-helmet-adapter-20261005/regression.log",
+      "retainedXml": "build/iron-helmet-adapter-20261005/regression-xml",
+      "selectionScript": "build/iron-helmet-adapter-20261005/regression.ps1",
+      "scope": "20 selected engine suites including adapter, diagnostics, catalog, mappings, six-profile regressions and previous private candidates; not a rerun of every repository test.",
+      "newSuites": [
+        {
+          "name": "IronHelmetEmptySlotAdapterTest",
+          "tests": 103
+        },
+        {
+          "name": "IronHelmetAdapterCatalogTest",
+          "tests": 2
+        }
+      ],
+      "observedFailures": 0,
+      "warnings": "Existing deprecated-API compilation notes; build exit 0. No memory guard or heap limits changed."
+    },
+    "package": {
+      "status": "PASS",
+      "duration": "1m6s",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "log": "build/iron-helmet-adapter-20261005/package.log"
+    },
+    "installedCli": {
+      "status": "PASS_EXPECTED_UNSUPPORTED",
+      "exitCode": 3,
+      "report": "build/iron-helmet-adapter-20261005/installed-inspection.json",
+      "reportSha256": "89a3fb2ef941dc7ab1cc0c0c8f1d1b9902ce92ffe32c71d71bf85c7222a8b536",
+      "stderrBytes": 0,
+      "constructorRecognized": true,
+      "result": "UNSUPPORTED",
+      "blockers": [
+        "HELMET_EQUIPMENT_TYPE_CONTRACT_CHANGED",
+        "HELMET_USE_CONTRACT_CHANGED",
+        "HELMET_INHERITED_BEHAVIOR_UNQUALIFIED"
+      ],
+      "availableOperation": "item.iron-helmet-empty-slot.v1",
+      "conversionRecipeImplemented": false,
+      "runtimeArtifactVerifiedByInspection": false,
+      "cliServiceParity": "Covered by selected IronHelmetInspectionCliTest"
+    },
+    "contract": {
+      "status": "PASS_WITH_PLATFORM_SKIPS",
+      "tests": 77,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "passed": 75,
+      "duration": "43s",
+      "skipReason": "Native symlink creation unavailable; platform-assumption skips, not simulated passes.",
+      "log": "build/iron-helmet-adapter-20261005/contract.log",
+      "prompts": 23,
+      "cuts": 81,
+      "cursor": "LB-10/ITEM-EQUIPMENT",
+      "evidenceCheck": "PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE"
+    }
+  },
+  "sourceReview": {
+    "sourceBinarySha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03",
+    "targetBinarySha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee",
+    "sourceSourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "nativeSourcesRedistributed": false,
+    "primaryOrientation": "https://docs.minecraftforge.net/en/1.20.1/concepts/sides/",
+    "orientationLimit": "General side distinction only; exact methods, bodies and semantics inspected in local pinned native archives.",
+    "declarations": "Source MobEntity declares static equipment lookup; target Mob aliases inherited LivingEntity declaration. Level.isClientSide is a method at this call site, not a substituted field.",
+    "behavior": "Actual compiled adapter body and pinned original canonicalize to the same 30-instruction call/branch sequence; synthetic context compares 16 side/hand/occupied/slot scenarios and exception ordering.",
+    "notEquivalentByThisProof": "Native Player setter changes from source sound-before-write to target verification/write/onEquipItem with new gates/GameEvent.EQUIP. Native slot, stack copy, sound, equipment and callers remain independent obligations."
+  },
+  "data": {
+    "kind": "EXPLICIT_LOCAL_FULL_ENVIRONMENT",
+    "mappingProfile": "build/item-attributes-20261001/mapping-profile.properties",
+    "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312",
+    "includedInPublicJar": false,
+    "hiddenDownload": false
+  },
+  "preservation": {
+    "previousCandidates": [
+      {
+        "suite": "OwnedStackRepairUseIntegrationTest",
+        "candidateSha256": "d7dbb4ca43e8b20a42fb4d0180050def1b7b7b4ad7ae48f96effece25e1c6c96",
+        "inputSha256": "420f710dadb3134c500dc1c1fc7077ed183758db6531416093454cca72b90d2a",
+        "unchanged": true
+      },
+      {
+        "suite": "OwnedStackDamageIntegrationTest",
+        "candidateSha256": "19081664b6a4ec70645d00788aced828cd6a04e9ffd3631e3277fe645cce5828",
+        "inputSha256": "a6099857d7a2e4e3cb2db6d67ce1db23d08d2ba9c17b732c380d2d7b64f09793",
+        "unchanged": true
+      },
+      {
+        "suite": "ItemAttributeDurabilityIntegrationTest",
+        "candidateSha256": "dbe6a5acd96b29ae771156bed7e231f443148d74bea6bfcb7159b895cee491eb",
+        "inputSha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16",
+        "unchanged": true
+      },
+      {
+        "suite": "ItemAttributeIntegrationTest",
+        "candidateSha256": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+        "inputSha256": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99",
+        "unchanged": true
+      }
+    ],
+    "previousCatalogDescriptors": 66,
+    "changedPreviousCatalogDescriptors": 0,
+    "newCatalogDescriptors": 1,
+    "publicProfilesUnchanged": 6,
+    "publicConversionAndApply": "simple-content-v1",
+    "runtimeIdentityAndVersionUnchanged": true,
+    "reportSchemasUnchanged": true,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "licenseChanged": false,
+    "newModAcquisition": false,
+    "publication": false
+  },
+  "qualification": {
+    "sourceModClassesExecuted": false,
+    "runtimeAdapterExecuted": false,
+    "minecraftClassesExecuted": false,
+    "candidateGenerated": false,
+    "installationAllowed": false,
+    "gameClient": "NOT_RUN",
+    "gameServer": "NOT_RUN",
+    "nativeBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "headlessBodyProof": "PASS_FINITE_CALL_CONTRACT_NOT_NATIVE_EFFECT_EQUIVALENCE"
+  },
+  "limitations": [
+    "The implemented operation is unused by conversion; armor remains UNSUPPORTED and no corpus release is unlocked.",
+    "ASM/declaration access and exact call sequencing are not native behavior, discovery, sound, synchronization or multiplayer proof.",
+    "The bounded test interpreter models endpoint effects and exceptions, not native player/stack/NBT/Forge implementations.",
+    "Inherited Equipable, dispenser registration/execution, hooks, rendering/trim, anvil/wear and lifecycle remain unqualified.",
+    "The new catalog entry does not authorize a rule or promote HIGH to VERIFIED. Runtime inspection evidence does not authenticate a caller's installed runtime.",
+    "Memory controls remain cooperative; no RSS/adversarial/isolation qualification or altered heap guard.",
+    "Tests from the preceding 7306-test run are historical, not counted as executed again in this 646-test selection."
+  ],
+  "continuation": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "IRON_HELMET_HEAD_EQUIP_EFFECTS",
+    "plan": "docs/IRON_HELMET_HEAD_EFFECTS_PLAN.md",
+    "reason": "Implement the restricted native HEAD sound-before-write effect with explicit receiver/stack preconditions; do not repeat the delivered direct use operation or lower semantically unqualified calls.",
+    "gamesAuthorized": false,
+    "countsUnchanged": {
+      "ACCEPTED": 15,
+      "PARTIAL": 19,
+      "BLOCKED": 2,
+      "NOT_STARTED": 45
+    }
+  },
+  "localEvidenceFiles": [
+    {
+      "path": "build/iron-helmet-adapter-20261005/compile.log",
+      "bytes": 5116,
+      "sha256": "2abbab79316262674dc193f984bc3cf57ebd37e4d560ab154533cb60927a3e8b"
+    },
+    {
+      "path": "build/iron-helmet-adapter-20261005/contract.log",
+      "bytes": 24626,
+      "sha256": "dfc9daa6c80612450637ce27023a1146a1a1dfd687343c9bd7915f9b2d65a766"
+    },
+    {
+      "path": "build/iron-helmet-adapter-20261005/fixture.log",
+      "bytes": 4386,
+      "sha256": "4a278f9ea88e20460912667e2be9c1878b69c55b6530f6e5655a7eda5edbf810"
+    },
+    {
+      "path": "build/iron-helmet-adapter-20261005/installed-cli-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/iron-helmet-adapter-20261005/installed-inspection.json",
+      "bytes": 57104,
+      "sha256": "89a3fb2ef941dc7ab1cc0c0c8f1d1b9902ce92ffe32c71d71bf85c7222a8b536"
+    },
+    {
+      "path": "build/iron-helmet-adapter-20261005/package.log",
+      "bytes": 10592,
+      "sha256": "504d8fd97af45fc67b6364b417d3b94a0d1a0c169f496a04464190663417efd3"
+    },
+    {
+      "path": "build/iron-helmet-adapter-20261005/regression.log",
+      "bytes": 170170,
+      "sha256": "30554344a880c8589368b5913cc6b575c520574a2d35520092fac7c0ae9e173a"
+    }
+  ]
+}

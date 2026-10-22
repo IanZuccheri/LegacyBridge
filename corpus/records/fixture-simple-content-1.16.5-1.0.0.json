@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "id": "fixture-simple-content-1.16.5-1.0.0",
+  "kind": "PROJECT_FIXTURE",
+  "projectKey": "project-simple-content",
+  "version": "1.0.0",
+  "artifact": {
+    "fileName": "legacybridge-example-1.16.5-1.0.0.jar",
+    "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+    "sizeBytes": 9534
+  },
+  "authorization": {
+    "basis": "PROJECT_LOCAL_REQUEST",
+    "license": "ALL_RIGHTS_RESERVED",
+    "redistributeBinary": false,
+    "evidence": [
+      "license"
+    ]
+  },
+  "source": {
+    "loader": "Forge/javafml",
+    "minecraftVersions": [
+      "1.16.5"
+    ],
+    "forgeBuild": "36.2.42",
+    "forgeVersionEvidence": "Exact fixture build dependency net.minecraftforge:forge:1.16.5-36.2.42 in fixtures/simple-content-1.16.5/build.gradle. Actual metadata range [36.2.42,37); analyzer detects only 36.x."
+  },
+  "dependencies": [
+    "forge [36.2.42,37) mandatory BOTH NONE",
+    "minecraft [1.16.5,1.17) mandatory BOTH NONE"
+  ],
+  "detectedFeatures": [
+    "LEGACY_EVENTS",
+    "LEGACY_REGISTRIES",
+    "RECIPES",
+    "ASSET_BLOCKSTATES",
+    "ASSET_MODELS",
+    "ASSET_TEXTURES",
+    "ASSET_LANG",
+    "ASSET_SOUNDS",
+    "DATA_RECIPES",
+    "DATA_TAGS",
+    "PACK_METADATA",
+    "PLAIN_ITEM",
+    "PLAIN_STONE_BLOCK",
+    "BLOCK_ITEM",
+    "DEFERRED_REGISTER_MOD_BUS_ATTACHMENT",
+    "VANILLA_CREATIVE_TAB_ASSIGNMENT"
+  ],
+  "blockers": [],
+  "output": {
+    "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+    "status": "CONVERTED"
+  },
+  "stages": {
+    "analyzable": {
+      "status": "PASSED",
+      "evidence": [
+        "analysis"
+      ]
+    },
+    "convertible": {
+      "status": "PASSED",
+      "evidence": [
+        "conversion"
+      ]
+    },
+    "bytecodeValidated": {
+      "status": "PASSED",
+      "evidence": [
+        "bytecode"
+      ]
+    },
+    "clientInitializes": {
+      "status": "PASSED",
+      "evidence": [
+        "client-initialization",
+        "client-mod-list"
+      ]
+    },
+    "serverInitializes": {
+      "status": "PASSED",
+      "evidence": [
+        "server-initialization"
+      ]
+    },
+    "clientBehavior": {
+      "status": "PASSED",
+      "evidence": [
+        "client-behavior",
+        "recipe-eight",
+        "recipe-nine",
+        "recipe-consumed",
+        "block-placed",
+        "pt-ingot",
+        "pt-block"
+      ]
+    },
+    "serverBehavior": {
+      "status": "PASSED",
+      "evidence": [
+        "server-behavior"
+      ]
+    },
+    "multiplayer": {
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  },
+  "evidence": [
+    {
+      "id": "license",
+      "type": "AUTHORIZATION",
+      "sourceSha256": null,
+      "targetSha256": null,
+      "sha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+      "path": "corpus/licenses/legacybridge/legacy-license-2026-09-06.txt"
+    },
+    {
+      "id": "analysis",
+      "type": "ANALYSIS",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": null,
+      "sha256": "a54ce2aa479d691f7eda620bfde1ee2775dca88f44a80f3eaa8a91c8295831b2",
+      "path": "build/p6-public/cacheless-engine/analyze-cli.json"
+    },
+    {
+      "id": "conversion",
+      "type": "CONVERSION",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "fa0d1dca01dbc20ebcff706095de383fed92ffbcec2b0241e081583505ccab0a",
+      "path": "build/p6-public/cacheless-engine/convert-cli.json"
+    },
+    {
+      "id": "bytecode",
+      "type": "BYTECODE",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "fa0d1dca01dbc20ebcff706095de383fed92ffbcec2b0241e081583505ccab0a",
+      "path": "build/p6-public/cacheless-engine/convert-cli.json"
+    },
+    {
+      "id": "client-initialization",
+      "type": "CLIENT_INITIALIZATION",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "4fc322f5fdead9542505ac106b1a418fb52ad8940399b412a27123cff238f2ad",
+      "path": "build/p6-public/evidence/launch-2/client-classloading.log"
+    },
+    {
+      "id": "server-initialization",
+      "type": "SERVER_INITIALIZATION",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "40a9b74ac122fd9b761be58c55645420e218e822b41bc9421479d407d0da1c05",
+      "path": "build/p6-public/server/p6-public-server-receipt.json"
+    },
+    {
+      "id": "client-behavior",
+      "type": "CLIENT_BEHAVIOR",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "6af031ea6d509ac5b62f09dd0f85d52b9e48384928b82a7107cd0491fd932884",
+      "path": "build/p6-public/evidence/launch-2/latest.log"
+    },
+    {
+      "id": "server-behavior",
+      "type": "SERVER_BEHAVIOR",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "40a9b74ac122fd9b761be58c55645420e218e822b41bc9421479d407d0da1c05",
+      "path": "build/p6-public/server/p6-public-server-receipt.json"
+    },
+    {
+      "id": "client-mod-list",
+      "type": "SCREENSHOT",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "1403f5cae65f4073e2af8ea0999ae7b6220831b521932519c6be8dfc95821527",
+      "path": "build/p6-public/evidence/27-forge-recognizes-converted-fixture.png"
+    },
+    {
+      "id": "recipe-eight",
+      "type": "SCREENSHOT",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "7774d28215b50b955eb9dd70a41d65915ebda6e983888878874e49031e6d387f",
+      "path": "build/p6-public/evidence/34-eight-ingots-no-recipe-result.png"
+    },
+    {
+      "id": "recipe-nine",
+      "type": "SCREENSHOT",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "e55087513e7a49ccf9626bd48d046be82beef6108366c9e3b655c6aaff53f04e",
+      "path": "build/p6-public/evidence/35-nine-ingots-native-recipe-result.png"
+    },
+    {
+      "id": "recipe-consumed",
+      "type": "SCREENSHOT",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "7ea38a9500cc5e6673d22b824de92fe991e930c0e22310712020a0f5bfa2db38",
+      "path": "build/p6-public/evidence/36-crafting-consumed-inputs-block-in-inventory.png"
+    },
+    {
+      "id": "block-placed",
+      "type": "SCREENSHOT",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "0f8246d9282dee5682b7d7685af74475826520c3fb77129ce5c2176a35cc9c11",
+      "path": "build/p6-public/evidence/37-crafted-block-placed-native-textures.png"
+    },
+    {
+      "id": "pt-ingot",
+      "type": "SCREENSHOT",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "79502634ad20ac16156b3471cb2742778af4109dad3e3908814857900640945d",
+      "path": "build/p6-public/evidence/46-pt-br-ingot-tooltip.png"
+    },
+    {
+      "id": "pt-block",
+      "type": "SCREENSHOT",
+      "sourceSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+      "targetSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "sha256": "9075d4547bc5371f25729d3f6db6c5251df6f28306bf543b92977673473e83d2",
+      "path": "build/p6-public/evidence/47-pt-br-block-tooltip.png"
+    }
+  ],
+  "structuredMetadata": {
+    "corpusVersion": "2026.09.06.1",
+    "modId": "legacybridge_example",
+    "modVersion": "1.0.0",
+    "sourceNature": "PROJECT_ORIGINAL_FORGE_COMPILED",
+    "sourceDescription": "Actual Forge 36.2.42 compile and reobfuscation, not a shim or hand-written ASM implementation.",
+    "sourceArtifactSha256": null,
+    "artifactLocations": [
+      "fixtures/simple-content-1.16.5/build/libs/legacybridge-example-1.16.5-1.0.0.jar"
+    ],
+    "aliases": [],
+    "isModArtifact": true,
+    "independentForgeCompiledFixture": true,
+    "sourceClassesExecutedDuringAnalysisOrConversion": false,
+    "redistributionNote": "The fixture README's broad redistributable wording is not a redistribution grant. Neither this intake nor the user's local QA request changes the repository LICENSE. No third-party mod was obtained by this audit.",
+    "validationContext": {
+      "sourceMinecraft": "1.16.5",
+      "sourceForge": "36.2.42",
+      "targetMinecraft": "1.20.1",
+      "targetForge": "47.4.23",
+      "java": "17.0.12",
+      "supportProfile": "simple-content-v1",
+      "runtimeModId": "legacybridge_runtime",
+      "adapterVersion": "0.1.1-SNAPSHOT",
+      "publicRuntimeSha256": "00cc7ebde1279c1ac3cc6ac0a54498e4598ca4f45700a6799f915ce9dddea991",
+      "mappingManifestSha256": "bac4e0018cc51bd13a7e5ae19116d04cb6b4bc271d3aecfba5e4ac0d27df5c69",
+      "runtimeEvidenceInheritedFromOtherFixture": false,
+      "operationDate": "2026-09-06",
+      "historicalEvidenceImport": true,
+      "gameRerunDuringCorpusIntake": false
+    },
+    "behaviorScope": {
+      "status": "PASSED_SCOPED",
+      "clientChecks": [
+        "give and item/model tooltip",
+        "eight-ingot negative recipe control",
+        "nine ingots craft one block",
+        "taking output consumes all nine inputs",
+        "crafted block manually placed and registry checked",
+        "en_us and pt_br tooltips"
+      ],
+      "dedicatedServerChecks": [
+        "registered block native placement",
+        "block tag native match",
+        "registered item native entity NBT",
+        "data-pack reload returned"
+      ],
+      "notClaimed": [
+        "all block/item properties",
+        "audible sound playback",
+        "all creative-tab interactions",
+        "original 1.16.5 behavior execution equivalence",
+        "existing-world migration",
+        "dedicated-server crafting from reload alone"
+      ],
+      "evidence": [
+        "recipe-eight",
+        "recipe-nine",
+        "recipe-consumed",
+        "block-placed",
+        "pt-ingot",
+        "pt-block",
+        "client-behavior",
+        "server-behavior"
+      ]
+    },
+    "multiplayerLimitation": "Integrated-server gameplay plus a loopback dedicated server without authenticated players is not multiplayer validation.",
+    "metricLimitations": [
+      "Fixture variants are not independently developed third-party mods.",
+      "A passed stage attests only the cited exact source/output hashes.",
+      "Counts of tests and resolved symbols are not counts or percentages of compatible mods."
+    ]
+  },
+  "analysisSummary": {
+    "retainedStandaloneCompatibilityReport": true,
+    "analysisStatus": "COMPLETE",
+    "detectedMinecraftVersion": "1.16.5",
+    "detectedForgeVersion": "36.x",
+    "classCount": 1,
+    "complexity": "MODERATE",
+    "riskScore": 15,
+    "scannerUnsupportedFeatureLabels": [
+      "LEGACY_EVENTS",
+      "LEGACY_REGISTRIES",
+      "RECIPES"
+    ],
+    "scannerPolicyCaveat": "CompatibilityReport schema 2 calls these labels unsupportedFeatures and retains conversionStatus NOT_IMPLEMENTED. They are analyzer labels, not converter blockers. Actual converter diagnostics and conversion report schema 2 determine refusal/success.",
+    "bytecodeChecks": [
+      "CheckClassAdapter dataflow",
+      "offline target reference-type analysis"
+    ],
+    "staticJvmLinkageVerified": false,
+    "sourceModClassesLoaded": false,
+    "outputSizeBytes": 6979,
+    "conversionScope": "Exact finite simple-content-v1 graph; no general legacy API support."
+  }
+}

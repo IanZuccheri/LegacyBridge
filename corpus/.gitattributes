@@ -1,0 +1,5 @@
+# Integrity snapshots bind exact bytes across Windows/Linux checkouts.
+*.json -text
+records/*.json -text
+snapshots/*.json -text
+licenses/** -text

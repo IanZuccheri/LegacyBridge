@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-10",
+  "cut": "UI-HISTORY-READ",
+  "prompt": "LB-04",
+  "status": "PARTIAL",
+  "implementationStatus": "IMPLEMENTED_STATIC",
+  "scope": "Native read-only product history UI on the existing bounded controller reader. No new conversion capability or historical Apply authority.",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT",
+    "gradle": "8.8"
+  },
+  "sourceAudit": {
+    "targetMappedSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "reReadEntries": ["net/minecraft/client/gui/screens/Screen.java", "net/minecraft/client/gui/components/ObjectSelectionList.java"],
+    "newLegacyEquivalences": false
+  },
+  "previousPublicArtifact": {
+    "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+    "preservedLocalPath": "build/ui-history-20260910-baseline/LegacyBridge-4e74a861.jar",
+    "archiveHashVerified": true
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "b3c6c1f98b2af0d91141b9b48f21ec3fd7e1baba8af878a083ce0dc20c5a6330",
+    "sizeBytes": 1303286,
+    "zipEntries": 532,
+    "comparisonToArchivedBaseline": {
+      "unchangedExistingEntries": 523,
+      "changedExistingEntries": [
+        "assets/legacybridge_runtime/lang/en_us.json",
+        "assets/legacybridge_runtime/lang/pt_br.json",
+        "dev/legacybridge/product/client/ConversionScreen.class"
+      ],
+      "addedEntries": [
+        "dev/legacybridge/product/client/HistoryDetailsScreen$Line.class",
+        "dev/legacybridge/product/client/HistoryDetailsScreen$Lines.class",
+        "dev/legacybridge/product/client/HistoryDetailsScreen.class",
+        "dev/legacybridge/product/client/HistoryScreen.class",
+        "dev/legacybridge/product/history/HistoryPresentation$Field.class",
+        "dev/legacybridge/product/history/HistoryPresentation.class"
+      ],
+      "removedEntries": [],
+      "method": "SHA-256 of each uncompressed ZIP entry; no classes defined or original mods executed."
+    }
+  },
+  "execution": {
+    "trustArguments": ["-Djavax.net.ssl.trustStore=NONE", "-Djavax.net.ssl.trustStoreType=Windows-ROOT"],
+    "trustMeaning": "Existing native Windows trust store; TLS verification not disabled.",
+    "firstFocusedCheck": {
+      "command": "gradlew.bat :legacy-product:test --tests dev.legacybridge.product.history.HistoryPresentationTest --tests dev.legacybridge.product.controller.JobHistoryControllerTest --console=plain",
+      "result": "PASS",
+      "tests": 8,
+      "failed": 0,
+      "skipped": 0,
+      "duration": "1m13s",
+      "note": "Initial 4 presentation cases plus 4 controller cases; later focused check supersedes this snapshot."
+    },
+    "focusedCheck": {
+      "command": "gradlew.bat :legacy-product:test --tests dev.legacybridge.product.history.HistoryPresentationTest --tests dev.legacybridge.product.history.HistoryClientBoundaryTest --tests dev.legacybridge.product.controller.JobHistoryControllerTest --console=plain",
+      "result": "PASS",
+      "tests": 11,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "duration": "20s",
+      "xmlDirectory": "legacy-product/build/test-results/test",
+      "interpretation": "Projection plus bytecode inspection and actual controller/filesystem behavior; not native UI or Forge startup."
+    },
+    "packageAndContractCheck": {
+      "command": "gradlew.bat assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-corpus:test --tests dev.legacybridge.corpus.PromptContractVerifierTest :legacy-corpus:verifyPromptContract --console=plain",
+      "result": "PASS",
+      "duration": "1m8s",
+      "tasks": 47,
+      "executed": 23,
+      "upToDate": 24,
+      "contractTests": 77,
+      "passed": 75,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": ["rejectsSymbolicEvidenceWithoutFollowingIt", "rejectsSymbolicPromptDirectory"],
+      "skipReason": "Existing platform-capability assumptions: native symlink creation unavailable; not a simulated PASS.",
+      "log": "build/ui-history-20260910-baseline/package-contract.log",
+      "warning": "Existing separate ProductClientProbe ResourceLocation(String,String) deprecation/removal warning; probe compiled, not executed or packaged in public JAR.",
+      "contractMarker": "PROMPT_CONTRACT_VERIFIED prompts=23 cuts=80 current=LB-01/PRODUCT-COMPOSED evidence=PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "scope": "All modules assembled; focused corpus verifier tests only, not a full root build/test campaign."
+    }
+  },
+  "evidenceDimensions": {
+    "productCompilation": "PASS",
+    "historyProjection": "PASS",
+    "controllerReadCancellationAndApplyIsolation": "PASS",
+    "clientBoundaryStaticInspection": "PASS",
+    "packagedArtifactAudit": "PASS",
+    "nativeClientVisualKeyboardResize": "NOT_RUN",
+    "dedicatedServerCurrentArtifact": "NOT_RUN",
+    "newCrossVersionConversionBehavior": "NOT_RUN",
+    "extensiveCorpusCampaign": "DEFERRED_BY_USER"
+  },
+  "restrictions": {
+    "minecraftProcessesStarted": 0,
+    "screenAutomationUsed": false,
+    "newModAcquisition": false,
+    "publication": false,
+    "conversionRulesChanged": false,
+    "adapterAbiChanged": false,
+    "receiptOrReportSchemasChanged": false,
+    "historicalEvidenceRebound": false
+  },
+  "limitations": [
+    "No native appearance, keyboard/GUI-scale/resize or dedicated-server startup evidence for the changed JAR.",
+    "History is recorded data, never current installation, discovery, activation, safe-to-close permission or gameplay proof.",
+    "No historical Apply, path opening, journal reconciliation, import or retention policy.",
+    "Old COMPOSE stage/index bindings at mutable build paths must be explicitly re-reviewed after the public hash changes; old ledgers remain unchanged.",
+    "Experimental/Beta; redistribution rights and other release gates remain open."
+  ],
+  "handoff": {
+    "contractVersion": "2026.09.10.1",
+    "nextPrompt": "LB-01",
+    "nextCut": "PRODUCT-COMPOSED",
+    "scope": "Typed static preview/admission boundary using existing composition code; no promotion or Apply for unqualified compositions.",
+    "compose01": "PARTIAL; native comparison still required, not another automatic harness expansion."
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Developer-only strict checker and schema for artifact-bound original/target recorded observations. Native capture harnesses remain the next separate headless implementation.",
+  "authorization": "Headless code/build/tests only; no Minecraft client/server, screen automation, original class execution, new mod acquisition or publication.",
+  "previousEvidence": "docs/evidence/compose-export-2026-09-07.json",
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "selectedArtifacts": "docs/evidence/compose-observation-index-2026-09-07.json",
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+    "bytes": 1280333,
+    "qualification": "STATIC_BUILD_PACKAGE_ONLY_NATIVE_NOT_RUN",
+    "implementationChanges": "None in product/runtime/engine classes, mapping data, adapter catalog or conversion rules. Public archive audit now explicitly refuses the development corpus package."
+  },
+  "sources": [
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionObservationVerifier.java",
+      "sha256": "ea0abf4e1d40aeddd63a1141784a1ea18b04f08644a176681c1877af2b7674af",
+      "bytes": 20894
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionObservationVerifierTest.java",
+      "sha256": "c9278fc9090db9c3b59cc47ba9803fcaa630b62a5222c477527d0cfd29e71a32",
+      "bytes": 21555
+    },
+    {
+      "path": "legacy-corpus/build.gradle",
+      "sha256": "5b0f54496be3fd11fc99e27d780791204a7f510e7c71cb49d42eafe6d4bcb2ca",
+      "bytes": 3329
+    },
+    {
+      "path": "legacy-product/build.gradle",
+      "sha256": "dc0bc340aca8a3e422b9a883c043469d597b74cadfca38862bd67c2bdf6cfc69",
+      "bytes": 13744
+    },
+    {
+      "path": "docs/COMPOSITION_OBSERVATIONS.md",
+      "sha256": "67153212a8434f573e2435772b06e16ea8c31d6bc52a942ad69eceb6b819db57",
+      "bytes": 11952
+    },
+    {
+      "path": "docs/evidence/compose-observation-index-2026-09-07.json",
+      "sha256": "aa8162c3c1aa2f409ff8a668817feec095f429c9754105fd23b9d929b96fe399",
+      "bytes": 1198
+    }
+  ],
+  "apiAudit": {
+    "method": "Read-only ZIP text inspection and SHA-256 of the two pinned local mapped-official source archives; no class definition or source redistribution.",
+    "sourceArchiveSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetArchiveSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "reviewed": ["Item.isFoil", "ItemStack.hasFoil", "AbstractFurnaceTileEntity.tick/burn/setItem", "AbstractFurnaceBlockEntity.serverTick/burn/setItem", "Authored recipe and non-replacing iron-ingot tag"],
+    "conversionApiChanges": "NONE"
+  },
+  "validation": {
+    "initialSyntheticTests": {
+      "status": "PASS", "tests": 70, "failed": 0, "errors": 0, "skipped": 0,
+      "log": "build/compose-observations-2026-09-07-run1/tests-1.log",
+      "xml": "build/compose-observations-2026-09-07-run1/tests-1.xml"
+    },
+    "finalTargetedSyntheticTests": {
+      "status": "PASS", "tests": 77, "failed": 0, "errors": 0, "skipped": 0,
+      "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-corpus:test --tests *CompositionObservationVerifierTest :legacy-corpus:verifyCompositionObservations -PcompositionObservationIndex=docs/evidence/compose-observation-index-2026-09-07.json --no-daemon --max-workers=1",
+      "log": "build/compose-observations-2026-09-07-run1/tests-and-index.log",
+      "logSha256": "2900805e854421f93e42189a3c7369861560383370bb7ccb15ab6a9d35397c60",
+      "xml": "build/compose-observations-2026-09-07-run1/tests-and-index.xml",
+      "xmlSha256": "2396cda743217f77af2f6ac1e1689f7daaad3ef19d970c5f1df1d63b2e6c2ddf",
+      "elapsed": "1m33s",
+      "boundary": "Synthetic JSON/logs and inert fake JAR bytes in temporary test directories, including a real local hard-link alias. No native behavior or mod executed."
+    },
+    "realArtifactIndexCheck": {
+      "status": "PASS",
+      "observedState": "NOT_RUN",
+      "filesChecked": 5,
+      "bytesChecked": 1402016,
+      "gameExecutionVerified": false,
+      "installationAllowed": false,
+      "sourceIntact": true,
+      "candidateIntact": true,
+      "boundary": "Actual authored original, retained candidate, proof, receipt and current public JAR hashes and selected static declarations only. Runs are explicitly null."
+    },
+    "rootBuild": {
+      "status": "PASS",
+      "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build :legacy-converter:installDist -PverifyCompositionEnvironment=true -PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties --no-daemon --max-workers=1",
+      "log": "build/compose-observations-2026-09-07-run1/root-build.log",
+      "logSha256": "37a223ddf0700086e15f5210e78823086f70cc5adddd0a5f1d4825c0902bd79e",
+      "elapsed": "4m16s",
+      "tasks": {"actionable": 69, "executed": 29, "upToDate": 40},
+      "freshCorpusTests": {"tests": 287, "passed": 283, "failed": 0, "errors": 0, "skipped": 4},
+      "freshCorpusSkips": [
+        "CorpusVerifierTest.refusesNativeSymlinkRecordWhenCreationIsPermitted",
+        "PromptContractVerifierTest.rejectsSymbolicEvidenceWithoutFollowingIt",
+        "PromptContractVerifierTest.rejectsSymbolicPromptDirectory",
+        "PublicEvidenceVerifierTest.symlinkEvidenceRefusesWhenPlatformAllowsItsCreation"
+      ],
+      "skipBoundary": "Four pre-existing tests are conditional on native symlink creation privileges/support. They were skipped, not passed. The new real hard-link alias test passed; all 77 new checker tests ran.",
+      "upToDateTestTasks": ["legacy-converter:test", "legacy-product:test", "legacy-runtime:test", "legacy-workflow:test"],
+      "upToDateXmlSnapshotNotNewExecution": {
+        "converter": {"tests": 844, "passed": 778, "skipped": 66, "failed": 0, "errors": 0},
+        "product": {"tests": 155, "passed": 155, "skipped": 0, "failed": 0, "errors": 0},
+        "runtime": {"tests": 30, "passed": 30, "skipped": 0, "failed": 0, "errors": 0},
+        "workflow": {"tests": 32, "passed": 32, "skipped": 0, "failed": 0, "errors": 0}
+      },
+      "archivedXml": "build/compose-observations-2026-09-07-run1/root-build-xml",
+      "contract": "PASS: 23 prompts, 79 cuts, cursor LB-08/COMPOSE-01; path/structure check only",
+      "publicArchive": "PASS: final SHA-256 unchanged, 526 ZIP entries, no corpus/CompositionQa/fixtures entries; existing package audit passed",
+      "apiBaselinesAndCliSmoke": "PASS: existing finite Forge API anchor checks, installed CLI smoke and engine boundary",
+      "headlessScriptSuites": "PASS: existing networking diagnostics/installation/handshake and public server preflight tests, no game launch"
+    },
+    "closeoutVerificationLog": "build/compose-observations-2026-09-07-run1/closeout-build.log",
+    "newConversion": "NOT_RUN_NO_CONVERSION_RULES_CHANGED",
+    "originalNative": "NOT_RUN",
+    "targetNative": "NOT_RUN",
+    "nativeBehaviorParity": "NOT_RUN",
+    "clientAssetsTranslations": "NOT_RUN",
+    "resourceReload": "NOT_RUN",
+    "multiplayer": "NOT_RUN"
+  },
+  "limitations": [
+    "Recorded matching values are not proof of game execution; independently reviewed native runs remain mandatory.",
+    "Native composition capture probes, isolated tick driver and run/exit/shutdown collector are not implemented by this cut.",
+    "Checker verifies selected proof declarations and hashes, not ASM/linkage again or authenticity of logs/records.",
+    "Recipe XP metadata is not native XP payout validation; bounded 120-tick samples do not prove general anti-duplication behavior.",
+    "A quiescent trusted local tree is required; hash rereads are not a filesystem snapshot or hostile-writer sandbox.",
+    "No new public profile, adapter, installer admission, UI support or compatibility expansion.",
+    "No new real-mod intake, redistribution of private inputs or publication."
+  ],
+  "next": {
+    "prompt": "LB-08", "cut": "COMPOSE-01",
+    "headless": "Implement and compile separate pinned source/target probes producing this schema, actual loaded artifact binding, no-overwrite observation writes and isolated tick/shutdown/failure collection. Do not launch games.",
+    "nativeGate": "Original/target behavior comparison remains required and not authorized; do not accept COMPOSE-01 or unlock LINKAGE-GENERAL."
+  }
+}

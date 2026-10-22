@@ -1,0 +1,509 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-08",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Developer-only unarmed create-new QA materialization and internal bounded process mechanics tested with inert JDK-only children. No closed authorized native executor or post-exit publisher yet.",
+  "authorization": "HEADLESS_IMPLEMENTATION. No Minecraft client/server, screen/focus/input, new mod acquisition, player-world changes or publication.",
+  "previousEvidence": "docs/evidence/compose-planning-2026-09-07.json",
+  "documentation": "docs/COMPOSITION_STAGING_COLLECTION.md",
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT",
+    "forgeGradle": "6.0.54",
+    "gradle": "8.8",
+    "testedJdk": "Oracle 17.0.12+8-LTS-286"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+    "bytes": 1280333,
+    "zipEntries": 526,
+    "unchanged": true,
+    "corpusNamespaceEntries": 0,
+    "testHelperClasses": 0,
+    "qualification": "STATIC_BUILD_PACKAGE_ONLY_NATIVE_NOT_RUN",
+    "changes": "NONE to rules/adapters/runtime ABI, six profiles, player service/UI/installation or original fixture."
+  },
+  "corpusArtifact": {
+    "path": "legacy-corpus/build/libs/legacy-corpus-0.1.1-SNAPSHOT.jar",
+    "sha256": "82dfdf98c903491e48fa4ca5628ace580cd57fd2e9e681e2fadf0a94c08dc1b2",
+    "bytes": 157296,
+    "zipEntries": 51,
+    "testHelperClasses": 0,
+    "qualification": "DEVELOPMENT_ONLY_NOT_PUBLIC"
+  },
+  "platformInventory": {
+    "path": "docs/evidence/compose-platform-inventory-2026-09-07.json",
+    "sha256": "ec9a5abb69cf7cde7b16d3c756aae0eeef322fef387425ca3b119b47a1f796c1",
+    "bytes": 22514,
+    "sourceFiles": 30,
+    "targetFiles": 66,
+    "contentsEmbedded": false,
+    "rightsBoundary": "Only existing locally prepared reviewed platform/fixture inputs copied beneath ignored private build directories. No sources, platform bytecode or fixture/helper/probe packaged in public product; no new download or redistribution permission."
+  },
+  "sourceAudit": {
+    "javaFilesSpec": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html",
+    "javaProcessSpec": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Process.html",
+    "localJdkSources": {
+      "path": "C:/Program Files/Java/jdk-17/lib/src.zip",
+      "sha256": "24fee80297ef15a886e283a31ac4eca18888ca8e942a21afb3f60a8535dc573b"
+    },
+    "reviewed": "Files#createDirectory/create-new; WindowsFileCopy ATOMIC_MOVE uses replacement; WindowsFileAttributes fileKey returns null; WindowsChannelFactory default sharing does not establish ownership; Process waitFor/destroyForcibly need separate completion checks.",
+    "forgeAndMinecraft": "No changed API/mapping/semantic contract. Exact reviewed launcher/inventory closure from previous ledger was rechecked by both public planner/stager paths; neither executes the original mod."
+  },
+  "sources": [
+    {
+      "path": "legacy-corpus/build.gradle",
+      "sha256": "a131299815f7d447ce5d306cae92d75eaf449bad11ce7b85ff2ff79cd48d24da",
+      "bytes": 6193
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionRunStager.java",
+      "sha256": "1d91287f187deb7757ab9ca94337033275abc1f062c1362e30de333b8da215b3",
+      "bytes": 22837
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionProcessCollector.java",
+      "sha256": "487f900ce72042d6578cf1697777221f3fbfef5871863e14a81bcc4be29f635c",
+      "bytes": 29092
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionRunPlanner.java",
+      "sha256": "944186a7cd84df05f54e6899c477eec104c510d510848ac09a19d741b157fb18",
+      "bytes": 23312
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionRunFiles.java",
+      "sha256": "86b8e3b5700693e3b470ecbe35ad6e21ab0510fadb7fd020bc5c1d4e51c50668",
+      "bytes": 7278
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionExitVerifier.java",
+      "sha256": "9e3da68a22c914e2e49c1974958108192f72dbeac09809955a44a5056d360cf4",
+      "bytes": 20938
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionRunStagerTest.java",
+      "sha256": "849a92478429c04a2851abf9ae11fffcee80891568b0310dc6b1ff2381b017c9",
+      "bytes": 39773
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionRunStagerCommandTest.java",
+      "sha256": "152e35773406e6867e59b5bfc164761832ab0def6926c4342a9e4ff6d0cd2f9b",
+      "bytes": 1791
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionProcessCollectorTest.java",
+      "sha256": "facc7e9947ebb890b396761d371021e879e43ea01c59f95d5155ca290f644cbd",
+      "bytes": 21628
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionCollectorHelper.java",
+      "sha256": "e326b25ede1da991e99bb1aaa24ca3892c30f2361fc7eadd70890c650d396761",
+      "bytes": 2227
+    }
+  ],
+  "schemas": {
+    "stageIntent": 1,
+    "journalEvent": 1,
+    "stageReceipt": 1,
+    "stageResult": 1,
+    "processCollection": 1
+  },
+  "tests": {
+    "initialFocused": {
+      "status": "FAILED_TEST_ASSERTIONS",
+      "tests": 107,
+      "passed": 103,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 1,
+      "seconds": 460,
+      "xmlDirectory": "build/compose-staging-2026-09-08-run1/initial-xml",
+      "cause": "Three command tests incorrectly assumed compact JSON. Changed tests to parse/assert structured fields; no production checks loosened."
+    },
+    "freshCorpus": {
+      "status": "PASSED_WITH_EXPLICIT_SKIPS",
+      "tests": 552,
+      "passed": 547,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 5
+    },
+    "newTests": {
+      "tests": 114,
+      "passed": 113,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "collector": 42,
+      "staging": 69,
+      "command": 3
+    },
+    "otherModuleTests": "legacy-converter, legacy-product, legacy-runtime and legacy-workflow UP-TO-DATE, not freshly rerun.",
+    "suites": [
+      {
+        "suite": "dev.legacybridge.corpus.CompositionExitVerifierTest",
+        "tests": 102,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 87.197,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CompositionExitVerifierTest.xml",
+        "sha256": "1a1bab71b6b027356f22822b623925d8af8df136e41aaac1b268dbeb95be7ae2"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CompositionObservationVerifierTest",
+        "tests": 77,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 9.981,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CompositionObservationVerifierTest.xml",
+        "sha256": "6993c2c1dc947d2595f63a96596099dd2912c4bce01a8a62c048109cc5b0f66f"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CompositionProcessCollectorTest",
+        "tests": 42,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 9.312,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CompositionProcessCollectorTest.xml",
+        "sha256": "ac84c0687ae3b159f4029e9ea7d61261798403c646f30381f8ee937dedce06c6"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CompositionRunPlannerCommandTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 0.003,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CompositionRunPlannerCommandTest.xml",
+        "sha256": "b401d74ba7813db6ec13a02b2ad2309dab202fba5b115b4ab13d8809fe248e66"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CompositionRunPlannerTest",
+        "tests": 41,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 142.049,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CompositionRunPlannerTest.xml",
+        "sha256": "f98efa319532fa1b85f4e2475f4606b35fec6e359da7ab0b90b250f0b7e1ef9a"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CompositionRunStagerCommandTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 0.032,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CompositionRunStagerCommandTest.xml",
+        "sha256": "7265b04ef5395a1074f1adc4fa9923239e66adf9a2876a7010ae19960ab6148d"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CompositionRunStagerTest",
+        "tests": 69,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1,
+        "seconds": 448.983,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CompositionRunStagerTest.xml",
+        "sha256": "9fc40a54658bfe43c068e3c9e4dd55b30f1138e69799f13b477d092bef2fb23f"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CorpusJsonTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 0.062,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CorpusJsonTest.xml",
+        "sha256": "d92cd612f9bae9d40bde0244aaa271af03c0d072d717b5e512c5275dd7ec286b"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CorpusLockTest",
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1,
+        "seconds": 1.805,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CorpusLockTest.xml",
+        "sha256": "859480f1414935dc60b79d9fe02141ae4265eccc8419344d991dd9541f57d93a"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CorpusRunnerTest",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 3.174,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CorpusRunnerTest.xml",
+        "sha256": "d98df7759e510e0ed92240242da3d167ee291292094b73970871b7c79a713159"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CorpusVerifierTest",
+        "tests": 47,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 5.448,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.CorpusVerifierTest.xml",
+        "sha256": "a042b91c27fffa84601a3a3d084ea731bf30570824ddb153b1cf29dbfef49135"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.PromptContractVerifierTest",
+        "tests": 77,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2,
+        "seconds": 17.933,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.PromptContractVerifierTest.xml",
+        "sha256": "91bd0c74c9ea184dee819da2b1ff128d3dceb14b6966105ef0a8be96dc912ee0"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.PublicEvidenceVerifierTest",
+        "tests": 49,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1,
+        "seconds": 2.251,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.corpus.PublicEvidenceVerifierTest.xml",
+        "sha256": "d2eea2b13240b663512cffc2b0be61f6a7e73182f42412ac1394ebaa45ff32e3"
+      },
+      {
+        "suite": "dev.legacybridge.validation.composition.ProbeConformanceTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 8.611,
+        "path": "build/compose-staging-2026-09-08-run1/final-xml/TEST-dev.legacybridge.validation.composition.ProbeConformanceTest.xml",
+        "sha256": "43b07f41880b450059e04529a7c3afbda9d5ce5c1d23c57f4bbceddbc094b5c9"
+      }
+    ],
+    "skips": [
+      {
+        "suite": "dev.legacybridge.corpus.CompositionRunStagerTest",
+        "test": "symlinkedDestinationAncestorCannotRedirectStaging()",
+        "reason": "Windows symbolic-link creation privilege unavailable"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.CorpusLockTest",
+        "test": "refusesNativeSymlinkRecordWhenCreationIsPermitted()",
+        "reason": "Windows symbolic-link creation privilege unavailable"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.PromptContractVerifierTest",
+        "test": "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "reason": "Windows symbolic-link creation privilege unavailable"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.PromptContractVerifierTest",
+        "test": "rejectsSymbolicPromptDirectory()",
+        "reason": "Windows symbolic-link creation privilege unavailable"
+      },
+      {
+        "suite": "dev.legacybridge.corpus.PublicEvidenceVerifierTest",
+        "test": "symlinkEvidenceRefusesWhenPlatformAllowsItsCreation()",
+        "reason": "Windows symbolic-link creation privilege unavailable"
+      }
+    ],
+    "interpretation": "Synthetic cases and inert JVM exits are not mods supported or native gameplay validations."
+  },
+  "build": {
+    "status": "PASSED",
+    "seconds": 792,
+    "tasks": 70,
+    "executed": 32,
+    "upToDate": 38,
+    "command": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build :legacy-converter:installDist :legacy-corpus:installDist -PverifyCompositionEnvironment=true -PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties --no-daemon --max-workers=1",
+    "gates": [
+      "verifyCatalog",
+      "verifyPromptContract (23 prompts / 79 cuts; paths only)",
+      "verifyForgeApiBaselines (36.2.42 / 47.4.23)",
+      "verifyProductJar",
+      "verifyRuntimeJar",
+      "verifyWorkflowBoundary",
+      "verifyEngineConsumerBoundary",
+      "smokeInstalledCli",
+      "headless network diagnostics and server preflight contract checks; no games"
+    ]
+  },
+  "actualCopyOnlyStages": [
+    {
+      "role": "SOURCE",
+      "runDirectory": "build/composition-probe-runs/run-stage-source-20260908",
+      "status": "STAGED_UNARMED",
+      "planSha256": "4261552c7ce30dc14b9d503ad4a732f7a635923e9aeee47c6c8321688f1ed25a",
+      "receipt": {
+        "path": "build/composition-probe-runs/run-stage-source-20260908/stage-receipt.json",
+        "sha256": "9348043af06d9158f3b6ea06a15642b540e952b79f3f747c4979400d97c57be1",
+        "bytes": 16902
+      },
+      "copies": 33,
+      "copyBytes": 54483655,
+      "receiptFiles": 70,
+      "actualFiles": 71,
+      "directories": 85,
+      "inputPins": 39,
+      "changedFiles": 0,
+      "changedInputs": 0,
+      "authorizationMarkerPresent": false,
+      "worldPresent": false,
+      "nativeLogsPresent": false,
+      "nativeObservations": 0,
+      "executionAllowed": false,
+      "installationAllowed": false
+    },
+    {
+      "role": "TARGET",
+      "runDirectory": "build/composition-probe-runs/run-stage-target-20260908",
+      "status": "STAGED_UNARMED",
+      "planSha256": "c9f0199d1f46fca3c631c8014aca9582db9edde5d78d0373032aabb390992d62",
+      "receipt": {
+        "path": "build/composition-probe-runs/run-stage-target-20260908/stage-receipt.json",
+        "sha256": "5f3eb7903b674a54259f6b4d3c114382c0e3cf873916dcbc5fd40698f19fd188",
+        "bytes": 35563
+      },
+      "copies": 71,
+      "copyBytes": 71890536,
+      "receiptFiles": 146,
+      "actualFiles": 147,
+      "directories": 176,
+      "inputPins": 75,
+      "changedFiles": 0,
+      "changedInputs": 0,
+      "authorizationMarkerPresent": false,
+      "worldPresent": false,
+      "nativeLogsPresent": false,
+      "nativeObservations": 0,
+      "executionAllowed": false,
+      "installationAllowed": false
+    }
+  ],
+  "copyStageTaskResults": {
+    "source": {
+      "status": "PASSED",
+      "seconds": 85,
+      "tasks": 7,
+      "executed": 1,
+      "upToDate": 6
+    },
+    "target": {
+      "status": "PASSED",
+      "seconds": 158,
+      "tasks": 7,
+      "executed": 1,
+      "upToDate": 6
+    }
+  },
+  "observationIndex": {
+    "path": "docs/evidence/compose-observation-index-2026-09-07.json",
+    "status": "NOT_RUN",
+    "runs": null,
+    "filesChecked": 5,
+    "bytesChecked": 1402016,
+    "sourceSha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+    "candidateSha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2",
+    "gameExecutionVerified": false,
+    "installationAllowed": false
+  },
+  "logs": [
+    {
+      "path": "build/compose-staging-2026-09-08-run1/closeout-build.log",
+      "sha256": "deb1816b2f3740c74e6178592a8d74d8675ccd397282aabc2b79bfb9df1d93e9",
+      "bytes": 7648
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/closeout-corrected-build.log",
+      "sha256": "5d7d1387fb4195c39e3feb2442e2129a94b6182216583ed05bbfeaec06a4030f",
+      "bytes": 20110
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/focused-tests.log",
+      "sha256": "9743d64173757a1027106f4a7a17dc7b3d741495bdc9dac462a423177cc668c5",
+      "bytes": 32664
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/full-build.log",
+      "sha256": "561644c33b0e934ff26d043dd42ac18ce1abdf73bf4748b69cf50e11f6e2f394",
+      "bytes": 125762
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/observation-index.log",
+      "sha256": "113bf916fe865305f7bec28d152916f3d574b74272502b552ea7e0ce2a80452e",
+      "bytes": 1156
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/source-plan.log",
+      "sha256": "968b34c7737c78493da35905d5d7dd2016c98a130f3b30c48456c132ba28371b",
+      "bytes": 48088
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/source-stage.log",
+      "sha256": "bc2acbb920a0cc99f5d9be414e96e2e01ebca5bfd534029623febcda436b8fd1",
+      "bytes": 7258
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/target-plan.log",
+      "sha256": "385e0c688962a7506feb425ba098beaab5237434a8e26542514d5176e02b1f86",
+      "bytes": 106080
+    },
+    {
+      "path": "build/compose-staging-2026-09-08-run1/target-stage.log",
+      "sha256": "6d60883cdfe68d9fae0614a41e13bd1d1a1fe89c1f97fed59716a68d4a4e4c3a",
+      "bytes": 7258
+    }
+  ],
+  "findingsFixed": [
+    "Retained-parent tracking before acquiring run ID.",
+    "Final staged and selected input alias/hash revalidation.",
+    "Late cancellation after staged receipt does not relabel successful unarmed materialization; late corruption/failure withholds approved receipt hash.",
+    "Collector final cancellation/interrupt barrier after input rehash, sanitized callback failures.",
+    "Await unfinished pipe instead of busy-spinning after other pipe EOF.",
+    "Post-termination input revalidation, no blocking close on an uncertain live reader; single slot quarantines uncertainty."
+  ],
+  "verifiedNegativeCoverage": [
+    "Changed/unselected Java/artifact pins; unsafe paths, genuine Windows junctions/hardlinks and real NOSHARE_READ denials.",
+    "Unknown files/directories, collisions, repeated ID, controlled I/O failure, before/after receipt corruption and cancellation.",
+    "Inert exit zero/nonzero, both pipe EOFs/stdin EOF, concurrent streams, overflow, timeout, cancellation/interrupt before/during/after collection, callback failures, minimal environment, malformed UTF-8 and sensitive-output rejection."
+  ],
+  "limitsAndPending": [
+    "No native Minecraft/Forge execution, gameplay, client assets/reload, multiplayer or source Java 17 equivalence validated.",
+    "No approved plan-to-process binding, manifest/dynamic/JDK closure enforcement by collector alone or post-exit create-new publication/recovery yet.",
+    "No physical disk-full, power-loss, partial low-level write/force/close fault campaign or surviving process/reader quarantine exercised.",
+    "Hash/canonical checks assume trusted quiescent local filesystem; same-byte independent replacement and hostile TOCTOU are not proven away.",
+    "Staging failure never auto-cleans/adopts unknown or partial trees. A final receipt file alone is not success/permission; shared parents may remain before run ID acquisition.",
+    "Limits are per developer JVM; heap is not OS/native memory bound and OS/file I/O has no hard real-time guarantee.",
+    "All platform copies stay private under build. No new corpus intake/publication and no compatibility/profile/installation promotion."
+  ],
+  "nextHeadless": "Bind materialized receipt, canonical reviewed plan, exact argv/cwd and immutable inputs into a closed session; separate mutable native outputs and add bounded create-new post-exit publication/recovery. Prove complete path with inert helpers first. No arming/native launch without renewed authorization.",
+  "gameExecutionVerified": false,
+  "launchContractVerified": false,
+  "installationAllowed": false,
+  "releaseApproved": false,
+  "closeoutRetries": [
+    {
+      "log": "build/compose-staging-2026-09-08-run1/closeout-build.log",
+      "status": "COMMAND_FAILED_BEFORE_TASKS",
+      "seconds": 12,
+      "cause": "PowerShell split unquoted dotted -PcompositionObservationIndex into an extra .json task; quote the entire property."
+    },
+    {
+      "log": "build/compose-staging-2026-09-08-run1/closeout-corrected-build.log",
+      "status": "METADATA_VERSION_REJECTED",
+      "seconds": 34,
+      "cause": "Incorrectly incremented fixed contractVersion for a checkpoint-date update. Restored 2026.09.07.1 and retained reviewedAt=2026-09-08; no schema, admission or validator gate loosened."
+    }
+  ]
+}

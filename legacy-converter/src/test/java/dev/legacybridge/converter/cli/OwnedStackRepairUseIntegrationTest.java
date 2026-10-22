@@ -1,0 +1,241 @@
+package dev.legacybridge.converter.cli;
+
+import dev.legacybridge.converter.conversion.*;
+import dev.legacybridge.converter.conversion.logic.VerifiedLogicMappings;
+import dev.legacybridge.converter.mapping.source.*;
+import dev.legacybridge.converter.operation.*;
+import dev.legacybridge.converter.report.CanonicalReportWriter;
+import dev.legacybridge.converter.service.*;
+import dev.legacybridge.converter.transformation.*;
+import dev.legacybridge.runtime.compat.*;
+import dev.legacybridge.runtime.compat.logic.OwnedStackRepairUseArtifactAdapter;
+import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.zip.*;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
+import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.objectweb.asm.*;
+import org.objectweb.asm.tree.*;
+import org.objectweb.asm.commons.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.objectweb.asm.Opcodes.*;
+
+@EnabledIfSystemProperty(named="legacybridge.verifyCompositionEnvironment",matches="true")
+class OwnedStackRepairUseIntegrationTest {
+    private static final String ENTRY="dev/legacybridge/fixture/stackuse/OwnedStackRepairUseContent";
+    private static final String ITEM="dev/legacybridge/fixture/stackuse/StackRepairUseItem";
+    @TempDir Path directory;
+    private static MappingInputs mappings;
+    private static Path profile(){return Path.of(System.getProperty("legacybridge.logicMappingProfile"));}
+    private static MappingInputs inputs()throws Exception{if(mappings==null)mappings=new MappingInputsLoader().load(profile());return mappings;}
+    @AfterAll static void release(){mappings=null;}
+    private static Path fixture(){return Path.of(System.getProperty("legacybridge.fixtureRoot"),
+        "owned-stack-repair-use-1.16.5/build/libs/legacybridge-owned-stack-repair-use-1.16.5-1.0.0.jar");}
+
+    @Test void serviceParityAndPublicProfilesRemainClosed()throws Exception{
+        var output=directory.resolve("absent.jar");CompositionCandidate proof;
+        try(var service=new LegacyEngineService()){
+            var request=new ConversionRequest(fixture(),output,MappingData.profile(profile()),
+                Optional.of(hash(Files.readAllBytes(fixture()))),ConversionProfile.LOGIC_PRESERVING_V1);
+            var outcome=service.planOwnedStackRepairUse(request).completion().toCompletableFuture().get(90,TimeUnit.SECONDS);
+            assertEquals(EngineOutcome.Status.COMPLETED,outcome.status(),()->outcome.toString());
+            proof=outcome.value().orElseThrow();
+            assertThrows(IllegalArgumentException.class,()->service.planOwnedStackRepairUse(new ConversionRequest(fixture(),output,MappingData.profile(profile()))));
+        }
+        assertEquals(proof,LogicPreservingConverter.planOwnedStackRepairUse(fixture(),output,inputs()));
+        assertEquals(6,ConversionProfile.values().length);
+        for(var p:ConversionProfile.values()){
+            var result=switch(p){
+                case SIMPLE_CONTENT_V1,DATAPACK_RECIPES_V1->new SimpleContentConverter(p).convert(fixture(),output,inputs());
+                default->new LogicPreservingConverter(p).convert(fixture(),output,inputs());
+            };assertFalse(result.converted(),p.toString());
+        }
+        assertFalse(LogicPreservingConverter.planLogicWithRecipes(fixture(),output,inputs()).validated());
+        assertFalse(LogicPreservingConverter.planDurableItem(fixture(),output,inputs()).validated());
+        assertFalse(LogicPreservingConverter.planOwnedStackDamage(fixture(),output,inputs()).validated());
+        assertFalse(LogicPreservingConverter.planItemAttributes(fixture(),output,inputs()).validated());
+        assertFalse(LogicPreservingConverter.planItemAttributeDurability(fixture(),output,inputs()).validated());
+        assertFalse(Files.exists(output));
+    }
+    @Test void candidatePreservesAllBodiesResourcesAndProofAcrossReadback()throws Exception{
+        var original=Files.readAllBytes(fixture());var output=directory.resolve("absent.jar");
+        var proof=LogicPreservingConverter.planOwnedStackRepairUse(fixture(),output,inputs());
+        assertTrue(proof.validated(),()->proof.report().toString());
+        assertFalse(proof.publicationAllowed());assertTrue(proof.candidateSha256().isPresent());assertFalse(Files.exists(output));
+        assertArrayEquals(original,Files.readAllBytes(fixture()));
+        var r=proof.report();
+        assertEquals("LEGACY_OWNED_STACK_REPAIR_USE_CANDIDATE",r.get("reportType"));
+        assertEquals(OwnedStackRepairUseArtifactAdapter.ID,r.get("candidateIdentity"));
+        assertEquals("NOT_RUN",r.get("runtimeValidation"));assertEquals("PRESERVED_NATIVE_CALLBACK_NOT_RUN",r.get("gameplayActivation"));
+        assertEquals("NOT_RUN",r.get("threadAndSyncQualification"));assertEquals(false,r.get("bytecodeExecuted"));
+        assertEquals(2,r.get("preservedClassCount"));assertEquals(6,r.get("preservedMethodCount"));assertEquals(0,r.get("replacedClassCount"));
+        assertEquals("PASSED_EXACT_RULES",r.get("ownedStackRepairUseMappingCommutation"));
+        assertEquals(r.get("sourceOwnedStackRepairUseContract"),r.get("ownedStackRepairUseContract"));
+        assertEquals(r.get("ownedStackRepairUseContract"),r.get("reopenedOwnedStackRepairUseContract"));
+        assertEquals("PASSED_SCOPED",((Map<?,?>)r.get("serializedOfflineLinkage")).get("status"));
+        assertEquals(true,((Map<?,?>)r.get("candidateArchiveValidation")).get("scratchDeleted"));
+        for(var raw:(List<?>)((Map<?,?>)r.get("artifactPlan")).get("entries")){
+            var e=(Map<?,?>)raw;var name=(String)e.get("path");
+            if(name.startsWith("assets/")||name.startsWith("data/")){
+                assertEquals("PRESERVE_BYTES",e.get("disposition"));assertEquals(e.get("sourceSha256"),e.get("targetSha256"));
+            }
+        }
+        for(var raw:(List<?>)((Map<?,?>)r.get("transformationLog")).get("entries")){
+            var e=(Map<?,?>)raw;assertEquals("VERIFIED",e.get("confidence"));assertNotNull(e.get("adapter"));
+        }
+        assertEquals(proof,LogicPreservingConverter.planOwnedStackRepairUse(fixture(),output,inputs()));
+        System.out.println("OWNED_STACK_REPAIR_USE_CANDIDATE "+new CanonicalReportWriter().toJsonTree(r));
+    }
+    @Test void declaredOperationMetadataHasRealImplementationsAndNoNativeAuthority()throws Exception{
+        assertEquals(List.of(AdapterCatalog.LOGIC,AdapterCatalog.STACK_REPAIR_USE_MANIFEST,AdapterCatalog.STACK_REPAIR_USE_BINDINGS,
+            AdapterCatalog.METADATA,AdapterCatalog.PACK),OwnedStackRepairUseArtifactAdapter.requiredAdapters());
+        var manifest=new java.util.jar.Manifest(new java.io.ByteArrayInputStream(OwnedStackRepairUseArtifactAdapter.targetManifest("1.0.0")));
+        assertEquals(OwnedStackRepairUseArtifactAdapter.ID,manifest.getMainAttributes().getValue("LegacyBridge-Profile"));
+        assertEquals("STATIC-CANDIDATE-ONLY",manifest.getMainAttributes().getValue("LegacyBridge-Qualification"));
+        assertEquals("1",manifest.getMainAttributes().getValue("LegacyBridge-Owned-Stack-Repair-Use-Revision"));
+        assertEquals(OwnedStackRepairUseArtifactAdapter.bindingTree(),TransformationBindings.forOwnedStackRepairUse().bindingTree());
+        for(var id:List.of(AdapterCatalog.STACK_REPAIR_USE_MANIFEST,AdapterCatalog.STACK_REPAIR_USE_BINDINGS)){
+            var descriptor=AdapterCatalog.require(id);assertEquals("OFFLINE",descriptor.phase());
+            assertFalse(descriptor.knownLimitations().isBlank());
+        }
+    }
+    @Test void renamedOwnedSymbolsAreNotAHashWhitelist()throws Exception{
+        var entries=read();var names=Map.of(ENTRY,"example/AttributeMod",ITEM,"example/AttributeItem");
+        var fields=Set.of("MOD_ID","ITEMS","STACK_ITEM");
+        for(var name:List.of(ENTRY,ITEM)){
+            var mapped=new ClassNode();node(entries,name).accept(new ClassRemapper(mapped,new Remapper(){
+                @Override public String map(String n){return names.getOrDefault(n,n);}
+                @Override public String mapFieldName(String owner,String name,String desc){
+                    return names.containsKey(owner)&&fields.contains(name)?"own_"+name:name;
+                }
+                @Override public String mapMethodName(String owner,String name,String desc){
+                    return owner.equals(ENTRY)&&name.equals("createItem")?"constructContent":owner.equals(ITEM)&&name.equals("repairOne")?"decrementDamage":name;
+                }
+            }));entries.remove(name+".class");entries.put(mapped.name+".class",bytes(mapped));
+        }
+        var path=directory.resolve("renamed.jar");write(path,entries);
+        var result=LogicPreservingConverter.planOwnedStackRepairUse(path,directory.resolve("absent.jar"),inputs());
+        assertTrue(result.validated(),()->result.report().toString());
+    }
+    @ParameterizedTest @ValueSource(strings={"missingRecipe","missingModel","unknownResource","unknownSerializer",
+        "missingItem","foreignDependency","clientDependency","sourceExcluded","reservedId","signedMarker"})
+    void archiveContractFailuresCannotProduceCandidate(String mutation)throws Exception{
+        var entries=read();String toml="META-INF/mods.toml";
+        switch(mutation){
+            case "missingRecipe"->entries.keySet().removeIf(p->p.startsWith("data/")&&p.contains("/recipes/"));
+            case "missingModel"->entries.keySet().removeIf(p->p.contains("/models/item/"));
+            case "unknownResource"->entries.put("data/legacybridge_stack_use/functions/unreviewed.mcfunction","say hello".getBytes(StandardCharsets.UTF_8));
+            case "unknownSerializer"->{var path=entries.keySet().stream().filter(p->p.contains("/recipes/")).findFirst().orElseThrow();
+                entries.put(path,"{\"type\":\"foreign:serializer\"}".getBytes(StandardCharsets.UTF_8));}
+            case "missingItem"->entries.remove(ITEM+".class");
+            case "foreignDependency"->entries.put(toml,(new String(entries.get(toml),StandardCharsets.UTF_8)+
+                "\n[[dependencies.legacybridge_stack_use]]\nmodId=\"foreign\"\nmandatory=true\nversionRange=\"[1,)\"\nordering=\"AFTER\"\nside=\"BOTH\"\n").getBytes(StandardCharsets.UTF_8));
+            case "clientDependency"->entries.put(toml,new String(entries.get(toml),StandardCharsets.UTF_8).replace("\"BOTH\"","\"CLIENT\"").getBytes(StandardCharsets.UTF_8));
+            case "sourceExcluded"->entries.put(toml,new String(entries.get(toml),StandardCharsets.UTF_8).replace("[1.16.5,1.17)","[1.20.1,1.21)").getBytes(StandardCharsets.UTF_8));
+            case "reservedId"->entries.put(toml,new String(entries.get(toml),StandardCharsets.UTF_8).replace("legacybridge_stack_use","minecraft").getBytes(StandardCharsets.UTF_8));
+            case "signedMarker"->entries.put("META-INF/UNKNOWN.SF","Signature-Version: 1.0\r\n\r\n".getBytes(StandardCharsets.UTF_8));
+            default->fail(mutation);
+        }
+        var path=directory.resolve(mutation+".jar");write(path,entries);var before=Files.readAllBytes(path);
+        var output=directory.resolve("absent.jar");var result=LogicPreservingConverter.planOwnedStackRepairUse(path,output,inputs());
+        assertFalse(result.validated(),mutation+" "+result.report());assertTrue(result.candidateSha256().isEmpty());
+        assertFalse(Files.exists(output));assertArrayEquals(before,Files.readAllBytes(path));
+    }
+    @ParameterizedTest @ValueSource(strings={"clientBranch","helperResult","foreignHand","secondLookup","unknownCall","holderSwap"})
+    void wrongUseSemanticsCannotPublishAnOtherwiseValidItem(String mutation)throws Exception {
+        var entries=read();var item=node(entries,ITEM);
+        var use=item.methods.stream().filter(m->m.name.equals("func_77659_a")).findFirst().orElseThrow();
+        var calls=new ArrayList<MethodInsnNode>();var jumps=new ArrayList<JumpInsnNode>();
+        for(var i:use.instructions){if(i instanceof MethodInsnNode c)calls.add(c);if(i instanceof JumpInsnNode j)jumps.add(j);}
+        switch(mutation) {
+            case "clientBranch"->jumps.get(0).setOpcode(IFNE);
+            case "helperResult"->jumps.get(1).setOpcode(IFNE);
+            case "foreignHand"->{var first=calls.get(0);use.instructions.insertBefore(first,new InsnNode(POP));use.instructions.insertBefore(first,new InsnNode(ACONST_NULL));}
+            case "secondLookup"->{var first=calls.get(0);var add=new InsnList();add.add(new VarInsnNode(ALOAD,2));add.add(new VarInsnNode(ALOAD,3));
+                add.add(new MethodInsnNode(INVOKEVIRTUAL,first.owner,first.name,first.desc,false));add.add(new InsnNode(POP));use.instructions.insert(add);}
+            case "unknownCall"->{var add=new InsnList();add.add(new MethodInsnNode(INVOKESTATIC,"java/lang/System","nanoTime","()J",false));add.add(new InsnNode(POP2));use.instructions.insert(add);}
+            case "holderSwap"->calls.stream().filter(c->c.name.equals("func_226249_b_")).findFirst().orElseThrow().name="func_226248_a_";
+            default->fail(mutation);
+        }
+        entries.put(ITEM+".class",bytes(item));var path=directory.resolve(mutation+".jar");write(path,entries);
+        var before=Files.readAllBytes(path);var output=directory.resolve("absent.jar");
+        var result=LogicPreservingConverter.planOwnedStackRepairUse(path,output,inputs());
+        assertFalse(result.validated(),()->result.report().toString());assertTrue(result.candidateSha256().isEmpty());
+        assertFalse(Files.exists(output));assertArrayEquals(before,Files.readAllBytes(path));
+    }
+    @Test void missingNativeHookIsExplicitFailureNotEngineClasspathFallback()throws Exception{
+        var original=inputs();
+        for(boolean old:List.of(true,false)){
+            var api=old?original.legacyApi():original.targetApi();var index=new TreeMap<>(api.classes());
+            index.remove("net/minecraftforge/common/extensions/IForgeItem");
+            var changed=new MappingInputs(original.legacyOfficial(),original.targetOfficial(),original.legacySrg(),original.targetSrg(),
+                old?new ApiIndex(index):original.legacyApi(),old?original.targetApi():new ApiIndex(index),
+                original.sources(),original.diagnostics(),original.complete());
+            var result=LogicPreservingConverter.planOwnedStackRepairUse(fixture(),directory.resolve("absent.jar"),changed);
+            assertFalse(result.validated());assertTrue(result.candidateSha256().isEmpty());
+        }
+    }
+    @ParameterizedTest @ValueSource(strings={"stack","locals"})
+    void hostileFrameBoundsAreBlockedBeforeDataflowAllocation(String bound)throws Exception{
+        var entries=read();var item=node(entries,ITEM);
+        var ctor=item.methods.stream().filter(m->m.name.equals("<init>")).findFirst().orElseThrow();
+        if(bound.equals("stack"))ctor.maxStack=65535;else ctor.maxLocals=65535;
+        var writer=new ClassWriter(0);item.accept(writer);entries.put(ITEM+".class",writer.toByteArray());
+        var path=directory.resolve("frames.jar");write(path,entries);var output=directory.resolve("absent.jar");
+        var result=LogicPreservingConverter.planOwnedStackRepairUse(path,output,inputs());
+        assertFalse(result.validated());assertTrue(result.candidateSha256().isEmpty());assertFalse(Files.exists(output));
+        assertTrue(result.report().toString().toLowerCase(Locale.ROOT).contains("bound"),()->result.report().toString());
+    }
+    @Test void staleSelectionCannotAuthorizeCandidate()throws Exception{
+        try(var service=new LegacyEngineService()){
+            var path=directory.resolve("absent.jar");
+            var request=new ConversionRequest(fixture(),path,MappingData.profile(profile()),Optional.of("0".repeat(64)),ConversionProfile.LOGIC_PRESERVING_V1);
+            var result=service.planOwnedStackRepairUse(request).completion().toCompletableFuture().get(90,TimeUnit.SECONDS);
+            assertNotEquals(EngineOutcome.Status.COMPLETED,result.status());assertFalse(Files.exists(path));
+        }
+    }
+    @ParameterizedTest @ValueSource(strings={"SERIALIZATION","REOPEN","FINAL_LINKAGE","PREPARED"})
+    void cancellationCannotPublishOrLeaveScratch(String point)throws Exception{
+        inputs();int[] validations={0};var ref=new AtomicReference<OperationControl>();
+        var observed=new AtomicReference<Set<Path>>(Set.of());var before=scratch();
+        var control=new OperationControl(OperationLimits.defaults(),e->{
+            boolean stop=e.stage()==OperationStage.SERIALIZATION&&point.equals("SERIALIZATION")
+                ||e.stage()==OperationStage.PREPARED&&point.equals("PREPARED");
+            if(point.equals("REOPEN")&&e.stage()==OperationStage.ARCHIVE_SCAN){
+                var now=new HashSet<>(scratch());now.removeAll(before);if(!now.isEmpty()){observed.set(now);stop=true;}
+            }
+            if(e.stage()==OperationStage.BYTECODE_VALIDATION&&++validations[0]==3&&point.equals("FINAL_LINKAGE"))stop=true;
+            if(stop)ref.get().requestCancel();
+        });ref.set(control);var output=directory.resolve("absent.jar");
+        try(var scope=control.enter()){
+            assertThrows(OperationStoppedException.class,()->LogicPreservingConverter.planOwnedStackRepairUse(fixture(),output,inputs()));
+        }
+        assertFalse(Files.exists(output));
+        if(point.equals("REOPEN")){assertFalse(observed.get().isEmpty());for(var p:observed.get())assertFalse(Files.exists(p));}
+    }
+    private static Set<Path> scratch(){
+        try(var files=Files.list(Path.of(System.getProperty("java.io.tmpdir")))){
+            return files.filter(p->p.getFileName().toString().startsWith("legacybridge-compose-")).collect(java.util.stream.Collectors.toSet());
+        }catch(java.io.IOException e){throw new AssertionError(e);}
+    }
+    private static ClassNode node(Map<String,byte[]> entries,String name){var n=new ClassNode();new ClassReader(entries.get(name+".class")).accept(n,0);return n;}
+    private static byte[] bytes(ClassNode n){var w=new ClassWriter(ClassWriter.COMPUTE_MAXS);n.accept(w);return w.toByteArray();}
+    private static Map<String,byte[]> read()throws Exception{
+        var entries=new TreeMap<String,byte[]>();try(var zip=new ZipFile(fixture().toFile())){
+            for(var e:Collections.list(zip.entries()))if(!e.isDirectory())try(var input=zip.getInputStream(e)){entries.put(e.getName(),input.readAllBytes());}
+        }return entries;
+    }
+    private static void write(Path path,Map<String,byte[]> entries)throws Exception{
+        try(var zip=new ZipOutputStream(Files.newOutputStream(path))){
+            for(var e:entries.entrySet()){zip.putNextEntry(new ZipEntry(e.getKey()));zip.write(e.getValue());zip.closeEntry();}
+        }
+    }
+    private static String hash(byte[] b)throws Exception{return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(b));}
+}

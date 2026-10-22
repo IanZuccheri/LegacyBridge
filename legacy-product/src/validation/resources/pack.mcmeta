@@ -1,0 +1,6 @@
+{
+  "pack": {
+    "pack_format": 15,
+    "description": "Separate LegacyBridge production QA probe; not a public product resource"
+  }
+}

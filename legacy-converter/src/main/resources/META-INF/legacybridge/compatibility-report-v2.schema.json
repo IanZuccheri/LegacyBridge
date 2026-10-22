@@ -1,0 +1,502 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legacybridge:schema:compatibility-report:v2",
+  "title": "LegacyBridge CompatibilityReport v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "modId", "modVersion", "detectedMinecraftVersion",
+    "detectedForgeVersion", "classCount", "minecraftReferences",
+    "minecraftReferenceCount", "minecraftReferencesTruncated",
+    "minecraftReferenceExternalityComplete", "forgeReferences",
+    "forgeReferenceCount", "forgeReferencesTruncated",
+    "forgeReferenceExternalityComplete", "thirdPartyDependencies",
+    "thirdPartyDependenciesTruncated", "mixins", "accessTransformers",
+    "coremods", "unsupportedFeatures", "riskScore", "complexity",
+    "packagesUsed", "packagesUsedTruncated", "classReferences", "content",
+    "manifest", "tool", "input", "archive", "metadata", "bytecode",
+    "markers", "findings", "assessment"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "modId": { "$ref": "#/$defs/nonEmptyString" },
+    "modVersion": { "$ref": "#/$defs/nonEmptyString" },
+    "detectedMinecraftVersion": { "enum": ["1.16.5", "UNKNOWN"] },
+    "detectedForgeVersion": { "enum": ["36.x", "UNKNOWN"] },
+    "classCount": { "type": "integer", "minimum": 0 },
+    "minecraftReferences": { "$ref": "#/$defs/references" },
+    "minecraftReferenceCount": { "type": "integer", "minimum": 0 },
+    "minecraftReferencesTruncated": { "type": "boolean" },
+    "minecraftReferenceExternalityComplete": { "type": "boolean" },
+    "forgeReferences": { "$ref": "#/$defs/references" },
+    "forgeReferenceCount": { "type": "integer", "minimum": 0 },
+    "forgeReferencesTruncated": { "type": "boolean" },
+    "forgeReferenceExternalityComplete": { "type": "boolean" },
+    "thirdPartyDependencies": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/thirdPartyDependency" }
+    },
+    "thirdPartyDependenciesTruncated": { "type": "boolean" },
+    "mixins": { "$ref": "#/$defs/artifacts" },
+    "accessTransformers": { "$ref": "#/$defs/artifacts" },
+    "coremods": { "$ref": "#/$defs/artifacts" },
+    "unsupportedFeatures": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/unsupportedFeature" }
+    },
+    "riskScore": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "complexity": { "enum": ["SIMPLE", "MODERATE", "COMPLEX", "EXTREME"] },
+    "packagesUsed": { "$ref": "#/$defs/packages" },
+    "packagesUsedTruncated": { "type": "boolean" },
+    "classReferences": { "$ref": "#/$defs/classReferences" },
+    "content": { "$ref": "#/$defs/content" },
+    "manifest": { "$ref": "#/$defs/manifest" },
+    "tool": { "$ref": "#/$defs/tool" },
+    "input": { "$ref": "#/$defs/input" },
+    "archive": { "$ref": "#/$defs/archive" },
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "bytecode": { "$ref": "#/$defs/bytecode" },
+    "markers": { "type": "array", "items": { "$ref": "#/$defs/marker" } },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "assessment": { "$ref": "#/$defs/assessment" }
+  },
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "referenceShape": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "owner", "method", "descriptor", "field"],
+      "properties": {
+        "kind": { "enum": ["SUPERCLASS", "INTERFACE", "FIELD", "METHOD", "TYPE"] },
+        "owner": { "$ref": "#/$defs/nonEmptyString" },
+        "method": { "type": ["string", "null"] },
+        "descriptor": { "type": "string" },
+        "field": { "type": ["string", "null"] }
+      }
+    },
+    "reference": {
+      "allOf": [
+        { "$ref": "#/$defs/referenceShape" },
+        {
+          "oneOf": [
+            {
+              "properties": {
+                "kind": { "enum": ["SUPERCLASS", "INTERFACE"] },
+                "method": { "type": "null" },
+                "descriptor": { "const": "" },
+                "field": { "type": "null" }
+              }
+            },
+            {
+              "properties": {
+                "kind": { "const": "FIELD" },
+                "method": { "type": "null" },
+                "descriptor": { "$ref": "#/$defs/nonEmptyString" },
+                "field": { "$ref": "#/$defs/nonEmptyString" }
+              }
+            },
+            {
+              "properties": {
+                "kind": { "const": "METHOD" },
+                "method": { "$ref": "#/$defs/nonEmptyString" },
+                "descriptor": { "$ref": "#/$defs/nonEmptyString" },
+                "field": { "type": "null" }
+              }
+            },
+            {
+              "properties": {
+                "kind": { "const": "TYPE" },
+                "method": { "type": "null" },
+                "descriptor": { "type": "string" },
+                "field": { "type": "null" }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "references": {
+      "type": "array",
+      "maxItems": 256,
+      "items": { "$ref": "#/$defs/reference" }
+    },
+    "methodReferences": {
+      "type": "array", "maxItems": 256,
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/reference" },
+          { "properties": { "kind": { "const": "METHOD" } } }
+        ]
+      }
+    },
+    "fieldReferences": {
+      "type": "array", "maxItems": 256,
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/reference" },
+          { "properties": { "kind": { "const": "FIELD" } } }
+        ]
+      }
+    },
+    "typeReferences": {
+      "type": "array", "maxItems": 256,
+      "items": {
+        "allOf": [
+          { "$ref": "#/$defs/reference" },
+          { "properties": { "kind": { "const": "TYPE" } } }
+        ]
+      }
+    },
+    "packages": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "thirdPartyDependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identifier", "source", "mandatory", "versionRange"],
+      "properties": {
+        "identifier": { "$ref": "#/$defs/nonEmptyString" },
+        "source": { "enum": ["DECLARED_MOD", "INFERRED_PACKAGE", "MANIFEST_CLASS_PATH", "MANIFEST_CONTAINED_DEPS"] },
+        "mandatory": { "type": "boolean" },
+        "versionRange": { "type": "string" }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/artifact" }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "parsed", "declarationCount", "attributes", "diagnostics", "truncated", "partial"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmptyString" },
+        "parsed": { "type": "boolean" },
+        "declarationCount": { "type": "integer", "minimum": 0 },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/stringArray" }
+        },
+        "diagnostics": { "$ref": "#/$defs/stringArray" },
+        "truncated": { "type": "boolean" },
+        "partial": { "type": "boolean" }
+      }
+    },
+    "unsupportedFeature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "occurrenceCount", "evidence", "evidenceTruncated"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "occurrenceCount": { "type": "integer", "minimum": 1 },
+        "evidence": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 16 }]
+        },
+        "evidenceTruncated": { "type": "boolean" }
+      }
+    },
+    "classReferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["referenceOccurrenceCount", "referenceOccurrencesByKind",
+        "reportedClassCount", "classDetailsTruncated", "definitionIndexComplete",
+        "externalSamplesComplete", "classes"],
+      "properties": {
+        "referenceOccurrenceCount": { "type": "integer", "minimum": 0 },
+        "referenceOccurrencesByKind": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["SUPERCLASS", "INTERFACE", "FIELD", "METHOD", "TYPE"],
+          "properties": {
+            "SUPERCLASS": { "type": "integer", "minimum": 0 },
+            "INTERFACE": { "type": "integer", "minimum": 0 },
+            "FIELD": { "type": "integer", "minimum": 0 },
+            "METHOD": { "type": "integer", "minimum": 0 },
+            "TYPE": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "reportedClassCount": { "type": "integer", "minimum": 0, "maximum": 256 },
+        "classDetailsTruncated": { "type": "boolean" },
+        "definitionIndexComplete": { "type": "boolean" },
+        "externalSamplesComplete": { "type": "boolean" },
+        "classes": {
+          "type": "array", "maxItems": 256,
+          "items": { "$ref": "#/$defs/classReference" }
+        }
+      }
+    },
+    "classReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entryName", "className", "referenceOccurrenceCount",
+        "referencesTruncated", "superclass", "interfaces", "methods", "fields", "types"],
+      "properties": {
+        "entryName": { "$ref": "#/$defs/nonEmptyString" },
+        "className": { "$ref": "#/$defs/nonEmptyString" },
+        "referenceOccurrenceCount": { "type": "integer", "minimum": 0 },
+        "referencesTruncated": { "type": "boolean" },
+        "superclass": { "type": ["string", "null"] },
+        "interfaces": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 256 }]
+        },
+        "methods": { "$ref": "#/$defs/methodReferences" },
+        "fields": { "$ref": "#/$defs/fieldReferences" },
+        "types": { "$ref": "#/$defs/typeReferences" }
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observedFileCount", "assetEntryCount", "dataPackEntryCount",
+        "assetNamespaces", "dataNamespaces", "categories"],
+      "properties": {
+        "observedFileCount": { "type": "integer", "minimum": 0 },
+        "assetEntryCount": { "type": "integer", "minimum": 0 },
+        "dataPackEntryCount": { "type": "integer", "minimum": 0 },
+        "assetNamespaces": { "$ref": "#/$defs/contentNamespaces" },
+        "dataNamespaces": { "$ref": "#/$defs/contentNamespaces" },
+        "categories": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "PACK_METADATA": { "$ref": "#/$defs/contentCategory" },
+            "PACK_ICON": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_BLOCKSTATES": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_MODELS": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_TEXTURES": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_LANG": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_SOUNDS": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_SHADERS": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_FONTS": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_PARTICLES": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_ATLASES": { "$ref": "#/$defs/contentCategory" },
+            "ASSET_OTHER": { "$ref": "#/$defs/contentCategory" },
+            "DATA_RECIPES": { "$ref": "#/$defs/contentCategory" },
+            "DATA_LOOT_TABLES": { "$ref": "#/$defs/contentCategory" },
+            "DATA_WORLDGEN": { "$ref": "#/$defs/contentCategory" },
+            "DATA_DIMENSIONS": { "$ref": "#/$defs/contentCategory" },
+            "DATA_DIMENSION_TYPES": { "$ref": "#/$defs/contentCategory" },
+            "DATA_TAGS": { "$ref": "#/$defs/contentCategory" },
+            "DATA_ADVANCEMENTS": { "$ref": "#/$defs/contentCategory" },
+            "DATA_FUNCTIONS": { "$ref": "#/$defs/contentCategory" },
+            "DATA_PREDICATES": { "$ref": "#/$defs/contentCategory" },
+            "DATA_ITEM_MODIFIERS": { "$ref": "#/$defs/contentCategory" },
+            "DATA_STRUCTURES": { "$ref": "#/$defs/contentCategory" },
+            "DATA_FORGE_LOOT_MODIFIERS": { "$ref": "#/$defs/contentCategory" },
+            "DATA_OTHER": { "$ref": "#/$defs/contentCategory" },
+            "CONFIGURATION": { "$ref": "#/$defs/contentCategory" },
+            "NON_CANONICAL_RESOURCE_PATH": { "$ref": "#/$defs/contentCategory" }
+          }
+        }
+      }
+    },
+    "contentNamespaces": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["namespaceCount", "samples", "samplesTruncated"],
+      "properties": {
+        "namespaceCount": { "type": "integer", "minimum": 0 },
+        "samples": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 16 }]
+        },
+        "samplesTruncated": { "type": "boolean" }
+      }
+    },
+    "contentCategory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entryCount", "samples", "samplesTruncated"],
+      "properties": {
+        "entryCount": { "type": "integer", "minimum": 0 },
+        "samples": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 16 }]
+        },
+        "samplesTruncated": { "type": "boolean" }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "parsed", "attributes", "valuesTruncated"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "parsed": { "type": "boolean" },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": false,
+          "maxProperties": 10,
+          "properties": {
+            "Automatic-Module-Name": { "type": "string", "maxLength": 4096 },
+            "Class-Path": { "type": "string", "maxLength": 4096 },
+            "ContainedDeps": { "type": "string", "maxLength": 4096 },
+            "FMLCorePlugin": { "type": "string", "maxLength": 4096 },
+            "FMLCorePluginContainsFMLMod": { "type": "string", "maxLength": 4096 },
+            "ForceLoadAsMod": { "type": "string", "maxLength": 4096 },
+            "Implementation-Title": { "type": "string", "maxLength": 4096 },
+            "Implementation-Version": { "type": "string", "maxLength": 4096 },
+            "MixinConfigs": { "type": "string", "maxLength": 4096 },
+            "TweakClass": { "type": "string", "maxLength": 4096 }
+          }
+        },
+        "valuesTruncated": { "type": "boolean" }
+      }
+    },
+    "tool": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "version", "policyVersion"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "version": { "$ref": "#/$defs/nonEmptyString" },
+        "policyVersion": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "input": {
+      "type": "object", "additionalProperties": false,
+      "required": ["fileName", "sizeBytes", "sha256"],
+      "properties": {
+        "fileName": { "$ref": "#/$defs/nonEmptyString" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "archive": {
+      "type": "object", "additionalProperties": false,
+      "required": ["entryCount", "totalUncompressedBytes", "signed", "multiRelease",
+        "specialEntryCount", "specialEntriesTruncated", "specialEntries", "specialEntryCounts"],
+      "properties": {
+        "entryCount": { "type": "integer", "minimum": 0 },
+        "totalUncompressedBytes": { "type": "integer", "minimum": 0 },
+        "signed": { "type": "boolean" },
+        "multiRelease": { "type": "boolean" },
+        "specialEntryCount": { "type": "integer", "minimum": 0 },
+        "specialEntriesTruncated": { "type": "boolean" },
+        "specialEntries": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 40 }]
+        },
+        "specialEntryCounts": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "SIGNATURE": { "type": "integer", "minimum": 1 },
+            "ACCESS_TRANSFORMER": { "type": "integer", "minimum": 1 },
+            "COREMOD": { "type": "integer", "minimum": 1 },
+            "TRANSFORMATION_SERVICE": { "type": "integer", "minimum": 1 },
+            "SERVICE_PROVIDER": { "type": "integer", "minimum": 1 },
+            "MIXIN_CONFIGURATION": { "type": "integer", "minimum": 1 },
+            "NESTED_JAR": { "type": "integer", "minimum": 1 },
+            "NATIVE_LIBRARY": { "type": "integer", "minimum": 1 },
+            "MODULE_DESCRIPTOR": { "type": "integer", "minimum": 1 },
+            "MULTI_RELEASE": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object", "additionalProperties": false,
+      "required": ["present", "parsed", "modLoader", "loaderVersion", "mods", "dependencies"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "parsed": { "type": "boolean" },
+        "modLoader": { "type": "string" },
+        "loaderVersion": { "type": "string" },
+        "mods": { "type": "array", "items": { "$ref": "#/$defs/mod" } },
+        "dependencies": { "type": "array", "items": { "$ref": "#/$defs/dependency" } }
+      }
+    },
+    "mod": {
+      "type": "object", "additionalProperties": false,
+      "required": ["modId", "version", "displayName"],
+      "properties": {
+        "modId": { "type": "string" }, "version": { "type": "string" },
+        "displayName": { "type": "string" }
+      }
+    },
+    "dependency": {
+      "type": "object", "additionalProperties": false,
+      "required": ["ownerModId", "modId", "mandatoryDeclared", "mandatory",
+        "versionRange", "ordering", "side"],
+      "properties": {
+        "ownerModId": { "type": "string" }, "modId": { "type": "string" },
+        "mandatoryDeclared": { "type": "boolean" }, "mandatory": { "type": "boolean" },
+        "versionRange": { "type": "string" }, "ordering": { "type": "string" },
+        "side": { "type": "string" }
+      }
+    },
+    "bytecode": {
+      "type": "object", "additionalProperties": false,
+      "required": ["classCount", "unreadableClassCount", "previewClassCount",
+        "nativeMethodCount", "classMajorVersions", "namespaces"],
+      "properties": {
+        "classCount": { "type": "integer", "minimum": 0 },
+        "unreadableClassCount": { "type": "integer", "minimum": 0 },
+        "previewClassCount": { "type": "integer", "minimum": 0 },
+        "nativeMethodCount": { "type": "integer", "minimum": 0 },
+        "classMajorVersions": {
+          "type": "object", "propertyNames": { "pattern": "^[0-9]+$" },
+          "additionalProperties": { "type": "integer", "minimum": 1 }
+        },
+        "namespaces": { "type": "array", "items": { "$ref": "#/$defs/namespace" } }
+      }
+    },
+    "namespace": {
+      "type": "object", "additionalProperties": false,
+      "required": ["namespace", "definitionCount", "referenceCount", "definitionSamples",
+        "referenceSamples", "definitionSamplesTruncated", "referenceSamplesTruncated"],
+      "properties": {
+        "namespace": { "enum": ["JAVA", "JAVAX", "MINECRAFT", "MINECRAFT_CLIENT",
+          "FORGE", "MODLAUNCHER", "MIXIN", "OTHER"] },
+        "definitionCount": { "type": "integer", "minimum": 0 },
+        "referenceCount": { "type": "integer", "minimum": 0 },
+        "definitionSamples": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 12 }]
+        },
+        "referenceSamples": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 12 }]
+        },
+        "definitionSamplesTruncated": { "type": "boolean" },
+        "referenceSamplesTruncated": { "type": "boolean" }
+      }
+    },
+    "marker": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "occurrenceCount", "evidence", "evidenceTruncated"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "occurrenceCount": { "type": "integer", "minimum": 1 },
+        "evidence": {
+          "allOf": [{ "$ref": "#/$defs/stringArray" }, { "maxItems": 16 }]
+        },
+        "evidenceTruncated": { "type": "boolean" }
+      }
+    },
+    "finding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["code", "severity", "category", "message", "evidence"],
+      "properties": {
+        "code": { "$ref": "#/$defs/nonEmptyString" },
+        "severity": { "enum": ["INFO", "WARNING", "ERROR", "BLOCKER"] },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "message": { "$ref": "#/$defs/nonEmptyString" },
+        "evidence": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "assessment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["analysisStatus", "sourceProfile", "conversionStatus", "executionStatus"],
+      "properties": {
+        "analysisStatus": { "enum": ["COMPLETE", "PARTIAL", "REJECTED"] },
+        "sourceProfile": { "enum": ["FORGE_1_16_5_CANDIDATE", "AMBIGUOUS", "OTHER"] },
+        "conversionStatus": { "const": "NOT_IMPLEMENTED" },
+        "executionStatus": { "const": "NOT_TESTED" }
+      }
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_DATAPACK_VALIDATION",
+  "date": "2026-09-06",
+  "profile": "datapack-recipes-v1",
+  "status": "EXPERIMENTAL_SCOPED",
+  "source": {
+    "minecraft": "1.16.5",
+    "forge": "36.2.42",
+    "java": "Temurin 8u492-b09"
+  },
+  "target": {
+    "minecraft": "1.20.1",
+    "forge": "47.4.23",
+    "java": "Oracle 17.0.12",
+    "adapterRuntime": "legacybridge_runtime",
+    "adapterVersion": "0.1.1-SNAPSHOT"
+  },
+  "fixture": {
+    "modId": "legacybridge_datapack",
+    "version": "1.0.0",
+    "authored": true,
+    "originalIntact": true,
+    "recipes": 6,
+    "additionalFormats": 5,
+    "preservedAssetAndDataEntries": 19
+  },
+  "rootTests": {
+    "total": 832,
+    "passed": 830,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "newCases": 48,
+    "skipReason": "Existing Windows symlink privilege gates"
+  },
+  "standaloneTests": {
+    "fixture": 5,
+    "sourceProbe": 5,
+    "targetProbe": 5,
+    "failures": 0
+  },
+  "staticConversion": {
+    "status": "CONVERTED",
+    "schemaVersion": 2,
+    "resourceValidationSchemaVersion": 1,
+    "transformationLogSchemaVersion": 1,
+    "cliServiceByteAndReportParity": true,
+    "planningPublishes": false,
+    "cancellationAtPublicationVerified": true,
+    "originalCodeExecuted": false,
+    "asmValidation": "PASSED",
+    "offlineTargetReferenceTypeAnalysis": "PASSED",
+    "generalJvmLinkageVerified": false,
+    "unknownResources": "ABORT_NO_JAR"
+  },
+  "nativeExecution": {
+    "source": "PASSED_SCOPED",
+    "target": "PASSED_SCOPED",
+    "ordinaryForgeInstallations": true,
+    "targetPublicArtifactIncluded": true,
+    "testOnlyObserverRequired": true,
+    "sourceExitCode": 0,
+    "targetExitCode": 0,
+    "recipeManagerLookupAndAssembly": "PASSED",
+    "reloadsPerSide": 2,
+    "managerReplaced": true,
+    "localTagReplacement": true,
+    "selectionRestored": true,
+    "overrideRetainedInactive": true,
+    "traceBytesEqual": true,
+    "traceSha256": "17e53ffbe5aa04f34a468c1541fb5f7985b186da9043cad9bc3627f1f60dd400",
+    "machineProcessing": "NOT_RUN",
+    "client": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "offlineGame": "NOT_TESTED"
+  },
+  "cacheless": {
+    "status": "PASSED",
+    "explicitLocalBundle": true,
+    "mappingSourceCount": 13,
+    "canonicalReportPairs": 3,
+    "artifactBytesEqual": true,
+    "externalFileAttempts": 0,
+    "networkAttempts": 0,
+    "processExecutionAttempts": 0,
+    "processExitAttempts": 0,
+    "testOnlySecurityManager": true,
+    "productionSandboxClaim": false
+  },
+  "regressions": {
+    "profilesAndSourceVariants": 5,
+    "oldOutputJarsByteIdentical": true,
+    "originalsIntact": true,
+    "defaultPlayerPolicyUnchanged": true,
+    "installerSupportsNewProfile": false
+  },
+  "corpus": {
+    "frozenVersion": "2026.09.06.1",
+    "realReleasesAudited": 3,
+    "realReleasesWithDataEntries": 0,
+    "wholeRealModsNewlyValidated": 0,
+    "compatibilityPercentage": null
+  },
+  "evidenceFiles": [
+    {
+      "path": "legacy-product/build/libs/LegacyBridge.jar",
+      "sha256": "09409a47c724f0a261766bbe2fc6edfe81fb01cb6c5c58f7820622ceb4868443",
+      "bytes": 1159454
+    },
+    {
+      "path": "fixtures/datapack-recipes-1.16.5/build/libs/legacybridge-datapack-recipes-1.16.5-1.0.0.jar",
+      "sha256": "9b71a7b57fb8657355166b8f5353b0454284df1cce21ca682ccbb204129665c5",
+      "bytes": 12147
+    },
+    {
+      "path": "build/datapack-recipes-v1/converted.jar",
+      "sha256": "97d4f699c3d31d05ac42288a3946a6d451429d1ecbf86957c3fb14883e2d8979",
+      "bytes": 9503
+    },
+    {
+      "path": "build/datapack-recipes-v1/rechecked/conversion.json",
+      "sha256": "cb732ae90a5f18c344f30ca8573a5f9096c9fb04003daa82d5ee11285229b2d9",
+      "bytes": 54843
+    },
+    {
+      "path": "fixtures/datapack-runtime-probe-1.16.5/build/libs/legacybridge-datapack-probe-1.16.5-1.0.0.jar",
+      "sha256": "58d29da135eeaf852dc616f6e7093aae5f2bfd47e8c49dc3a87a908f6ef990b6",
+      "bytes": 16531
+    },
+    {
+      "path": "fixtures/datapack-runtime-probe-1.20.1/build/libs/legacybridge-datapack-probe-1.20.1-1.0.0.jar",
+      "sha256": "61a06b28359fb4e17250b880806cbdb59038a68058065295f2f212786cb57068",
+      "bytes": 16815
+    },
+    {
+      "path": "build/datapack-recipes-v1/source-default-comparison1-server/behavior-receipt.json",
+      "sha256": "8f3b0923641f075b63e0ad789f23eb9145135b0b1aaaf149c649b551e8101158",
+      "bytes": 2710
+    },
+    {
+      "path": "build/datapack-recipes-v1/target-default-comparison1-server/behavior-receipt.json",
+      "sha256": "f4a4c3e1e2ef4cf37073898a076c6e954e885c05d22975dbc04992d65fa17c1c",
+      "bytes": 2912
+    },
+    {
+      "path": "build/datapack-recipes-v1/source-default-comparison1-server/behavior-stdout.log",
+      "sha256": "df43f11d081249b75f96e46109e70399615c48a8d1d3f4bbc845a1feff8a0eac",
+      "bytes": 18064
+    },
+    {
+      "path": "build/datapack-recipes-v1/target-default-comparison1-server/behavior-stdout.log",
+      "sha256": "554f403c59c327c9efad4593f258c99bd0ae1cfecfad5e13b8c1bfa0aa58c031",
+      "bytes": 31871
+    },
+    {
+      "path": "build/datapack-recipes-v1/source-default-comparison1-server/datapack-trace.json",
+      "sha256": "17e53ffbe5aa04f34a468c1541fb5f7985b186da9043cad9bc3627f1f60dd400",
+      "bytes": 1551
+    },
+    {
+      "path": "build/datapack-recipes-v1/target-default-comparison1-server/datapack-trace.json",
+      "sha256": "17e53ffbe5aa04f34a468c1541fb5f7985b186da9043cad9bc3627f1f60dd400",
+      "bytes": 1551
+    },
+    {
+      "path": "build/datapack-recipes-v1/cacheless-reports/cacheless-engine-evidence.json",
+      "sha256": "d6008f4eb3b262f2954f2482e50d500236652944ab2de59a01e408daa05d1ad1",
+      "bytes": 2003
+    },
+    {
+      "path": "build/datapack-recipes-v1/root-build2.log",
+      "sha256": "0c7230ed2109191b44a9ea1da54302f370c8c2e6f2b4b45c9582c6ec9f1e2b7a",
+      "bytes": 158350
+    },
+    {
+      "path": "build/datapack-recipes-v1/fixture-build.log",
+      "sha256": "c8b2409859d84c165430d1632d951c4d91c7dfdd44bf0275a9c292815436ef9d",
+      "bytes": 1708
+    },
+    {
+      "path": "build/datapack-recipes-v1/source-probe-build.log",
+      "sha256": "54b3f3d2c420e4b7798dadb0abde1b4eed976330195b81e8276942a2f380f12d",
+      "bytes": 1416
+    },
+    {
+      "path": "build/datapack-recipes-v1/target-probe-build.log",
+      "sha256": "11734cbebedb09684bd38ad090c5b3f97cc30df6b11056396d59c094b66ee7ed",
+      "bytes": 2334
+    },
+    {
+      "path": "build/datapack-recipes-v1/regressions/simple.jar",
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "bytes": 6979
+    },
+    {
+      "path": "build/datapack-recipes-v1/regressions/logic.jar",
+      "sha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d",
+      "bytes": 7562
+    },
+    {
+      "path": "build/datapack-recipes-v1/regressions/lifecycle.jar",
+      "sha256": "68e9550129d4a2cb88fa184323ae7d4badef8ffb4f31f328e10dfa0eccdba58c",
+      "bytes": 7871
+    },
+    {
+      "path": "build/datapack-recipes-v1/regressions/lifecycle-inferred.jar",
+      "sha256": "b3aad65a5871fd5deb1884b332ca3019c9dfbfb4631f9928331db1f29610dd68",
+      "bytes": 7803
+    },
+    {
+      "path": "build/datapack-recipes-v1/regressions/food.jar",
+      "sha256": "ecf854aa1826641f6a2ef305b188e685d40178ff9740dc4b5dc1c4f7bff9234e",
+      "bytes": 4202
+    }
+  ]
+}

@@ -1,0 +1,880 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_NATIVE_UI_ACCEPTANCE",
+  "reviewedAt": "2026-09-07",
+  "cut": "DATA-SIMPLE-01-NATIVE_UI",
+  "result": "ACCEPTED_FINITE_CUT",
+  "buildValidation": {
+    "status": "PASSED",
+    "command": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build --no-daemon --max-workers=1",
+    "log": "build/embedded-simple-ui-2026-09-07-run1/build-1.log",
+    "logSha256": "91b43be9fbc7157d4fd92d51382bc2c6f224d0188644c223d1d399d29c0c5bce",
+    "exitCode": 0,
+    "durationSecondsReportedByGradle": 25,
+    "actionableTasks": 68,
+    "executedTasks": 23,
+    "upToDateTasks": 45,
+    "freshPurePowerShellCases": 488,
+    "javaTests": "UP_TO_DATE; no new Java execution claimed by this documentation-only build",
+    "promptContract": "VERIFIED: 23 prompts, 77 cuts, cursor LB-06 / PUBLIC-CURRENT-E2E",
+    "publicJarHashUnchanged": true,
+    "evidenceFileHashesRechecked": 79,
+    "gameplayIsSeparate": true
+  },
+  "productQualification": "EXPERIMENTAL_BETA_NOT_APPROVED_FOR_PUBLICATION",
+  "transition": {
+    "from": {
+      "prompt": "LB-04",
+      "cut": "DATA-SIMPLE-01-NATIVE_UI"
+    },
+    "to": {
+      "prompt": "LB-06",
+      "cut": "PUBLIC-CURRENT-E2E"
+    },
+    "reason": "Actual public-only blank-data UI conversion, staging without activation, approved ADD/close, new discovery and finite gameplay oracle passed. Remaining negative and UI qualification gates are not accepted."
+  },
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "scope": {
+    "productionCodeChanged": false,
+    "profilesAdded": 0,
+    "adaptersAdded": 0,
+    "mappingRulesAdded": 0,
+    "originalClassesExecuted": false,
+    "qaModInstalled": false,
+    "debuggerAttached": false,
+    "publicArtifactChanged": false,
+    "gameWorld": "New disposable Survival/Peaceful superflat world LB Embedded UI r1, seed 20260907; structures disabled. No existing user world touched."
+  },
+  "method": {
+    "interface": "Real Win32 mouse/keyboard and physical screenshots through scripts/Invoke-P6Desktop.ps1; process, canonical gameDir, foreground and monitor bounds checked.",
+    "window": {
+      "width": 1280,
+      "height": 720,
+      "guiScale": 2
+    },
+    "conversionEntry": "Native Convert mods screen, optional mapping-data field empty, builtin finite contract.",
+    "launcher": "scripts/Start-ProductionClient.ps1 -ValidationRun embedded-simple -Launch; launch 2 adds only -Xlog:class+load=info:file=class-load-ui-r1-activation.log.",
+    "restart": "Actual Apply and close confirmation; separate manual launch. No automatic restart provider claimed.",
+    "commands": "Only vanilla in-game chat commands for controlled setup/read-only inventory and conditional block observation; crafting and placement used native mouse interactions."
+  },
+  "launches": [
+    {
+      "phase": "UI_CONVERSION_AND_APPROVED_INSTALL",
+      "processId": 6256,
+      "exitCode": 0,
+      "modsBefore": [
+        "LegacyBridge.jar"
+      ],
+      "titleModsLoaded": 3,
+      "worldOpened": false,
+      "archive": "build/embedded-simple-ui-2026-09-07-run1/launch-1",
+      "stoppingLogTime": "13:49:31.610"
+    },
+    {
+      "phase": "NEW_DISCOVERY_AND_NATIVE_GAMEPLAY",
+      "processId": 32376,
+      "exitCode": 0,
+      "titleModsLoaded": 4,
+      "mods": [
+        "LegacyBridge.jar",
+        "legacybridge-legacybridge_example-c0051adc-3a21-4469-a9ec-6f50d91fe1e8-0.jar"
+      ],
+      "archive": "build/embedded-simple-ui-2026-09-07-run1/launch-2",
+      "worldSavedAllDimensionsLogTime": "14:02:51.552",
+      "stoppingLogTime": "14:03:25.875"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "INVENTORY",
+      "status": "PASS",
+      "observed": "Genuine source detected Forge 1.16.5 candidate with modId/version/size/hash; inert corrupt input INVALID and not selectable.",
+      "screenshots": [
+        3
+      ]
+    },
+    {
+      "id": "UI_CONVERSION",
+      "status": "PASS",
+      "observed": "Three real UI conversions with empty optional data field, visible converting and converted states, details show report paths and finite-profile limits. Same input/report/output hashes.",
+      "screenshots": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "CONTINUE_WITHOUT_ACTIVATION",
+      "status": "PASS",
+      "observed": "Second conversion completed; title still 3 mods loaded and mods directory still only public JAR before Apply. Closing/reopening screen did not load fixture.",
+      "screenshots": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "APPROVED_ADD_AND_MANUAL_CLOSE",
+      "status": "PASS",
+      "observed": "Only third result approved via native installation screen and Apply and close confirmation. One committed ADD before exit 0; original not moved.",
+      "screenshots": [
+        12,
+        13
+      ]
+    },
+    {
+      "id": "NEXT_LAUNCH_DISCOVERY",
+      "status": "PASS",
+      "observed": "Separate normal launch has four loaded mods; native Forge list shows LegacyBridge Example 1.0.0 DONE. Class-load trace binds generated class to installed converted JAR.",
+      "screenshots": [
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "id": "NATIVE_RECIPE",
+      "status": "PASS",
+      "observed": "Nine ingots granted, no block granted before test. Actual 3x3 table with eight filled slots gives no result; ninth gives one block. Taking result consumes all nine, inventory contains exactly one block.",
+      "screenshots": [
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    {
+      "id": "NATIVE_BLOCK_AND_CONSERVATION",
+      "status": "PASS",
+      "observed": "Actual right-click places crafted block at 1,-60,1, turquoise model/texture visible; conditional native execute confirms exact registry ID; inventory becomes empty. Later grants are only for translation QA.",
+      "screenshots": [
+        28
+      ]
+    },
+    {
+      "id": "RELOAD",
+      "status": "PASS_BOUNDED",
+      "observed": "Actual /reload parses seven recipes and 1271 advancements without parser errors. No second crafting cycle after reload claimed."
+    },
+    {
+      "id": "ASSETS_AND_TRANSLATIONS",
+      "status": "PASS_BOUNDED",
+      "observed": "Native item/block icons and placed block render. pt_br Lingote da Ponte / Bloco da Ponte; native language change/reload to en_us Bridge Ingot / Bridge Block. Sound resource bytes preserved but audible playback NOT_RUN.",
+      "screenshots": [
+        28,
+        30,
+        31,
+        39,
+        40,
+        41
+      ]
+    },
+    {
+      "id": "ASM_AND_REFERENCES",
+      "status": "PASS_BOUNDED",
+      "observed": "Conversion report schema 2: CheckClassAdapter dataflow and offline target reference-type analysis PASSED. jvmLinkageVerified=false and modClassesLoaded=false remain explicit; runtime evidence is separate."
+    },
+    {
+      "id": "ORIGINAL_AND_RESOURCES",
+      "status": "PASS",
+      "observed": "Original SHA unchanged; all 12 original assets/data entries byte-identical. Existing rule adds pickaxe tag; sole output class is generated mod bootstrap."
+    },
+    {
+      "id": "DEDICATED_SERVER",
+      "status": "REUSED_SAME_ARTIFACT_EVIDENCE",
+      "evidence": "docs/evidence/embedded-simple-content-2026-09-07.json",
+      "observed": "Earlier same-public-hash and same-converted-hash ordinary dedicated check, not rerun in this UI continuation."
+    },
+    {
+      "id": "CACHELESS_CONVERSION",
+      "status": "REUSED_SAME_ARTIFACT_EVIDENCE",
+      "evidence": "docs/evidence/embedded-simple-content-2026-09-07.json",
+      "observed": "Earlier isolated CLI/service tripwire validation. Current native launch uses prepared ordinary Forge libraries/assets, no explicit bundle and zero development-cache class sources matched."
+    },
+    {
+      "id": "NETWORK_ISOLATED_OFFLINE_GAMEPLAY",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "MULTIPLAYER",
+      "status": "NOT_RUN"
+    }
+  ],
+  "transaction": {
+    "id": "c0051adc-3a21-4469-a9ec-6f50d91fe1e8",
+    "schemaVersion": 2,
+    "state": "COMMITTED",
+    "entryCount": 1,
+    "approvedStage": "d8c48101-62a2-4355-82bf-b6478ccbed98/converted.jar",
+    "planSha256": "02f74e002bc99a0c60470f5bf0e70625652271c320a7def09e3e8390fd0f46ed",
+    "durability": "FILE_CONTENTS_FORCED_DIRECTORY_FSYNC_NOT_GUARANTEED",
+    "persistedJobState": "CONVERTED",
+    "persistedJobInstalled": null,
+    "persistedJobTransaction": null,
+    "pendingRestartReceiptVerified": false
+  },
+  "logReview": {
+    "launch1ErrorLines": 1,
+    "launch1Error": "EARLYDISPLAY: glfwInit took 1.4935066 seconds; continued to UI. Do not call this log zero-error.",
+    "launch2ErrorLines": 0,
+    "warnings": "Forge library mods.toml notices, union asset scheme, vanilla goat horn/shader sampler messages, defaults of new Forge server config and Netty IPv6 property warning. No fixture missing-model/texture or recipe parser error observed.",
+    "simulationDistanceErrorRecurred": false
+  },
+  "pending": [
+    "PUBLIC-CURRENT-E2E: native unsupported contract, missing dependency, duplicate modId, cancellation, write failure and interruption/recovery on artifact under qualification.",
+    "Native multi-selection/queue saturation and GUI scale/resize matrix are not freshly accepted by this bounded 1280x720 scale-2 run.",
+    "UI-PROMOTION: reopenable job history and persistent installation linkage; receipt remains CONVERTED after committed Apply/close. Journal plus next discovery, not a fabricated PENDING_RESTART receipt, proves installation.",
+    "Long metadata hover tooltip clipping remains a UI polish/qualification limit. Search persists across tabs and may hide jobs whose names differ from input modId.",
+    "Native screenshot 08 has two jobs counted but filtered out by search; it is not evidence of two visible completed rows. Staged artifacts and reports prove both results.",
+    "Automatic restart, authenticated multiplayer, audible sound test and network-isolated offline gameplay not validated.",
+    "LB-12 CLIENT_PROTOCOL normal handshake oracle remains unresolved; no new networking support or capabilities."
+  ],
+  "ownershipAtClose": {
+    "ownedMinecraftProcessesRemaining": 0,
+    "unrelatedProcessesTerminated": 0,
+    "downloads": 0,
+    "published": false
+  },
+  "staticAudit": {
+    "resources": [
+      {
+        "path": "assets/legacybridge_example/blockstates/bridge_block.json",
+        "bytes": 87,
+        "sha256": "8ede2e3b634a1f5f45a2cf912b3a748fa0bc2597c0f33020ea80eaeae86f8743",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/lang/en_us.json",
+        "bytes": 124,
+        "sha256": "e1e939e37c338b333ced06dd9441837307ffe72aabf09d0d42d81a8762b034fa",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/lang/pt_br.json",
+        "bytes": 130,
+        "sha256": "c58a21f4b4e5846b9ab8648623829fcde4d8e7a3d6b2e8e1bb2e84f7deb7f3e8",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/models/block/bridge_block.json",
+        "bytes": 117,
+        "sha256": "100df40ac7acfc31e024f9629f5c0d26738c45010f117e929c3ee5341904c150",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/models/item/bridge_block.json",
+        "bytes": 58,
+        "sha256": "f21f68162fc5675973490d5dbc54a39acd5b36f97653f9f3af47e54387317540",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/models/item/bridge_ingot.json",
+        "bytes": 119,
+        "sha256": "ce25a6d72708c911990344d41e64562dd80dcec8152e74da8c06a1803f69113d",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/sounds.json",
+        "bytes": 119,
+        "sha256": "0ed103a0e7ed5982a959e4dff17616e8a966ef116540fc7f483670ab14bfa6ae",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/textures/block/bridge_block.png",
+        "bytes": 114,
+        "sha256": "efc366c163286e18cecc3d61f3c1d2b787b7665f3a433d0992d7574d2627f115",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "assets/legacybridge_example/textures/item/bridge_ingot.png",
+        "bytes": 102,
+        "sha256": "cb1acfd9557c6c346aef9b297616011485a82234b397204a9922289ac4fd4d1f",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "data/legacybridge_example/recipes/bridge_block.json",
+        "bytes": 250,
+        "sha256": "982575f17a2aabee28bee8b2410643a813637138d6b4fac5f77860ba4b281af3",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "data/legacybridge_example/tags/blocks/bridge_blocks.json",
+        "bytes": 74,
+        "sha256": "3ac905924f24c853864d8db6aa9ef7bda1f23b2d2bc9d2574485514c885786ad",
+        "status": "BYTE_IDENTICAL"
+      },
+      {
+        "path": "data/legacybridge_example/tags/items/bridge_ingots.json",
+        "bytes": 74,
+        "sha256": "05129ba4ce2231b3942c6f4f3b3263f9d9a0337d99e14985ad1648deffac1bc9",
+        "status": "BYTE_IDENTICAL"
+      }
+    ],
+    "addedResources": [
+      "data/minecraft/tags/blocks/mineable/pickaxe.json"
+    ],
+    "outputClasses": [
+      "dev/legacybridge/generated/legacybridge_example/ConvertedMod.class"
+    ],
+    "activationTrace": {
+      "forbiddenSourceMatches": 0,
+      "generatedClassMatches": [
+        {
+          "line": 16389,
+          "text": "[9.799s][info][class,load] dev.legacybridge.generated.legacybridge_example.ConvertedMod source: union:/${LEGACYBRIDGE_SOURCE_ROOT}/build/embedded-simple/client/mods/legacybridge-legacybridge_example-c0051adc-3a21-4469-a9ec-6f50d91fe1e8-0.jar%23158!/"
+        }
+      ]
+    },
+    "preparation": {
+      "schemaVersion": 2,
+      "reportType": "LEGACYBRIDGE_PRODUCTION_CLIENT_PREPARATION",
+      "minecraft": "1.20.1",
+      "forge": "47.4.23",
+      "installerSha256": "75cfcb11f60cc641dc83757c1357c08c9bdba255ec529feb115c5e89a59cf75a",
+      "processorOutputs": [
+        {
+          "path": "libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-extra.jar",
+          "sha256": "f43d1ac034a8907edab190a17501fd4ca2b0af107d4231da364eeca8ab5ee317",
+          "provenance": "PINNED_OFFICIAL_INSTALLER_OUTPUT_SHA1"
+        },
+        {
+          "path": "libraries/net/minecraft/client/1.20.1-20230612.114412/client-1.20.1-20230612.114412-srg.jar",
+          "sha256": "e2e940fe7ca0a9fba5a5c11ad2cf3e2f7df91bbf51d12af22cdde7af18adc344",
+          "provenance": "EXPLICIT_INSTALLED_SOURCE_MATCH_LOCAL_SHA256"
+        },
+        {
+          "path": "libraries/net/minecraftforge/forge/1.20.1-47.4.23/forge-1.20.1-47.4.23-client.jar",
+          "sha256": "ad9f1da4f4ae6121c3fd4ec6a67b0e89bb7466d7039879b75d7cb9592c0e5605",
+          "provenance": "PINNED_OFFICIAL_INSTALLER_OUTPUT_SHA1"
+        }
+      ],
+      "vanillaMetadataSha1": "19f5ae58f9c31bd3b0923cb822e99e3162bd62ab",
+      "vanillaClientSha1": "0c3ec587af28e5a785c0b4a7b8a30f9a8f78f838",
+      "forgeMetadataSha256": "154923d5c1a51b669bf8a981693f068021312f2495a13bf87b277bc702d95c7b",
+      "assetIndexSha1": "37929153495e2e44c1bdd1927f519eaa0f4b7bda",
+      "assetObjects": 3575,
+      "copied": 3679,
+      "downloaded": 0,
+      "reusedVerified": 0,
+      "gameLaunched": false,
+      "credentialsRead": false,
+      "gradleClasspathUsed": false
+    }
+  },
+  "artifacts": [
+    {
+      "path": "build/embedded-simple/client/legacybridge/input/corrupted.jar",
+      "bytes": 67,
+      "sha256": "8e6ab5f23959a26445fedefff5135d045bd4b48c962dad0da542139f7c2fc95f"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/input/legacybridge-example-1.16.5-1.0.0.jar",
+      "bytes": 9534,
+      "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/1aedb3cb-def8-442c-be72-fc0cb46d9a52/conversion.json",
+      "bytes": 48952,
+      "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/1aedb3cb-def8-442c-be72-fc0cb46d9a52/transformation-log.json",
+      "bytes": 30186,
+      "sha256": "3d18d3113f8301e9c333e18f0ddebc20a91b3d1e0834ed707363393acef29098"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/48a0753a-79e7-44e7-88c2-cf3c2bfacb5b/analysis.json",
+      "bytes": 44934,
+      "sha256": "a54ce2aa479d691f7eda620bfde1ee2775dca88f44a80f3eaa8a91c8295831b2"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/48a0753a-79e7-44e7-88c2-cf3c2bfacb5b/job-d85861ca-0a40-4be6-90ff-1ea87f07774d.json",
+      "bytes": 590,
+      "sha256": "2019c2911e8e80667456a071089b08b480206c76665029b3e5f58ba582a5ae01"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/51b37153-200e-4ef0-8dde-c5e84190b7d8/conversion.json",
+      "bytes": 48952,
+      "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/51b37153-200e-4ef0-8dde-c5e84190b7d8/transformation-log.json",
+      "bytes": 30186,
+      "sha256": "3d18d3113f8301e9c333e18f0ddebc20a91b3d1e0834ed707363393acef29098"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/7b2cc733-0578-4035-925c-ac2e7d79b33b/conversion.json",
+      "bytes": 48952,
+      "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/7b2cc733-0578-4035-925c-ac2e7d79b33b/transformation-log.json",
+      "bytes": 30186,
+      "sha256": "3d18d3113f8301e9c333e18f0ddebc20a91b3d1e0834ed707363393acef29098"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/ad431313-3f05-4009-ac6f-80ec027bd41c/analysis.json",
+      "bytes": 44934,
+      "sha256": "a54ce2aa479d691f7eda620bfde1ee2775dca88f44a80f3eaa8a91c8295831b2"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/ad431313-3f05-4009-ac6f-80ec027bd41c/job-d9a37f5b-f442-437f-a514-4ea74916543e.json",
+      "bytes": 590,
+      "sha256": "793a10eec794269cafdbcc640b77333e029a663dcfcebda615b541625eca725d"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/adde901e-a271-4bd5-a380-adfbd36a034f/analysis.json",
+      "bytes": 44934,
+      "sha256": "a54ce2aa479d691f7eda620bfde1ee2775dca88f44a80f3eaa8a91c8295831b2"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/reports/adde901e-a271-4bd5-a380-adfbd36a034f/job-e489d32d-27a7-4a2e-b663-fe1e6d4c8376.json",
+      "bytes": 590,
+      "sha256": "13638139fc53106ed4235dc33584ca4122ff7094deaaa5bc61a8a413263a1d29"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/staging/8476ad15-d819-4b25-a486-b4fdf2676f6f/converted.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/staging/8c0ca236-e7f1-43f4-ba48-86a224fc4ccd/converted.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/staging/d8c48101-62a2-4355-82bf-b6478ccbed98/converted.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/add-only.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/checkpoint-committed--1.json",
+      "bytes": 252,
+      "sha256": "561a88e6f1bec5fdd78738f5b5c2c67523738b57b4183232ee648b61e577291a"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/checkpoint-installed-0.json",
+      "bytes": 251,
+      "sha256": "2f5fe38844907dad86d3bf96a93ef0500d6cc0e28506b951bc67d8dda03128b5"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/payload-0.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/pending-46b162da-39ce-408d-af6c-695623f96095.json",
+      "bytes": 874,
+      "sha256": "02f74e002bc99a0c60470f5bf0e70625652271c320a7def09e3e8390fd0f46ed"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/pending-960daf5b-bc50-462b-aeee-b4c6d57ee6db.json",
+      "bytes": 251,
+      "sha256": "2f5fe38844907dad86d3bf96a93ef0500d6cc0e28506b951bc67d8dda03128b5"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/pending-ec8a5420-8883-4724-a579-303b5cf8c7e5.json",
+      "bytes": 252,
+      "sha256": "561a88e6f1bec5fdd78738f5b5c2c67523738b57b4183232ee648b61e577291a"
+    },
+    {
+      "path": "build/embedded-simple/client/legacybridge/transactions/c0051adc-3a21-4469-a9ec-6f50d91fe1e8/plan-v2.json",
+      "bytes": 874,
+      "sha256": "02f74e002bc99a0c60470f5bf0e70625652271c320a7def09e3e8390fd0f46ed"
+    },
+    {
+      "path": "build/embedded-simple/client/mods/LegacyBridge.jar",
+      "bytes": 1208820,
+      "sha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6"
+    },
+    {
+      "path": "build/embedded-simple/client/mods/legacybridge-legacybridge_example-c0051adc-3a21-4469-a9ec-6f50d91fe1e8-0.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/client-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/client-stdout.log",
+      "bytes": 7995,
+      "sha256": "2ab4f0ca8e559932ac4751ef8205d1aa7ad50d8c2298e3b594cd0e4d696e74e7"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/logs-debug.log",
+      "bytes": 66697,
+      "sha256": "0fc6819d6d457960351b2b0e8faaae85872dcc87f944f8cb25f5078269143ace"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-1/logs-latest.log",
+      "bytes": 9509,
+      "sha256": "803b3cff87e5f9eb030b8473f89922245c6c4ee6e5f6a5eaa3ea15642d34b751"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/class-load-ui-r1-activation.log",
+      "bytes": 5013993,
+      "sha256": "0920b6134860372040517f6af287dd2a8e6373b8da0aa81929b080cb648aeaf5"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/client-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/client-stdout.log",
+      "bytes": 19177,
+      "sha256": "96b1c8d4ebc91bd4ddace56d44a24e1a22ef7563b2c9c786e9d836df5f175d4c"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/logs-debug.log",
+      "bytes": 105639,
+      "sha256": "c77e6764d7df94600221b4c036577d4836247aa897273951d043fb35ff965611"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/launch-2/logs-latest.log",
+      "bytes": 23831,
+      "sha256": "5a0c738226fe60a7a6421115a9a5f402bcd409e2f2ac3d95459bde0a4a00d0fe"
+    },
+    {
+      "path": "build/embedded-simple-ui-2026-09-07-run1/preparation.json",
+      "bytes": 2019,
+      "sha256": "1eed6c7fcff6e81ae082b3014c46dcd3f5205658de84db56c0aeaa64145c3fb0"
+    },
+    {
+      "path": "legacy-product/build/libs/LegacyBridge.jar",
+      "bytes": 1208820,
+      "sha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-01-main-menu.png",
+      "bytes": 912743,
+      "sha256": "aa30623fb44c8176bb8bec484e4da3cd6136fe51dab5f249c0037c31fdc5fb36"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-02-inventory.png",
+      "bytes": 98237,
+      "sha256": "dcfeb790db6a4fab39eb53d872fb56c617d4eaaa4332c8e4cb7136539b575537"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-03-inventory-ready.png",
+      "bytes": 105880,
+      "sha256": "d596814788937cc8a14fdd55d58393ff6edcc6cae0167843fc5e85f8f7045cf6"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-04-convert-blank-data.png",
+      "bytes": 94178,
+      "sha256": "82947bc94438609a57e945810da67d0a7a5d48730913848566c3c70b13e1f562"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-05-converted.png",
+      "bytes": 95003,
+      "sha256": "26c648a9320cd3da0d75c471475ddf4bbb7e07d8f00172b2c2972f3d073702d8"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-06-technical-details.png",
+      "bytes": 140288,
+      "sha256": "f8d5c1a1f7c81189523b3c1ef6c09feea3c4a490f419101153393076027ece43"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-07-search-continue.png",
+      "bytes": 97015,
+      "sha256": "451091fe883443e6ade7ca65700e5c7204588b7187235cbb8dade77668bf98d6"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-08-two-conversions-staging.png",
+      "bytes": 100638,
+      "sha256": "42a0f38bf4356c121e1f9d70cfc6219f699ce2f93c9c18d50d667af1b9d71f1e"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-09-continued-not-active.png",
+      "bytes": 840733,
+      "sha256": "dfd2bd7cca8b4dea4b1e385d840e8927f974e39e2fff4a5a7a65e0ba30e6aafc"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-10-reopened.png",
+      "bytes": 98237,
+      "sha256": "dcfeb790db6a4fab39eb53d872fb56c617d4eaaa4332c8e4cb7136539b575537"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-11-keyboard-selection.png",
+      "bytes": 107569,
+      "sha256": "cf66219d2f04e5a3dff170b27c1d69d3d2f6b368d186d0adcab5176275fbc509"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-12-apply-selection.png",
+      "bytes": 116134,
+      "sha256": "82347a3810c8bf872bd7775fff727699b2432097853f7de2369aa51b2598e86f"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-13-apply-close-confirmation.png",
+      "bytes": 89074,
+      "sha256": "d762c3f3e184c74281fd32aba276f881a6bc134bfb51ae31aa7dc2b3675616af"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-14-next-launch-title.png",
+      "bytes": 866692,
+      "sha256": "65e88617c325591f7e06f2254307648c3a95923f6f31a8c3a8bab4032e475693"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-15-forge-mod-list.png",
+      "bytes": 98251,
+      "sha256": "f9c764fe76a7af1a54481a37767ad8bd3bde06c0ac9116dcd80d51f34e2bcd3a"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-16-fixture-recognized.png",
+      "bytes": 105931,
+      "sha256": "86861c436e677e2a03f915fc415050b5267a9e0e5f6c15af859ad1ffe4fdb84c"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-17-new-world-screen.png",
+      "bytes": 72479,
+      "sha256": "4329c0fa076eb24191fe32053f82d4b147378d3316bf6f5fa5154596e8195053"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-18-world-options.png",
+      "bytes": 74848,
+      "sha256": "44a7f4892579708a5936d23645e84ee8261ffa75eb7701dc038774bd0b9093de"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-19-new-world-type.png",
+      "bytes": 75966,
+      "sha256": "05b5435fb76e323df6298ce86fd5c9b1221abbb2d66b8cd1d5aab76ee07513aa"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-20-flat-seed.png",
+      "bytes": 75884,
+      "sha256": "76d7d518651aa7686611f6cf30c03199b47a34c5f04a44362b474bcd9eec2725"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-21-world-created-settings.png",
+      "bytes": 75119,
+      "sha256": "d891d2a2720bcc1de1772a6a4990bee562ccb784889175a6cb68b71f0bb5f64c"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-22-world-ready.png",
+      "bytes": 150818,
+      "sha256": "a0b1f4ecd70011700b72bb693063aaf085fe2c49b37e8392c87613d41b76b721"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-23-ingots-table.png",
+      "bytes": 212737,
+      "sha256": "8e65cd09faaa335ceacc5ed3287d71e3184d67dcd3ee9a1d25a8c7049210dc0f"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-24-crafting-empty.png",
+      "bytes": 159542,
+      "sha256": "3f89f71ebc73f3e09becda58371ef4779e4a9b97b6646f4973826ae032712613"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-25-eight-no-result.png",
+      "bytes": 155625,
+      "sha256": "dfe3f0c9383967ba98467d1b2f50f6cf27790ad4a1b0f1d6d552c49d3dbf883b"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-26-nine-recipe-result.png",
+      "bytes": 156261,
+      "sha256": "9142ddfca6ce467ef32def1a9bd23b49c331f556c2d512c567d97e96eecf75b7"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-27-inputs-consumed-one-block.png",
+      "bytes": 157224,
+      "sha256": "b8c41bd78ee78ecabc6221b12392968ad8b4ad3b8ed028d3271b3aa201ebc030"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-28-crafted-block-placed.png",
+      "bytes": 174785,
+      "sha256": "65d7f9f6350ca4187670344073e5c3260f1478417a24e285e97272f22cf85fa1"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-29-translation-inventory.png",
+      "bytes": 148804,
+      "sha256": "9e123337079fe0cfc50bca81ce4bfe06d87b5d288d227d221eb8fc009a52a12c"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-30-pt-br-item.png",
+      "bytes": 145804,
+      "sha256": "17b6b716131781e470a379f03bb86933d4834a5fb4e5a679b1e3cead5811edd5"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-31-pt-br-block.png",
+      "bytes": 145387,
+      "sha256": "522239035dcd58457964c975ec30850a069f946621a43518ed26849ec072916c"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-32-pause.png",
+      "bytes": 158104,
+      "sha256": "70d2a1e275e893d67209daddc86ab3c3dd40b512965ec94e52e916be9de1e2b6"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-33-options.png",
+      "bytes": 168942,
+      "sha256": "b863f0d9ae6d1b9cd3eab681f5c701f638e8168fe637926033bdb9a88dde35e2"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-34-language-list.png",
+      "bytes": 98990,
+      "sha256": "2db586ac20584cdb4933ee0e6ae7a0e592c050d8a6b9f6cf36bac71a3ed4c354"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-35-language-scroll.png",
+      "bytes": 96712,
+      "sha256": "1ffb76f7e29514be3425dc4c58fb39c523998a537b9b2158e572a607cab39e48"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-36-language-english.png",
+      "bytes": 95097,
+      "sha256": "ded81cd431edf4ec250b5f8a262253b249ee32c31273c2974deea544bcea4236"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-37-english-visible.png",
+      "bytes": 98120,
+      "sha256": "24cd53a3b8c1686cee5924601bc5bbd120a701616875e69563a3f65b987b53b1"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-38-english-options.png",
+      "bytes": 167723,
+      "sha256": "16b651b67abf02bec5ff4e0d7bae594857cceebdbb8c600ca5f126778456f260"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-39-en-us-item.png",
+      "bytes": 145737,
+      "sha256": "8d1df1d324129015b7dac676f470af03e238d2dce40eb0f912b73b1100b2d77e"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-40-en-us-block.png",
+      "bytes": 145549,
+      "sha256": "575346a62ed4c880ce0923995985c710323a8d5df1098245acddda5107a41c0a"
+    },
+    {
+      "path": "build/embedded-simple/evidence/embedded-ui-r1-41-saved-title-en-us.png",
+      "bytes": 938080,
+      "sha256": "a206d6308de31fcfafcbb2307624536cc0b8b6b555a5c99f753e2e3604cacbf9"
+    }
+  ],
+  "conversionReports": [
+    {
+      "file": {
+        "path": "build/embedded-simple/client/legacybridge/reports/1aedb3cb-def8-442c-be72-fc0cb46d9a52/conversion.json",
+        "bytes": 48952,
+        "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546"
+      },
+      "status": "CONVERTED",
+      "schemaVersion": 2,
+      "mappingData": {
+        "completeMappingEnvironment": false,
+        "scope": "SIMPLE_CONTENT_CONTRACT",
+        "supportProfile": "simple-content-v1"
+      },
+      "bytecodeValidation": {
+        "checks": [
+          "CheckClassAdapter dataflow",
+          "offline target reference-type analysis"
+        ],
+        "inputClasses": 1,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "outputClasses": 1,
+        "scannedReferences": 144,
+        "status": "PASSED"
+      },
+      "transformationLogSchema": 1,
+      "input": {
+        "fileName": "legacybridge-example-1.16.5-1.0.0.jar",
+        "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947"
+      },
+      "output": {
+        "fileName": "converted.jar",
+        "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+      }
+    },
+    {
+      "file": {
+        "path": "build/embedded-simple/client/legacybridge/reports/51b37153-200e-4ef0-8dde-c5e84190b7d8/conversion.json",
+        "bytes": 48952,
+        "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546"
+      },
+      "status": "CONVERTED",
+      "schemaVersion": 2,
+      "mappingData": {
+        "completeMappingEnvironment": false,
+        "scope": "SIMPLE_CONTENT_CONTRACT",
+        "supportProfile": "simple-content-v1"
+      },
+      "bytecodeValidation": {
+        "checks": [
+          "CheckClassAdapter dataflow",
+          "offline target reference-type analysis"
+        ],
+        "inputClasses": 1,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "outputClasses": 1,
+        "scannedReferences": 144,
+        "status": "PASSED"
+      },
+      "transformationLogSchema": 1,
+      "input": {
+        "fileName": "legacybridge-example-1.16.5-1.0.0.jar",
+        "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947"
+      },
+      "output": {
+        "fileName": "converted.jar",
+        "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+      }
+    },
+    {
+      "file": {
+        "path": "build/embedded-simple/client/legacybridge/reports/7b2cc733-0578-4035-925c-ac2e7d79b33b/conversion.json",
+        "bytes": 48952,
+        "sha256": "909aa5798648f1b97884f26db087f45f767bf2ca0befd96dc96896c43c52b546"
+      },
+      "status": "CONVERTED",
+      "schemaVersion": 2,
+      "mappingData": {
+        "completeMappingEnvironment": false,
+        "scope": "SIMPLE_CONTENT_CONTRACT",
+        "supportProfile": "simple-content-v1"
+      },
+      "bytecodeValidation": {
+        "checks": [
+          "CheckClassAdapter dataflow",
+          "offline target reference-type analysis"
+        ],
+        "inputClasses": 1,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "outputClasses": 1,
+        "scannedReferences": 144,
+        "status": "PASSED"
+      },
+      "transformationLogSchema": 1,
+      "input": {
+        "fileName": "legacybridge-example-1.16.5-1.0.0.jar",
+        "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947"
+      },
+      "output": {
+        "fileName": "converted.jar",
+        "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+      }
+    }
+  ]
+}

@@ -1,0 +1,528 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACY_PROMPT02_HEADLESS_DELIVERY",
+  "reviewedAt": "2026-09-12",
+  "contractVersion": "2026.09.10.1",
+  "prompt": "LB-02",
+  "implementedCuts": [
+    "DATA-EXPAND/COMPOSITION_DATA_SCOPE",
+    "ENGINE-ISOLATION/AGGREGATE_ADMISSION_AND_HEAP_PRESSURE"
+  ],
+  "acceptance": "PARTIAL",
+  "source": {
+    "minecraft": "1.16.5",
+    "forge": "36.2.42"
+  },
+  "target": {
+    "minecraft": "1.20.1",
+    "forge": "47.4.23",
+    "java": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "product": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "76189bcfb81012d1bce3f63c2b43a819a1ef1473b357d35df295e570c3f39c22",
+    "bytes": 1441049,
+    "entries": 586,
+    "baselineSha256": "f494cdf56327777f7421fbb5e2a11dd18c8fc8e95a5b84d097a11627e85a1df7",
+    "baselineEntries": 575,
+    "unchangedEntries": 550,
+    "changedEntries": 25,
+    "addedEntries": 11,
+    "removedEntries": 0,
+    "runtimeAdaptersCatalogUnchanged": true,
+    "simpleAndCohortDataUnchanged": true,
+    "installerLibrariesUnchanged": true,
+    "conversionProfilesUnchanged": true,
+    "engineChanged": true,
+    "clientUiChanged": true,
+    "publicQualification": "EXPERIMENTAL_BETA",
+    "nativeQualification": "NOT_RUN",
+    "publicationAllowed": false
+  },
+  "decisions": {
+    "compositionData": "EXPLICIT_FULL_LOCAL_BUNDLE_REQUIRED_FOR_NAMESPACE_OWNERSHIP_AND_HIERARCHY_CLOSURE",
+    "noGenericMappingEmbedded": true,
+    "noDataAcquisition": true,
+    "noLicenseChange": true,
+    "completeDataDoesNotProveOptionalDependencyClosure": true,
+    "sharedWorkerScope": "SAME_ENGINE_CLASSLOADER_SERVICE_INSTANCES",
+    "activeJobs": 1,
+    "admittedJobs": 33,
+    "heapHeadroomReserveBytes": 33554432,
+    "fullDataAdmission": "maxHeap >= 32 MiB + 6 * payloadBytes; heuristic capacity check, not live retention proof",
+    "productionProcessIsolation": false,
+    "hardHeapGuarantee": false,
+    "automaticGcOrHeapChanges": false
+  },
+  "sourceAudit": {
+    "existingImplementation": [
+      "LogicPreservingConverter.prepare",
+      "VerifiedLogicMappings",
+      "LogicApiNamespace",
+      "PortableMappingBundle"
+    ],
+    "targetSourceArchiveSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "actualClientApi": [
+      "Button.builder",
+      "Button.Builder.bounds/build",
+      "Screen.addRenderableWidget",
+      "Screen.setInitialFocus",
+      "Screen.resize"
+    ],
+    "newMinecraftOrForgeTransformation": false,
+    "officialReferences": [
+      "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runtime.html",
+      "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Semaphore.html"
+    ]
+  },
+  "focusedTests": {
+    "command": "JAVA_HOME=Java17; gradlew -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT --max-workers=1 --console=plain :legacy-converter:test --tests '*Engine*Test' --tests '*HeapPressureTest' --tests '*OperationControlTest' --tests '*MappingDataInspectionCliTest' --tests '*PortableMappingBundleTest' :legacy-product:test --tests '*MappingDataReview*Test' --tests '*CompositionInspection*Test' --tests '*HistoryClientBoundaryTest' --tests '*ConversionQueueTest' -PproductCompositionBundle=<existing logic bundle> -PproductCompositionFixture=<existing composed fixture> assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+    "status": "PASSED",
+    "log": "build/prompt2-headless-20260912/focused-pinned-final.log",
+    "duration": "2m34s",
+    "tasks": {
+      "executed": 28,
+      "upToDate": 24
+    },
+    "cases": 102,
+    "passed": 101,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "skipReason": "Existing real symlink test requires Windows privilege; test assumption skipped it. Not passed.",
+    "modules": {
+      "converter": {
+        "cases": 80,
+        "passed": 79,
+        "skipped": 1
+      },
+      "product": {
+        "cases": 22,
+        "passed": 22,
+        "skipped": 0
+      }
+    },
+    "newCases": 19,
+    "fullSuite": "DEFERRED_NOT_PASSED"
+  },
+  "correctedFailures": [
+    {
+      "log": "build/prompt2-headless-20260912/focused-package.log",
+      "observed": "Two full-data product tests refused with MEMORY_PRESSURE; capacity estimate compared to momentary available heap",
+      "correction": "Check maximum configured capacity separately from checkpoint reserve; add regression; no raised heap cap",
+      "revalidation": "focused-final.log and focused-pinned-final.log PASSED"
+    },
+    {
+      "log": "build/prompt2-headless-20260912/matrix/lifecycle.log",
+      "observed": "Lifecycle refused with missing com/electronwill/nightconfig/core/utils/UnmodifiableConfigWrapper ancestor using generic logic bundle",
+      "correction": "Use pre-existing lifecycle-specific explicit bundle; no dropped dependency, missing-class stub or rule relaxation",
+      "revalidation": "matrix-final/lifecycle.json PASSED"
+    }
+  ],
+  "localBundles": [
+    {
+      "id": "logic-preserving-v1",
+      "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+      "files": 7,
+      "bytes": 35272616
+    },
+    {
+      "id": "lifecycle-preserving-v1",
+      "manifestSha256": "c21faf7b47d88ec2393cc3bd238742059e597f83ab448eaeca243824a3540d2f",
+      "files": 7,
+      "bytes": 35612459
+    },
+    {
+      "id": "network-snapshot-v1",
+      "manifestSha256": "9aaea9e90a95afe3a8ba1c359230841c8badaa833106d37e21f9de3bd4b7bcf4",
+      "files": 7,
+      "bytes": 38461855
+    }
+  ],
+  "bundlePolicy": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION",
+  "isolatedMatrix": {
+    "status": "PASSED",
+    "ordinaryProfiles": 6,
+    "privatePreviewOperations": 2,
+    "headlessOnly": true,
+    "testOnlyJava17SecurityManager": true,
+    "productionOrOsSandboxClaim": false,
+    "initialHomesEmpty": true,
+    "unexpectedFileNetworkProcessExitAttempts": 0,
+    "originalsUnchanged": true,
+    "engineOwnedScratchEmpty": true,
+    "isolatedInstallationsRetained": true,
+    "temporaryRoot": "${DEVELOPER_HOME}/AppData/Local/Temp/legacybridge-prompt2-final-7290ffdef4cc4316bb4309b3f03def8d",
+    "invocation": "Separate process per case: java -Xmx128m (included simple/cohort) or -Xmx512m (explicit full data) -Duser.home=<case>/home -Djava.io.tmpdir=<case>/tmp -cp lib/*;classes dev.legacybridge.converter.cli.CachelessEngineProbe <case-root> <profile> <fixture-basename> [--builtin-simple-content]; special modes <case-root> --composition / --builtin-cohort. Empty GRADLE_USER_HOME and no selected environment bundle. Only copied installed CLI libraries/probe on classpath; original/converted JARs never on classpath.",
+    "cases": [
+      {
+        "name": "simple",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/simple.json",
+        "proofSha256": "07d2928aa1e0476c1c0dd9538cabde53646edea4ff9224d4131d1c6e4f2f9801",
+        "inputSha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+        "outputSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+        "outputBytes": 6979,
+        "reviewMetrics": {
+          "capturedWorkBytes": 0,
+          "schemaVersion": 1,
+          "peakObservedSharedHeapUsedBytes": 6819744,
+          "hardHeapLimit": false,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "heapSamples": 162,
+          "inflatedWorkBytes": 0,
+          "largestInputBytes": 0
+        },
+        "conversionMetrics": {
+          "capturedWorkBytes": 13352,
+          "schemaVersion": 1,
+          "peakObservedSharedHeapUsedBytes": 33991328,
+          "hardHeapLimit": false,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "heapSamples": 3558,
+          "inflatedWorkBytes": 6373,
+          "largestInputBytes": 9534
+        },
+        "compositionMetrics": null,
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 128
+      },
+      {
+        "name": "logic",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/logic.json",
+        "proofSha256": "8b568b9f8a50c6221341fa30b8e4b2f0dd1060c3d333421c825fb96880aa4079",
+        "inputSha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f",
+        "outputSha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d",
+        "outputBytes": 7562,
+        "reviewMetrics": {
+          "sharedHeapAttributionToThisJobOnly": false,
+          "heapSamples": 150359,
+          "inflatedWorkBytes": 0,
+          "largestInputBytes": 0,
+          "capturedWorkBytes": 0,
+          "schemaVersion": 1,
+          "peakObservedSharedHeapUsedBytes": 314909224,
+          "hardHeapLimit": false
+        },
+        "conversionMetrics": {
+          "sharedHeapAttributionToThisJobOnly": false,
+          "heapSamples": 217508,
+          "inflatedWorkBytes": 8868,
+          "largestInputBytes": 8301,
+          "capturedWorkBytes": 16430,
+          "schemaVersion": 1,
+          "peakObservedSharedHeapUsedBytes": 374612992,
+          "hardHeapLimit": false
+        },
+        "compositionMetrics": null,
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 512
+      },
+      {
+        "name": "lifecycle",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/lifecycle.json",
+        "proofSha256": "91a2fc43b22df5684b2a555524948f127c4f08787e18f059f1cc0752103eab04",
+        "inputSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+        "outputSha256": "68e9550129d4a2cb88fa184323ae7d4badef8ffb4f31f328e10dfa0eccdba58c",
+        "outputBytes": 7871,
+        "reviewMetrics": {
+          "capturedWorkBytes": 0,
+          "largestInputBytes": 0,
+          "inflatedWorkBytes": 0,
+          "heapSamples": 152034,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "hardHeapLimit": false,
+          "peakObservedSharedHeapUsedBytes": 317646336,
+          "schemaVersion": 1
+        },
+        "conversionMetrics": {
+          "capturedWorkBytes": 19926,
+          "largestInputBytes": 8645,
+          "inflatedWorkBytes": 12055,
+          "heapSamples": 235686,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "hardHeapLimit": false,
+          "peakObservedSharedHeapUsedBytes": 395811912,
+          "schemaVersion": 1
+        },
+        "compositionMetrics": null,
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 512
+      },
+      {
+        "name": "food",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/food.json",
+        "proofSha256": "50084ce564287acbadb3cbaaee4c7b67dd1719e00936e8308e7e1fad2c02e241",
+        "inputSha256": "f0549a65b861525385b7c1cc422624496afda6b2113cbb99243f5e3e35e46b62",
+        "outputSha256": "ecf854aa1826641f6a2ef305b188e685d40178ff9740dc4b5dc1c4f7bff9234e",
+        "outputBytes": 4202,
+        "reviewMetrics": {
+          "capturedWorkBytes": 0,
+          "schemaVersion": 1,
+          "peakObservedSharedHeapUsedBytes": 305556992,
+          "hardHeapLimit": false,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "heapSamples": 150359,
+          "inflatedWorkBytes": 0,
+          "largestInputBytes": 0
+        },
+        "conversionMetrics": {
+          "capturedWorkBytes": 8439,
+          "schemaVersion": 1,
+          "peakObservedSharedHeapUsedBytes": 368050176,
+          "hardHeapLimit": false,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "heapSamples": 235558,
+          "inflatedWorkBytes": 4237,
+          "largestInputBytes": 4975
+        },
+        "compositionMetrics": null,
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 512
+      },
+      {
+        "name": "datapack",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/datapack.json",
+        "proofSha256": "8b07a8ba33bc708a1aa02cacb22d046dfd3eeaa7b06a99c7bd60d099779f45fa",
+        "inputSha256": "9b71a7b57fb8657355166b8f5353b0454284df1cce21ca682ccbb204129665c5",
+        "outputSha256": "97d4f699c3d31d05ac42288a3946a6d451429d1ecbf86957c3fb14883e2d8979",
+        "outputBytes": 9503,
+        "reviewMetrics": {
+          "largestInputBytes": 0,
+          "inflatedWorkBytes": 0,
+          "heapSamples": 150359,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "hardHeapLimit": false,
+          "peakObservedSharedHeapUsedBytes": 304810312,
+          "schemaVersion": 1,
+          "capturedWorkBytes": 0
+        },
+        "conversionMetrics": {
+          "largestInputBytes": 12147,
+          "inflatedWorkBytes": 7618,
+          "heapSamples": 113068,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "hardHeapLimit": false,
+          "peakObservedSharedHeapUsedBytes": 415580160,
+          "schemaVersion": 1,
+          "capturedWorkBytes": 17121
+        },
+        "compositionMetrics": null,
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 512
+      },
+      {
+        "name": "network",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/network.json",
+        "proofSha256": "7849ca1cc9490707dfa9650f3db540b29ed5e2c5c00989e8e32bcd9296acb393",
+        "inputSha256": "a5843c3dc1a0364a56220cceb9b1d3de8b0511d4941b2463e5a75ce5f838a33e",
+        "outputSha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f",
+        "outputBytes": 5531,
+        "reviewMetrics": {
+          "peakObservedSharedHeapUsedBytes": 315393024,
+          "schemaVersion": 1,
+          "capturedWorkBytes": 0,
+          "largestInputBytes": 0,
+          "inflatedWorkBytes": 0,
+          "heapSamples": 165286,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "hardHeapLimit": false
+        },
+        "conversionMetrics": {
+          "peakObservedSharedHeapUsedBytes": 398631896,
+          "schemaVersion": 1,
+          "capturedWorkBytes": 14715,
+          "largestInputBytes": 5564,
+          "inflatedWorkBytes": 9184,
+          "heapSamples": 438155,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "hardHeapLimit": false
+        },
+        "compositionMetrics": null,
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 512
+      },
+      {
+        "name": "composition",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/composition.json",
+        "proofSha256": "225ba4b6f65a1ec89ef01f541a8349ff5b981ff1d94fb7e4bcea6010bbdac0c2",
+        "inputSha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+        "outputSha256": null,
+        "outputBytes": null,
+        "reviewMetrics": null,
+        "conversionMetrics": null,
+        "compositionMetrics": {
+          "largestInputBytes": 7433,
+          "capturedWorkBytes": 18345,
+          "schemaVersion": 1,
+          "peakObservedSharedHeapUsedBytes": 347870208,
+          "hardHeapLimit": false,
+          "sharedHeapAttributionToThisJobOnly": false,
+          "heapSamples": 210996,
+          "inflatedWorkBytes": 12432
+        },
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 512,
+        "privateCandidate": {
+          "bytes": 5913,
+          "kind": "PRIVATE_SERIALIZED_JAR",
+          "sha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2"
+        },
+        "publicationAllowed": false
+      },
+      {
+        "name": "cohort",
+        "proofPath": "build/prompt2-headless-20260912/matrix-final/cohort.json",
+        "proofSha256": "866aadc72e1b5c9bf0cc7299115776b1a76d245d5e6f6e5cb760ac310501e28d",
+        "inputSha256": null,
+        "outputSha256": null,
+        "outputBytes": null,
+        "reviewMetrics": null,
+        "conversionMetrics": null,
+        "compositionMetrics": null,
+        "status": "PASSED",
+        "execution": "STATIC_ONLY_NO_MOD_CLASSES_EXECUTED",
+        "nativeValidation": "NOT_RUN",
+        "maxHeapMiB": 128,
+        "privateCandidates": [
+          {
+            "artifactId": "consumer",
+            "sha256": "434d3010118fcde50c7c0783ae3f1ba3f7291466ba82c8324d91e244c48f97bd",
+            "bytes": 1994
+          },
+          {
+            "artifactId": "library",
+            "sha256": "facd86ef056da22304c0e78fd2a892fda08f3a4d9e0142bfac6b63e255cff88b",
+            "bytes": 2437
+          }
+        ],
+        "publicationAllowed": false,
+        "inputHashes": {
+          "consumer": "a67a24e331c1d81b5e85ce267c9d55e622294f01134cdc9cca8cdcad76e7e8f1",
+          "library": "7ccceb72ef6d1518310b21253acf18cff0502e8f06a892758ea254ae799f5cd4"
+        }
+      }
+    ],
+    "cliLibraries": [
+      {
+        "name": "asm-9.9.1.jar",
+        "sha256": "6f3828a215c920059a5efa2fb55c233d6c54ec5cadca99ce1b1bdd10077c7ddd"
+      },
+      {
+        "name": "asm-analysis-9.9.1.jar",
+        "sha256": "6260bffc8ec008dd1b713702c7994e2c94d188a3da5bef9e87278a16df6a7522"
+      },
+      {
+        "name": "asm-commons-9.9.1.jar",
+        "sha256": "c2319e014ce7199f2b7f7d56d6bb991863168c3f4b6cd6c9f542a4937ef7ef88"
+      },
+      {
+        "name": "asm-tree-9.9.1.jar",
+        "sha256": "0f3555096b720b820bbacab0b515589bee0200bee099bda14c561738ae837ba1"
+      },
+      {
+        "name": "asm-util-9.9.1.jar",
+        "sha256": "c5ebbbeaf68126af094b42fa4800f59bc4413abd02d95b9aefad722cd257e207"
+      },
+      {
+        "name": "core-3.6.4.jar",
+        "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+      },
+      {
+        "name": "legacy-compat-api-0.1.1-SNAPSHOT.jar",
+        "sha256": "0d45ef134281c95b61053ba8998f2851388c33b739acdbdd1511906eece4ecaa"
+      },
+      {
+        "name": "legacy-converter-0.1.1-SNAPSHOT.jar",
+        "sha256": "1084c416dd755582adaa3dd2928eaad674ec77d2d99fd49d2801a6f68d30ba8b"
+      },
+      {
+        "name": "slf4j-api-2.0.17.jar",
+        "sha256": "7b751d952061954d5abfed7181c1f645d336091b679891591d63329c622eb832"
+      },
+      {
+        "name": "slf4j-simple-2.0.17.jar",
+        "sha256": "ddfea59ac074c6d3e24ac2c38622d2d963895e17f70b38ed4bdae4d780be6964"
+      },
+      {
+        "name": "srgutils-0.6.2.jar",
+        "sha256": "f10b366cdc4df20de8a50511f49fded5ea0fe8f7a476ff984a12f65a1602533e"
+      },
+      {
+        "name": "toml-3.6.4.jar",
+        "sha256": "3cb3d0ef3352e204cda68215fbe41afdc7f56425ef4fd8e84006964a656117d4"
+      }
+    ]
+  },
+  "lowHeapRefusal": {
+    "status": "PASSED",
+    "maxHeapMiB": 64,
+    "command": "java -Xmx64m -cp lib/* dev.legacybridge.converter.cli.LegacyBridgeCli inspect-data --mapping-bundle <isolated-logic>/bundle",
+    "expected": "Exit 3 / MEMORY_PRESSURE before parsing indexes; no selected mod input or output",
+    "observedCode": "MEMORY_PRESSURE",
+    "observedExit": 3,
+    "log": "build/prompt2-headless-20260912/low-heap-refusal.log",
+    "additionalSandboxClaim": false
+  },
+  "validationDimensions": {
+    "analysis": "PASSED_FINITE_FIXTURES",
+    "conversion": "PASSED_SIX_EXISTING_FIXTURE_PROFILES",
+    "bytecode": "PASSED_PROFILE_SPECIFIC_STATIC_GATES",
+    "offlineLinkage": "PASSED_WHERE_EXISTING_PROFILE_REQUIRES_IT",
+    "clientInitialization": "NOT_RUN",
+    "serverInitialization": "NOT_RUN",
+    "gameplay": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "nativeDataScreen": "NOT_RUN",
+    "offlineMinecraft": "NOT_RUN",
+    "hardHeapIsolation": "NOT_IMPLEMENTED",
+    "retainedTreeIndexImageSizing": "NOT_MEASURED_INDIVIDUALLY",
+    "sharedHeapSampling": "RECORDED_NOT_RETAINED_SIZE"
+  },
+  "pending": [
+    "COMPOSE-01 acceptance and native coexistence/UI on this artifact",
+    "Exact retained graph/index/image and native/RSS profiling; adversarial memory qualification",
+    "Hard boundary requires separately implemented process protocol if advertised",
+    "PACKAGE-RIGHTS owner terms/corresponding source/relinking gate",
+    "PUBLIC-CURRENT-E2E and other native/runtime/multiplayer gates"
+  ],
+  "nextDevelopment": {
+    "prompt": "LB-03",
+    "cut": "PACKAGE-RIGHTS",
+    "scope": "Technical corresponding-source/relinking preparation only; rights-holder decision remains blocked; no license change or publication",
+    "previousPromptAccepted": false
+  },
+  "closeoutBuild": {
+    "status": "PASSED",
+    "log": "build/prompt2-headless-20260912/closeout.log",
+    "duration": "1m49s",
+    "tasks": { "executed": 16, "upToDate": 39 },
+    "command": "Previous focused/package command plus :legacy-corpus:test --tests '*PromptContractVerifierTest' :legacy-corpus:verifyPromptContract; same explicit fixture/data and Java17 Windows-ROOT configuration, max-workers=1",
+    "contractTests": { "cases": 77, "passed": 75, "skipped": 2, "failures": 0, "errors": 0 },
+    "contractSkipReason": "Existing Windows native-symlink privilege assumptions; not passed",
+    "focusedConverterProductTests": "UP_TO_DATE from recorded actual 101-pass/1-skip round; not counted again",
+    "distinctTestsAcrossFinalRounds": { "cases": 179, "passed": 176, "skipped": 3, "failures": 0, "errors": 0 },
+    "contract": "VERIFIED prompts=23 cuts=80 current=LB-03/PACKAGE-RIGHTS; structure/paths only, not evidence truth or freshness",
+    "assemble": "PASSED_ALL_MODULES",
+    "productRuntimeEngineAudits": "PASSED",
+    "installedCliSmoke": "PASSED",
+    "finalProductSha256Rechecked": "76189bcfb81012d1bce3f63c2b43a819a1ef1473b357d35df295e570c3f39c22",
+    "javaRuntime": "Oracle HotSpot 17.0.12+8-LTS-286",
+    "nativeGameExecution": "NOT_RUN"
+  }
+}

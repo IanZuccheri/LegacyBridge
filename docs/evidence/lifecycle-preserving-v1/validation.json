@@ -1,0 +1,843 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_LIFECYCLE_PROFILE_VALIDATION",
+  "recordedDate": "2026-09-06",
+  "status": "EXPERIMENTAL_SCOPED_DEVELOPER_PROFILE",
+  "supportProfile": "lifecycle-preserving-v1",
+  "baselines": {
+    "source": {
+      "minecraft": "1.16.5",
+      "forge": "36.2.42",
+      "java": "Temurin 8u492-b09 x64"
+    },
+    "target": {
+      "minecraft": "1.20.1",
+      "forge": "47.4.23",
+      "java": "Oracle 17.0.12 x64"
+    },
+    "gradle": "8.8",
+    "forgeGradle": "6.0.54",
+    "adapterRuntime": "legacybridge_runtime",
+    "adapterRuntimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "scope": {
+    "authoredModIdentities": 1,
+    "sourceForms": 2,
+    "wholeRealModsNewlyUnlocked": 0,
+    "independentGeneralPurposeBackends": false,
+    "uiProfileEnabled": false,
+    "installerProfileEnabled": false,
+    "defaultProfile": "simple-content-v1",
+    "previousLogicProfileUnchanged": true,
+    "protectedPlatformClassesTransformed": false,
+    "inputClassesLoadedDuringAnalysisOrConversion": false,
+    "originalFixtureExecution": "SEPARATE_AUTHORIZED_NATIVE_RUNTIME_QA_ONLY"
+  },
+  "gates": {
+    "build": {
+      "status": "PASSED",
+      "log": "build/lifecycle-preserving-v1/root-build-attempt-4.log",
+      "rootTests": 732,
+      "passed": 730,
+      "skipped": 2,
+      "failures": 0,
+      "errors": 0,
+      "newRootTests": 77,
+      "fixtureTests": 23,
+      "fixturePassed": 23,
+      "skips": "Existing native symlink-privilege checks on Windows",
+      "execution": "Serial; Gradle task-input caching retained where applicable"
+    },
+    "staticConversion": {
+      "status": "PASSED",
+      "preservedClasses": 4,
+      "preservedMethods": 22,
+      "replacedClasses": 0,
+      "bodyPreservation": "CHECKED_OPCODES_CONTROL_FLOW_LITERALS_FIELD_CONSTANTS_AND_DEBUG",
+      "sourceOfflineLinkage": "PASSED_SCOPED",
+      "targetOfflineLinkage": "PASSED_SCOPED",
+      "asm": "PASSED",
+      "conversionReportSchema": 2,
+      "transformationLogSchema": 1,
+      "transformationLogEntries": 48,
+      "sourceDependencyGraph": "PASSED_METADATA_ONLY",
+      "targetDependencyGraph": "PASSED_METADATA_ONLY",
+      "dependencyGraphSchema": 1,
+      "runtimeValidationInConversionReport": "NOT_RUN",
+      "completeJvmClassloaderModuleProof": false
+    },
+    "cachelessEngine": {
+      "schemaVersion": 1,
+      "reportType": "LEGACY_CACHELESS_ENGINE_PROBE",
+      "supportProfile": "lifecycle-preserving-v1",
+      "javaFeatureVersion": 17,
+      "inputSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+      "testOnlySecurityManager": true,
+      "productionSandboxClaim": false,
+      "gameplayValidated": false,
+      "runtimeLaunched": false,
+      "javaHomeReadException": true,
+      "exactAncestorMetadataReadException": true,
+      "developerCacheRequired": false,
+      "initialUserHomeEmpty": true,
+      "initialJavaTempEmpty": true,
+      "initialGradleHomeEmpty": true,
+      "missingMappingDataCode": "MAPPING_DATA_REQUIRED",
+      "missingMappingDataCliExitCode": 3,
+      "inventoryEntries": 1,
+      "analysisCanonicalJsonEqual": true,
+      "analysisCliExitCode": 0,
+      "analyzedClassCount": 4,
+      "modId": "legacybridge_lifecycle",
+      "modVersion": "1.0.0",
+      "mappingsCanonicalJsonEqual": true,
+      "mappingsCliExitCode": 1,
+      "mappingSourceCount": 17,
+      "mappingSymbolCount": 123,
+      "mappingObservedReferences": 186,
+      "mappingStatusCounts": {
+        "ADAPTER_REQUIRED": 0,
+        "MANUAL": 38,
+        "RESOLVED": 81,
+        "UNSUPPORTED": 4
+      },
+      "planConvertible": true,
+      "planPublishedOutput": false,
+      "conversionCanonicalJsonEqual": true,
+      "convertedJarBytesEqual": true,
+      "convertedJarSha256": "68e9550129d4a2cb88fa184323ae7d4badef8ffb4f31f328e10dfa0eccdba58c",
+      "convertedJarBytes": 7871,
+      "originalUnchanged": true,
+      "conversionCliExitCode": 0,
+      "conversionStatus": "CONVERTED",
+      "bytecodeValidation": {
+        "checks": [
+          "CheckClassAdapter dataflow",
+          "offline reference assignability",
+          "source and target member/access/hierarchy/constructor/handle checks"
+        ],
+        "inputClasses": 4,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "offlineLinkageVerified": true,
+        "outputClasses": 4,
+        "status": "PASSED"
+      },
+      "forbiddenFileAttempts": 0,
+      "networkAttempts": 0,
+      "processExecutionAttempts": 0,
+      "processExitAttempts": 0,
+      "gradleHomeStillEmpty": true,
+      "userHomeStillEmpty": true,
+      "ownedTemporaryDirectoryEmpty": true,
+      "status": "PASSED"
+    },
+    "nativeServer": {
+      "status": "PASSED_SCOPED",
+      "originalRuns": 4,
+      "finalTargetRuns": 4,
+      "allPairedTraceBytesEqual": true,
+      "allOriginalHashesUnchanged": true,
+      "allExitCodes": 0,
+      "ordinaryForgeInstallations": true,
+      "gradleRunServer": false,
+      "testOnlyProbeInstalled": true,
+      "originalProbeThread": "SERVER",
+      "targetProbeThread": "SERVER",
+      "queuedWorkThread": "NOT_OBSERVED",
+      "commandPermissionLevelsTested": [
+        1,
+        2
+      ],
+      "commandInputs": [
+        7,
+        0,
+        100
+      ],
+      "invalidCommandArguments": [
+        "-1",
+        "101",
+        "text"
+      ],
+      "actualSetupCount": 1,
+      "actualQueuedWorkCount": 1,
+      "actualCommandRegistrationCount": 1,
+      "registrationExactlyOnceUniversallyClaimed": false,
+      "nondefaultPriorities": "UNSUPPORTED",
+      "cancelableEvents": "UNSUPPORTED",
+      "clientVisual": "NOT_RUN",
+      "multiplayer": "NOT_RUN",
+      "offlineGame": "NOT_TESTED"
+    },
+    "regressions": {
+      "simpleProfileSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+      "logicProfileSha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d",
+      "bothFreshOutputsByteIdenticalToPriorApprovedArtifacts": true,
+      "priorProfileNativeGamesRerun": false
+    },
+    "distribution": {
+      "publicJarAudit": "PASSED",
+      "singlePublicArtifact": true,
+      "fixturesOrProbesEmbedded": false,
+      "legacyGameForgeImplementationsEmbedded": false,
+      "privateMappingBundleEmbedded": false,
+      "dataPolicy": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION",
+      "mappingSourceCount": 17,
+      "hiddenDownload": false,
+      "publication": "NOT_REQUESTED_NOT_PERFORMED"
+    }
+  },
+  "observedScenarios": [
+    {
+      "variant": "Default",
+      "configInput": "NO_FILE",
+      "factor": 3,
+      "commandResults": [
+        21,
+        0,
+        300
+      ],
+      "traceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b"
+    },
+    {
+      "variant": "Configured",
+      "configInput": "enabled=true; factor=5",
+      "factor": 5,
+      "commandResults": [
+        35,
+        0,
+        500
+      ],
+      "traceSha256": "20d28f3ae4e931d6295b111ca5d710c972a54c77d25b4e811c5221b6e800343b"
+    },
+    {
+      "variant": "InvalidConfig",
+      "configInput": "enabled=true; factor=99",
+      "factor": 8,
+      "correction": "NATIVE_NUMERIC_CLAMP_NOT_DEFAULT_SUBSTITUTION",
+      "commandResults": [
+        56,
+        0,
+        800
+      ],
+      "traceSha256": "d3cdb90c5373d4efdedfe0fccf0f76565f975cf83cd8073ec0ef7f8fd46832eb"
+    },
+    {
+      "variant": "Inferred",
+      "configInput": "NO_FILE",
+      "factor": 3,
+      "listener": "ORIGINAL_NATIVE_CONSUMER_ONLY_OVERLOAD_RETAINED",
+      "commandResults": [
+        21,
+        0,
+        300
+      ],
+      "traceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b"
+    }
+  ],
+  "negatives": {
+    "genuineJarTests": 8,
+    "genuineRejections": 7,
+    "genuinePositiveInferredControl": 1,
+    "rejectedCases": [
+      "Client setup class literal",
+      "Command subscriber on MOD bus",
+      "Constructor executes queued registry-read work early",
+      "CLIENT config substituted for COMMON",
+      "Queued integer division with zero divisor",
+      "Escaping enqueueWork future stored in field",
+      "Retained removed IForgeRegistryEntry field"
+    ],
+    "rejectionState": "ABORTED/UNSUPPORTED; no output or temporary artifact; original bytes and hash unchanged",
+    "otherCoveredContracts": [
+      "Absent mandatory dependency",
+      "Unknown external call",
+      "Dependency side/version/order and cycles",
+      "Default-profile isolation",
+      "Cancellation before publication"
+    ],
+    "notNewSupportedModCount": true
+  },
+  "issuesFound": [
+    "First static conversion required a reviewed ModConfig outer-type declaration for genuine javac InnerClasses metadata; exact declaration added, no invented shim.",
+    "The eight new genuine integration tests passed in attempt 3, but their retained static full mapping graph exhausted the worker heap while the next class loaded mappings. AfterAll now releases the reference; unchanged heap and complete build passed.",
+    "Two report descriptions corrected before final public-artifact runtime repeats: shared common-setup-listener slice label and lifecycle descriptor-operation evidence identity.",
+    "Probe-only missing pack.mcmeta warnings and external Forge update/Yggdrasil key-fetch errors remain in native logs. Local behavior passed; clean logs and offline gameplay are not claimed."
+  ],
+  "remaining": [
+    "CLIENT/SERVER configuration scopes and synchronization",
+    "Config enabled=false branch runtime comparison",
+    "Custom config validators/types and explicit file I/O",
+    "Live reload and dispatcher recreation",
+    "Arbitrary lifecycle phases, subscribers, priorities and cancellation",
+    "Direct queued-work thread observation",
+    "Client gameplay and visuals",
+    "Multiplayer",
+    "Multi-mod conversion and third-party mandatory dependency linkage",
+    "Arbitrary custom registries, additional content roles and owned code envelopes",
+    "Mapping redistribution clearance and player-facing profile activation"
+  ],
+  "testModules": [
+    {
+      "module": "legacy-converter",
+      "tests": 504,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    {
+      "module": "legacy-corpus",
+      "tests": 84,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    {
+      "module": "legacy-product",
+      "tests": 82,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "legacy-runtime",
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "legacy-workflow",
+      "tests": 32,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "fixtures/lifecycle-content-1.16.5",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "fixtures/lifecycle-inferred-1.16.5",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "fixtures/lifecycle-runtime-probe-1.16.5",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "fixtures/lifecycle-runtime-probe-1.20.1",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "legacy-product/build/libs/LegacyBridge.jar",
+      "bytes": 1143519,
+      "sha256": "5bad76f00c88a342ec3af590315436f95b88f79ddbccf3cb951b5640ead0ac90"
+    },
+    {
+      "path": "legacy-converter/build/install/legacy-converter/lib/legacy-converter-0.1.1-SNAPSHOT.jar",
+      "bytes": 769611,
+      "sha256": "f01bb4e200857e181ef63bc9cf1807dde1bb7d0114b94ec292e51a35276e6f8c"
+    },
+    {
+      "path": "fixtures/lifecycle-content-1.16.5/build/libs/legacybridge-lifecycle-1.16.5-1.0.0.jar",
+      "bytes": 8645,
+      "sha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d"
+    },
+    {
+      "path": "fixtures/lifecycle-inferred-1.16.5/build/libs/legacybridge-lifecycle-inferred-1.16.5-1.0.0.jar",
+      "bytes": 8586,
+      "sha256": "476981d6725ed3cf5b3bcfd5a06ef7f377fcd0ce84a4530348b9288ec85b07ac"
+    },
+    {
+      "path": "fixtures/lifecycle-runtime-probe-1.16.5/build/libs/legacybridge-lifecycle-probe-1.16.5-1.0.0.jar",
+      "bytes": 12867,
+      "sha256": "42146da7d92a3f5a1bcf8225284e1f99b1d72f6451a6a87d347a09bd0d8c4e5e"
+    },
+    {
+      "path": "fixtures/lifecycle-runtime-probe-1.20.1/build/libs/legacybridge-lifecycle-probe-1.20.1-1.0.0.jar",
+      "bytes": 12892,
+      "sha256": "0e3c6f6db2b4a164fd7aed3864d721305a532da967479abdc5edf209f0cd0597"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/converted.jar",
+      "bytes": 7871,
+      "sha256": "68e9550129d4a2cb88fa184323ae7d4badef8ffb4f31f328e10dfa0eccdba58c"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/converted-inferred.jar",
+      "bytes": 7803,
+      "sha256": "b3aad65a5871fd5deb1884b332ca3019c9dfbfb4631f9928331db1f29610dd68"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/simple-regression.jar",
+      "bytes": 6979,
+      "sha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/logic-regression.jar",
+      "bytes": 7562,
+      "sha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/cacheless-reports/cacheless-engine-evidence.json",
+      "bytes": 2086,
+      "sha256": "7a8fe1c852cfc18528f245b083b71fe6aad6e64bc77895c8ff6a6ed716c987dd"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/cacheless-reports/convert-service.json",
+      "bytes": 148564,
+      "sha256": "74464081ff50aa344bac240bdea9f88f7cad94991cd59bb662fc1d32a84b713e"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/root-build-attempt-4.log",
+      "bytes": 138448,
+      "sha256": "3d7c539f3ccda9839f25bc69caf540e97e3c8efff436964003583699082b2d55"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/root-build-attempt-3.log",
+      "bytes": 24628,
+      "sha256": "5c733269134ec8b5ab75a9d93194e6088ec0d54b72c23d69660f26d195f6558d"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/fixture-build.log",
+      "bytes": 1416,
+      "sha256": "370708752909150c6d9f94403b606ceb87a03e657e001d5c6182ef62764dc5ee"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/inferred-fixture-build.log",
+      "bytes": 1416,
+      "sha256": "1576c0383b3a54239dff140297036a38ba1233686122d1fd95c4b9133f3457de"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/source-probe-build.log",
+      "bytes": 1416,
+      "sha256": "d19b21fe91b8369b2f50f403441d34cab84873719e436d0b548fffda84254309"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/target-probe-build.log",
+      "bytes": 2236,
+      "sha256": "dc1bc89f4578ce70a8d29616f5632039f582bb8710ca290583e5cc06d0348163"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/mapping-bundle/manifest.json",
+      "bytes": 4598,
+      "sha256": "c21faf7b47d88ec2393cc3bd238742059e597f83ab448eaeca243824a3540d2f"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/inferred-final-conversion.json",
+      "bytes": 146956,
+      "sha256": "3e7fda83757f61a745965bbfa4188580afe6f3b479a013db8220b08c0cf71285"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/converted-inferred-final.jar",
+      "bytes": 7803,
+      "sha256": "b3aad65a5871fd5deb1884b332ca3019c9dfbfb4631f9928331db1f29610dd68"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/cacheless-reports/analyze-service.json",
+      "bytes": 78902,
+      "sha256": "3642bc378e96ecf52cff86a35a2f0a7255ab0acd79d93a7b8b9e6d9def4a0cf6"
+    },
+    {
+      "path": "build/lifecycle-preserving-v1/cacheless-reports/mappings-service.json",
+      "bytes": 106996,
+      "sha256": "e2bc3b385bf13757dabd34654868cc4363aead931b385f57abcbc7b8635533ca"
+    }
+  ],
+  "nativeRuns": [
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/source-default-server/behavior-receipt.json",
+      "receiptSha256": "1bf90a1a60708aa1d585577c7a7a8d31d342d424cfa43df85f1e00dc42d09820",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/default-trace.json",
+      "observedTraceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Source",
+        "variant": "Default",
+        "minecraft": "1.16.5",
+        "forge": "36.2.42",
+        "javaSha256": "72008c366124d877ef0edb3c7e14c46e7e8d2c6ba754a793382af2f9aa54fb1a",
+        "preparationSha256": "300bcc33511ee41a68dbc74faf4b82db8c9abf758366b88a01f651bcd730a38a",
+        "mods": [
+          {
+            "fileName": "legacybridge-lifecycle-1.16.5-1.0.0.jar",
+            "sha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+            "size": 8645
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.16.5-1.0.0.jar",
+            "sha256": "42146da7d92a3f5a1bcf8225284e1f99b1d72f6451a6a87d347a09bd0d8c4e5e",
+            "size": 12867
+          }
+        ],
+        "originalFixtureSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+        "originalIntact": true,
+        "traceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+        "stdoutSha256": "dab957a6eb20870e8d70692ba6ebb1d4ecc56963d1ae4bc96e1261cb05aaff7d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": null,
+        "configOutputSha256": "91df2971b0bc9c931b903cf9f006c13b258e6d22c05b1aa50d918c4b65f2e2a9",
+        "expectedFactor": 3,
+        "nativeConfigCorrection": "NOT_REQUESTED",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 21
+      }
+    },
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/target-default-final-server/behavior-receipt.json",
+      "receiptSha256": "bf4288a5b5de8fff98f5288721b6c61a7a7ff863f9b6f9ea19b572e01991c580",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/default-trace.json",
+      "observedTraceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Target",
+        "variant": "Default",
+        "minecraft": "1.20.1",
+        "forge": "47.4.23",
+        "javaSha256": "9da06bd6c880c0c8d1a63e3716f8ef7996f146c41e6d339e4eafc93df28392f9",
+        "preparationSha256": "6802953460c0420f268519566ea0dfff07c54ccde76387a082b4a914c6cf188f",
+        "mods": [
+          {
+            "fileName": "converted.jar",
+            "sha256": "68e9550129d4a2cb88fa184323ae7d4badef8ffb4f31f328e10dfa0eccdba58c",
+            "size": 7871
+          },
+          {
+            "fileName": "LegacyBridge.jar",
+            "sha256": "5bad76f00c88a342ec3af590315436f95b88f79ddbccf3cb951b5640ead0ac90",
+            "size": 1143519
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.20.1-1.0.0.jar",
+            "sha256": "0e3c6f6db2b4a164fd7aed3864d721305a532da967479abdc5edf209f0cd0597",
+            "size": 12892
+          }
+        ],
+        "originalFixtureSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+        "originalIntact": true,
+        "traceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+        "stdoutSha256": "9376b3af17d8bd0b4f3fbd6071f61c99fd4b077c930d51c25a4e5784be70e716",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": null,
+        "configOutputSha256": "91df2971b0bc9c931b903cf9f006c13b258e6d22c05b1aa50d918c4b65f2e2a9",
+        "expectedFactor": 3,
+        "nativeConfigCorrection": "NOT_REQUESTED",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 32
+      }
+    },
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/source-configured-server/behavior-receipt.json",
+      "receiptSha256": "4cb929cbfaf5faffc01d900955f172f830d25e3dd55c3d83797502792d42a74b",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/configured-trace.json",
+      "observedTraceSha256": "20d28f3ae4e931d6295b111ca5d710c972a54c77d25b4e811c5221b6e800343b",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Source",
+        "variant": "Configured",
+        "minecraft": "1.16.5",
+        "forge": "36.2.42",
+        "javaSha256": "72008c366124d877ef0edb3c7e14c46e7e8d2c6ba754a793382af2f9aa54fb1a",
+        "preparationSha256": "38b4be8d3ebe7e6064a43ab47e7242dc0c00510ce4a5193abe8353575c8c82bc",
+        "mods": [
+          {
+            "fileName": "legacybridge-lifecycle-1.16.5-1.0.0.jar",
+            "sha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+            "size": 8645
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.16.5-1.0.0.jar",
+            "sha256": "42146da7d92a3f5a1bcf8225284e1f99b1d72f6451a6a87d347a09bd0d8c4e5e",
+            "size": 12867
+          }
+        ],
+        "originalFixtureSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+        "originalIntact": true,
+        "traceSha256": "20d28f3ae4e931d6295b111ca5d710c972a54c77d25b4e811c5221b6e800343b",
+        "stdoutSha256": "c0a9baef42ad3fad883d37654c0bbf4f49c8248d775ea0266236554f7c7fab66",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": "76123c12a538c9675ccc643861351a567eade70bb8cf630e3031c9a94286e734",
+        "configOutputSha256": "c1d6f5a4eb4d0e0efb03f4e576137068a42eb796b0c0603c8acc78f04ed55fee",
+        "expectedFactor": 5,
+        "nativeConfigCorrection": "NOT_REQUESTED",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 22
+      }
+    },
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/target-configured-final-server/behavior-receipt.json",
+      "receiptSha256": "591b0a58413322661ba6dc2518205ec0a90f539782e195fa6010746ae34ba284",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/configured-trace.json",
+      "observedTraceSha256": "20d28f3ae4e931d6295b111ca5d710c972a54c77d25b4e811c5221b6e800343b",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Target",
+        "variant": "Configured",
+        "minecraft": "1.20.1",
+        "forge": "47.4.23",
+        "javaSha256": "9da06bd6c880c0c8d1a63e3716f8ef7996f146c41e6d339e4eafc93df28392f9",
+        "preparationSha256": "4115f9773b82d206b559ce978a8ce1f5ef18d69a7abf0a314aefdc2c60675a13",
+        "mods": [
+          {
+            "fileName": "converted.jar",
+            "sha256": "68e9550129d4a2cb88fa184323ae7d4badef8ffb4f31f328e10dfa0eccdba58c",
+            "size": 7871
+          },
+          {
+            "fileName": "LegacyBridge.jar",
+            "sha256": "5bad76f00c88a342ec3af590315436f95b88f79ddbccf3cb951b5640ead0ac90",
+            "size": 1143519
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.20.1-1.0.0.jar",
+            "sha256": "0e3c6f6db2b4a164fd7aed3864d721305a532da967479abdc5edf209f0cd0597",
+            "size": 12892
+          }
+        ],
+        "originalFixtureSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+        "originalIntact": true,
+        "traceSha256": "20d28f3ae4e931d6295b111ca5d710c972a54c77d25b4e811c5221b6e800343b",
+        "stdoutSha256": "036c659fae90c7bc8047a438869106b88c5351e7d7c60dc69d05c4b3927e8c24",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": "76123c12a538c9675ccc643861351a567eade70bb8cf630e3031c9a94286e734",
+        "configOutputSha256": "c1d6f5a4eb4d0e0efb03f4e576137068a42eb796b0c0603c8acc78f04ed55fee",
+        "expectedFactor": 5,
+        "nativeConfigCorrection": "NOT_REQUESTED",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 31
+      }
+    },
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/source-invalidconfig-server/behavior-receipt.json",
+      "receiptSha256": "58984bfd4ea83262171f4e6cefae8041bb6d512b1a453c5cdbaa69f57619dfb7",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/invalidconfig-trace.json",
+      "observedTraceSha256": "d3cdb90c5373d4efdedfe0fccf0f76565f975cf83cd8073ec0ef7f8fd46832eb",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Source",
+        "variant": "InvalidConfig",
+        "minecraft": "1.16.5",
+        "forge": "36.2.42",
+        "javaSha256": "72008c366124d877ef0edb3c7e14c46e7e8d2c6ba754a793382af2f9aa54fb1a",
+        "preparationSha256": "400cc9f5cc3f42264c556060f19b31297d26478e83b54eea4983b28fff72a01e",
+        "mods": [
+          {
+            "fileName": "legacybridge-lifecycle-1.16.5-1.0.0.jar",
+            "sha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+            "size": 8645
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.16.5-1.0.0.jar",
+            "sha256": "42146da7d92a3f5a1bcf8225284e1f99b1d72f6451a6a87d347a09bd0d8c4e5e",
+            "size": 12867
+          }
+        ],
+        "originalFixtureSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+        "originalIntact": true,
+        "traceSha256": "d3cdb90c5373d4efdedfe0fccf0f76565f975cf83cd8073ec0ef7f8fd46832eb",
+        "stdoutSha256": "f3a219eb6acb9f24bcbd2fee61bd1bb0d00f616ff1ddb4f38da33e4ca723c9c2",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": "13f3f6c897c2a0df8a7db8393c532484ad453837828a59270a0b72b15a6cf539",
+        "configOutputSha256": "2123103a31ff33d027ac757032f72dbfcf567d8c7e9c318c647e2174cc71efeb",
+        "expectedFactor": 8,
+        "nativeConfigCorrection": "NUMERIC_99_CLAMPED_TO_8",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 23
+      }
+    },
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/target-invalidconfig-final-server/behavior-receipt.json",
+      "receiptSha256": "b1e4231decad136b3696012684f60b003921176ddddf0554855a43705a84c4d9",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/invalidconfig-trace.json",
+      "observedTraceSha256": "d3cdb90c5373d4efdedfe0fccf0f76565f975cf83cd8073ec0ef7f8fd46832eb",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Target",
+        "variant": "InvalidConfig",
+        "minecraft": "1.20.1",
+        "forge": "47.4.23",
+        "javaSha256": "9da06bd6c880c0c8d1a63e3716f8ef7996f146c41e6d339e4eafc93df28392f9",
+        "preparationSha256": "8410f814d155d32d5daa370b12092eedc3c0886cea554048238e558219c02489",
+        "mods": [
+          {
+            "fileName": "converted.jar",
+            "sha256": "68e9550129d4a2cb88fa184323ae7d4badef8ffb4f31f328e10dfa0eccdba58c",
+            "size": 7871
+          },
+          {
+            "fileName": "LegacyBridge.jar",
+            "sha256": "5bad76f00c88a342ec3af590315436f95b88f79ddbccf3cb951b5640ead0ac90",
+            "size": 1143519
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.20.1-1.0.0.jar",
+            "sha256": "0e3c6f6db2b4a164fd7aed3864d721305a532da967479abdc5edf209f0cd0597",
+            "size": 12892
+          }
+        ],
+        "originalFixtureSha256": "a97836fd2b9cd1deb5c0f5d5dd66388b6320209b4909c703611abf778c3d817d",
+        "originalIntact": true,
+        "traceSha256": "d3cdb90c5373d4efdedfe0fccf0f76565f975cf83cd8073ec0ef7f8fd46832eb",
+        "stdoutSha256": "9077a1e48362b18cc09ba49137613ba3e31f9cd8b4262b1aa7f13f9c7027fbb5",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": "13f3f6c897c2a0df8a7db8393c532484ad453837828a59270a0b72b15a6cf539",
+        "configOutputSha256": "2123103a31ff33d027ac757032f72dbfcf567d8c7e9c318c647e2174cc71efeb",
+        "expectedFactor": 8,
+        "nativeConfigCorrection": "NUMERIC_99_CLAMPED_TO_8",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 32
+      }
+    },
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/source-inferred-server/behavior-receipt.json",
+      "receiptSha256": "1cf86a005a61a030f4be4d15e53576a398b6ba81bf2fa2409655207294a29ed6",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/default-trace.json",
+      "observedTraceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Source",
+        "variant": "Inferred",
+        "minecraft": "1.16.5",
+        "forge": "36.2.42",
+        "javaSha256": "72008c366124d877ef0edb3c7e14c46e7e8d2c6ba754a793382af2f9aa54fb1a",
+        "preparationSha256": "b55f191cf34353bfce2dcdb0ea2c0125957f08bd643065cb8fb5ed2c0f125faa",
+        "mods": [
+          {
+            "fileName": "legacybridge-lifecycle-inferred-1.16.5-1.0.0.jar",
+            "sha256": "476981d6725ed3cf5b3bcfd5a06ef7f377fcd0ce84a4530348b9288ec85b07ac",
+            "size": 8586
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.16.5-1.0.0.jar",
+            "sha256": "42146da7d92a3f5a1bcf8225284e1f99b1d72f6451a6a87d347a09bd0d8c4e5e",
+            "size": 12867
+          }
+        ],
+        "originalFixtureSha256": "476981d6725ed3cf5b3bcfd5a06ef7f377fcd0ce84a4530348b9288ec85b07ac",
+        "originalIntact": true,
+        "traceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+        "stdoutSha256": "52c6d96a65b9c3a8bb841b6c802ffc65cd733c49a9094007412638235ad58b1e",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": null,
+        "configOutputSha256": "91df2971b0bc9c931b903cf9f006c13b258e6d22c05b1aa50d918c4b65f2e2a9",
+        "expectedFactor": 3,
+        "nativeConfigCorrection": "NOT_REQUESTED",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 22
+      }
+    },
+    {
+      "receiptPath": "build/lifecycle-preserving-v1/target-inferred-final-server/behavior-receipt.json",
+      "receiptSha256": "d1741091a9af23c1d0917807c7f003c96381561d6d49ec1215eac5d3d2831db6",
+      "observedTracePath": "docs/evidence/lifecycle-preserving-v1/default-trace.json",
+      "observedTraceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+      "receipt": {
+        "schemaVersion": 1,
+        "side": "Target",
+        "variant": "Inferred",
+        "minecraft": "1.20.1",
+        "forge": "47.4.23",
+        "javaSha256": "9da06bd6c880c0c8d1a63e3716f8ef7996f146c41e6d339e4eafc93df28392f9",
+        "preparationSha256": "31d4334d918b147848b8b532e498b0f0e5e554aadabc5dd6ca7af28af80626da",
+        "mods": [
+          {
+            "fileName": "converted-inferred.jar",
+            "sha256": "b3aad65a5871fd5deb1884b332ca3019c9dfbfb4631f9928331db1f29610dd68",
+            "size": 7803
+          },
+          {
+            "fileName": "LegacyBridge.jar",
+            "sha256": "5bad76f00c88a342ec3af590315436f95b88f79ddbccf3cb951b5640ead0ac90",
+            "size": 1143519
+          },
+          {
+            "fileName": "legacybridge-lifecycle-probe-1.20.1-1.0.0.jar",
+            "sha256": "0e3c6f6db2b4a164fd7aed3864d721305a532da967479abdc5edf209f0cd0597",
+            "size": 12892
+          }
+        ],
+        "originalFixtureSha256": "476981d6725ed3cf5b3bcfd5a06ef7f377fcd0ce84a4530348b9288ec85b07ac",
+        "originalIntact": true,
+        "traceSha256": "f84ce1bcd731adb786a1881f4e7e7b49eccff602ccb261b75335334054bcf58b",
+        "stdoutSha256": "89c96692e0ecf8fa14931278fc7c33e2fa43bb2d9e40507805fe0c68f63b0d3b",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "configInputSha256": null,
+        "configOutputSha256": "91df2971b0bc9c931b903cf9f006c13b258e6d22c05b1aa50d918c4b65f2e2a9",
+        "expectedFactor": 3,
+        "nativeConfigCorrection": "NOT_REQUESTED",
+        "exitCode": 0,
+        "nativeServerBehavior": "PASSED",
+        "nativeProbeThread": "SERVER",
+        "queuedWorkThread": "NOT_OBSERVED",
+        "clientVisual": "NOT_RUN",
+        "multiplayer": "NOT_RUN",
+        "offlineGame": "NOT_TESTED",
+        "elapsedSeconds": 33
+      }
+    }
+  ],
+  "localEvidencePolicy": "Relative artifact/log/receipt paths resolve in the project workspace; raw logs, original JARs and prepared API/mapping data remain ignored local evidence. Only primitive authored-fixture trace snapshots and this hash manifest are included under docs.",
+  "supersededRuntimeEvidence": {
+    "directoryPattern": "build/lifecycle-preserving-v1/target-<variant>-server",
+    "publicJarSha256": "904215f762122b59f107db0d9d0717a8fb3bbeb6dc608abc4d82f46ab6f8b4af",
+    "retained": true,
+    "finalApprovalUses": "target-<variant>-final-server only"
+  }
+}

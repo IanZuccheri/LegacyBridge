@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-08",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Finite developer-only native default-configuration content review and necessary output inventory. No new conversion support or native launch authority.",
+  "authorization": "HEADLESS_IMPLEMENTATION; no Minecraft client/server, UI/focus/input automation, native arming, mod acquisition, player world mutation or publication.",
+  "previousEvidence": "docs/evidence/compose-output-policy-2026-09-08.json",
+  "documentation": [
+    "docs/COMPOSITION_NATIVE_CONFIG_REVIEW.md",
+    "docs/COMPOSITION_NATIVE_OUTPUT_POLICY.md"
+  ],
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "Oracle 17.0.12+8-LTS-286",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT",
+    "gradle": "8.8",
+    "forgeGradle": "6.0.54"
+  },
+  "implementation": {
+    "components": [
+      "CompositionNativeConfigValidator",
+      "CompositionNativeContentReview"
+    ],
+    "entryPoint": "CompositionNativeOutputPolicy.Policy.reviewRecordedContent",
+    "status": "IMPLEMENTED_TESTED_HEADLESS_ONLY",
+    "policyVersions": [
+      "native-config-defaults-v1",
+      "native-config-review-v1",
+      "native-necessary-files-v1"
+    ],
+    "reportSchemaVersion": 1,
+    "result": "BOUNDED_CONFIG_REVIEW_ONLY",
+    "configResult": "RECORDED_NATIVE_DEFAULTS_ONLY",
+    "necessaryOutputs": "MISSING or PRESENT_ONLY; never successfulOutputSetVerified",
+    "configs": {
+      "source": {
+        "fmlValues": 4,
+        "commonValues": 1,
+        "serverValues": 10
+      },
+      "target": {
+        "fmlValues": 14,
+        "commonPresence": "REJECTED_EMPTY_SPEC_NOT_REGISTERED",
+        "serverValues": 8
+      }
+    },
+    "necessaryPaths": {
+      "source": 14,
+      "target": 13,
+      "includesExistingServerProperties": true
+    },
+    "limits": {
+      "maxConfigBytes": 65536,
+      "maxLines": 512,
+      "maxLineCharacters": 4096,
+      "inheritedLayoutLimitsUnchanged": true
+    },
+    "newRulesAdaptersProfilesOrAuthority": false
+  },
+  "sourceAudit": {
+    "sourcesRehashed": true,
+    "exactSourcesLedger": "docs/evidence/compose-sessions-2026-09-08.json",
+    "targetFmlCoreSourcesSha256": "fc6df13c54c211ea9c0220ec76a2ebe1e573187112467cfc1397a25fee191ec1",
+    "sourceLauncherSha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f",
+    "sourceFmlConfigClassEntrySha256": "4cd82eba6dac99423662a99b1b92a5c7030a09f8277d73634505363aecd4b69b",
+    "diagnostics": "Read-only exact local source/ZIP reads and javap, no inspected-class initialization.",
+    "findings": [
+      "Corrected FML schema has 4 SOURCE / 14 TARGET values; bundled default resources alone incomplete.",
+      "TARGET empty Forge Common spec skips registration; even empty common output rejected by the new content gate.",
+      "Native default versionCheck permits HTTP; maxThreads=-1 selects available processors.",
+      "TARGET advertiseDedicatedServerToLan=true sends multicast independently of server-IP loopback binding.",
+      "Fresh no-player startup saves usercache.json through convertOldUsers even when old files are absent."
+    ],
+    "rights": "No platform binaries, sources, private configs or mapping data embedded. Authored finite policy facts and synthetic tests only; no new redistribution permission inferred."
+  },
+  "validation": {
+    "status": "PASSED_HEADLESS_ONLY",
+    "focused": {
+      "path": "build/compose-config-review-2026-09-08-run1/focused-tests-2.log",
+      "exitCode": 0,
+      "duration": "2m30s",
+      "tests": 230,
+      "passed": 230,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0,
+      "qualification": "Focused run before adding the explicit automatic-native-threads concern; final full build required after that additive change.",
+      "bytes": 72998,
+      "sha256": "ec6d05bad4583830d60cfb463fd5ea815e50e4b9f384efc415ed5120c3d46f08"
+    },
+    "failedAttempts": [
+      {
+        "path": "build/compose-config-review-2026-09-08-run1/focused-tests.log",
+        "stage": "compileJava",
+        "exitCode": 1,
+        "duration": "22s",
+        "observed": "canonicalJson declares IOException; new Review.sha256 omitted handling.",
+        "correction": "Compute immutable digest in private constructor under the existing checked/sanitized review boundary. Subsequent focused compile/tests passed.",
+        "bytes": 8618,
+        "sha256": "156a5d857eedf1be84ea803eec17924c501d298f8b79d26aa6a16eaabeb82ef9"
+      }
+    ],
+    "nativeExecution": "NOT_RUN",
+    "gameProcessesStarted": 0,
+    "screenAutomation": "NOT_RUN",
+    "newConversions": "NOT_RUN",
+    "originalVsTargetBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "fullBuild": {
+      "path": "build/compose-config-review-2026-09-08-run1/full-build.log",
+      "bytes": 292860,
+      "sha256": "fba16f266e8718fce0dc665a0824ea1ebea172469de45f8d1d9d445c955f4f39",
+      "exitCode": 0,
+      "duration": "29m20s",
+      "actionableTasks": 69,
+      "executed": 30,
+      "upToDate": 39
+    },
+    "corpus": {
+      "tests": 1164,
+      "passed": 1157,
+      "skipped": 7,
+      "failures": 0,
+      "errors": 0,
+      "suiteCount": 20,
+      "newTests": 230,
+      "newPassed": 230,
+      "newSkipped": 0,
+      "skipReason": "Seven existing Windows symbolic-link privilege skips; no new tests skipped.",
+      "skippedCases": [
+        {
+          "suite": "dev.legacybridge.corpus.CompositionRunStagerTest",
+          "test": "symlinkedDestinationAncestorCannotRedirectStaging()"
+        },
+        {
+          "suite": "dev.legacybridge.corpus.CompositionSessionEvidenceTest",
+          "test": "symlinkedEvidenceCannotRedirectReadOrWriteOwnership()"
+        },
+        {
+          "suite": "dev.legacybridge.corpus.CompositionStagedRunVerifierTest",
+          "test": "stagedSymbolicLinkToItsSelectedOriginalIsRejectedWhenProviderPermitsCreatingOne()"
+        },
+        {
+          "suite": "dev.legacybridge.corpus.CorpusLockTest",
+          "test": "refusesNativeSymlinkRecordWhenCreationIsPermitted()"
+        },
+        {
+          "suite": "dev.legacybridge.corpus.PromptContractVerifierTest",
+          "test": "rejectsSymbolicEvidenceWithoutFollowingIt()"
+        },
+        {
+          "suite": "dev.legacybridge.corpus.PromptContractVerifierTest",
+          "test": "rejectsSymbolicPromptDirectory()"
+        },
+        {
+          "suite": "dev.legacybridge.corpus.PublicEvidenceVerifierTest",
+          "test": "symlinkEvidenceRefusesWhenPlatformAllowsItsCreation()"
+        }
+      ],
+      "suites": [
+        {
+          "name": "dev.legacybridge.corpus.CompositionExitVerifierTest",
+          "tests": 102,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 80.845,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionExitVerifierTest.xml",
+          "sha256": "f4c21c25e4ccea3f5b2664f6436e06f2be51bc50761448589e0af45619da9e27",
+          "bytes": 13956
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionInertSessionTest",
+          "tests": 46,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 477.407,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionInertSessionTest.xml",
+          "sha256": "ea372cd7f7434d0cb0723d7187106e4de936b24da4aed1583f02afba7dfb42fa",
+          "bytes": 6178
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionNativeConfigValidatorTest",
+          "tests": 221,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 0.288,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionNativeConfigValidatorTest.xml",
+          "sha256": "19653bf3b45975d60c73154a6ac4ba46d50e10b16c3c526c785d9601821ae32a",
+          "bytes": 32528
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionNativeContentReviewTest",
+          "tests": 9,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 124.651,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionNativeContentReviewTest.xml",
+          "sha256": "987f2f45ca02494258d6518f7f923d6575b61feccb9762f188225614d42f0c13",
+          "bytes": 1702
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionNativeOutputPolicyTest",
+          "tests": 241,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 121.294,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionNativeOutputPolicyTest.xml",
+          "sha256": "8210a02cad4687a46c53444060eab57ba912056b794a0639ed2535c27d14136a",
+          "bytes": 33770
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionObservationVerifierTest",
+          "tests": 77,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 9.189,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionObservationVerifierTest.xml",
+          "sha256": "fcbcb59d87187eb6d7485b1431dc541a825b982c214ed267c424e1b6c112f99b",
+          "bytes": 10788
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionProcessCollectorTest",
+          "tests": 46,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 8.813,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionProcessCollectorTest.xml",
+          "sha256": "b4072d62f9a69839193298248d78b70ece667467f00e56c2ed519a2efae03fa5",
+          "bytes": 7102
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunPlannerCommandTest",
+          "tests": 3,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 0.003,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunPlannerCommandTest.xml",
+          "sha256": "36676ae8e661af3789746eb974fa491013b8dfbe9382e00773a3d126b61a7dab",
+          "bytes": 795
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunPlannerTest",
+          "tests": 41,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 127.302,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunPlannerTest.xml",
+          "sha256": "f33f459863878a5f5cab04b468daa545672ca4170fd46cbead271dc81488c6ae",
+          "bytes": 6770
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunStagerCommandTest",
+          "tests": 3,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 0.002,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunStagerCommandTest.xml",
+          "sha256": "040f0ad9c9c2bad9c9eb8792d68797d0df5ac1c49cc6a8b17a179f5f32dceba2",
+          "bytes": 795
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunStagerTest",
+          "tests": 69,
+          "skipped": 1,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 413.723,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunStagerTest.xml",
+          "sha256": "bc3fbc310e277f4711320424472c5c35ac6afdfc4b836f703cc4516b6474bded",
+          "bytes": 9111
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionSessionEvidenceTest",
+          "tests": 46,
+          "skipped": 1,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 76.549,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionSessionEvidenceTest.xml",
+          "sha256": "4fb6d1919f814c638a0043b5acb630432e97e1da706921639ccc1bd0018f1518",
+          "bytes": 6522
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionStagedRunVerifierTest",
+          "tests": 45,
+          "skipped": 1,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 229.567,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionStagedRunVerifierTest.xml",
+          "sha256": "2c97587274aa19c5f1069a5d152bd85c09f7b999aa81e3fc48591e4e38833ed5",
+          "bytes": 6413
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusJsonTest",
+          "tests": 5,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 0.061,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusJsonTest.xml",
+          "sha256": "851c9fabf8d7c0ad914b1a67e91ac97e7f1c6a4489eaee24c9595d7b18208668",
+          "bytes": 1026
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusLockTest",
+          "tests": 22,
+          "skipped": 1,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 1.631,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusLockTest.xml",
+          "sha256": "97b2290a60f4c65a2fc756a99adf5239db9557a29debe1738592fae39dc01f7c",
+          "bytes": 3148
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusRunnerTest",
+          "tests": 10,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 2.982,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusRunnerTest.xml",
+          "sha256": "a138d5e24a22f83dcac3590a427bc4c126f11fbaba940bbab7291d1d2f2b7b48",
+          "bytes": 1761
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusVerifierTest",
+          "tests": 47,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 4.991,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusVerifierTest.xml",
+          "sha256": "621774dcebfe4379ea4f41c5ceb9e46e9b9313a0ba7ed9b8a465d431476f8c0f",
+          "bytes": 6372
+        },
+        {
+          "name": "dev.legacybridge.corpus.PromptContractVerifierTest",
+          "tests": 77,
+          "skipped": 2,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 16.581,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.PromptContractVerifierTest.xml",
+          "sha256": "5fbb218ee880727dd700dbb6306cfab5dd9588f57ab540fc022dd94249fc941e",
+          "bytes": 9783
+        },
+        {
+          "name": "dev.legacybridge.corpus.PublicEvidenceVerifierTest",
+          "tests": 49,
+          "skipped": 1,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 2.036,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.corpus.PublicEvidenceVerifierTest.xml",
+          "sha256": "fd5e4c47a0a11a33acd9cf8ea2e354128ae0f096a92a785f283ad707def07527",
+          "bytes": 6613
+        },
+        {
+          "name": "dev.legacybridge.validation.composition.ProbeConformanceTest",
+          "tests": 5,
+          "skipped": 0,
+          "failures": 0,
+          "errors": 0,
+          "seconds": 7.956,
+          "path": "build/compose-config-review-2026-09-08-run1/full-corpus-xml/TEST-dev.legacybridge.validation.composition.ProbeConformanceTest.xml",
+          "sha256": "574c778ea3694c6bd4d2cdbcb7c323157f5caf1f0648315243b0122e7a3992af",
+          "bytes": 1222
+        }
+      ]
+    },
+    "moduleTestTasks": [
+      "> Task :legacy-compat-api:test NO-SOURCE",
+      "> Task :legacy-converter:test UP-TO-DATE",
+      "> Task :legacy-corpus:test",
+      "> Task :legacy-product:test UP-TO-DATE",
+      "> Task :legacy-runtime:test UP-TO-DATE",
+      "> Task :legacy-workflow:test UP-TO-DATE"
+    ],
+    "otherModuleTestQualification": "Converter/product/runtime/workflow test tasks UP-TO-DATE, not rerun in this continuation. Compatibility API has NO-SOURCE tests. Root diagnostics and package/boundary/CLI/baseline checks passed as shown in the full build log.",
+    "realStageReviews": [
+      {
+        "report": {
+          "configurations": [],
+          "contentUnchecked": [],
+          "executionAllowed": false,
+          "exitObserved": false,
+          "gameExecutionVerified": false,
+          "installationAllowed": false,
+          "launchConcerns": [],
+          "layoutPolicySha256": "9fdc62e22c0e12a37a89c8fa347bd9cbafc05ff3f39427f05021b99d0ac21c47",
+          "layoutReviewSha256": "478c74753026a15320b8315b685acd677a87d4a8934f6afe8a8dece5c426d050",
+          "nativeContentVerified": false,
+          "nativeLaunchContractVerified": false,
+          "pending": [
+            "NONDEFAULT_CONFIGURATION_CONTRACT",
+            "NATIVE_PROPERTIES_SEMANTICS",
+            "WORLD_LOG_OBSERVATION_CONTENT",
+            "NATIVE_LATE_LOOKUP_CLOSURE",
+            "NATIVE_ARMING_CONTRACT",
+            "NATIVE_EXECUTION_AUTHORIZATION",
+            "NATIVE_SOURCE_JAVA17",
+            "NATIVE_ORIGINAL_TARGET_COMPARISON"
+          ],
+          "planSha256": "4261552c7ce30dc14b9d503ad4a732f7a635923e9aeee47c6c8321688f1ed25a",
+          "policyVersion": "native-config-review-v1",
+          "propertiesValidation": "FIXED_KEYS_PRESERVED_OTHER_KNOWN_VALUES_UNVALIDATED",
+          "reportType": "LEGACY_COMPOSITION_NATIVE_CONFIG_REVIEW",
+          "requiredOutputs": {
+            "missing": [
+              "banned-ips.json",
+              "banned-players.json",
+              "composition-observations/run-stage-source-20260908.json",
+              "config/fml.toml",
+              "config/forge-common.toml",
+              "logs/debug.log",
+              "logs/latest.log",
+              "ops.json",
+              "usercache.json",
+              "whitelist.json",
+              "world/level.dat",
+              "world/serverconfig/forge-server.toml",
+              "world/session.lock"
+            ],
+            "paths": [
+              "banned-ips.json",
+              "banned-players.json",
+              "composition-observations/run-stage-source-20260908.json",
+              "config/fml.toml",
+              "config/forge-common.toml",
+              "logs/debug.log",
+              "logs/latest.log",
+              "ops.json",
+              "server.properties",
+              "usercache.json",
+              "whitelist.json",
+              "world/level.dat",
+              "world/serverconfig/forge-server.toml",
+              "world/session.lock"
+            ],
+            "policyVersion": "native-necessary-files-v1",
+            "status": "MISSING",
+            "successfulOutputSetVerified": false
+          },
+          "role": "SOURCE",
+          "runId": "run-stage-source-20260908",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1,
+          "stageReceiptSha256": "9348043af06d9158f3b6ea06a15642b540e952b79f3f747c4979400d97c57be1",
+          "status": "BOUNDED_CONFIG_REVIEW_ONLY"
+        },
+        "log": {
+          "path": "build/compose-config-review-2026-09-08-run1/source-review.log",
+          "sha256": "4c1bae8a74242e12a08bf762990a344d6585ad2812c2a742b2b5922e5096c8f7",
+          "bytes": 11156
+        },
+        "exitCode": 0,
+        "duration": "1m57s"
+      },
+      {
+        "report": {
+          "configurations": [],
+          "contentUnchecked": [],
+          "executionAllowed": false,
+          "exitObserved": false,
+          "gameExecutionVerified": false,
+          "installationAllowed": false,
+          "launchConcerns": [],
+          "layoutPolicySha256": "d486fd32463583647be5afe8943ae1f7880bf87d29bca69e61d3630f023e5baa",
+          "layoutReviewSha256": "1bbc5fb4a7893f3ea6f16e6f0a5cd055bbb42f4a00e9400cdca48be00dee2811",
+          "nativeContentVerified": false,
+          "nativeLaunchContractVerified": false,
+          "pending": [
+            "NONDEFAULT_CONFIGURATION_CONTRACT",
+            "NATIVE_PROPERTIES_SEMANTICS",
+            "WORLD_LOG_OBSERVATION_CONTENT",
+            "NATIVE_LATE_LOOKUP_CLOSURE",
+            "NATIVE_ARMING_CONTRACT",
+            "NATIVE_EXECUTION_AUTHORIZATION",
+            "NATIVE_SOURCE_JAVA17",
+            "NATIVE_ORIGINAL_TARGET_COMPARISON"
+          ],
+          "planSha256": "c9f0199d1f46fca3c631c8014aca9582db9edde5d78d0373032aabb390992d62",
+          "policyVersion": "native-config-review-v1",
+          "propertiesValidation": "FIXED_KEYS_PRESERVED_OTHER_KNOWN_VALUES_UNVALIDATED",
+          "reportType": "LEGACY_COMPOSITION_NATIVE_CONFIG_REVIEW",
+          "requiredOutputs": {
+            "missing": [
+              "banned-ips.json",
+              "banned-players.json",
+              "composition-observations/run-stage-target-20260908.json",
+              "config/fml.toml",
+              "logs/debug.log",
+              "logs/latest.log",
+              "ops.json",
+              "usercache.json",
+              "whitelist.json",
+              "world/level.dat",
+              "world/serverconfig/forge-server.toml",
+              "world/session.lock"
+            ],
+            "paths": [
+              "banned-ips.json",
+              "banned-players.json",
+              "composition-observations/run-stage-target-20260908.json",
+              "config/fml.toml",
+              "logs/debug.log",
+              "logs/latest.log",
+              "ops.json",
+              "server.properties",
+              "usercache.json",
+              "whitelist.json",
+              "world/level.dat",
+              "world/serverconfig/forge-server.toml",
+              "world/session.lock"
+            ],
+            "policyVersion": "native-necessary-files-v1",
+            "status": "MISSING",
+            "successfulOutputSetVerified": false
+          },
+          "role": "TARGET",
+          "runId": "run-stage-target-20260908",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1,
+          "stageReceiptSha256": "5f3eb7903b674a54259f6b4d3c114382c0e3cf873916dcbc5fd40698f19fd188",
+          "status": "BOUNDED_CONFIG_REVIEW_ONLY"
+        },
+        "log": {
+          "path": "build/compose-config-review-2026-09-08-run1/target-review.log",
+          "sha256": "04ca7e04492c84a4e6b9a0922895dbd72ad21bd588e651ee529b1432cf9c7589",
+          "bytes": 11008
+        },
+        "exitCode": 0,
+        "duration": "4m"
+      }
+    ],
+    "realStageQualification": "Untouched unarmed stages. No generated config/world/log/observation exists. Empty configurations/contentUnchecked/launchConcerns arrays do not verify content or native isolation. Missing generated paths SOURCE13/TARGET12 are expected NOT_RUN, not a game failure.",
+    "observationIndex": {
+      "indexPath": "docs/evidence/compose-observation-index-2026-09-07.json",
+      "indexSha256": "aa8162c3c1aa2f409ff8a668817feec095f429c9754105fd23b9d929b96fe399",
+      "checkedPins": [
+        {
+          "kind": "original",
+          "path": "fixtures/composed-logic-recipes-1.16.5/build/libs/legacybridge-composed-logic-recipes-1.16.5-1.0.0.jar",
+          "sha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+          "bytes": 7433
+        },
+        {
+          "kind": "candidate",
+          "path": "build/composition-qa/run-20260907-export1/candidate.jar",
+          "sha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2",
+          "bytes": 5913
+        },
+        {
+          "kind": "proof",
+          "path": "build/composition-qa/run-20260907-export1/proof.json",
+          "sha256": "ea1624ac6ff59363272da0b04f1f94a11f11a9324cde35591bf41db0e193b2d1",
+          "bytes": 107831
+        },
+        {
+          "kind": "receipt",
+          "path": "build/composition-qa/run-20260907-export1/receipt.json",
+          "sha256": "ed976a181fac59e2453d3dd110db6c0d89b3d7565a22e37d6df4ab4bf508e9bd",
+          "bytes": 506
+        },
+        {
+          "kind": "runtime",
+          "path": "legacy-product/build/libs/LegacyBridge.jar",
+          "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+          "bytes": 1280333
+        }
+      ],
+      "bytes": 1402016,
+      "runs": null,
+      "result": "HASHES_MATCH_NATIVE_NOT_RUN"
+    },
+    "finalDocumentationBuildLog": "build/compose-config-review-2026-09-08-run1/final-build.log",
+    "finalDocumentationBuildQualification": "Executed after final ledger/doc edits; inspect that log separately. The fresh test evidence above is the full regression, not a claim that an up-to-date test task reran."
+  },
+  "pending": [
+    "NONDEFAULT_CONFIGURATION_CONTRACT",
+    "NATIVE_PROPERTIES_SEMANTICS",
+    "WORLD_LOG_OBSERVATION_CONTENT",
+    "SOURCE_CONDITIONAL_LOOKUP_DECISION",
+    "NATIVE_ARMING_SESSION_AND_EXIT",
+    "SOURCE_JAVA17_QUALIFICATION",
+    "NATIVE_ORIGINAL_TARGET_COMPARISON",
+    "INSTALLATION_AND_UI_PROMOTION"
+  ],
+  "nextAction": "Same LB-08/COMPOSE-01: finite no-network configuration/native-property launch contract with inert fixtures, without arming; qualify required content/save/log/observation checks and SOURCE conditional lookup decision separately. No native authorization or profile promotion.",
+  "implementationPins": [
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionNativeConfigValidator.java",
+      "bytes": 7631,
+      "sha256": "20452966d90cbacd5b03e8e53a98fc6e26a708925b77b81a0620079ba668f771"
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionNativeContentReview.java",
+      "bytes": 8529,
+      "sha256": "4e351b74219b5f60e68a267ebf4a12d41174a946936af096417acd071d7c5fb1"
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionNativeOutputPolicy.java",
+      "bytes": 22967,
+      "sha256": "7ec2d1d338db5bdfa984f79dc4e01c7fa28aad7d84128212e0bb4f9659948fc8"
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionNativeConfigValidatorTest.java",
+      "bytes": 18825,
+      "sha256": "b2a5b05cdfd10cc4bb388b2f69e016ee2dd12f7ed6f8c4f03988d4f4f563102e"
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionNativeContentReviewTest.java",
+      "bytes": 12097,
+      "sha256": "ca38713fbddb451c6f51673c125f97e41348edde9ae8181096603603c29757c4"
+    },
+    {
+      "path": "legacy-corpus/build.gradle",
+      "bytes": 8977,
+      "sha256": "0219b2c4589064b9cf4e4e082da1aa161f6fa01a95e8ee596adea5b0fd471273"
+    },
+    {
+      "path": "docs/COMPOSITION_NATIVE_CONFIG_REVIEW.md",
+      "sha256": "d1019a19855dfb87833f7976cac3bbeaba4a155c9795d77438dea86de7642131",
+      "bytes": 13477
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "legacy-product/build/libs/LegacyBridge.jar",
+      "bytes": 1280333,
+      "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+      "entries": 526,
+      "corpusEntries": 0,
+      "testHelperEntries": 0
+    },
+    {
+      "path": "legacy-corpus/build/libs/legacy-corpus-0.1.1-SNAPSHOT.jar",
+      "bytes": 234705,
+      "sha256": "0b15b3c2dcd12cd0c60e8f118bf8c0039cd37ce83e169f337d093ad12dc60538",
+      "entries": 74,
+      "corpusEntries": 70,
+      "testHelperEntries": 0
+    }
+  ],
+  "publicJarByteIdentical": true,
+  "nativeAuthorityFlagsRemainFalse": true,
+  "commands": [
+    "JAVA_HOME=C:/Program Files/Java/jdk-17; gradlew.bat --status (existing Gradle8.8 daemon IDLE; no competing build)",
+    "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-corpus:test --tests *CompositionNativeConfigValidatorTest --tests *CompositionNativeContentReviewTest --no-daemon --max-workers=1",
+    "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build --no-daemon --max-workers=1",
+    "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-corpus:reviewCompositionContent -PcompositionRunRole=SOURCE -PcompositionRunId=run-stage-source-20260908 -PcompositionJavaHome=C:/Program Files/Java/jdk-17 -PcompositionReviewedPlanSha256=4261552c7ce30dc14b9d503ad4a732f7a635923e9aeee47c6c8321688f1ed25a -PcompositionReviewedReceiptSha256=9348043af06d9158f3b6ea06a15642b540e952b79f3f747c4979400d97c57be1 --no-daemon --max-workers=1",
+    "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-corpus:reviewCompositionContent -PcompositionRunRole=TARGET -PcompositionRunId=run-stage-target-20260908 -PcompositionJavaHome=C:/Program Files/Java/jdk-17 -PcompositionReviewedPlanSha256=c9f0199d1f46fca3c631c8014aca9582db9edde5d78d0373032aabb390992d62 -PcompositionReviewedReceiptSha256=5f3eb7903b674a54259f6b4d3c114382c0e3cf873916dcbc5fd40698f19fd188 --no-daemon --max-workers=1",
+    "Read-only PowerShell SHA256 and ZIP/XML/JSON inspection; no games or native arming."
+  ],
+  "limitations": [
+    "Finite exact-native-default reviewer, not general TOML support, mod config migration or arbitrary native-valid configuration acceptance.",
+    "Correct native defaults permit version HTTP checks, TARGET LAN multicast and automatic native loading threads. Not no-network/sandbox or native launch approval.",
+    "Known server.properties values beyond explicit plan pins remain semantically unvalidated.",
+    "Necessary paths PRESENT_ONLY are not a sufficient successful-output set. World/NBT/region/lock/log/gzip/observation content and save/exit remain unvalidated.",
+    "Quiescent-tree double reviews are not an OS snapshot, lock, hostile-writer sandbox, hard heap/disk quota or interruptible I/O deadline; inherited external-hardlink/same-byte replacement limits remain.",
+    "Actual unarmed stages have no generated outputs. No new native execution, source-target behavior, Java17 SOURCE qualification or multiplayer evidence.",
+    "Six conversion profiles and simple-content-v1 unchanged. No new compatible mod count; no composition promotion to player UI/installation."
+  ]
+}

@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+[[mods]]
+modId="legacybridge_receiver"
+version="1.0.0"
+displayName="LegacyBridge Owned Receiver Fixture"
+description="Authored private bound-receiver candidate; native behavior not qualified."
+[[dependencies.legacybridge_receiver]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_receiver]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Controlled developer-only export of already proved composed candidate. No public profile, installation or native acceptance.",
+  "authorization": "Headless implementation only. No Minecraft clients/servers, screen automation, original class execution, new mod acquisition or publication.",
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "previousEvidence": "docs/evidence/compose-candidate-2026-09-07.json",
+  "baselinePublicArtifact": {
+    "path": "build/compose-export-2026-09-07-run1/baseline-LegacyBridge.jar",
+    "sha256": "9248ba60a1b64bba986fe40033272746eef624978ad6f475f7b33c8c5feffda8",
+    "bytes": 1279264
+  },
+  "currentPublicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+    "bytes": 1280333,
+    "qualification": "STATIC_BUILD_PACKAGE_REGRESSION_ONLY_NATIVE_NOT_RUN"
+  },
+  "sources": [
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/CompositionCandidateBuilder.java",
+      "sha256": "fa99d1d1f77dda6db83dd94d5879c1b7c2a82bccdae2e9eedc82e80a38410b5d",
+      "bytes": 7072
+    },
+    {
+      "path": "legacy-converter/src/main/java/dev/legacybridge/converter/conversion/LogicPreservingConverter.java",
+      "sha256": "0ebcc039e17753b002ea1efc8e52e8cf0dcf579cba5764ca2440287cd8b1cfab",
+      "bytes": 27554
+    },
+    {
+      "path": "legacy-converter/src/compositionQa/java/dev/legacybridge/converter/conversion/CompositionQaExport.java",
+      "sha256": "388f4a4e7fc45f9a9362d7144c399782f37bf8611a179a576db682e1bf49503b",
+      "bytes": 3799
+    },
+    {
+      "path": "legacy-converter/src/compositionQa/java/dev/legacybridge/converter/conversion/CompositionQaFiles.java",
+      "sha256": "614b24438f01c5ca4135ab2780166ace447587369b7cf50e04ca03702912d1d1",
+      "bytes": 11127
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/conversion/CompositionQaFilesTest.java",
+      "sha256": "a90022e25934fc64f06439930d7a7da03e1baeab6683b7656624fe379f61483d",
+      "bytes": 11511
+    },
+    {
+      "path": "legacy-converter/src/test/java/dev/legacybridge/converter/conversion/CompositionQaExportIntegrationTest.java",
+      "sha256": "4630e2a15ca23bb44e8c387d3442188ee92229b5613a4c8feff4f5d6aad24253",
+      "bytes": 7822
+    },
+    {
+      "path": "legacy-converter/build.gradle",
+      "sha256": "f026c56c11cd77db62c69206b4ad0c0118a756cdee89f17af2efe7e114a790c2",
+      "bytes": 13469
+    },
+    {
+      "path": "legacy-product/build.gradle",
+      "sha256": "5517bdb80ca1950f40ba19690eeab003a4e99acf2efe4d040a7fa2883d655243",
+      "bytes": 13673
+    },
+    {
+      "path": "docs/COMPOSITION_QA_EXPORT.md",
+      "sha256": "1ccf9db9ed207c296eae4b03650e0fbd7dab2cc911077b141ac391a19f057726",
+      "bytes": 8028
+    },
+    {
+      "path": "docs/COMPOSITION_CANDIDATE.md",
+      "sha256": "4b9c17cbbd2b08e14a12134f2343c14a6c3e49da56e4d9146ef6c4c0a4662d58",
+      "bytes": 9139
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "66ee6e9f6b0a4c817300d1f313495aa36c1cdeec069da3b6202858574221fdee",
+      "bytes": 42209
+    },
+    {
+      "path": "fixtures/composed-logic-recipes-1.16.5/README.md",
+      "sha256": "7dec9ef4158089b450574f917a0314663c9750630ad2b370997a60336e6873bd",
+      "bytes": 1295
+    }
+  ],
+  "sourceFixture": {
+    "path": "fixtures/composed-logic-recipes-1.16.5/build/libs/legacybridge-composed-logic-recipes-1.16.5-1.0.0.jar",
+    "sha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+    "bytes": 7433,
+    "originalIntact": true,
+    "rebuiltThisTurn": false,
+    "classesExecuted": false
+  },
+  "mappings": {
+    "explicitProfile": {
+      "path": "build/logic-preserving-v1/mapping-profile.properties",
+      "sha256": "067bf14c37ad71c7c1fbfcc23c4dda9b1f4eaff185d27872a145cae6a0cb44ac",
+      "bytes": 2055
+    },
+    "sources": [
+      {
+        "id": "legacy.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+      },
+      {
+        "id": "legacy.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+      },
+      {
+        "id": "legacy.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+      },
+      {
+        "id": "target.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+      },
+      {
+        "id": "target.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+      },
+      {
+        "id": "target.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+      },
+      {
+        "id": "legacy.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+      },
+      {
+        "id": "legacy.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+      },
+      {
+        "id": "target.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+      },
+      {
+        "id": "target.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+      },
+      {
+        "id": "target.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+      },
+      {
+        "id": "target.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+      },
+      {
+        "id": "target.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+      }
+    ],
+    "redistribution": "No additional data embedded. Explicit existing LOCAL_USE_ONLY full developer data, not a player dependency or hidden cache lookup."
+  },
+  "realApiReview": {
+    "newGameMappingsOrAdapters": false,
+    "legacyMappedSourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetMappedSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "observation": "Both exact Item.isFoil declarations were reread from the hash-pinned archives; unchanged native super predicate delegates to isEnchanted. No new semantic equivalence inferred.",
+    "filesystemReference": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html",
+    "windowsFileKey": "Direct local Java 17 read returned null; implemented real hard-link witnesses and identity checks, no private JDK/native access."
+  },
+  "export": {
+    "status": "EXPORTED_FOR_QA",
+    "directory": "build/composition-qa/run-20260907-export1",
+    "files": [
+      {
+        "path": "build/composition-qa/run-20260907-export1/candidate.jar",
+        "sha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2",
+        "bytes": 5913
+      },
+      {
+        "path": "build/composition-qa/run-20260907-export1/proof.json",
+        "sha256": "ea1624ac6ff59363272da0b04f1f94a11f11a9324cde35591bf41db0e193b2d1",
+        "bytes": 107831
+      },
+      {
+        "path": "build/composition-qa/run-20260907-export1/receipt.json",
+        "sha256": "ed976a181fac59e2453d3dd110db6c0d89b3d7565a22e37d6df4ab4bf508e9bd",
+        "bytes": 506
+      }
+    ],
+    "receipt": {
+      "candidateSha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2",
+      "files": [
+        "candidate.jar",
+        "proof.json",
+        "receipt.json"
+      ],
+      "installationAllowed": false,
+      "proofSha256": "ea1624ac6ff59363272da0b04f1f94a11f11a9324cde35591bf41db0e193b2d1",
+      "reportType": "LEGACY_COMPOSITION_QA_EXPORT",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "sourceSha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+      "status": "EXPORTED_FOR_QA"
+    },
+    "exportedEntryHashesRechecked": 13,
+    "preservedClasses": 4,
+    "preservedMethods": 10,
+    "replacedClasses": 0,
+    "transformationLogEntries": 33,
+    "candidateByteIdenticalToPreviousInspection": true,
+    "installationAllowed": false,
+    "runtimeValidation": "NOT_RUN"
+  },
+  "publicZipComparison": {
+    "BeforeFiles": 477,
+    "AfterFiles": 478,
+    "Changes": [
+      {
+        "Path": "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+        "Before": "16e547e662589b2802ccb6c1529802697d3c1f1139ddffa67f384591cfcc09d9",
+        "After": "3fcae50c63c7cbf880df2a19180f2640b1fe02c7a21351ae7d86938647b464cc"
+      },
+      {
+        "Path": "dev/legacybridge/converter/conversion/LogicPreservingConverter$CandidateReceiver.class",
+        "Before": null,
+        "After": "c30b9bcab2ac82bdd52d7f286352ba70391826d15c05494a0157524c487441c5"
+      },
+      {
+        "Path": "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+        "Before": "4b090e2bbbe3d037d2d2a791656459b5f7ea7337932841595b33b3675a01288c",
+        "After": "b0debca45a3c353ea37741c99798df839cf3f8d567672a5191e25739bae4a28a"
+      },
+      {
+        "Path": "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+        "Before": "cc0ebb860c8c0c17bdd8af114c2c0ef810c95eda15aa560b9e2f0bf8147b72c1",
+        "After": "60ad36c0823f805cb36cd768c145c5cc6ebca681c45fae504bbc584f55ef4225"
+      }
+    ],
+    "QaToolsAbsent": true,
+    "AdaptersUnchanged": true,
+    "CapabilityAdmissionUnchanged": true
+  },
+  "commands": {
+    "targeted": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' :legacy-converter:test --tests '*Composition*Test' -PverifyCompositionEnvironment=true '-PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties' --no-daemon --max-workers=1",
+    "build": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' build :legacy-converter:installDist -PverifyCompositionEnvironment=true '-PlogicMappingProfile=../build/logic-preserving-v1/mapping-profile.properties' --no-daemon --max-workers=1",
+    "export": ".\\gradlew.bat '-Djavax.net.ssl.trustStore=NONE' '-Djavax.net.ssl.trustStoreType=Windows-ROOT' :legacy-converter:exportCompositionQa '-PcomposeInput=fixtures/composed-logic-recipes-1.16.5/build/libs/legacybridge-composed-logic-recipes-1.16.5-1.0.0.jar' '-PcomposeSourceSha256=873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212' '-PcomposeCandidateSha256=328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2' '-PcomposeMappingProfile=build/logic-preserving-v1/mapping-profile.properties' '-PcomposeRunId=run-20260907-export1' --no-daemon --max-workers=1",
+    "regressions": ".\\scripts\\Test-NetworkProfileRegressions.ps1 -RunLabel compose-export-20260907-r1",
+    "network": "java.exe -Xmx512m -cp legacy-converter/build/install/legacy-converter/lib/* dev.legacybridge.converter.cli.LegacyBridgeCli convert fixtures/network-snapshot-1.16.5/build/libs/legacybridge-network-1.16.5-1.0.0.jar --conversion-profile network-snapshot-v1 --mapping-profile build/network-snapshot-v1/mapping-profile.properties --output build/compose-export-2026-09-07-run1/network/converted.jar --report build/compose-export-2026-09-07-run1/network/conversion.json"
+  },
+  "runs": [
+    {
+      "path": "build/compose-export-2026-09-07-run1/tests-1.log",
+      "sha256": "28b8a30176e0bc385ed1e40ea7f114014a2ff2243f544348f5b1cf91f7edd5be",
+      "bytes": 26610,
+      "kind": "Targeted tests",
+      "status": "PASS",
+      "exitCode": 0,
+      "elapsed": "2m 45s",
+      "tests": 91,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml": "build/compose-export-2026-09-07-run1/tests-1-xml/converter",
+      "note": "Before the additional corrupted/unsupported/Junction/move-failure cases."
+    },
+    {
+      "path": "build/compose-export-2026-09-07-run1/root-build-1.log",
+      "sha256": "3227b29212e4cbbc4e99d0984bddd69739837c992918fa86b1d07ab7df489e08",
+      "bytes": 253218,
+      "kind": "Full root build, tests, packaging, installed CLI",
+      "status": "PASS",
+      "exitCode": 0,
+      "elapsed": "8m 57s",
+      "tasksExecuted": 36,
+      "tasksUpToDate": 33,
+      "freshModules": [
+        {
+          "module": "legacy-converter",
+          "tests": 844,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 66,
+          "skippedSuites": [
+            {
+              "suite": "dev.legacybridge.converter.cli.DatapackProfileIntegrationTest",
+              "tests": 4,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 4
+            },
+            {
+              "suite": "dev.legacybridge.converter.cli.FoodProfileIntegrationTest",
+              "tests": 13,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 13
+            },
+            {
+              "suite": "dev.legacybridge.converter.cli.LifecycleNegativeJarIntegrationTest",
+              "tests": 8,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 8
+            },
+            {
+              "suite": "dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest",
+              "tests": 3,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 3
+            },
+            {
+              "suite": "dev.legacybridge.converter.cli.LogicProfileIntegrationTest",
+              "tests": 3,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 3
+            },
+            {
+              "suite": "dev.legacybridge.converter.cli.NetworkProfileIntegrationTest",
+              "tests": 5,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 5
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.AdapterContractIntegrationTest",
+              "tests": 7,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.ContentResourceValidatorTest",
+              "tests": 19,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.NetworkClassLimitsTest",
+              "tests": 25,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.NetworkSemanticMutationTest",
+              "tests": 22,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 22
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.SimpleContentConverterTest",
+              "tests": 25,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            },
+            {
+              "suite": "dev.legacybridge.converter.mapping.builtin.EmbeddedSimpleContentEnvironmentTest",
+              "tests": 2,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 2
+            },
+            {
+              "suite": "dev.legacybridge.converter.mapping.MappingEnvironmentIntegrationTest",
+              "tests": 1,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            },
+            {
+              "suite": "dev.legacybridge.converter.mapping.portable.PortableMappingBundleTest",
+              "tests": 23,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            }
+          ],
+          "composition": [
+            {
+              "suite": "dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest",
+              "tests": 21,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 0
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.CompositionArtifactPlanTest",
+              "tests": 16,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 0
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.CompositionPlanTest",
+              "tests": 19,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 0
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.CompositionQaExportIntegrationTest",
+              "tests": 9,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 0
+            },
+            {
+              "suite": "dev.legacybridge.converter.conversion.CompositionQaFilesTest",
+              "tests": 31,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          ]
+        },
+        {
+          "module": "legacy-corpus",
+          "tests": 210,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 4,
+          "skippedSuites": [
+            {
+              "suite": "dev.legacybridge.corpus.CorpusLockTest",
+              "tests": 22,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            },
+            {
+              "suite": "dev.legacybridge.corpus.PromptContractVerifierTest",
+              "tests": 77,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 2
+            },
+            {
+              "suite": "dev.legacybridge.corpus.PublicEvidenceVerifierTest",
+              "tests": 49,
+              "failures": 0,
+              "errors": 0,
+              "skipped": 1
+            }
+          ],
+          "composition": []
+        },
+        {
+          "module": "legacy-product",
+          "tests": 155,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "skippedSuites": [],
+          "composition": []
+        }
+      ],
+      "otherModules": "Runtime/workflow tests UP-TO-DATE, compat-api NO-SOURCE. Not counted as fresh runtime tests.",
+      "compositionTests": {
+        "total": 96,
+        "newThisTurn": 40,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "xml": "build/compose-export-2026-09-07-run1/root-build-1-xml",
+      "note": "Followed by a developer-only filesystem-root diagnostic guard and one additional assertion inside the existing root-path test. The final post-documentation build log below rechecks final sources."
+    },
+    {
+      "path": "build/compose-export-2026-09-07-run1/export-1.log",
+      "sha256": "dd7aff00a5aa2cf551032d552db9e9e762c836683766373b3c35c10cf5f27400",
+      "bytes": 237050,
+      "kind": "Explicit Gradle QA export",
+      "status": "PASS",
+      "exitCode": 0,
+      "elapsed": "27s",
+      "heap": "512m",
+      "tasksExecuted": 2,
+      "tasksUpToDate": 4
+    }
+  ],
+  "closeoutVerificationLog": "build/compose-export-2026-09-07-run1/closeout-build.log",
+  "negatives": {
+    "syntheticFilesystem": "31 filesystem cases include injected partial writes, corruption, stale source, pre-existing/racing destinations, successful and late-refused cancellation, unknown entry retention, byte-identical replacement refusal, unsupported paths/hashes and genuine Windows junction. Synthetic byte arrays are not counted as converted mods.",
+    "realFixture": "9 exact-API integration cases include retained candidate equality, borrowed-buffer lifetime, unsupported resource/dependency, corruption, cancelled preparation and mismatched selected hashes.",
+    "cleanupLimits": "Ordinary private failures clean only identity-proved files. Replacements/unknown files are retained with visible errors. After witness release or a hard crash, untrusted private remainders may persist; no automatic recovery or hostile-process sandbox.",
+    "physicalDiskFullTested": false,
+    "originalModExecuted": false
+  },
+  "regression": {
+    "scope": "Seven byte-identical fixture outputs across six existing profiles, not seven compatible real mods.",
+    "status": "BYTE_IDENTICAL",
+    "files": [
+      {
+        "path": "build/compose-export-2026-09-07-run1/regressions.log",
+        "sha256": "aea9d14ed466d65bfcfccb922396212625b39a683ed43abf2866cd5af27356a2",
+        "bytes": 2304
+      },
+      {
+        "path": "build/network-snapshot-v1/regressions/compose-export-20260907-r1/regression-receipt.json",
+        "sha256": "05486f2291d58af05257cee5396c259fba4ce4c5f9e2ccba2fa69fc73fbb4231",
+        "bytes": 25093
+      },
+      {
+        "path": "build/compose-export-2026-09-07-run1/network/converted.jar",
+        "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f",
+        "bytes": 5531
+      },
+      {
+        "path": "build/compose-export-2026-09-07-run1/network/conversion.json",
+        "sha256": "529f972bbeb23f6f3ab56921f53dc098c389b15021e6b636b30b13a294ee66ae",
+        "bytes": 186392
+      },
+      {
+        "path": "build/compose-export-2026-09-07-run1/network/cli.log",
+        "sha256": "995554e2b26303e7b0fa17e3a8593fb4f6a2c2684116ac633e2a69e0eb3e807f",
+        "bytes": 900
+      }
+    ],
+    "networkStatus": "CONVERTED",
+    "networkBytecode": "PASSED",
+    "networkOriginalIntact": true,
+    "runtimeValidation": "NOT_RUN"
+  },
+  "toolingNotes": [
+    "Initial read-only ZIP comparison command had a PowerShell brace syntax error; corrected read-only command produced the pinned comparison. No build/test/export failed.",
+    "PowerShell NativeCommandError formatting around Java INFO stderr did not indicate a CLI failure; network CLI exited zero and exact output/report hashes were checked."
+  ],
+  "rights": "No new private mod, game source, mapping redistribution, library or fixture/harness included in public artifact. QA tools remain outside player artifacts; authored fixture and explicit local developer data only.",
+  "dimensions": {
+    "analyzable": "PASS_FINITE_FIXTURE",
+    "privateCandidate": "PASS_REOPENED_SCOPED",
+    "developerExport": "PASS_LOCAL_QA_ONLY",
+    "bytecode": "PASS_SCOPED",
+    "linkage": "PASS_SCOPED",
+    "clientStartup": "NOT_RUN",
+    "serverStartup": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "resourceReload": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "comparisonHarness": "NOT_IMPLEMENTED",
+    "publicCompositionInstallation": "NOT_IMPLEMENTED",
+    "newCompatibleRealModReleases": 0
+  },
+  "next": {
+    "prompt": "LB-08",
+    "cut": "COMPOSE-01",
+    "status": "PARTIAL",
+    "headlessAction": "Implement original/target comparison harness and strict artifact-bound observations for foil/helper/super and cooking behavior; no games now.",
+    "nativeAction": "Only after renewed authorization run isolated source/target comparison, then evaluate COMPOSE-01 acceptance. Do not unlock LINKAGE-GENERAL or public installer/UI from static export.",
+    "gamesAndScreenAutomation": "NOT_AUTHORIZED"
+  }
+}

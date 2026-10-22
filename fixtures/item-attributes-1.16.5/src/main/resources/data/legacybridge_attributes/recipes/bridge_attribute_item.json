@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [{"item": "minecraft:iron_ingot"}],
+  "result": {"item": "legacybridge_attributes:bridge_attribute_item", "count": 1}
+}

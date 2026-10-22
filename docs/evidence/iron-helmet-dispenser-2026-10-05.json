@@ -1,0 +1,795 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "IRON_HELMET_DISPENSER_CLOSED_RECEIVERS",
+  "outcome": "IMPLEMENTED_CLOSED_RUNTIME_OPERATION_NO_REGISTRATION_OR_CONVERSION_RECIPE",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "536d9d5da318c92a6ee02f198e777d18668514f60d22c685740b1a8383a7e68e",
+    "bytes": 2072069,
+    "entries": 778,
+    "fileEntries": 728,
+    "previousSha256": "e1ff8751475f79ddf7dd2515fb67f570cbd7c498c269398466223c6cdabde763",
+    "unchangedEntries": 772,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Report.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit$Side.class",
+      "dev/legacybridge/converter/conversion/logic/IronHelmetApiAudit.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/runtime/compat/item/LegacyIronHelmetDispenser.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 68,
+      "newEntries": 69
+    },
+    "operationClasses": [
+      {
+        "runtimeAndProductEqual": true,
+        "sha256": "faaf3b4dafc0dbf2304466d9c3957ff6e56fc2d34d3437627460f11682a138e6",
+        "entry": "dev/legacybridge/runtime/compat/item/LegacyIronHelmetDispenser.class"
+      }
+    ],
+    "protectedClasses": [
+      {
+        "sha256": "e142fb87d24aa5e284ea71c152b11386f75a5d5a0ebe28031f90012eaeac7365",
+        "entry": "dev/legacybridge/runtime/compat/item/LegacyIronHelmetItem.class",
+        "unchanged": true
+      },
+      {
+        "sha256": "d883ed2d3f56fa985c5c93fff8a1915613632e99a215ebdaac16080e100f0a88",
+        "entry": "dev/legacybridge/runtime/compat/item/LegacyIronHelmetHeadEquipEffects.class",
+        "unchanged": true
+      },
+      {
+        "sha256": "3a4329ff843b2bd80777e898066c3e370bae3338fc8c83401d3243b097820af5",
+        "entry": "dev/legacybridge/runtime/compat/item/LegacyIronHelmetHeadEquipEffects$ClientReceivers.class",
+        "unchanged": true
+      }
+    ],
+    "dispenserFixture": {
+      "bytes": 5831,
+      "sha256": "b337b21c5ec8a95a1c7462161ba76c129867f873858eee1c570ea185ea9fa977"
+    },
+    "previousHelmetClass": {
+      "unchanged": true,
+      "sha256": "e142fb87d24aa5e284ea71c152b11386f75a5d5a0ebe28031f90012eaeac7365"
+    },
+    "fixture": {
+      "bytes": 5554,
+      "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "operation": {
+    "id": "item.iron-helmet-dispenser.v1",
+    "revision": 1,
+    "phase": "RUNTIME",
+    "class": "dev.legacybridge.runtime.compat.item.LegacyIronHelmetDispenser",
+    "method": "dispense",
+    "descriptor": "(Lnet/minecraft/core/BlockSource;Lnet/minecraft/world/item/ItemStack;)Z",
+    "guards": [
+      "Non-null source and stack; nonempty final LegacyIronHelmetItem",
+      "First queried receiver must be exact ServerPlayer or Zombie, resolved slot HEAD",
+      "Exact Zombie armor NonNullList size four checked before split",
+      "Unknown receiver is rejected before split; never false, skipped, or replaced"
+    ],
+    "implementedEffect": "Native facing AABB query/predicates; keep first eligible, split1. ServerPlayer delegates previous HEAD effect; Zombie writes real armor list silently, then drop chance2 and persistence.",
+    "newFailureBoundary": "Unsupported arguments throw; Zombie getter/list preflight precedes split. After-split failures propagate without rollback.",
+    "registeredForItem": false,
+    "conversionRecipeImplemented": false,
+    "invokedAtProductStartup": false,
+    "registeredAtProductStartup": false,
+    "previousOperationsUnchanged": [
+      "item.iron-helmet-empty-slot.v1",
+      "item.iron-helmet-head-equip-effects.v1"
+    ]
+  },
+  "fixture": {
+    "path": "fixtures/iron-helmet-dispenser-1.16.5/build/libs/legacybridge-iron-helmet-dispenser-1.16.5-1.0.0.jar",
+    "bytes": 5831,
+    "sha256": "b337b21c5ec8a95a1c7462161ba76c129867f873858eee1c570ea185ea9fa977",
+    "modId": "legacybridge_helmet_dispenser",
+    "modVersion": "1.0.0",
+    "registryName": "bridge_helmet",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "graph": "One class, three fields, four methods; wrapper invokes native ArmorItem.dispenseArmor",
+    "executed": false,
+    "nativeScenarioDeclarations": 7,
+    "nativeScenarioExecution": "NOT_RUN",
+    "includedInProduct": false
+  },
+  "validation": {
+    "compile": {
+      "status": "PASS",
+      "duration": "34s",
+      "tasks": [
+        ":legacy-runtime:compileJava",
+        ":legacy-converter:compileJava"
+      ],
+      "log": "build/iron-helmet-dispenser-20261005/compile.log"
+    },
+    "fixtures": {
+      "status": "PASS",
+      "retainedXml": "build/iron-helmet-dispenser-20261005/fixture-xml",
+      "task": "-p <fixture> test --rerun-tasks --offline",
+      "originalHelmet": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "duration": "8s",
+        "log": "build/iron-helmet-dispenser-20261005/iron-helmet-1.16.5.log"
+      },
+      "dispenser": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "duration": "9s",
+        "log": "build/iron-helmet-dispenser-20261005/iron-helmet-dispenser-1.16.5.log"
+      }
+    },
+    "focused": {
+      "status": "PASS",
+      "duration": "32s",
+      "tests": 50,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "scope": "Initial 48 bytecode/native-API tests plus two catalog tests. Final regression strengthens zero-query assertions in invalid-input cases. Overlapping count, not additive.",
+      "log": "build/iron-helmet-dispenser-20261005/focused.log",
+      "retainedXml": "build/iron-helmet-dispenser-20261005/focused-xml"
+    },
+    "package": {
+      "status": "PASS",
+      "duration": "58s",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "log": "build/iron-helmet-dispenser-20261005/package.log"
+    },
+    "regression": {
+      "status": "PASS",
+      "duration": "4m6s",
+      "tests": 744,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 24,
+      "newTests": 50,
+      "newSuites": [
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetDispenserCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetDispenserTest",
+          "tests": 48,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "allSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.CliEngineServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.DatapackProfileIntegrationTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.FoodProfileIntegrationTest",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.IronHelmetInspectionCliTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.ItemAttributeDurabilityIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.ItemAttributeIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.LogicProfileIntegrationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.NetworkProfileIntegrationTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.OwnedStackDamageIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.cli.OwnedStackRepairUseIntegrationTest",
+          "tests": 28,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.AdapterContractIntegrationTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetAdapterCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetContractTest",
+          "tests": 186,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetDispenserCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetHeadEquipCatalogTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.IronHelmetInspectorTest",
+          "tests": 43,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetDispenserTest",
+          "tests": 48,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetEmptySlotAdapterTest",
+          "tests": 103,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetHeadEquipEffectsTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.IronHelmetNativeApiAuditTest",
+          "tests": 106,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.service.IronHelmetInspectionServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.transformation.MappingResolverTest",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "log": "build/iron-helmet-dispenser-20261005/regression.log",
+      "retainedXml": "build/iron-helmet-dispenser-20261005/regression-xml",
+      "command": "build/iron-helmet-dispenser-20261005/regression.ps1",
+      "execution": "SERIAL_OFFLINE_SELECTED_ENVIRONMENT_TESTS_NOT_FULL_ROOT_TEST"
+    },
+    "contract": {
+      "status": "PASS_WITH_PLATFORM_SKIPS",
+      "duration": "42s",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt",
+        "rejectsSymbolicPromptDirectory"
+      ],
+      "skipReason": "Native symlink creation assumptions unavailable on this platform; not passed",
+      "promptVerifier": "PASS",
+      "prompts": 23,
+      "cuts": 81,
+      "tasks": [
+        ":legacy-corpus:test --tests '*PromptContractVerifierTest'",
+        ":legacy-corpus:verifyPromptContract",
+        ":legacy-product:verifyProductJar"
+      ],
+      "log": "build/iron-helmet-dispenser-20261005/contract.log",
+      "retainedXml": "build/iron-helmet-dispenser-20261005/contract-xml",
+      "limit": "Verifier checks referenced paths and contract consistency; it never infers execution or freshness. Current tests/hashes recorded separately."
+    },
+    "installedCli": {
+      "status": "PASS",
+      "oldFixtureExitCode": 3,
+      "oldFixtureStatus": "UNSUPPORTED",
+      "dispenserOperationReported": true,
+      "registeredForItem": false,
+      "conversionRecipeImplemented": false,
+      "runtimeArtifactVerified": false,
+      "newFixtureExitCode": 3,
+      "newFixtureStatus": "UNSUPPORTED",
+      "newFixtureBlocker": "HELMET_CONTRACT_REJECTED",
+      "newFixtureBoundary": "Old grammar requires three methods; new original has four",
+      "candidateGenerated": false,
+      "classesExecuted": false,
+      "reports": [
+        "build/iron-helmet-dispenser-20261005/installed-inspection.json",
+        "build/iron-helmet-dispenser-20261005/dispenser-fixture-inspection.json"
+      ]
+    },
+    "toolingCorrections": [
+      "Local XML aggregation initially passed OrderedDictionary into PowerShell Measure-Object; changed collector to PSCustomObject and reran successfully. No product/build/test failure and no test result altered."
+    ],
+    "finalPackageAndContract": {
+      "status": "PASS",
+      "duration": "20s",
+      "log": "build/iron-helmet-dispenser-20261005/final-check.log",
+      "artifactHashUnchanged": true
+    }
+  },
+  "sourceReview": {
+    "sourceBinarySha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03",
+    "targetBinarySha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee",
+    "sourceSourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetSourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "nativeSourcesRedistributed": false,
+    "query": "Source World concrete chunk query differs from target EntityGetter/EntityTypeTest. First returned entity preserved, spatial enumeration equivalence NOT_ESTABLISHED.",
+    "eligibility": "Native NO_SPECTATORS and alive/LivingEntity/armor predicate; Player empty slot, Mob empty slot plus canPickUpLoot.",
+    "equipment": "Source Mob setter silent; target Mob setter verifies/onEquipItem. Exact Zombie inherits public getArmorSlots yielding its own private four-slot NonNullList; write without target effects.",
+    "slot": "Source Mob declares resolver; target inherits LivingEntity static resolver. Both consult Forge equipment hook; fixed final helmet default hook null and native armor slot HEAD.",
+    "playerEffect": "Delegates unchanged previous guarded HEAD operation. Sound event/cohort differences remain; no arbitrary-listener equivalence.",
+    "bytecodeScope": "Actual source dispense/predicate bodies and compiled/reobfuscated target operation interpreted as bounded data. World query, split copying, HEAD helper and writes are synthetic endpoints; original/native classes never loaded."
+  },
+  "data": {
+    "kind": "EXPLICIT_LOCAL_FULL_ENVIRONMENT",
+    "mappingProfile": "build/item-attributes-20261001/mapping-profile.properties",
+    "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312",
+    "includedInPublicJar": false,
+    "hiddenDownload": false
+  },
+  "preservation": {
+    "previousCatalogDescriptors": 68,
+    "changedPreviousCatalogDescriptors": 0,
+    "newCatalogDescriptors": 1,
+    "publicProfilesUnchanged": 6,
+    "publicConversionAndApply": "simple-content-v1",
+    "runtimeIdentityAndVersionUnchanged": true,
+    "reportSchemasUnchanged": true,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "licenseChanged": false,
+    "newModAcquisition": false,
+    "publication": false,
+    "previousCandidates": [
+      {
+        "suite": "OwnedStackRepairUseIntegrationTest",
+        "candidateSha256": "d7dbb4ca43e8b20a42fb4d0180050def1b7b7b4ad7ae48f96effece25e1c6c96",
+        "inputSha256": "420f710dadb3134c500dc1c1fc7077ed183758db6531416093454cca72b90d2a",
+        "unchanged": true
+      },
+      {
+        "suite": "OwnedStackDamageIntegrationTest",
+        "candidateSha256": "19081664b6a4ec70645d00788aced828cd6a04e9ffd3631e3277fe645cce5828",
+        "inputSha256": "a6099857d7a2e4e3cb2db6d67ce1db23d08d2ba9c17b732c380d2d7b64f09793",
+        "unchanged": true
+      },
+      {
+        "suite": "ItemAttributeDurabilityIntegrationTest",
+        "candidateSha256": "dbe6a5acd96b29ae771156bed7e231f443148d74bea6bfcb7159b895cee491eb",
+        "inputSha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16",
+        "unchanged": true
+      },
+      {
+        "suite": "ItemAttributeIntegrationTest",
+        "candidateSha256": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+        "inputSha256": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99",
+        "unchanged": true
+      }
+    ],
+    "previousOriginalFixture": {
+      "path": "fixtures/iron-helmet-1.16.5/build/libs/legacybridge-iron-helmet-1.16.5-1.0.0.jar",
+      "sha256": "cecbcf9e3d2d738eb150cc63e6320bd3b7ec7ed01fe17a17fa247aa8100d70ca",
+      "bytes": 5554,
+      "modId": "legacybridge_iron_helmet",
+      "modVersion": "1.0.0",
+      "registryName": "bridge_helmet",
+      "ownership": "ORIGINAL_PROJECT_FIXTURE",
+      "originalUnchanged": true,
+      "executed": false
+    }
+  },
+  "qualification": {
+    "sourceModClassesExecuted": false,
+    "runtimeAdapterExecuted": false,
+    "minecraftClassesExecuted": false,
+    "candidateGenerated": false,
+    "installationAllowed": false,
+    "gameClient": "NOT_RUN",
+    "gameServer": "NOT_RUN",
+    "nativeBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "headlessBodyProof": "FINITE_RETURNED_LIST_AND_CALL_BOUNDARIES_NOT_NATIVE_WORLD_ORDER_OR_BEHAVIOR",
+    "registeredForItem": false
+  },
+  "limitations": [
+    "Armor conversion UNSUPPORTED. No new real corpus release ported, no candidate, recipe, registration or Apply.",
+    "Standalone operation has a deliberate guard accepting only the previous final runtime helmet; not silently wired into the old native constructor behavior.",
+    "Exact ServerPlayer/Zombie only. ArmorStand and other valid vanilla receivers remain excluded, precluding automatic armor constructor lowering.",
+    "Native source/target spatial query algorithms differ; tests supply finite returned lists and do not execute chunks/world enumeration.",
+    "Synthetic split payload is not native NBT/capability-copy, conservation in a real world, legitimate stackability, sound/event, thread or multiplayer qualification.",
+    "Exceptions after split propagate with prior effects; list preflight has an additional before-consumption guard.",
+    "Current three-method semantic inspection deliberately rejects the new four-method fixture. Its wrapper does not enable a new grammar.",
+    "Fallback dispenser drops, integrated use/construction, Equipable, rendering, hooks, cohorts, wear/anvil and native comparison remain pending.",
+    "No mapping confidence/schema/version promotion, invented TransformationLog, hidden download, old game code redistribution or license change."
+  ],
+  "continuation": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "IRON_HELMET_INTEGRATED_SUCCESSOR",
+    "plan": "docs/IRON_HELMET_INTEGRATED_ITEM_PLAN.md",
+    "reason": "Compose a new explicitly owned item/use/dispenser contract; preserve all previous identities/guards and close remaining native receivers and inherited paths before any candidate.",
+    "gamesAuthorized": false,
+    "countsUnchanged": {
+      "ACCEPTED": 15,
+      "PARTIAL": 19,
+      "BLOCKED": 2,
+      "NOT_STARTED": 45
+    }
+  },
+  "localEvidenceFiles": [
+    {
+      "path": "build/iron-helmet-dispenser-20261005/audit.ps1",
+      "bytes": 4580,
+      "sha256": "d5a65f5bc754706bd010e604cd0c94cc5fc78ab7f04c44b81013f9a7ed2d95ae"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/collect-tests.ps1",
+      "bytes": 943,
+      "sha256": "8cfb97814e8da0e962c40e68cd07bef155e7eeaca23476e5157bfcb61b157772"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/compile.log",
+      "bytes": 5116,
+      "sha256": "f87fe95a7ef67670dd36c18abd380e0471dcdf2857f8dcb4db9046e2e9c026e1"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/compile.ps1",
+      "bytes": 405,
+      "sha256": "f7829cfab732d99c2cd6c230b49b21c36ec0f61a9180754e1633e9559bb1681d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/contract.log",
+      "bytes": 24626,
+      "sha256": "e918b75fe26ca38de28fd4f456a12a28d4231d6f30d001802bde93e399db4987"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/contract.ps1",
+      "bytes": 476,
+      "sha256": "4c75d79c7f63095700c2a1020b57d69942abf18bb9b941e5549243b3de11ece9"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/contract-xml/TEST-dev.legacybridge.corpus.PromptContractVerifierTest.xml",
+      "bytes": 9786,
+      "sha256": "e7c132a91051285dc0b756aebc67ad0faeda6ff5c4dda91840d34bd31ae927ec"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/dispenser-fixture-cli-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/dispenser-fixture-inspection.json",
+      "bytes": 8154,
+      "sha256": "036ea3cfb0c64044a0ccb96127f41be1ee3110783279a34fef13022d153008a7"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/final-check.log",
+      "bytes": 8282,
+      "sha256": "25f07ae18926eefc7e56aef6fbe0286489e488a8836ec6624edf2442334c6f4d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/final-check.ps1",
+      "bytes": 424,
+      "sha256": "c7e121240bd6485e9593b665177ec0fbb76ba55c57a77873a3d63407cf042568"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/fixture-inspection.ps1",
+      "bytes": 1472,
+      "sha256": "51899cfa09fb101d2a3513c00951cec2548df1ffa51a143c07c1b0bdf5878a0b"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/fixtures.ps1",
+      "bytes": 515,
+      "sha256": "4d03d462add2dd549dcc6a8dc8988cc7c6109d8e5e36f1fe48f96b0a8545fbea"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/fixture-xml/TEST-dev.legacybridge.fixture.helmetdispenser.IronHelmetDispenserFixtureArtifactTest.xml",
+      "bytes": 1337,
+      "sha256": "1d25f74f1fed948a86e7270b96fb9a0a66c295d324e4f650a6eb884d11d0dd0d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/fixture-xml/TEST-dev.legacybridge.fixture.ironhelmet.IronHelmetFixtureArtifactTest.xml",
+      "bytes": 1021,
+      "sha256": "6b3aca76585c0e33e636456994d8ea98b206ff494004bb5c609c3ff749df0f8b"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/focused.log",
+      "bytes": 20116,
+      "sha256": "8e22657174c2b2d93a375270b86ad74088f3427643bc89c3dfd8c11c72101013"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/focused.ps1",
+      "bytes": 562,
+      "sha256": "94348120f23d0994637cc824c4f4bd1774e4dacd00e285ff4781870bedd4cb0b"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/focused-xml/TEST-dev.legacybridge.converter.conversion.IronHelmetDispenserCatalogTest.xml",
+      "bytes": 711,
+      "sha256": "3e76e66180289a3eb0a9f0de719e9d943c7ff98c166b62198b74672d68f3dfab"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/focused-xml/TEST-dev.legacybridge.converter.conversion.logic.IronHelmetDispenserTest.xml",
+      "bytes": 7030,
+      "sha256": "7bb8184716a16dcdc5e5351c4ed1d2bf02cd58cecbc255ee659325b9375d0b23"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/installed-cli-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/installed-inspection.json",
+      "bytes": 61491,
+      "sha256": "4c954b08663f9b455724f9544503e586f95a5e3fb157d6e280361ccd1162eb06"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/installed-inspection.ps1",
+      "bytes": 1229,
+      "sha256": "f0198480c85a5de9f456a960d4404888760fc98f9a284854c5e85d1dce7d6fe3"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/iron-helmet-1.16.5.log",
+      "bytes": 4386,
+      "sha256": "f7148de53430313f27ebd8751857998ae2985b43e62c721cd950871a6b6e410d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/iron-helmet-dispenser-1.16.5.log",
+      "bytes": 4390,
+      "sha256": "dc8fc614bf6d438e7d43220c2b98e555df64456e8a51dda9e09ca217993a49f9"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/package.log",
+      "bytes": 10522,
+      "sha256": "9cabe64395c801076bb9403ca0fa345307e2ca527a5aa47e907d27a7f8361eb3"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/package.ps1",
+      "bytes": 505,
+      "sha256": "6c81c3dfd61099ec4b7a4f6002da3fde8561071b7d9bf84da4b2b77aa0f39f4d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression.log",
+      "bytes": 194396,
+      "sha256": "3b11c1faf13d050c775770062c4be667f991f3e832818acefd585ed0f52eed4f"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression.ps1",
+      "bytes": 1901,
+      "sha256": "db6e87a158adaa83af0074e220be22585fdb618179500f5bea292e2bca2ae15d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.CliEngineServiceTest.xml",
+      "bytes": 3118,
+      "sha256": "96b73544b2ee49b6eb7e1e5955ae86a35d9cf8a3ee98153f04669d711dcb1dd4"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest.xml",
+      "bytes": 188636,
+      "sha256": "10ed6499fa113d2d4e13f17cd2e1561ec1151009f50ae2f987a9a17731bd2448"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.DatapackProfileIntegrationTest.xml",
+      "bytes": 1119,
+      "sha256": "9210bb83a5e542455eb7f10b3799b3876acc5a2a5423a4482459dffa56821b8e"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.FoodProfileIntegrationTest.xml",
+      "bytes": 2642,
+      "sha256": "ffff38e9a107d0bb26a4018d1cdbec9e9c69e5ec8004e809126c3c57e81a3d8a"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.IronHelmetInspectionCliTest.xml",
+      "bytes": 3579,
+      "sha256": "fe79d0de514136d89f72f4a3b5b5b5efea5a6e170bc730c41bd4f5a9fedbad9f"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.ItemAttributeDurabilityIntegrationTest.xml",
+      "bytes": 187032,
+      "sha256": "46a0ea6fa8028f7e6dbc5dce457c76500b3bcc00113b3752c14dc737527abfb4"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.ItemAttributeIntegrationTest.xml",
+      "bytes": 164325,
+      "sha256": "cd4fac9ce01e14267446afecc91c4f0df707b39dde3fb4683f02d08f7ab90533"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest.xml",
+      "bytes": 966,
+      "sha256": "b9829e616930924fdd75bc91f3d8c1244d32e82686192b3979e9f565343ea6ff"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.LogicProfileIntegrationTest.xml",
+      "bytes": 952,
+      "sha256": "82090603714ede404fd96576b3c818597be7eff6c537b47ac77392b75e54412a"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.NetworkProfileIntegrationTest.xml",
+      "bytes": 4552,
+      "sha256": "e696c745a42e450e68ff998f25f4311927949b491acb86310f3ae5daec2d1c9d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.OwnedStackDamageIntegrationTest.xml",
+      "bytes": 120294,
+      "sha256": "621f65aec37553d49f0403bd713fc7925d6fd40f70574309dd078421934e0be4"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.cli.OwnedStackRepairUseIntegrationTest.xml",
+      "bytes": 173779,
+      "sha256": "8da038dc4b42d353f868fe8a1835ec6a8ab6af1237445b758145129744dc0554"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.AdapterContractIntegrationTest.xml",
+      "bytes": 1660,
+      "sha256": "20f50dcadff85ec8a54f7f21296a2c1c098419259d8effc431577e33a10178b5"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.IronHelmetAdapterCatalogTest.xml",
+      "bytes": 716,
+      "sha256": "159b14d5990c1c905278b6c8e27f3dc3767bf5896e5125a83c586eb5fa8d65cc"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.IronHelmetContractTest.xml",
+      "bytes": 25547,
+      "sha256": "23c7122fc19191f9bfd82359be2fa247b874acc547d90ba5fda9951919630cec"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.IronHelmetDispenserCatalogTest.xml",
+      "bytes": 709,
+      "sha256": "f6aa3064ada7da840d8faa13ba1f8cc7da7934f652aeeb7c2f1c9592a650f9d0"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.IronHelmetHeadEquipCatalogTest.xml",
+      "bytes": 709,
+      "sha256": "9edf5498fc06d7972726e7d6e79bd74fabd6a70aefe574fb39bc888006f5667d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.IronHelmetInspectorTest.xml",
+      "bytes": 6415,
+      "sha256": "975178bd169f1cc31774262eb3d6e95e9b195a13bae0a4bc5142f6d53c867d6f"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.logic.IronHelmetDispenserTest.xml",
+      "bytes": 7017,
+      "sha256": "5e523c8b2a5eef8fff989a3b5afff170d0a7085ef8ee3c57ae36c694bfa720f8"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.logic.IronHelmetEmptySlotAdapterTest.xml",
+      "bytes": 15263,
+      "sha256": "34e3f25f8d0bafa54a4619bc43663bd1cee16ebeb75c58c1db0273cab38c2f16"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.logic.IronHelmetHeadEquipEffectsTest.xml",
+      "bytes": 7530,
+      "sha256": "d0846ba7b70460725ad2c4fb88285bbb7ae7fa5217cfd97cedb0bfbc6b7537b2"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.conversion.logic.IronHelmetNativeApiAuditTest.xml",
+      "bytes": 16181,
+      "sha256": "4a6e603789cd99e98d2dab811d457d2ab300222323779b56d30bf3e5b8971919"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.service.IronHelmetInspectionServiceTest.xml",
+      "bytes": 2254,
+      "sha256": "cdf51a9476677bd4ed436b18b649fdff1958defa7ef1814144df83557c031e1d"
+    },
+    {
+      "path": "build/iron-helmet-dispenser-20261005/regression-xml/TEST-dev.legacybridge.converter.transformation.MappingResolverTest.xml",
+      "bytes": 3209,
+      "sha256": "31b755690665891465b3e7cb3c6388a795103ac180007fe942e74f004c759ea1"
+    }
+  ]
+}

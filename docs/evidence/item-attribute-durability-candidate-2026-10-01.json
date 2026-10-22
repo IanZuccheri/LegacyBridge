@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "prompt": "LB-10",
+  "cut": "ITEM-EQUIPMENT",
+  "slice": "OWNED_ATTRIBUTE_DURABILITY",
+  "outcome": "IMPLEMENTED_PRIVATE_STATIC_COMPOSITION_NOT_PUBLIC_OR_NATIVE_SUPPORT",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "ecde59b6fa6c4c66e256141956535bb09aaa736119e3a1159797866ab0fac66a",
+    "bytes": 1975658,
+    "entries": 752,
+    "fileEntries": 703,
+    "previousSha256": "4744062203cadf342586bd78053c80cc84b16c39af3f587c5a8ccf7ddc7b74c1",
+    "unchangedEntries": 735,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/ItemAttributeDurabilityContract$Proof.class",
+      "dev/legacybridge/converter/conversion/ItemAttributeDurabilityContract.class",
+      "dev/legacybridge/runtime/compat/logic/ItemAttributeDurabilityArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 60,
+      "newEntries": 62
+    },
+    "fixture": {
+      "bytes": 7119,
+      "sha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "fixture": {
+    "path": "fixtures/item-attribute-durability-1.16.5/build/libs/legacybridge-item-attribute-durability-1.16.5-1.0.0.jar",
+    "fixture": "item-attribute-durability-1.16.5",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16",
+    "bytes": 7119,
+    "modId": "legacybridge_attr_durable",
+    "modVersion": "1.0.0",
+    "registryName": "bridge_durable_attribute_item",
+    "ownership": "ORIGINAL_PROJECT_FIXTURE",
+    "originalUnchanged": true,
+    "executed": false
+  },
+  "candidate": {
+    "schemaVersion": 1,
+    "status": "CANDIDATE_VALIDATED",
+    "reportType": "LEGACY_ITEM_ATTRIBUTE_DURABILITY_CANDIDATE",
+    "candidateIdentity": "item-attribute-durability-candidate-v1",
+    "input": {
+      "fileName": "legacybridge-item-attribute-durability-1.16.5-1.0.0.jar",
+      "sha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16"
+    },
+    "archive": {
+      "bytes": 5841,
+      "kind": "PRIVATE_SERIALIZED_JAR",
+      "sha256": "dbe6a5acd96b29ae771156bed7e231f443148d74bea6bfcb7159b895cee491eb"
+    },
+    "originalContract": {
+      "anvilConsumptionAndCost": "NOT_QUALIFIED",
+      "attributeProof": {
+        "classesExecuted": false,
+        "contract": "owned-item-attribute-modifiers-v1",
+        "entry": "dev/legacybridge/fixture/attributedurable/ItemAttributeDurableContent",
+        "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+        "factory": "createItem",
+        "item": "dev/legacybridge/fixture/attributedurable/AttributeDurableItem",
+        "modId": "legacybridge_attr_durable",
+        "modifiers": [
+          {
+            "amount": 2,
+            "attribute": "ATTACK_DAMAGE",
+            "name": "LegacyBridge attack damage",
+            "operation": "ADDITION",
+            "uuidSource": "NATIVE_ITEM_BASE_ATTACK_DAMAGE_UUID_OBJECT"
+          },
+          {
+            "amount": -1,
+            "attribute": "ATTACK_SPEED",
+            "name": "LegacyBridge attack speed",
+            "operation": "ADDITION",
+            "uuidSource": "NATIVE_ITEM_BASE_ATTACK_SPEED_UUID_OBJECT"
+          }
+        ],
+        "modifiersField": "MODIFIERS",
+        "nativeNbtAndEvents": "NOT_BYPASSED; NATIVE_BEHAVIOR_NOT_QUALIFIED",
+        "otherSlots": "EMPTY_IMMUTABLE_MULTIMAP",
+        "properties": "CHECKED_ADMISSION_VIEW_ONLY; ORIGINAL_HAS_DURABILITY_128",
+        "registration": "ONE_ZERO_CAPTURE_STATIC_SUPPLIER_ON_MOD_BUS",
+        "registryName": "bridge_durable_attribute_item",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "slot": "MAINHAND",
+        "state": "ONE_STATIC_FINAL_IMMUTABLE_MULTIMAP; NO_PLAYER_OR_INSTANCE_STATE"
+      },
+      "classesExecuted": false,
+      "contract": "owned-item-attribute-durability-v1",
+      "durability": 128,
+      "maxStackSize": 1,
+      "normalization": "CHECKED_DEEP_ADMISSION_VIEW_ONLY; NEVER_TRANSFORMED_OR_EMITTED",
+      "properties": "FRESH_NATIVE_PROPERTIES_THEN_DURABILITY_128",
+      "repairIngredient": "minecraft:iron_ingot",
+      "repairPredicate": "SECOND_ARGUMENT_NATIVE_ITEM_IDENTITY; DAMAGED_ARGUMENT_UNUSED; NO_MUTATION",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "wearOnHitOrMining": "NOT_IMPLEMENTED_BY_THIS_PROGRAM"
+    },
+    "targetContract": {
+      "anvilConsumptionAndCost": "NOT_QUALIFIED",
+      "attributeProof": {
+        "classesExecuted": false,
+        "contract": "owned-item-attribute-modifiers-v1",
+        "entry": "dev/legacybridge/fixture/attributedurable/ItemAttributeDurableContent",
+        "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+        "factory": "createItem",
+        "item": "dev/legacybridge/fixture/attributedurable/AttributeDurableItem",
+        "modId": "legacybridge_attr_durable",
+        "modifiers": [
+          {
+            "amount": 2,
+            "attribute": "ATTACK_DAMAGE",
+            "name": "LegacyBridge attack damage",
+            "operation": "ADDITION",
+            "uuidSource": "NATIVE_ITEM_BASE_ATTACK_DAMAGE_UUID_OBJECT"
+          },
+          {
+            "amount": -1,
+            "attribute": "ATTACK_SPEED",
+            "name": "LegacyBridge attack speed",
+            "operation": "ADDITION",
+            "uuidSource": "NATIVE_ITEM_BASE_ATTACK_SPEED_UUID_OBJECT"
+          }
+        ],
+        "modifiersField": "MODIFIERS",
+        "nativeNbtAndEvents": "NOT_BYPASSED; NATIVE_BEHAVIOR_NOT_QUALIFIED",
+        "otherSlots": "EMPTY_IMMUTABLE_MULTIMAP",
+        "properties": "CHECKED_ADMISSION_VIEW_ONLY; ORIGINAL_HAS_DURABILITY_128",
+        "registration": "ONE_ZERO_CAPTURE_STATIC_SUPPLIER_ON_MOD_BUS",
+        "registryName": "bridge_durable_attribute_item",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "slot": "MAINHAND",
+        "state": "ONE_STATIC_FINAL_IMMUTABLE_MULTIMAP; NO_PLAYER_OR_INSTANCE_STATE"
+      },
+      "classesExecuted": false,
+      "contract": "owned-item-attribute-durability-v1",
+      "durability": 128,
+      "maxStackSize": 1,
+      "normalization": "CHECKED_DEEP_ADMISSION_VIEW_ONLY; NEVER_TRANSFORMED_OR_EMITTED",
+      "properties": "FRESH_NATIVE_PROPERTIES_THEN_DURABILITY_128",
+      "repairIngredient": "minecraft:iron_ingot",
+      "repairPredicate": "SECOND_ARGUMENT_NATIVE_ITEM_IDENTITY; DAMAGED_ARGUMENT_UNUSED; NO_MUTATION",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "wearOnHitOrMining": "NOT_IMPLEMENTED_BY_THIS_PROGRAM"
+    },
+    "reopenedContract": {
+      "anvilConsumptionAndCost": "NOT_QUALIFIED",
+      "attributeProof": {
+        "classesExecuted": false,
+        "contract": "owned-item-attribute-modifiers-v1",
+        "entry": "dev/legacybridge/fixture/attributedurable/ItemAttributeDurableContent",
+        "externalDeclarations": "REQUIRE_SEPARATE_VERIFICATION",
+        "factory": "createItem",
+        "item": "dev/legacybridge/fixture/attributedurable/AttributeDurableItem",
+        "modId": "legacybridge_attr_durable",
+        "modifiers": [
+          {
+            "amount": 2,
+            "attribute": "ATTACK_DAMAGE",
+            "name": "LegacyBridge attack damage",
+            "operation": "ADDITION",
+            "uuidSource": "NATIVE_ITEM_BASE_ATTACK_DAMAGE_UUID_OBJECT"
+          },
+          {
+            "amount": -1,
+            "attribute": "ATTACK_SPEED",
+            "name": "LegacyBridge attack speed",
+            "operation": "ADDITION",
+            "uuidSource": "NATIVE_ITEM_BASE_ATTACK_SPEED_UUID_OBJECT"
+          }
+        ],
+        "modifiersField": "MODIFIERS",
+        "nativeNbtAndEvents": "NOT_BYPASSED; NATIVE_BEHAVIOR_NOT_QUALIFIED",
+        "otherSlots": "EMPTY_IMMUTABLE_MULTIMAP",
+        "properties": "CHECKED_ADMISSION_VIEW_ONLY; ORIGINAL_HAS_DURABILITY_128",
+        "registration": "ONE_ZERO_CAPTURE_STATIC_SUPPLIER_ON_MOD_BUS",
+        "registryName": "bridge_durable_attribute_item",
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "slot": "MAINHAND",
+        "state": "ONE_STATIC_FINAL_IMMUTABLE_MULTIMAP; NO_PLAYER_OR_INSTANCE_STATE"
+      },
+      "classesExecuted": false,
+      "contract": "owned-item-attribute-durability-v1",
+      "durability": 128,
+      "maxStackSize": 1,
+      "normalization": "CHECKED_DEEP_ADMISSION_VIEW_ONLY; NEVER_TRANSFORMED_OR_EMITTED",
+      "properties": "FRESH_NATIVE_PROPERTIES_THEN_DURABILITY_128",
+      "repairIngredient": "minecraft:iron_ingot",
+      "repairPredicate": "SECOND_ARGUMENT_NATIVE_ITEM_IDENTITY; DAMAGED_ARGUMENT_UNUSED; NO_MUTATION",
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "wearOnHitOrMining": "NOT_IMPLEMENTED_BY_THIS_PROGRAM"
+    },
+    "bodyPreservation": "CHECKED_OPCODES_CONTROL_FLOW_LITERALS_FIELD_CONSTANTS_AND_DEBUG",
+    "classCount": 2,
+    "methodCount": 7,
+    "publicationAllowed": false,
+    "runtimeValidation": "NOT_RUN",
+    "sourceLinkage": "PASSED_SCOPED",
+    "targetLinkage": "PASSED_SCOPED",
+    "reopenedLinkage": "PASSED_SCOPED",
+    "bytecodeValidation": {
+      "inputClasses": 2,
+      "jvmLinkageVerified": false,
+      "modClassesLoaded": false,
+      "offlineLinkageVerified": true,
+      "outputClasses": 2,
+      "serializedJar": true,
+      "status": "PASSED_STATIC_REOPENED"
+    },
+    "archiveValidation": {
+      "centralDirectoryAndCrc": true,
+      "entryCount": 10,
+      "modClassesLoaded": false,
+      "ownershipAndHashes": true,
+      "scratchDeleted": true,
+      "status": "PASSED_REOPENED"
+    },
+    "resourceValidation": {
+      "baseResourceContract": "simple-content-v1; tag references restricted to local closure",
+      "contract": "datapack-recipes-v1",
+      "differences": [
+        "Target cooking recipe-book category defaults to MISC; client grouping is not validated."
+      ],
+      "provenance": "docs/RESOURCE_API_BASELINES.md",
+      "recipes": [
+        {
+          "disposition": "PRESERVE_BYTES",
+          "format": "minecraft:crafting_shapeless",
+          "path": "data/legacybridge_attr_durable/recipes/bridge_durable_attribute_item.json",
+          "reason": "Pinned serializer schema and closed ingredient/result references validated; no rewrite necessary",
+          "rule": "resource.recipe.crafting_shapeless.preserve.v1",
+          "sha256": "b27120c54f15dc85b803000a217e2ad0f4ce09fb66b355f85c91f82196f862b6"
+        }
+      ],
+      "runtimeValidation": "NOT_RUN",
+      "schemaVersion": 1,
+      "source": "minecraft:1.16.5/forge:36.2.42",
+      "status": "PASSED_REOPENED",
+      "target": "minecraft:1.20.1/forge:47.4.23",
+      "unsupported": [
+        "conditional recipes",
+        "custom serializers and ingredients",
+        "NBT recipe results",
+        "external tag composition",
+        "loot tables and global loot modifiers",
+        "advancements",
+        "functions and commands",
+        "animated textures",
+        "custom model behavior",
+        "local Ogg audio"
+      ]
+    },
+    "transformationLogSchemaVersion": 1,
+    "transformationCount": 81,
+    "transformationKinds": [
+      {
+        "kind": "CLASS_REMAP",
+        "count": 25
+      },
+      {
+        "kind": "DESCRIPTOR_REMAP",
+        "count": 43
+      },
+      {
+        "kind": "METHOD_REMAP",
+        "count": 4
+      },
+      {
+        "kind": "FIELD_REMAP",
+        "count": 5
+      },
+      {
+        "kind": "RESOURCE_REWRITE",
+        "count": 4
+      }
+    ],
+    "privateBindings": {
+      "adapters": [
+        {
+          "descriptor": "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;",
+          "id": "logic.symbol-contracts.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.logic.PreservedLogicAdapter",
+          "method": "remapDescriptor",
+          "revision": 1
+        },
+        {
+          "descriptor": "(Ljava/lang/String;)[B",
+          "id": "item.attribute-durability-manifest.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.logic.ItemAttributeDurabilityArtifactAdapter",
+          "method": "targetManifest",
+          "revision": 1
+        },
+        {
+          "descriptor": "()Ljava/util/Map;",
+          "id": "item.attribute-durability-bindings.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.logic.ItemAttributeDurabilityArtifactAdapter",
+          "method": "bindingTree",
+          "revision": 1
+        },
+        {
+          "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+          "id": "registry.mod-metadata.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+          "method": "targetRanges",
+          "revision": 1
+        },
+        {
+          "descriptor": "(I)I",
+          "id": "client.resource-pack.v1",
+          "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+          "method": "targetFormat",
+          "revision": 1
+        }
+      ],
+      "runtimeVersion": "0.1.1-SNAPSHOT",
+      "schemaVersion": 1
+    },
+    "output": null,
+    "pipeline": [
+      "ClassReader",
+      "LegacyReferenceScanner",
+      "ItemAttributeDurabilityGraphBoundsAndContract",
+      "SourceOfflineLinkage",
+      "ExactRecipeMappingResolver",
+      "ClassRemapper",
+      "DescriptorTransformer",
+      "TargetOfflineLinkage",
+      "ClassWriter",
+      "CheckClassAdapter",
+      "FinalOfflineLinkage"
+    ]
+  },
+  "previousAttributeCandidateParity": {
+    "expected": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+    "actual": "69c4bfd9321f113c91bdc579e97efb9751e293dc354bcd4b1abf38cc8b1d67fb",
+    "unchanged": true,
+    "input": "b7cafa19ec83bc6ac3ec5a2a0935341df3270b478e1dd765dd2ac4fa350e4c99"
+  },
+  "mappingInputs": {
+    "profile": "build/item-attributes-20261001/mapping-profile.properties",
+    "sha256": "252b55f8ef1298f83cda4d7b1be956637eec98753cda4c8dca55e13ffcf1b312",
+    "explicitLocalData": true,
+    "classpathFallback": false,
+    "embeddedInProduct": false,
+    "provenance": [
+      "docs/ITEM_ATTRIBUTE_API_AUDIT.md",
+      "docs/ITEM_ATTRIBUTE_DURABILITY_API_AUDIT.md"
+    ],
+    "sourceForgeSources": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetForgeSources": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+  },
+  "validation": {
+    "engineRegression": {
+      "status": "PASS",
+      "tests": 3786,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 68,
+      "newTests": 639,
+      "newSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.ItemAttributeDurabilityIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.ItemAttributeDurabilityArtifactPlanTest",
+          "tests": 53,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.ItemAttributeDurabilityContractTest",
+          "tests": 143,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.logic.ItemAttributeDurabilityMappingIntegrationTest",
+          "tests": 227,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.transformation.linkage.ItemAttributeDurabilityOfflineLinkageTest",
+          "tests": 194,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "elapsed": "6m47s",
+      "log": "build/item-attribute-durability-candidate-20261001/regression-final.log",
+      "script": "build/item-attribute-durability-candidate-20261001/regression.ps1"
+    },
+    "firstFocusedRun": {
+      "status": "PASS",
+      "tests": 412,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 4,
+      "newTests": 412,
+      "newSuites": [
+        {
+          "suite": "dev.legacybridge.converter.cli.ItemAttributeDurabilityIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.ItemAttributeDurabilityArtifactPlanTest",
+          "tests": 53,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.conversion.ItemAttributeDurabilityContractTest",
+          "tests": 143,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "dev.legacybridge.converter.transformation.linkage.ItemAttributeDurabilityOfflineLinkageTest",
+          "tests": 194,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ],
+      "elapsed": "45s",
+      "scope": "Before mapping-test suite was added; final regression supersedes this count",
+      "log": "build/item-attribute-durability-candidate-20261001/focused-1.log"
+    },
+    "compilation": {
+      "status": "PASS",
+      "elapsed": "44s",
+      "log": "build/item-attribute-durability-candidate-20261001/compile.log"
+    },
+    "originalArchiveTests": {
+      "status": "PASS",
+      "rerun": true,
+      "fixture": "item-attribute-durability-1.16.5",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "2f921f9dbf644cb866e32b60397b2011f1982e676c8d9e3dc56bfeff6b7f5d16",
+      "bytes": 7119,
+      "elapsed": "14s",
+      "log": "build/item-attribute-durability-candidate-20261001/original-fixture.log"
+    },
+    "package": {
+      "status": "PASS",
+      "elapsed": "32s",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "log": "build/item-attribute-durability-candidate-20261001/package.log",
+      "script": "build/item-attribute-durability-candidate-20261001/package.ps1"
+    },
+    "contract": {
+      "status": "PASS_WITH_EXISTING_ENVIRONMENT_SKIPS",
+      "tests": 77,
+      "passed": 75,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "elapsed": "34s",
+      "log": "build/item-attribute-durability-candidate-20261001/contract.log",
+      "skipNames": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Existing Windows symlink creation privilege unavailable; not product failures",
+      "prompts": 23,
+      "cuts": 81
+    },
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "nativeBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "gameOfflineQualification": "NOT_RUN"
+  },
+  "next": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "slice": "OWNED_STACK_DAMAGE",
+    "status": "ORIGINAL_BUILT_AND_AUDITED_NO_CONVERSION_RECIPE",
+    "path": "fixtures/owned-stack-damage-1.16.5/build/libs/legacybridge-owned-stack-damage-1.16.5-1.0.0.jar",
+    "fixture": "owned-stack-damage-1.16.5",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "sha256": "a6099857d7a2e4e3cb2db6d67ce1db23d08d2ba9c17b732c380d2d7b64f09793",
+    "bytes": 6314,
+    "classCount": 2,
+    "methodCount": 5,
+    "modId": "legacybridge_stack_damage",
+    "registryName": "bridge_stack_item",
+    "audit": "docs/OWNED_STACK_DAMAGE_API_AUDIT.md",
+    "build": "PASS",
+    "elapsed": "15s",
+    "log": "build/item-attribute-durability-candidate-20261001/next-fixture.log",
+    "javap": "Read-only reobfuscated helper inspection; guarded single decrement/write confirmed",
+    "nativeExecution": "NOT_RUN",
+    "automaticGameplayTrigger": false,
+    "recipeImplemented": false
+  },
+  "boundaries": {
+    "minecraftOpened": false,
+    "serverOpened": false,
+    "screenAutomation": false,
+    "originalClassesExecuted": false,
+    "publicProfiles": 6,
+    "publicConvertApplyExpanded": false,
+    "hotActivation": false,
+    "newThirdPartyModAcquisition": false,
+    "published": false,
+    "licenseChanged": false,
+    "universalCompatibility": false,
+    "corpusModsUnlocked": 0,
+    "contractCutsAcceptedByThisDelivery": 0
+  },
+  "limitations": [
+    "The complete finite combined graph only; no arbitrary feature unions or external references.",
+    "Native target hooks/NBT/equipment/tooltip and ordinary-stack repair behavior remain unqualified.",
+    "Capacity 128 is not hit/mining wear, break notification, anvil cost or material consumption.",
+    "API inventories verify declarations; reviewed source baselines do not establish equivalence for arbitrarily modified native bodies.",
+    "The next stack-damage helper is authored input only and has no automatic gameplay caller.",
+    "ITEM-EQUIPMENT and its requires remain PARTIAL; no public promotion or installation permission."
+  ],
+  "logsRoot": "build/item-attribute-durability-candidate-20261001",
+  "contractCounts": {
+    "prompts": 23,
+    "cuts": 81,
+    "ACCEPTED": 15,
+    "PARTIAL": 19,
+    "BLOCKED": 2,
+    "NOT_STARTED": 45
+  },
+  "review": {
+    "independentStructuralIntegration": "No new bypass/publication authority found in reviewed paths",
+    "independentMappingReview": "Exact callbacks, declarations, UUID aliases and unknown-reference refusal reviewed",
+    "independentLinkageReview": "Both callbacks and field/Guava/property/getter checks independent of compiler"
+  }
+}

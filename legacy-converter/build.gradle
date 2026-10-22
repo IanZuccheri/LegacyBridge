@@ -1,0 +1,283 @@
+plugins {
+    id 'application'
+}
+
+// Explicit developer tooling. Neither the application distribution nor the public product uses this output.
+sourceSets {
+    compositionQa {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+    test {
+        compileClasspath += sourceSets.compositionQa.output
+        runtimeClasspath += sourceSets.compositionQa.output
+    }
+}
+configurations {
+    compositionQaImplementation.extendsFrom implementation
+    compositionQaRuntimeOnly.extendsFrom runtimeOnly
+}
+
+tasks.register('exportCompositionQa', JavaExec) {
+    group = 'verification'
+    description = 'Explicit local-only composed QA export. Does not install, launch Minecraft or approve runtime support.'
+    dependsOn tasks.named('compositionQaClasses')
+    classpath = sourceSets.compositionQa.runtimeClasspath
+    mainClass = 'dev.legacybridge.converter.conversion.CompositionQaExport'
+    maxHeapSize = '512m'
+    doFirst {
+        def required = ['composeInput', 'composeSourceSha256', 'composeCandidateSha256', 'composeMappingProfile', 'composeRunId']
+        required.each { if (!providers.gradleProperty(it).isPresent()) throw new GradleException("Explicit -P${it} is required") }
+        args = [rootProject.file(providers.gradleProperty('composeInput').get()).absolutePath,
+                providers.gradleProperty('composeSourceSha256').get(), providers.gradleProperty('composeCandidateSha256').get(),
+                rootProject.file(providers.gradleProperty('composeMappingProfile').get()).absolutePath,
+                rootProject.layout.buildDirectory.dir('composition-qa').get().asFile.absolutePath,
+                providers.gradleProperty('composeRunId').get()]
+    }
+}
+
+def legacyForgeApiBaseline = configurations.create('legacyForgeApiBaseline') {
+    canBeConsumed = false
+    canBeResolved = true
+    transitive = false
+}
+
+def targetForgeApiBaseline = configurations.create('targetForgeApiBaseline') {
+    canBeConsumed = false
+    canBeResolved = true
+    transitive = false
+}
+
+// A future Forge consumer uses the engine with its own logging provider.
+// The standalone launchers alone receive slf4j-simple, not the published runtime variant.
+def cliLogging = configurations.create('cliLogging') {
+    canBeConsumed = false
+    canBeResolved = true
+    transitive = false
+}
+
+base {
+    archivesName = 'legacy-converter'
+}
+
+dependencies {
+    // Neutral JDK-only adapter ABI; the engine never depends on the Forge runtime.
+    implementation project(':legacy-compat-api')
+    implementation "org.ow2.asm:asm:${rootProject.asm_version}"
+    implementation "org.ow2.asm:asm-commons:${rootProject.asm_version}"
+    implementation "org.ow2.asm:asm-tree:${rootProject.asm_version}"
+    implementation "org.ow2.asm:asm-analysis:${rootProject.asm_version}"
+    implementation "org.ow2.asm:asm-util:${rootProject.asm_version}"
+    implementation 'net.minecraftforge:srgutils:0.6.2'
+    implementation "com.electronwill.night-config:toml:${rootProject.night_config_version}"
+    implementation "org.slf4j:slf4j-api:${rootProject.slf4j_version}"
+    add(cliLogging.name, "org.slf4j:slf4j-simple:${rootProject.slf4j_version}")
+
+    testImplementation platform("org.junit:junit-bom:${rootProject.junit_version}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly "org.slf4j:slf4j-simple:${rootProject.slf4j_version}"
+
+    add(legacyForgeApiBaseline.name,
+            "net.minecraftforge:forge:1.16.5-${rootProject.legacy_forge_version}:universal")
+    add(targetForgeApiBaseline.name,
+            "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}:universal")
+}
+
+application {
+    mainClass = 'dev.legacybridge.converter.cli.LegacyBridgeCli'
+    applicationName = 'legacy-converter'
+}
+
+distributions.main.contents {
+    from(cliLogging) { into 'lib' }
+}
+
+tasks.named('startScripts') { classpath += cliLogging }
+tasks.named('run', JavaExec) { classpath += cliLogging }
+
+tasks.named('test', Test) {
+    // Opt-in real source/target API inventories require more than Gradle's default
+    // 512 MiB test worker. This is a bounded test process, not a runtime heap/guard change.
+    if (providers.gradleProperty('verifyCompositionEnvironment').getOrElse('false') == 'true') {
+        maxHeapSize = '1g'
+    }
+    systemProperty 'legacybridge.admissionBundle', providers.gradleProperty('admissionBundle').getOrElse('')
+    systemProperty 'legacybridge.admissionCandidate', providers.gradleProperty('admissionCandidate').getOrElse('')
+    dependsOn ':legacy-runtime:jar', ':legacy-runtime:reobfJar'
+    systemProperty 'legacybridge.verifyMappingEnvironment', providers.gradleProperty('verifyMappingEnvironment').getOrElse('false')
+    systemProperty 'legacybridge.verifyLogicEnvironment', providers.gradleProperty('verifyLogicEnvironment').getOrElse('false')
+    systemProperty 'legacybridge.verifyCompositionEnvironment', providers.gradleProperty('verifyCompositionEnvironment').getOrElse('false')
+    systemProperty 'legacybridge.logicMappingProfile', providers.gradleProperty('logicMappingProfile').getOrElse('')
+    systemProperty 'legacybridge.verifyLifecycleEnvironment', providers.gradleProperty('verifyLifecycleEnvironment').getOrElse('false')
+    systemProperty 'legacybridge.lifecycleMappingProfile', providers.gradleProperty('lifecycleMappingProfile').getOrElse('')
+    systemProperty 'legacybridge.verifyFoodEnvironment', providers.gradleProperty('verifyFoodEnvironment').getOrElse('false')
+    systemProperty 'legacybridge.foodMappingProfile', providers.gradleProperty('foodMappingProfile').getOrElse('')
+    systemProperty 'legacybridge.verifyDatapackEnvironment', providers.gradleProperty('verifyDatapackEnvironment').getOrElse('false')
+    systemProperty 'legacybridge.datapackMappingProfile', providers.gradleProperty('datapackMappingProfile').getOrElse('')
+    systemProperty 'legacybridge.verifyNetworkEnvironment', providers.gradleProperty('verifyNetworkEnvironment').getOrElse('false')
+    systemProperty 'legacybridge.networkMappingProfile', providers.gradleProperty('networkMappingProfile').getOrElse('')
+    systemProperty 'legacybridge.fixtureRoot', rootProject.file('fixtures').absolutePath
+    systemProperty 'legacybridge.cohortBundle', providers.gradleProperty('cohortBundle').getOrElse('')
+    systemProperty 'legacybridge.cohortEvidence', rootProject.file(providers.gradleProperty('cohortEvidence').getOrElse('build/cohort-source-inspection')).absolutePath
+    doFirst {
+        systemProperty 'legacybridge.runtimeArtifact', project(':legacy-runtime').tasks.named('jar').get().archiveFile.get().asFile.absolutePath
+        systemProperty 'legacybridge.legacyForgeBaseline', legacyForgeApiBaseline.singleFile.absolutePath
+        systemProperty 'legacybridge.targetForgeBaseline', targetForgeApiBaseline.singleFile.absolutePath
+    }
+}
+
+tasks.register('generateMappingSmokeFixture', JavaExec) {
+    group = 'verification'
+    description = 'Produces an inert synthetic legacy JAR for installed mapping CLI verification.'
+    dependsOn tasks.named('testClasses')
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.legacybridge.converter.testutil.MappingSmokeFixture'
+    systemProperty 'legacybridge.fixtureRoot', rootProject.file('fixtures').absolutePath
+    args layout.buildDirectory.file('mapping-smoke/feature-rich.jar').get().asFile.absolutePath
+}
+
+tasks.register('verifyForgeApiBaselines') {
+    group = 'verification'
+    description = 'Checks selected API anchors in the pinned official Forge 36.x and 47.x artifacts.'
+    inputs.files(legacyForgeApiBaseline, targetForgeApiBaseline)
+
+    doLast {
+        def legacyJar = legacyForgeApiBaseline.singleFile
+        def targetJar = targetForgeApiBaseline.singleFile
+        def readEntries = { File archive ->
+            def zip = new java.util.zip.ZipFile(archive)
+            try {
+                return zip.entries().collect { it.name }.toSet()
+            } finally {
+                zip.close()
+            }
+        }
+        def requireEntries = { Set<String> entries, String label, List<String> required ->
+            required.each { entry ->
+                if (!entries.contains(entry)) {
+                    throw new GradleException("${label} API baseline is missing ${entry}")
+                }
+            }
+        }
+
+        def legacyEntries = readEntries(legacyJar)
+        def targetEntries = readEntries(targetJar)
+        requireEntries(legacyEntries, 'Forge 1.16.5', [
+                'net/minecraftforge/registries/DeferredRegister.class',
+                'net/minecraftforge/fml/RegistryObject.class',
+                'net/minecraftforge/event/RegistryEvent$Register.class',
+                'net/minecraftforge/registries/IForgeRegistryEntry.class'
+        ])
+        requireEntries(targetEntries, 'Forge 1.20.1', [
+                'net/minecraftforge/registries/DeferredRegister.class',
+                'net/minecraftforge/registries/RegistryObject.class',
+                'net/minecraftforge/registries/RegisterEvent.class'
+        ])
+        if (targetEntries.contains('net/minecraftforge/fml/RegistryObject.class')
+                || targetEntries.contains('net/minecraftforge/event/RegistryEvent$Register.class')) {
+            throw new GradleException('Target Forge baseline unexpectedly exposes legacy registry anchors')
+        }
+        logger.lifecycle("Verified pinned Forge API baselines: 1.16.5-${rootProject.legacy_forge_version} and ${rootProject.minecraft_version}-${rootProject.forge_version}")
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('verifyForgeApiBaselines')
+}
+
+tasks.named('jar', Jar) {
+    manifest {
+        attributes(
+                'Implementation-Title': 'LegacyBridge Converter',
+                'Implementation-Version': project.version,
+                'LegacyBridge-Launch-Form': 'application-distribution'
+        )
+    }
+}
+
+def installedLauncher = layout.buildDirectory.file(
+        "install/${application.applicationName}/bin/${application.applicationName}" +
+                (System.getProperty('os.name').toLowerCase(java.util.Locale.ROOT).contains('windows') ? '.bat' : '')
+)
+
+tasks.register('smokeInstalledCli', Exec) {
+    group = 'verification'
+    description = 'Runs --help through the installed application launcher and its complete dependency set.'
+    dependsOn tasks.named('installDist')
+
+    def standardOutputBuffer = new ByteArrayOutputStream()
+    def errorOutputBuffer = new ByteArrayOutputStream()
+    commandLine installedLauncher.get().asFile.absolutePath, '--help'
+    standardOutput = standardOutputBuffer
+    errorOutput = errorOutputBuffer
+
+    doLast {
+        def output = standardOutputBuffer.toString('UTF-8')
+        if (!output.contains('legacy-converter analyze') ||
+                !output.contains('strict simple-content-v1 conversion') ||
+                !output.contains('--conversion-profile') || !output.contains('logic-preserving-v1') || !output.contains('food-item-v1')) {
+            throw new GradleException("Installed CLI help smoke returned unexpected output")
+        }
+        if (errorOutputBuffer.size() != 0) {
+            throw new GradleException("Installed CLI help smoke wrote unexpected stderr output")
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('smokeInstalledCli')
+}
+
+tasks.register('verifyEngineConsumerBoundary') {
+    group = 'verification'
+    description = 'Keeps Forge/game implementations and the standalone logging backend out of engine dependencies.'
+    dependsOn tasks.named('jar')
+    doLast {
+        configurations.runtimeClasspath.incoming.resolutionResult.allComponents.each { component ->
+            def id = component.id
+            if (id instanceof org.gradle.api.artifacts.component.ProjectComponentIdentifier &&
+                    id.projectPath == ':legacy-runtime') {
+                throw new GradleException('The reusable engine must not depend on the Forge runtime project')
+            }
+            if (id instanceof org.gradle.api.artifacts.component.ModuleComponentIdentifier &&
+                    ((id.group == 'org.slf4j' && id.module == 'slf4j-simple') ||
+                    id.group == 'net.minecraft' ||
+                    (id.group == 'net.minecraftforge' && id.module != 'srgutils'))) {
+                throw new GradleException("Unexpected implementation/backend on engine runtime variant: ${id}")
+            }
+        }
+        def jar = new java.util.zip.ZipFile(tasks.named('jar').get().archiveFile.get().asFile)
+        try {
+            def resource = jar.getEntry('META-INF/legacybridge/simple-content-v1/source-contract-v1.tsv')
+            if (resource == null || jar.getEntry('META-INF/legacybridge/legal/MCPConfig-LICENSE.txt') == null ||
+                    jar.getEntry('META-INF/legacybridge/simple-content-v1/NOTICE.md') == null) {
+                throw new GradleException('Engine distribution must include finite contract and attribution notice')
+            }
+            byte[] contract = jar.getInputStream(resource).withCloseable { it.bytes }
+            def digest = java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance('SHA-256').digest(contract))
+            if (contract.length != 6603 || digest != '4868d957c3da0707f1178f809f452e43022aa1205d3a803501f563dc37a91170') {
+                throw new GradleException('Engine finite contract differs from reviewed source')
+            }
+            def cohortResource = jar.getEntry('META-INF/legacybridge/cohort-preview-v1/platform-contract-v1.tsv')
+            if (cohortResource == null || jar.getEntry('META-INF/legacybridge/cohort-preview-v1/NOTICE.md') == null ||
+                    jar.getEntry('META-INF/legacybridge/cohort-preview-v1/LICENSE-LGPL-2.1.txt') == null)
+                throw new GradleException('Engine cohort data needs its declaration source, notice and license')
+            byte[] cohortContract = jar.getInputStream(cohortResource).withCloseable { it.bytes }
+            def cohortDigest = java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance('SHA-256').digest(cohortContract))
+            if (cohortContract.length != 537 || cohortDigest != '20fda70724153dee806f1fa20812a4cc8713da440d58692255d8597d1503eafe')
+                throw new GradleException('Engine cohort contract differs from reviewed source')
+            jar.entries().each { entry ->
+                if (entry.name.contains('CompositionQa') || (entry.name.endsWith('.class') && !entry.name.startsWith('dev/legacybridge/converter/'))) {
+                    throw new GradleException("Foreign implementation in engine JAR: ${entry.name}")
+                }
+                if (entry.name.endsWith('.lbmap') || entry.name.endsWith('.lbapi') ||
+                        entry.name.startsWith('META-INF/services/cpw.mods.modlauncher.')) {
+                    throw new GradleException("Unapproved data/bootstrap in engine JAR: ${entry.name}")
+                }
+            }
+        } finally { jar.close() }
+    }
+}
+
+tasks.named('check') { dependsOn tasks.named('verifyEngineConsumerBoundary') }

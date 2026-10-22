@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_PRESERVED_DEVELOPER_SCREEN_EVIDENCE",
+  "reviewedAt": "2026-09-19",
+  "contract": {
+    "prompt": "LB-04",
+    "cut": "UI-PROMOTION",
+    "slice": "PRESERVED_DEVELOPER_SCREEN",
+    "implementation": "IMPLEMENTED_STATIC",
+    "acceptance": "PARTIAL",
+    "next": {
+      "prompt": "LB-01",
+      "cut": "PRODUCT-COMPOSED",
+      "slice": "PRESERVED_PREPARATION_WORKFLOW"
+    }
+  },
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "b1d8e46e6270bcb8e0034c80bdf00420f4469e163c8c58b5792b163a13af878e",
+    "bytes": 1583691,
+    "entries": 647,
+    "unchanged": 625,
+    "changed": [
+      "assets/legacybridge_runtime/lang/en_us.json",
+      "assets/legacybridge_runtime/lang/pt_br.json",
+      "dev/legacybridge/product/client/ClientMenuHooks$ConversionMenuButton.class",
+      "dev/legacybridge/product/client/ClientMenuHooks.class",
+      "dev/legacybridge/product/controller/ConversionController$2.class",
+      "dev/legacybridge/product/controller/ConversionController$ControllerFailure.class",
+      "dev/legacybridge/product/controller/ConversionController$InstallationObservation.class",
+      "dev/legacybridge/product/controller/ConversionController$JobRecord.class",
+      "dev/legacybridge/product/controller/ConversionController$PreservedReview.class",
+      "dev/legacybridge/product/controller/ConversionController$RealPreservedOperations.class",
+      "dev/legacybridge/product/controller/ConversionController.class"
+    ],
+    "added": [
+      "dev/legacybridge/product/client/ClientMenuHooks$PreservedMenuButton.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen$Consent.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen$Line.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen$Lines.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen$Page.class",
+      "dev/legacybridge/product/client/PreservedDeveloperScreen.class",
+      "dev/legacybridge/product/controller/PreservedDeveloperForm$Field.class",
+      "dev/legacybridge/product/controller/PreservedDeveloperForm$InvalidField.class",
+      "dev/legacybridge/product/controller/PreservedDeveloperForm$Mode.class",
+      "dev/legacybridge/product/controller/PreservedDeveloperForm.class",
+      "dev/legacybridge/product/controller/PreservedHostSession.class"
+    ],
+    "removed": [],
+    "unexpectedChanges": []
+  },
+  "previousArtifact": {
+    "path": "build/preserved-developer-screen-20260919/LegacyBridge-baseline.jar",
+    "sha256": "e5a0d7e70bb2c3915d5142e6d8653624d91ea50fc8a6a6c7cb45b0735a5b640f",
+    "bytes": 1554835,
+    "entries": 636
+  },
+  "inputs": {
+    "original": {
+      "path": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar",
+      "sha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f"
+    },
+    "candidate": {
+      "path": "build/logic-preserving-v1/converted.jar",
+      "sha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d"
+    },
+    "fullData": {
+      "path": "build/logic-preserving-v1/mapping-bundle",
+      "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+      "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION",
+      "embedded": false
+    },
+    "targetSource": {
+      "artifact": "forge-1.20.1-47.4.23_mapped_official_1.20.1-sources.jar",
+      "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+      "inspection": "READ_ONLY"
+    }
+  },
+  "implementation": [
+    "Explicit false-by-default legacybridge.developer.preservedUi client opt-in, separate menu route; ordinary ConversionScreen still uses preserved-disabled controller",
+    "Bounded I/O-free typed form for existing admission, full data pins and explicit recovery identity; no implicit mappings/defaults/downloads",
+    "Fresh backend review bound to form revision and operation UUID; edits or mode changes invalidate confirmation even if reverted",
+    "Native explicit confirmation consumes one-use form token and independently checked coordinator review",
+    "Client-owned immutable loader/world snapshot, atomic nonblocking worker access; unavailable or detached host fails closed",
+    "Normal navigation/world entry blocked through owned screen opening while installation is accepted; OS/direct world/QuickPlay override not guaranteed",
+    "Existing shared worker, queue, installer, recovery, shutdown lease and schemas reused; no additional executors or transformation rules",
+    "Per-operation results, structured diagnostics, bounded searchable/paged read-only history; no authority or form rehydration from JSON",
+    "Apply-and-close uses exact operation, idle state, safe terminal result plus receipt and closed world; Minecraft.stop is not restart",
+    "en_us/pt_br and native edit boxes/buttons/confirmation/narrated scrolling; focus/cursor/resize handling implemented, visual QA not run",
+    "SESSION_UNAVAILABLE retained instead of masked by SESSION_CHANGED when the host provider fails at confirmation"
+  ],
+  "validation": {
+    "productFocused": {
+      "status": "PASS",
+      "tests": 103,
+      "passed": 103,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "newTests": 18,
+      "xml": "build/preserved-developer-screen-20260919/tests-03-xml",
+      "suites": {
+        "ConversionControllerTest": 19,
+        "ConversionQueueTest": 8,
+        "InstallationControllerTest": 4,
+        "InstallationShutdownBarrierTest": 7,
+        "JobHistoryControllerTest": 4,
+        "JobInstallationReceiptTest": 14,
+        "PreservedDeveloperClientBoundaryTest": 4,
+        "PreservedDeveloperFormTest": 12,
+        "PreservedInstallCoordinatorTest": 11,
+        "HistoryClientBoundaryTest": 2,
+        "PreservedInstallReceiptsTest": 18
+      }
+    },
+    "compilation": "PASS",
+    "allModuleAssemble": "PASS",
+    "publicJarAudit": "PASS",
+    "runtimeJarAudit": "PASS",
+    "engineConsumerBoundary": "PASS",
+    "installedCliSmoke": "PASS",
+    "artifactDelta": "PASS",
+    "translationKeyAndPlaceholderParity": "PASS",
+    "freshContractTests": {"status": "PASS_WITH_SKIPS", "tests": 77, "passed": 75, "failed": 0, "errors": 0, "skipped": 2, "skipReason": "Existing Windows symbolic-link privilege assumptions", "xml": "build/preserved-developer-screen-20260919/contract-04-xml"},
+    "finalContractVerifier": "PASS_23_PROMPTS_81_CUTS_LB01_PRODUCT_COMPOSED",
+    "nativeUi": "NOT_RUN",
+    "nativeClient": "NOT_RUN",
+    "dedicatedServer": "NOT_RUN",
+    "discoveryAndActivation": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "outsideProjectCachelessJvm": "NOT_RUN",
+    "offlineForge": "NOT_RUN",
+    "originalModClassesExecuted": false,
+    "convertedModClassesExecuted": false,
+    "syntheticPlatformMetadataUsedInInstallerTests": true
+  },
+  "failures": [
+    {
+      "run": 1,
+      "tests": 103,
+      "failed": 1,
+      "cause": "New boundary test matched join by method name and incorrectly rejected java/lang/String.join as a blocking wait.",
+      "resolution": "Qualify Thread.sleep/join and Object.wait by exact owner; retain executor, I/O and process restrictions.",
+      "xml": "build/preserved-developer-screen-20260919/tests-01-xml"
+    },
+    {
+      "run": 2,
+      "tests": 103,
+      "failed": 1,
+      "cause": "The next assertion in the same boundary test rejected immutable PreservedInstallResult/PreservedAdmissionResult observation accessors as installer calls.",
+      "resolution": "Finite exact read-only DTO accessor allowlist; direct installer/store calls remain rejected. Full final selection passed.",
+      "xml": "build/preserved-developer-screen-20260919/tests-02-xml"
+    }
+  ],
+  "commands": {
+    "javaHome": "C:/Program Files/Java/jdk-17",
+    "serial": true,
+    "gradleCommon": [
+      "-Djavax.net.ssl.trustStore=NONE",
+      "-Djavax.net.ssl.trustStoreType=Windows-ROOT",
+      "--max-workers=1",
+      "--console=plain"
+    ],
+    "initial": [
+      ":legacy-product:compileJava"
+    ],
+    "final": [
+      ":legacy-product:test",
+      "--tests=*PreservedDeveloper*",
+      "--tests=*PreservedInstallCoordinatorTest",
+      "--tests=*PreservedInstallReceiptsTest",
+      "--tests=*InstallationControllerTest",
+      "--tests=*InstallationShutdownBarrierTest",
+      "--tests=*JobInstallationReceiptTest",
+      "--tests=*JobHistoryControllerTest",
+      "--tests=*ConversionQueueTest",
+      "--tests=*ConversionControllerTest",
+      "--tests=*HistoryClientBoundaryTest",
+      "assemble",
+      ":legacy-product:verifyProductJar",
+      ":legacy-runtime:verifyRuntimeJar",
+      ":legacy-converter:verifyEngineConsumerBoundary",
+      ":legacy-converter:smokeInstalledCli"
+    ],
+    "fixtureProperties": {
+      "admissionBundle": "build/logic-preserving-v1/mapping-bundle",
+      "admissionOriginal": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar",
+      "admissionCandidate": "build/logic-preserving-v1/converted.jar"
+    },
+    "propertyNote": "Fixture property values supplied as absolute paths under this project root. Windows-ROOT selects actual OS trust, not disabled TLS.",
+    "finalBuildDuration": "2m18s",
+    "postDocumentationBuildDuration": "41s",
+    "postDocumentation": [":legacy-corpus:cleanTest", ":legacy-corpus:test", "--tests=*PromptContractVerifierTest", ":legacy-corpus:verifyPromptContract", "assemble", ":legacy-product:verifyProductJar", ":legacy-runtime:verifyRuntimeJar", ":legacy-converter:verifyEngineConsumerBoundary", ":legacy-converter:smokeInstalledCli"]
+  },
+  "logs": [
+    {"path": "build/preserved-developer-screen-20260919/contract-final-04.log", "sha256": "3c4322cfd58ea230ad4b080f866db6c8ad527d41b279b9dc0967b0f143126c73", "outcome": "PASS_WITH_TWO_EXISTING_CONTRACT_SKIPS"},
+    {
+      "path": "build/preserved-developer-screen-20260919/compile.log",
+      "sha256": "cf7b434f3f9124868757ec8ece825fa471369530837801f1d20f12a2b5539567",
+      "outcome": "PASS"
+    },
+    {
+      "path": "build/preserved-developer-screen-20260919/tests-01.log",
+      "sha256": "dd390a190a06553937a8f95a404a451b2406aed37597294fd0548581c7b84613",
+      "outcome": "FAIL_RETAINED"
+    },
+    {
+      "path": "build/preserved-developer-screen-20260919/tests-02.log",
+      "sha256": "d2e011b2f03e85f49ca3d3f0dcae2042737a8a77c754d08efeb6176271715561",
+      "outcome": "FAIL_RETAINED"
+    },
+    {
+      "path": "build/preserved-developer-screen-20260919/tests-package-03.log",
+      "sha256": "2cafd4ad770751ed704eb0eef4381b924b0498b5e6cdcd51db1954c1c8f40cba",
+      "outcome": "PASS"
+    }
+  ],
+  "preserved": {
+    "engineAndSixProfiles": "BYTE_IDENTICAL",
+    "runtimeAndAbi": "BYTE_IDENTICAL",
+    "installersAndJournals": "BYTE_IDENTICAL",
+    "existingConversionAndHistoryScreens": "BYTE_IDENTICAL",
+    "publicSimpleConvertApply": "UNCHANGED",
+    "mappingDataAndLibraries": "BYTE_IDENTICAL",
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "newModAcquisition": false,
+    "publication": false,
+    "billing": false,
+    "gameLaunches": false
+  },
+  "limitations": [
+    "The new developer screen starts from an already prepared admission; original-to-admission preparation is the next implementation slice.",
+    "Only the existing finite logic-preserving-v1 admission is supported; not arbitrary preserved logic, compositions, cohorts or preserved updates.",
+    "Headless checks and packaging do not prove GUI, Forge discovery, side classloading at runtime, behavior, multiplayer or launcher restart.",
+    "No hard heap isolation or universal OS/power-loss guarantee.",
+    "All public-promotion prerequisites remain; UI-PROMOTION is PARTIAL, not ACCEPTED."
+  ]
+}

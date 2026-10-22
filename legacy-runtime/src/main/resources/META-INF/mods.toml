@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,48)"
+license="GPL-3.0-only with Minecraft linking exception; third-party terms apply separately"
+
+[[mods]]
+modId="legacybridge_runtime"
+version="${project_version}"
+displayName="LegacyBridge Runtime"
+authors="LegacyBridge contributors"
+description='''
+Runtime adapter for converter-proven plain items, blocks, BlockItems and sounds.
+The simple-content-v1 subset is enabled; no runtime bytecode transformation or general legacy API emulation is installed.
+'''
+
+[[dependencies.legacybridge_runtime]]
+modId="forge"
+mandatory=true
+versionRange="[${forge_version},48)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_runtime]]
+modId="minecraft"
+mandatory=true
+versionRange="[${minecraft_version},1.20.2)"
+ordering="NONE"
+side="BOTH"

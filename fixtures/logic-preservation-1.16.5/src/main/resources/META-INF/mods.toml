@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_logic"
+version="1.0.0"
+displayName="LegacyBridge Logic Preservation Fixture"
+authors="LegacyBridge contributors"
+description='''Original Forge 1.16.5 runtime-comparison fixture with a stateful item subclass and mod-owned logic.'''
+
+[[dependencies.legacybridge_logic]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_logic]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,543 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-19",
+  "prompt": "LB-08",
+  "cut": "LINKAGE-GENERAL",
+  "slice": "OWNED_RECEIVER_HANDLES",
+  "status": "PARTIAL_HEADLESS_IMPLEMENTED_NATIVE_NOT_RUN",
+  "next": "LB-09/LIFE-EVENTS/EVENT_PRIORITY_CANCELLATION",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "d6d95d6f9eca0992c95d87d4920d2d56b2810e9b37f07bfe74321bb112e74018",
+    "bytes": 1714780,
+    "entries": 698,
+    "previousSha256": "8f5a7568e16488b4f67a9e94d12b185a8feb4c1b36f7e6bab203da49d3e3a868",
+    "unchangedEntries": 683,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/transformation/linkage/OwnedReceiverHandles$Proof.class",
+      "dev/legacybridge/converter/transformation/linkage/OwnedReceiverHandles.class",
+      "dev/legacybridge/runtime/compat/logic/ReceiverArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "previousCount": 34,
+      "count": 36,
+      "oldDrift": [],
+      "added": [
+        {
+          "id": "logic.receiver-bindings.v1",
+          "phase": "OFFLINE"
+        },
+        {
+          "id": "logic.receiver-manifest.v1",
+          "phase": "OFFLINE"
+        }
+      ]
+    }
+  },
+  "fixture": {
+    "path": "fixtures/owned-receiver-1.16.5/build/libs/legacybridge-owned-receiver-1.16.5-1.0.0.jar",
+    "sha256": "91885c68ad92e54da8dd6141d174273dc9bbb3f23f44d5676a8d762085bbf530",
+    "bytes": 7601,
+    "ownedClasses": 3,
+    "preservedMethods": 9,
+    "originalIntact": true,
+    "features": [
+      "Owned final helper and per-instance counter",
+      "this-bound H_INVOKEVIRTUAL IntUnaryOperator with exact (I)I",
+      "Registered Item/native foil override",
+      "Recipe/tag/model/en_us/pt_br"
+    ],
+    "candidate": {
+      "identity": "owned-receiver-candidate-v1",
+      "bytes": 5872,
+      "kind": "PRIVATE_SERIALIZED_JAR",
+      "sha256": "96a77aa307da4dddd9045cf27eb2ee7a5e558bbc3784c6d52c1dd41765326fbe",
+      "serializedAndReopened": true,
+      "published": false,
+      "installed": false,
+      "scratchDeleted": true
+    },
+    "receiverProof": {
+      "captureDescriptor": "Ldev/legacybridge/fixture/receiver/impl/Counter;",
+      "classesExecuted": false,
+      "contract": "owned-receiver-handles-v1",
+      "factory": {
+        "descriptor": "()Ljava/util/function/IntUnaryOperator;",
+        "name": "operation",
+        "owner": "dev/legacybridge/fixture/receiver/impl/Counter"
+      },
+      "handleKind": 5,
+      "implementation": {
+        "descriptor": "(I)I",
+        "name": "score",
+        "owner": "dev/legacybridge/fixture/receiver/impl/Counter"
+      },
+      "instruction": 1,
+      "publicationAllowed": false,
+      "receiverRequirement": "PROVEN_NON_NULL_THIS",
+      "schemaVersion": 1
+    },
+    "sourceRemappedEqualsTarget": true,
+    "targetEqualsReadback": true,
+    "dataflowReceiver": "PROVEN_INITIALIZED_NON_NULL_THIS",
+    "bodiesReplaced": false,
+    "separateVerifierRederivesFromBytes": true,
+    "serializedLinkage": {
+      "checkedMethodCount": 9,
+      "classesExecuted": false,
+      "fieldReferenceCount": 11,
+      "lambdaSiteCount": 2,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Existing exact static/constructor lambdas plus one independently proved final owned helper this::publicMethod IntUnaryOperator; initialized non-null this capture, exact (I)I, no adaptation, boxing, alternate bootstrap or other instance handles. Static checks do not certify native execution."
+      ],
+      "methodReferenceCount": 16,
+      "ownedClassCount": 3,
+      "resolvedClassCount": 42,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "ordinaryProfiles": "ALL_SIX_REJECT_THIS_FIXTURE",
+    "olderPrivateCandidates": "COMPOSITION_CONSTRUCTOR_HIERARCHY_INTERFACE_ROUTES_REJECT_THIS_FIXTURE",
+    "transformationLog": {
+      "schemaVersion": 1,
+      "CLASS_REMAP": 10,
+      "METHOD_REMAP": 4,
+      "DESCRIPTOR_REMAP": 15,
+      "RESOURCE_REWRITE": 4,
+      "allEntriesVerifiedAndBound": true
+    },
+    "resources": "All assets/data bytes preserved. Four explicit metadata/pack/binding operations.",
+    "behaviorOracle": "NOT_RUN: max stack 16; score(n)=3*n+1 with Java int overflow; per-helper calls increments on score, not capture; callback factory before vanilla super; vanilla foil short-circuits invocation; otherwise odd count foil. Helper state belongs to Item instance, not player/ItemStack. Callback object identity/allocation not promised.",
+    "client": "NOT_RUN",
+    "server": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN"
+  },
+  "previousCandidateRegression": {
+    "interfaceSha256": "abdb57dc13ce8bc4300c28261946aa31df50f1f0bee630c92e28ba4e5585d0a9",
+    "hierarchySha256": "7294c5670892ee286094f3678a7788a1f6b9a3a7c94070a50279dabfc4515cb0",
+    "constructorsSha256": "1915061842d47720f6c38b4bbb9693470266a83e62c7f49e020f3b3690a90e5b",
+    "allUnchanged": true
+  },
+  "validation": {
+    "fixtureBuild": {
+      "status": "PASS",
+      "seconds": 17,
+      "log": "build/owned-receiver-20260919/fixture-build.log"
+    },
+    "fixtureFinalBuild": {
+      "status": "PASS",
+      "seconds": 3,
+      "log": "build/owned-receiver-20260919/fixture-build-02.log"
+    },
+    "engineCompile": {
+      "status": "PASS",
+      "seconds": 18,
+      "log": "build/owned-receiver-20260919/compile-01.log",
+      "warning": "Pre-existing PreservedArtifactInspector deprecated API warning"
+    },
+    "runs": {
+      "focused-01": {
+        "status": "PASS",
+        "tests": 274,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 62,
+        "log": "build/owned-receiver-20260919/focused-01.log",
+        "xml": "build/owned-receiver-20260919/focused-01-xml",
+        "suites": [
+          {
+            "suite": "dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest",
+            "tests": 21,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.OwnedConstructorsIntegrationTest",
+            "tests": 13,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.OwnedHierarchyIntegrationTest",
+            "tests": 24,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.OwnedInterfaceIntegrationTest",
+            "tests": 24,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.OwnedReceiverIntegrationTest",
+            "tests": 22,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.conversion.CompositionArtifactPlanTest",
+            "tests": 16,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.conversion.logic.VerifiedLogicMappingsTest",
+            "tests": 13,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.conversion.LogicProfileShapeTest",
+            "tests": 11,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.transformation.linkage.OfflineLinkageVerifierTest",
+            "tests": 31,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.transformation.linkage.OwnedConstructorGraphTest",
+            "tests": 16,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.transformation.linkage.OwnedInterfaceDefaultsTest",
+            "tests": 24,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.transformation.linkage.OwnedItemHierarchyTest",
+            "tests": 21,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.transformation.linkage.OwnedReceiverHandlesTest",
+            "tests": 38,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ]
+      },
+      "receiver-final-01": {
+        "status": "PASS",
+        "tests": 60,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 22,
+        "log": "build/owned-receiver-20260919/receiver-final-01.log",
+        "xml": "build/owned-receiver-20260919/receiver-final-01-xml",
+        "suites": [
+          {
+            "suite": "dev.legacybridge.converter.cli.OwnedReceiverIntegrationTest",
+            "tests": 22,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.transformation.linkage.OwnedReceiverHandlesTest",
+            "tests": 38,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ]
+      },
+      "receiver-01": {
+        "status": "PASS",
+        "tests": 60,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 33,
+        "log": "build/owned-receiver-20260919/receiver-01.log",
+        "xml": "build/owned-receiver-20260919/receiver-01-xml",
+        "suites": [
+          {
+            "suite": "dev.legacybridge.converter.cli.OwnedReceiverIntegrationTest",
+            "tests": 22,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.transformation.linkage.OwnedReceiverHandlesTest",
+            "tests": 38,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ]
+      },
+      "regressions-01": {
+        "status": "PASS",
+        "tests": 47,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 95,
+        "log": "build/owned-receiver-20260919/regressions-01.log",
+        "xml": "build/owned-receiver-20260919/regressions-01-xml",
+        "suites": [
+          {
+            "suite": "dev.legacybridge.converter.cli.CliEngineServiceTest",
+            "tests": 12,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.DatapackProfileIntegrationTest",
+            "tests": 4,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.FoodProfileIntegrationTest",
+            "tests": 13,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest",
+            "tests": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.LogicProfileIntegrationTest",
+            "tests": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.cli.NetworkProfileIntegrationTest",
+            "tests": 5,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "suite": "dev.legacybridge.converter.conversion.AdapterContractIntegrationTest",
+            "tests": 7,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ]
+      }
+    },
+    "newDistinctCases": 60,
+    "distinctEngineCases": 321,
+    "counting": "22 genuine Forge input integration plus 38 inert structural/linkage cases are new. Initial and final focused runs overlap. No compatible-mod inference.",
+    "contract": {
+      "status": "PASS_WITH_EXISTING_PLATFORM_SKIPS",
+      "tests": 77,
+      "passed": 75,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 2,
+      "seconds": 27,
+      "skips": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "skipReason": "Existing Windows symlink privileges unavailable; not counted as PASS",
+      "log": "build/owned-receiver-20260919/contract-01.log",
+      "xml": "build/owned-receiver-20260919/contract-01-xml",
+      "verifier": "PROMPT_CONTRACT_VERIFIED prompts=23 cuts=81 current=LB-09/LIFE-EVENTS evidence=PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "counts": {
+        "ACCEPTED": 15,
+        "PARTIAL": 15,
+        "BLOCKED": 2,
+        "NOT_STARTED": 49
+      }
+    },
+    "allModuleAssemble": "PASS",
+    "publicJarAudit": "PASS",
+    "runtimeJarAudit": "PASS",
+    "engineConsumerBoundary": "PASS",
+    "installedCliSmoke": "PASS",
+    "packageLog": "build/owned-receiver-20260919/package-01.log",
+    "packageSeconds": 28,
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "nativeUi": "NOT_RUN",
+    "discovery": "NOT_RUN",
+    "activation": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "jvmClassloaderLinkage": "NOT_RUN",
+    "finalArtifactCachelessRuntime": "NOT_RUN",
+    "gamesStarted": 0,
+    "scope": "Serial focused headless JUnit/ASM/linkage with genuine Forge fixture bytes and actual private ZIP readback. Full inventories explicit local. No original class execution.",
+    "commands": {
+      "environment": "JAVA_HOME=C:/Program Files/Java/jdk-17; repository root; serial Gradle --max-workers=1 --console=plain; Windows-ROOT trust provider (not TLS bypass)",
+      "fixture": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT -p fixtures/owned-receiver-1.16.5 build --max-workers=1 --console=plain",
+      "receiver": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-converter:test --tests *OwnedReceiver*Test -PverifyCompositionEnvironment=true \"-PlogicMappingProfile=${LEGACYBRIDGE_SOURCE_ROOT}/build/logic-preserving-v1/mapping-profile.properties\" --max-workers=1 --console=plain",
+      "package": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli --max-workers=1 --console=plain",
+      "contract": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-corpus:test --tests *PromptContractVerifierTest :legacy-corpus:verifyPromptContract --max-workers=1 --console=plain",
+      "regressionInputs": "verifyCompositionEnvironment/verifyLogicEnvironment/verifyLifecycleEnvironment/verifyFoodEnvironment/verifyDatapackEnvironment/verifyNetworkEnvironment/verifyMappingEnvironment=true; explicit logic/lifecycle/network profiles under build; food/datapack use lifecycle profile. Focused/regression test filters are the suites recorded in runs."
+    },
+    "fullUnfilteredTestSuite": "NOT_RUN; serial focused tests and all-module assemble per current headless development policy"
+  },
+  "failuresAndCorrections": [
+    {
+      "kind": "AUXILIARY_REPORT_EXTRACTION",
+      "effect": "No product/build/test failure",
+      "detail": "One ad-hoc XML extraction used a hardcoded marker length; corrected to marker.Length before recording measured hashes."
+    }
+  ],
+  "fixtureMetadataRevision": {
+    "reason": "Copied fixture display descriptions/translations corrected from interface/default wording to bound-receiver wording. Rebuilt and reran all 60 receiver checks on final bytes.",
+    "initialSha256": "fb111eb11a852ac6ab636822462edddec9c77d976e220c2edaf84fe8edea393c",
+    "initialCandidateSha256": "f58ac1a65bba4abae9cc72eb862cd467bca4df1d6e4130abcd9d603fa928a97d",
+    "initialRuns": [
+      "receiver-01",
+      "focused-01"
+    ],
+    "finalRun": "receiver-final-01",
+    "classBodiesChanged": false
+  },
+  "mappingSources": [
+    {
+      "id": "legacy.clientMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+    },
+    {
+      "id": "legacy.serverMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+    },
+    {
+      "id": "legacy.srg",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+    },
+    {
+      "id": "target.clientMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+    },
+    {
+      "id": "target.serverMappings",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+    },
+    {
+      "id": "target.srg",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+    },
+    {
+      "id": "legacy.apiJars[0]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+    },
+    {
+      "id": "legacy.apiJars[1]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+    },
+    {
+      "id": "target.apiJars[0]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+    },
+    {
+      "id": "target.apiJars[1]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+    },
+    {
+      "id": "target.apiJars[2]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+    },
+    {
+      "id": "target.apiJars[3]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+    },
+    {
+      "id": "target.apiJars[4]",
+      "origin": "LOCAL_PROFILE",
+      "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+    }
+  ],
+  "sourceApiArchiveHashes": {
+    "forge-1.16.5-36.2.42-sources": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "forge-1.20.1-47.4.23-sources": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+  },
+  "jvmReferences": [
+    "https://docs.oracle.com/javase/8/docs/api/java/lang/invoke/LambdaMetafactory.html",
+    "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/invoke/LambdaMetafactory.html"
+  ],
+  "javapEvidence": "build/owned-receiver-20260919/source-counter-javap.txt",
+  "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+  "limitations": [
+    "Private report/hash only; no public profile/export/install authority",
+    "One this-bound public (I)I handle on final Object helper; no other receiver, inheritance, boxing or alternate metafactory",
+    "Independent constructor/hierarchy/default/receiver proofs, not an implicit union",
+    "Unknown external refs block; no new native mapping or confidence promotion",
+    "No hard heap isolation or native/behavior/classloader qualification",
+    "COMPOSE-01/LINKAGE-GENERAL acceptance pending",
+    "Rights/license/monetization/acquisition/publication unchanged"
+  ]
+}

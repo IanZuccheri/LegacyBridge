@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_IMPLEMENTATION_EVIDENCE",
+  "reviewedAt": "2026-09-08",
+  "prompt": "LB-08",
+  "cut": "COMPOSE-01",
+  "cutStatus": "PARTIAL",
+  "scope": "Finite developer-only restricted configuration proposal bound to an existing reverified unarmed stage. No materialization, native launch or conversion compatibility expansion.",
+  "authorization": "HEADLESS_IMPLEMENTATION; no Minecraft client/server, UI/focus/input automation, native arming, acquisition, player world mutation or publication.",
+  "previousEvidence": "docs/evidence/compose-config-review-2026-09-08.json",
+  "documentation": [
+    "docs/COMPOSITION_RESTRICTED_SETTINGS.md",
+    "docs/COMPOSITION_NATIVE_CONFIG_REVIEW.md"
+  ],
+  "versions": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "Oracle 17.0.12+8-LTS-286",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT",
+    "gradle": "8.8",
+    "forgeGradle": "6.0.54"
+  },
+  "implementation": {
+    "components": [
+      "CompositionRestrictedSettings",
+      "CompositionLaunchConfigurationPlan"
+    ],
+    "status": "IMPLEMENTED_TESTED_HEADLESS_ONLY",
+    "policyVersion": "composition-restricted-settings-v1",
+    "reportSchemaVersion": 1,
+    "result": "RESTRICTED_CONFIGURATION_PLANNED_ONLY",
+    "entryPoint": "CompositionLaunchConfigurationPlan.prepare(Snapshot, BooleanSupplier)",
+    "command": ":legacy-corpus:planCompositionSettings",
+    "activeProperties": {
+      "SOURCE": 50,
+      "TARGET": 56
+    },
+    "plannedFiles": {
+      "SOURCE": 4,
+      "TARGET": 3
+    },
+    "changesFromNativeDefaults": {
+      "SOURCE": 20,
+      "TARGET": 22
+    },
+    "template": "defaultconfigs/forge-server.toml",
+    "expectedNativeServerConfig": "world/serverconfig/forge-server.toml",
+    "limits": {
+      "maxFileBytes": 65536,
+      "maxProposedFiles": 4,
+      "maxProperties": 64,
+      "maxPropertyKeyCharacters": 64,
+      "maxPropertyValueCharacters": 8192,
+      "maxTomlLines": 512,
+      "maxTomlLineCharacters": 4096
+    },
+    "oldDefaultReviewBehaviorPreserved": true,
+    "newConversionRulesAdaptersProfilesOrAuthority": false
+  },
+  "sourceAudit": {
+    "diagnostics": "Read-only exact already-local source ZIP inspection and javap; no inspected-class initialization, downloads or source redistribution.",
+    "archives": [
+      {
+        "role": "SOURCE_MAPPED_SOURCES",
+        "sha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376"
+      },
+      {
+        "role": "TARGET_MAPPED_SOURCES",
+        "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+      },
+      {
+        "role": "SOURCE_LAUNCHER",
+        "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+      },
+      {
+        "role": "TARGET_FMLLOADER_SOURCES",
+        "sha256": "7917b9e169ed8d1f34299ebd6c8136f310a176754b52b1e492b86638aa059667"
+      },
+      {
+        "role": "TARGET_FMLCORE_SOURCES",
+        "sha256": "fc6df13c54c211ea9c0220ec76a2ebe1e573187112467cfc1397a25fee191ec1"
+      },
+      {
+        "role": "TARGET_AUTHLIB_4_0_43",
+        "sha256": "697043d19e0b84b04f011dbec1bec3d80c04d8c468e7e4c6b221c0183bc1c0ef"
+      }
+    ],
+    "findings": [
+      "SOURCE/TARGET active property counts50/56 exclude two native getLegacy-consumed keys; prior layout vocabulary52/58 remains unchanged.",
+      "SOURCE zero seed randomizes; fixed nonzero1 avoids that ambiguity without implying equivalent terrain.",
+      "TARGET generator-settings normalizes to{}; SOURCE empty remains empty. SOURCE default/TARGET minecraft:normal routes are not world equivalence.",
+      "SOURCE stores snooper-enabled but native runtime field is forcedfalse. SOURCE text filter remainsnull; TARGET blank factory returnsnull.",
+      "Both Forge versions use defaultconfigs/<registered filename> only when destination absent; template presence is not consumption proof.",
+      "FML versionCheck=false returns before Forge HTTP work; maxThreads1 limits mod-loading ForkJoinPool only.",
+      "TARGET LAN flagfalse removes its pinger, not all networking.",
+      "Exact TARGET authlib schedules public service-key fetching immediately at startup; no players/loopback do not establish offline or no-egress."
+    ],
+    "rights": "Only authored finite policy facts, proposed QA settings and synthetic tests added to dev-only corpus; no old platform binaries, sources, mapping inventories, private configs or new redistribution permission."
+  },
+  "implementationPins": [
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionRestrictedSettings.java",
+      "sha256": "b11ff9a05f46bbfa96f643d5fc93bfdf773819c16954a3adc8841c2c5c2aa470",
+      "bytes": 11300
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionLaunchConfigurationPlan.java",
+      "sha256": "4eab87a234d986ebad3778351c1ce6f60e648cf1532cceeab5d62fbfa09543cb",
+      "bytes": 8052
+    },
+    {
+      "path": "legacy-corpus/src/main/java/dev/legacybridge/corpus/CompositionNativeConfigValidator.java",
+      "sha256": "f8ba8d3d39da43b2c899218ce5e328af617833783cbbe1da0573de24ec274d9d",
+      "bytes": 7950
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionRestrictedSettingsTest.java",
+      "sha256": "d937bc0fc7c723f0eba9fc78f1b2f9f059715445422083b7ef9dbd2e6a03989f",
+      "bytes": 33124
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionLaunchConfigurationPlanTest.java",
+      "sha256": "a564f500b51086faefa1f1064e2cd51ab2830156741ef8b68ec9c76cbffa765d",
+      "bytes": 9858
+    },
+    {
+      "path": "legacy-corpus/src/test/java/dev/legacybridge/corpus/CompositionStagedRunVerifierTest.java",
+      "sha256": "7e03dd60d82c5010fd86137f9c43c85117a8ec7daedf1aab2bd3688aa573da50",
+      "bytes": 17548
+    },
+    {
+      "path": "legacy-corpus/build.gradle",
+      "sha256": "a93df1af5e4506ef6c28f5a202d6ebb288f5f03de56bfcde8700780a298515e3",
+      "bytes": 9898
+    },
+    {
+      "path": "docs/COMPOSITION_RESTRICTED_SETTINGS.md",
+      "sha256": "adab4138b1d4c08c07a43bcf6d860da33e46a90ce35def34b634be89271af608",
+      "bytes": 11323
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "legacy-product/build/libs/LegacyBridge.jar",
+      "bytes": 1280333,
+      "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+      "entries": 526,
+      "corpusEntries": 0,
+      "testHelperEntries": 0
+    },
+    {
+      "path": "legacy-corpus/build/libs/legacy-corpus-0.1.1-SNAPSHOT.jar",
+      "bytes": 247769,
+      "sha256": "e9ec65073ae8be763fa69d1d6e556171387b4b42944d2bb6b8202a6622625afa",
+      "entries": 77,
+      "corpusEntries": 73,
+      "testHelperEntries": 0
+    }
+  ],
+  "publicJarByteIdentical": true,
+  "nativeAuthorityFlagsRemainFalse": true,
+  "pending": [
+    "BOUND_RESTRICTED_MATERIALIZATION_AND_RECOVERY",
+    "BOUND_POST_SAVE_PROPERTIES_CONFIG_WORLD_LOG_OBSERVATION_VALIDATION",
+    "SOURCE_CONDITIONAL_LOOKUP_CLOSURE",
+    "OS_EGRESS_AND_PROCESS_CONTAINMENT",
+    "NATIVE_ARMING_AND_EXECUTION_AUTHORIZATION",
+    "NATIVE_SOURCE_JAVA17",
+    "NATIVE_ORIGINAL_TARGET_COMPARISON",
+    "PUBLIC_COMPOSITION_INSTALLATION_ADMISSION"
+  ],
+  "nextAction": "Same LB-08/COMPOSE-01: bound restricted materialization/recovery and post-save content verification without weakening original unarmed admission; no game execution or advancement to LINKAGE-GENERAL.",
+  "limitations": [
+    "Proposal is not current stage configuration and is never materialized/applied by this implementation.",
+    "Generated-file validator is pure finite semantics, not an integrated native post-save admission policy.",
+    "Restricted Forge settings are not a network sandbox, total thread/memory bound or offline guarantee.",
+    "SOURCE Latin1 / TARGET strictUTF8 restriction deliberately rejects the target native malformedUTF8 fallback.",
+    "Seed/world properties do not prove a loaded AIR furnace position at spawnY200 or equivalent terrain.",
+    "Old stage policies and receipts remain intact; manually copying proposed files invalidates strict unarmed admission.",
+    "Snapshots assume a trusted quiescent filesystem; they do not lock all files or defeat hostile same-byte replacements or unknown aliases outside the selected set.",
+    "Tests/counts do not quantify compatible mods; six profiles/ABI and public compatibility are unchanged."
+  ],
+  "validation": {
+    "status": "PASSED_HEADLESS_ONLY",
+    "focused": {
+      "path": "build/restricted-settings-20260908/focused.log",
+      "sha256": "843a6d1043ce9914382408bba216e46e383c21ab2f767ce8413b818771f88bc5",
+      "bytes": 220472,
+      "exitCode": 0,
+      "duration": "4m30s",
+      "tests": 682,
+      "passed": 682,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "qualification": "439 new pure settings +13 new bound-plan +230 existing config regressions. Four additional explicit-baseline cases and final formatting covered by subsequent full build.",
+      "xmls": [
+        {
+          "path": "build/restricted-settings-20260908/focused-xml/TEST-dev.legacybridge.corpus.CompositionLaunchConfigurationPlanTest.xml",
+          "bytes": 2218,
+          "sha256": "bf0bc2fc285033d533afd484e1a5875f69c1d75004865d108d14818c74edc143"
+        },
+        {
+          "path": "build/restricted-settings-20260908/focused-xml/TEST-dev.legacybridge.corpus.CompositionNativeConfigValidatorTest.xml",
+          "bytes": 32558,
+          "sha256": "df419f9249b092cd1d0f7b38b3a154c215ae5a84d244b807d777bf6a6f76fb5d"
+        },
+        {
+          "path": "build/restricted-settings-20260908/focused-xml/TEST-dev.legacybridge.corpus.CompositionNativeContentReviewTest.xml",
+          "bytes": 1701,
+          "sha256": "973a32bb758653e8be23e85d3c60c5466a62a2c72a45f5b310912c568787b01f"
+        },
+        {
+          "path": "build/restricted-settings-20260908/focused-xml/TEST-dev.legacybridge.corpus.CompositionRestrictedSettingsTest.xml",
+          "bytes": 66732,
+          "sha256": "9fb1805e91564bcf7873c4b1954e91033b1557ca9a929d07d200a783c137c095"
+        }
+      ]
+    },
+    "failedBuildOrTestAttempts": [],
+    "toolingIssues": [
+      {
+        "stage": "POST_BUILD_XML_SUMMARY_ONLY",
+        "observed": "Generic PowerShell adapted-XML to JSON consolidation consumed excessive memory; two operation-owned shells were identified by exact command and stopped. No Gradle/test/game/user process was stopped.",
+        "correction": "Read scalar XmlDocument.GetAttribute/SelectNodes values into small typed rows instead; successful summary matched22 suites. XML/log files preserved.",
+        "affectsTestResults": false
+      }
+    ],
+    "fullBuild": {
+      "path": "build/restricted-settings-20260908/full-build.log",
+      "sha256": "b0cc88bd77dbd34d039bf20a8e1f7109963fcbc0c07ca03c4d5a20448586a86f",
+      "bytes": 441250,
+      "exitCode": 0,
+      "duration": "33m17s",
+      "actionableTasks": 69,
+      "executed": 31,
+      "upToDate": 38
+    },
+    "corpus": {
+      "tests": 1620,
+      "skipped": 7,
+      "failures": 0,
+      "errors": 0,
+      "newTests": 456,
+      "suites": [
+        {
+          "name": "dev.legacybridge.corpus.CompositionExitVerifierTest",
+          "tests": 102,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 90.385,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionExitVerifierTest.xml",
+          "bytes": 13954,
+          "sha256": "416cc7031cca59e9d4ce64eb720e9a7600b09d6c8dcb1dcee232982f47ab2598",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionInertSessionTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 503.338,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionInertSessionTest.xml",
+          "bytes": 6178,
+          "sha256": "0e06556a5f6c8a10b41a27742cc88946fc090816968b8851f16ac574b2999847",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionLaunchConfigurationPlanTest",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 147.72,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionLaunchConfigurationPlanTest.xml",
+          "bytes": 2827,
+          "sha256": "7499cb9b9392b84ddfe4cc78bd2031f3006282d0696f108821abe8084715b2fd",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionNativeConfigValidatorTest",
+          "tests": 221,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 0.32,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionNativeConfigValidatorTest.xml",
+          "bytes": 32555,
+          "sha256": "811f04f20cd051c1e8af0329fad1f01f82216ad1631097e5b929f6eb1b663037",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionNativeContentReviewTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 129.963,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionNativeContentReviewTest.xml",
+          "bytes": 1703,
+          "sha256": "39d56bf536f25f82971ef60ee16381793a27cb3829bd81d0e58f9319ae05a274",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionNativeOutputPolicyTest",
+          "tests": 241,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 126.767,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionNativeOutputPolicyTest.xml",
+          "bytes": 33770,
+          "sha256": "55f8ef0e29ba3f2dd22b3d9078541a55d74250407742a5febce64be95d2534b3",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionObservationVerifierTest",
+          "tests": 77,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 9.523,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionObservationVerifierTest.xml",
+          "bytes": 10778,
+          "sha256": "e4b18799ddb753f5e64713ff49405ad2bbea1c26c30cbe85e89ce755eaae7e25",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionProcessCollectorTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 9.145,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionProcessCollectorTest.xml",
+          "bytes": 7103,
+          "sha256": "d1667f4626010d732cf91f72edda4d2231f6d7eb1df2e3d3294232c080cd3d42",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRestrictedSettingsTest",
+          "tests": 439,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 0.495,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRestrictedSettingsTest.xml",
+          "bytes": 66600,
+          "sha256": "561292f3962396db72b773cade9a5b97bf1ff3f7e2682e58c670184a14553888",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunPlannerCommandTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 0.002,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunPlannerCommandTest.xml",
+          "bytes": 797,
+          "sha256": "3d79b9fb46b0aaaff544f5805f53956ba6687f51dd6fe754458e4698e364ec40",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunPlannerTest",
+          "tests": 41,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 135.054,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunPlannerTest.xml",
+          "bytes": 6770,
+          "sha256": "7fdfcbea14578412157e80b98cb38996d3fc3f337df5a51ece95835063723131",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunStagerCommandTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 0.002,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunStagerCommandTest.xml",
+          "bytes": 795,
+          "sha256": "2b4e684d1b20afb170ad98e52ecaa56ca2eb5202b67033221f55c80b92c456a6",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionRunStagerTest",
+          "tests": 69,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1,
+          "seconds": 431.057,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionRunStagerTest.xml",
+          "bytes": 9117,
+          "sha256": "b9236ceeb374c6f01b0bcfefadd5f97e371acebee56c7c2bb2263b6bf3c46e73",
+          "skippedCases": [
+            "symlinkedDestinationAncestorCannotRedirectStaging()"
+          ]
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionSessionEvidenceTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1,
+          "seconds": 79.84,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionSessionEvidenceTest.xml",
+          "bytes": 6520,
+          "sha256": "b44dea19d6ecaad46b4bf531dc5b381f64469db4bcc5083c67364a2ca1517466",
+          "skippedCases": [
+            "symlinkedEvidenceCannotRedirectReadOrWriteOwnership()"
+          ]
+        },
+        {
+          "name": "dev.legacybridge.corpus.CompositionStagedRunVerifierTest",
+          "tests": 45,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1,
+          "seconds": 238.433,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CompositionStagedRunVerifierTest.xml",
+          "bytes": 6416,
+          "sha256": "257cdaec572ffa1ae022aada7c811f645ecf3730a2201fa657016402cccf4c20",
+          "skippedCases": [
+            "stagedSymbolicLinkToItsSelectedOriginalIsRejectedWhenProviderPermitsCreatingOne()"
+          ]
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusJsonTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 0.061,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusJsonTest.xml",
+          "bytes": 1026,
+          "sha256": "3a6b061859219ce0a74d80db95bc50050aeba0609f536b3cafe193ac74fbe7a6",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusLockTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1,
+          "seconds": 1.705,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusLockTest.xml",
+          "bytes": 3152,
+          "sha256": "00a6844d149238400e57c86fb4df0c45801711846c107000cb9f293094f203e0",
+          "skippedCases": [
+            "refusesNativeSymlinkRecordWhenCreationIsPermitted()"
+          ]
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusRunnerTest",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 3.102,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusRunnerTest.xml",
+          "bytes": 1762,
+          "sha256": "754809f09971711ec2c937d56784af8471d23fe205efc41fc74593e33e602823",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.CorpusVerifierTest",
+          "tests": 47,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 5.215,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.CorpusVerifierTest.xml",
+          "bytes": 6366,
+          "sha256": "a53880f5db538f570b68f10dff43c17364fca6a21bfca83b992c31ce0be96e4c",
+          "skippedCases": []
+        },
+        {
+          "name": "dev.legacybridge.corpus.PromptContractVerifierTest",
+          "tests": 77,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 2,
+          "seconds": 17.289,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.PromptContractVerifierTest.xml",
+          "bytes": 9782,
+          "sha256": "58fcca1a0be52147feb47c1b8d057deaf129a61f8d10a88d7d07735bb3ee6a32",
+          "skippedCases": [
+            "rejectsSymbolicEvidenceWithoutFollowingIt()",
+            "rejectsSymbolicPromptDirectory()"
+          ]
+        },
+        {
+          "name": "dev.legacybridge.corpus.PublicEvidenceVerifierTest",
+          "tests": 49,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1,
+          "seconds": 2.107,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.corpus.PublicEvidenceVerifierTest.xml",
+          "bytes": 6613,
+          "sha256": "28d3f3c9e3219b6327c2e8c3db1f4e662118be814b297dd471a0bc097ace9284",
+          "skippedCases": [
+            "symlinkEvidenceRefusesWhenPlatformAllowsItsCreation()"
+          ]
+        },
+        {
+          "name": "dev.legacybridge.validation.composition.ProbeConformanceTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 8.303,
+          "path": "build/restricted-settings-20260908/full-corpus-xml/TEST-dev.legacybridge.validation.composition.ProbeConformanceTest.xml",
+          "bytes": 1223,
+          "sha256": "fa0280cfa60aa89437688460280f272d35905c89a18cc57753687619efff8d13",
+          "skippedCases": []
+        }
+      ],
+      "passed": 1613,
+      "suiteCount": 22,
+      "newPassed": 456,
+      "newSkipped": 0,
+      "skipReason": "Seven existing Windows symbolic-link privilege skips; real junctions/hardlinks tested, no new case skipped."
+    },
+    "moduleTestTasks": [
+      "> Task :legacy-compat-api:test NO-SOURCE",
+      "> Task :legacy-converter:test UP-TO-DATE",
+      "> Task :legacy-corpus:test",
+      "> Task :legacy-product:test UP-TO-DATE",
+      "> Task :legacy-runtime:test UP-TO-DATE",
+      "> Task :legacy-workflow:test UP-TO-DATE"
+    ],
+    "otherModuleTestQualification": "Converter/product/runtime/workflow tests UP-TO-DATE; not rerun. compat-api has NO-SOURCE tests. Build also verified catalog/contract/public JAR/runtime/workflow and Windows pure QA scripts.",
+    "realStagePlans": [
+      {
+        "role": "SOURCE",
+        "runId": "run-stage-source-20260908",
+        "status": "RESTRICTED_CONFIGURATION_PLANNED_ONLY",
+        "policyVersion": "composition-restricted-settings-v1",
+        "proposalSha256": "b038f1bb12631ab11fea08cb7451fbfa4ca33361db7655f6588f3de7f2f39428",
+        "planSha256": "4261552c7ce30dc14b9d503ad4a732f7a635923e9aeee47c6c8321688f1ed25a",
+        "stageReceiptSha256": "9348043af06d9158f3b6ea06a15642b540e952b79f3f747c4979400d97c57be1",
+        "immutableInputCount": 111,
+        "preservedExplicitPropertyCount": 10,
+        "baselinePropertiesSha256": "84acbe6c8598232449d459872efdae47d664ab670a2111f0fe8a239061fab726",
+        "recipeCount": 20,
+        "proposedFiles": [
+          {
+            "path": "config/fml.toml",
+            "bytes": 85,
+            "sha256": "7611928534316ed81c4ca47df6f9997446ec6fc18e009e97659fa38b6f600349",
+            "expectedNativePath": "config/fml.toml",
+            "nativeConsumptionVerified": false
+          },
+          {
+            "path": "config/forge-common.toml",
+            "bytes": 37,
+            "sha256": "328eee7b6c1d7950b225fa2626d506556db5cfa39d7b093df3294db44a7b4f60",
+            "expectedNativePath": "config/forge-common.toml",
+            "nativeConsumptionVerified": false
+          },
+          {
+            "path": "defaultconfigs/forge-server.toml",
+            "bytes": 289,
+            "sha256": "688dbe7acf525e46113760aa4e9561cf2ad976d1173d9a30a55fab9ec42b7898",
+            "expectedNativePath": "world/serverconfig/forge-server.toml",
+            "nativeConsumptionVerified": false
+          },
+          {
+            "path": "server.properties",
+            "bytes": 1061,
+            "sha256": "cabb4af6e8250d86a616f8bb2cd70e0af9c90dcf75d8142a19aca7e37f22a4ba",
+            "expectedNativePath": "server.properties",
+            "nativeConsumptionVerified": false
+          }
+        ],
+        "runtimeValidation": "NOT_RUN",
+        "materialized": false,
+        "executionAllowed": false,
+        "installationAllowed": false,
+        "gameExecutionVerified": false,
+        "nativeLaunchContractVerified": false,
+        "networkIsolationVerified": false,
+        "nativeSaveVerified": false,
+        "independentPostReviewChecks": "RECEIPT_AND_PROPERTIES_HASHES_MATCH; WORLD_CONFIG_TEMPLATE_MARKER_ABSENT",
+        "log": {
+          "path": "build/restricted-settings-20260908/source-plan.log",
+          "sha256": "dc1f3731e229f0420f26ecdd29a53da394901b7d7c40779c4126a79c48b28b90",
+          "bytes": 29722
+        },
+        "exitCode": 0,
+        "duration": "1m 43s"
+      },
+      {
+        "role": "TARGET",
+        "runId": "run-stage-target-20260908",
+        "status": "RESTRICTED_CONFIGURATION_PLANNED_ONLY",
+        "policyVersion": "composition-restricted-settings-v1",
+        "proposalSha256": "a2cff8d096f03795ac02b70945a535f3e4acb9d329edaee1e1919475df582016",
+        "planSha256": "c9f0199d1f46fca3c631c8014aca9582db9edde5d78d0373032aabb390992d62",
+        "stageReceiptSha256": "5f3eb7903b674a54259f6b4d3c114382c0e3cf873916dcbc5fd40698f19fd188",
+        "immutableInputCount": 223,
+        "preservedExplicitPropertyCount": 11,
+        "baselinePropertiesSha256": "8f1b4ae4cf9e91869d672314294354ed12bdf9b35319beb009c163dff0e709a4",
+        "recipeCount": 22,
+        "proposedFiles": [
+          {
+            "path": "config/fml.toml",
+            "bytes": 352,
+            "sha256": "5c5204ba03e2e2c1e1fdd9e042f7fd9f178a3880298187590f670815dc315f54",
+            "expectedNativePath": "config/fml.toml",
+            "nativeConsumptionVerified": false
+          },
+          {
+            "path": "defaultconfigs/forge-server.toml",
+            "bytes": 258,
+            "sha256": "7aac6da30dc2c33dd0820b95b51de82786836e4a5acfe1f6e87e8895270b4051",
+            "expectedNativePath": "world/serverconfig/forge-server.toml",
+            "nativeConsumptionVerified": false
+          },
+          {
+            "path": "server.properties",
+            "bytes": 1245,
+            "sha256": "d94edc5d7881145a17407046df5dde1c92c35539d4461ff0ae9c94a41db5b3b9",
+            "expectedNativePath": "server.properties",
+            "nativeConsumptionVerified": false
+          }
+        ],
+        "runtimeValidation": "NOT_RUN",
+        "materialized": false,
+        "executionAllowed": false,
+        "installationAllowed": false,
+        "gameExecutionVerified": false,
+        "nativeLaunchContractVerified": false,
+        "networkIsolationVerified": false,
+        "nativeSaveVerified": false,
+        "independentPostReviewChecks": "RECEIPT_AND_PROPERTIES_HASHES_MATCH; WORLD_CONFIG_TEMPLATE_MARKER_ABSENT",
+        "log": {
+          "path": "build/restricted-settings-20260908/target-plan.log",
+          "sha256": "322f40082af84a7ac790745b3c7a5b3b469351d9a50a871f8b6cd40cc8a9ccd6",
+          "bytes": 31324
+        },
+        "exitCode": 0,
+        "duration": "3m 1s"
+      }
+    ],
+    "realStageQualification": "Actual current unarmed stages rechecked before/after authored in-memory proposal only; old properties/receipts rehashed independently and world/config/defaultconfigs/arming marker absent. No native argv or proposed settings executed/materialized.",
+    "observationIndex": {
+      "path": "docs/evidence/compose-observation-index-2026-09-07.json",
+      "sha256": "aa8162c3c1aa2f409ff8a668817feec095f429c9754105fd23b9d929b96fe399",
+      "bytes": 1198,
+      "checkedFiles": 5,
+      "checkedBytes": 1402016,
+      "allPinsRehashedUnchanged": true,
+      "runs": null
+    },
+    "nativeExecution": "NOT_RUN",
+    "gameProcessesStarted": 0,
+    "screenAutomation": "NOT_RUN",
+    "newConversions": "NOT_RUN",
+    "originalVsTargetBehavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "postLedgerVerification": {
+      "path": "build/restricted-settings-20260908/final-build.log",
+      "qualification": "Post-ledger serial root build is recorded in this local log; consult its final exit/build result. Not a new native validation or fresh rerun of UP-TO-DATE test tasks."
+    }
+  },
+  "commands": [
+    "./gradlew.bat :legacy-corpus:test --tests '*CompositionRestrictedSettingsTest' --tests '*CompositionLaunchConfigurationPlanTest' --tests '*CompositionNativeConfigValidatorTest' --tests '*CompositionNativeContentReviewTest' --no-daemon --max-workers=1",
+    "./gradlew.bat build --no-daemon --max-workers=1",
+    "./gradlew.bat :legacy-corpus:planCompositionSettings [explicit SOURCE reviewed role/run/JDK/plan/receipt selectors recorded in source-plan.log] --no-daemon --max-workers=1",
+    "./gradlew.bat :legacy-corpus:planCompositionSettings [explicit TARGET reviewed role/run/JDK/plan/receipt selectors recorded in target-plan.log] --no-daemon --max-workers=1"
+  ],
+  "commandEnvironment": "JAVA_HOME=C:/Program Files/Java/jdk-17; Gradle uses javax.net.ssl.trustStore=NONE + javax.net.ssl.trustStoreType=Windows-ROOT to select native trusted certificates, not disabled TLS."
+}

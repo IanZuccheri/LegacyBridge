@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-19",
+  "prompt": "LB-09",
+  "cut": "LIFE-CONFIG",
+  "slice": "SERVER_CONFIG_SCOPE",
+  "status": "PARTIAL_HEADLESS_IMPLEMENTED_NATIVE_NOT_RUN",
+  "next": "LB-09/LIFE-CONFIG/CONFIG_RELOAD_SCOPE",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "sourceEventBus": "4.0.0",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetEventBus": "6.2.33",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "42eb62ef337fd4bc08b7aebb6f5d8e634eec682e378172c102e8a2d791e906f4",
+    "bytes": 1766064,
+    "entries": 707,
+    "fileEntries": 658,
+    "previousSha256": "7de49d8fd0781033aadd7904f108600168d99e7dcfd3f76d53687b5686c6268b",
+    "unchangedEntries": 689,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/ClientConfigContract.class",
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/ServerConfigContract$Proof.class",
+      "dev/legacybridge/converter/conversion/ServerConfigContract.class",
+      "dev/legacybridge/runtime/compat/logic/ServerConfigArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "directoryEntries": 49
+  },
+  "catalog": {
+    "changedOldEntries": [],
+    "oldEntries": 40,
+    "newEntries": 42,
+    "addedOperations": [
+      "logic.server-config-manifest.v1",
+      "logic.server-config-bindings.v1"
+    ],
+    "scope": "OFFLINE_METADATA_ONLY",
+    "executableRuntimeAdapterAdded": false
+  },
+  "fixture": {
+    "path": "fixtures/server-config-1.16.5/build/libs/legacybridge-server-config-1.16.5-1.0.0.jar",
+    "bytes": 8886,
+    "sha256": "cc7cf3d985a64844f86c55b584aa5fb8236e246ea6a9ed1b882bf6b8f1fde3d1",
+    "provenance": "ORIGINAL_REPOSITORY_SOURCE_NO_THIRD_PARTY_ACQUISITION",
+    "classes": 4,
+    "methods": 16,
+    "modId": "legacybridge_serverconfig",
+    "version": "1.0.0",
+    "javaBytecode": 8,
+    "features": [
+      "Native DeferredRegister<Item>",
+      "Boolean/int ForgeConfigSpec SERVER",
+      "Forge bus explicit NORMAL non-cancelled started/stopped Consumers",
+      "Private server snapshot and normal-stop clearing",
+      "Item model/localizations/tag/smelting recipe"
+    ]
+  },
+  "candidate": {
+    "bytes": 7332,
+    "kind": "PRIVATE_SERIALIZED_JAR",
+    "sha256": "ec7415c85b9d264ee7a1c731dd2b8a5ef88c7e71ed60f64b58a5180dc0cd4e34",
+    "publicationAllowed": false,
+    "classesExecuted": false,
+    "archive": {
+      "centralDirectoryAndCrc": true,
+      "entryCount": 13,
+      "modClassesLoaded": false,
+      "ownershipAndHashes": true,
+      "scratchDeleted": true,
+      "status": "PASSED_REOPENED"
+    },
+    "linkage": {
+      "checkedMethodCount": 16,
+      "classesExecuted": false,
+      "fieldReferenceCount": 31,
+      "lambdaSiteCount": 3,
+      "limitations": [
+        "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+        "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+        "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+        "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+        "Only independently re-read SERVER spec, both-physical-sides registration and Forge started/stopped snapshots. No config-event callbacks, reload, client reads, custom synchronization or native behavior qualification."
+      ],
+      "methodReferenceCount": 26,
+      "ownedClassCount": 4,
+      "resolvedClassCount": 62,
+      "schemaVersion": 1,
+      "status": "PASSED_SCOPED"
+    },
+    "bodyPreservation": "CHECKED_OPCODES_CONTROL_FLOW_LITERALS_FIELD_CONSTANTS_AND_DEBUG",
+    "bytecodeValidation": {
+      "inputClasses": 4,
+      "jvmLinkageVerified": false,
+      "modClassesLoaded": false,
+      "offlineLinkageVerified": true,
+      "outputClasses": 4,
+      "serializedJar": true,
+      "status": "PASSED_STATIC_REOPENED"
+    }
+  },
+  "implementation": [
+    "Whole-graph SERVER admission, native schema reused, both-physical-sides registration",
+    "Exact FMLServerStarted/Stopped class and descriptor remaps checked against pinned API declarations",
+    "Native ModLoadingContext registration descriptor operation reused under SERVER effect proof",
+    "Unknown external effects, early reads, wrong bus/phase/side, stale state and unknown mandatory dependencies block",
+    "Source/target/reopened semantic proofs agree; owned bodies and debug retained",
+    "Independent offline callback-policy proof; no proof inferred from caller flag",
+    "Bounded typed worker, selected hash checks, no CLI/main/stdout/System.exit coupling",
+    "Private candidate serialization/CRC/ownership/ASM/linkage, no public output",
+    "Cancellation at serialization/reopen/final linkage/prepared boundaries deletes temporary candidate",
+    "CLIENT token helpers gain package visibility only; old grammars/rules unchanged"
+  ],
+  "data": {
+    "mappingProfile": "build/server-config-20260919/mapping-profile.properties",
+    "profileSha256": "49ddddfa08498c94b9c05db966c43620c0357edf52f50bbb12964a014ea9b610",
+    "source": "EXPLICIT_EXISTING_LIFECYCLE_DEVELOPMENT_INVENTORY",
+    "sources": [
+      {
+        "id": "legacy.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+      },
+      {
+        "id": "legacy.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+      },
+      {
+        "id": "legacy.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+      },
+      {
+        "id": "target.clientMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+      },
+      {
+        "id": "target.serverMappings",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+      },
+      {
+        "id": "target.srg",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+      },
+      {
+        "id": "legacy.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+      },
+      {
+        "id": "legacy.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+      },
+      {
+        "id": "legacy.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+      },
+      {
+        "id": "legacy.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+      },
+      {
+        "id": "target.apiJars[0]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+      },
+      {
+        "id": "target.apiJars[1]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+      },
+      {
+        "id": "target.apiJars[2]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+      },
+      {
+        "id": "target.apiJars[3]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+      },
+      {
+        "id": "target.apiJars[4]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+      },
+      {
+        "id": "target.apiJars[5]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+      },
+      {
+        "id": "target.apiJars[6]",
+        "origin": "LOCAL_PROFILE",
+        "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+      }
+    ],
+    "pinnedSourceArchives": {
+      "sourceForge": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+      "targetForge": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+      "targetFmlcore": "fc6df13c54c211ea9c0220ec76a2ebe1e573187112467cfc1397a25fee191ec1"
+    },
+    "publicEmbeddedDatasetChanged": false,
+    "oldPlatformBundled": false,
+    "redistributionRightsClaimed": false
+  },
+  "validation": {
+    "serial": true,
+    "fixtureBuild": {
+      "status": "PASS",
+      "log": "build/server-config-20260919/fixture-build-01.log"
+    },
+    "initialServer": {
+      "total": 53,
+      "passed": 53,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build/server-config-20260919/server-tests-01.log"
+    },
+    "focused": {
+      "total": 463,
+      "passed": 463,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build/server-config-20260919/focused-tests-02.log"
+    },
+    "regressions": {
+      "total": 47,
+      "passed": 46,
+      "failed": 0,
+      "skipped": 1,
+      "log": "build/server-config-20260919/regressions-03.log",
+      "skip": "Mapping-environment opt-in omitted for one simple fixture test; explicitly enabled and passed in final run."
+    },
+    "finalServerAndAdapters": {
+      "total": 61,
+      "passed": 61,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build/server-config-20260919/final-build-05.log"
+    },
+    "distinctEngineCasesPassed": 510,
+    "newServerCases": 54,
+    "countsAreCompatibleModMetrics": false,
+    "allModuleAssemble": "PASS",
+    "publicJarAudit": "PASS",
+    "runtimeJarAudit": "PASS",
+    "engineConsumerBoundary": "PASS",
+    "installedCliSmoke": "PASS",
+    "contract": {
+      "status": "PASS_WITH_EXISTING_ENVIRONMENT_SKIPS",
+      "total": 77,
+      "passed": 75,
+      "failed": 0,
+      "skipped": 2,
+      "skipReason": "Existing Windows symlink privilege assumptions; not passes.",
+      "log": "build/server-config-20260919/contract-06.log",
+      "results": "build/server-config-20260919/contract-06-results",
+      "repositoryVerifier": "PASS_PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "prompts": 23,
+      "cuts": 81
+    },
+    "correctedDuringDevelopment": [
+      "Initial compilation rejected eleven Map.of pairs; bounded validation values grouped and compiled.",
+      "One shell wrapper treated compiler deprecation stderr as terminating under PowerShell Stop. It was not treated as successful final evidence; the complete final build/audits/tests were rerun with explicit exit-code checking.",
+      "SERVER shared-helper diagnostic prefix re-contextualized without swallowing cancellation or failures. Final 54 SERVER cases rerun."
+    ],
+    "testResults": [
+      "build/server-config-20260919/focused-tests-02-results",
+      "build/server-config-20260919/regressions-03-results",
+      "build/server-config-20260919/final-build-05-results"
+    ],
+    "artifactAuditScript": "build/server-config-20260919/audit.ps1"
+  },
+  "notRun": [
+    "Original/converted Minecraft clients",
+    "Dedicated or integrated server and physical-side classloader validation",
+    "Native world config loading, invalid-file correction, stop and second-world isolation",
+    "Native connection synchronization or custom snapshot synchronization",
+    "Reload callbacks and watcher/network thread behavior",
+    "Failed-start lifecycle equivalence",
+    "GUI, activation, multiplayer, reconnect",
+    "Fresh installation/cacheless/offline runtime qualification",
+    "Full unfiltered suites"
+  ],
+  "limitations": [
+    "Finite SERVER boolean/int snapshot only; no arbitrary schemas, custom files or gameplay",
+    "No Loading/Reloading/Unloading config callbacks, client reads, live synchronization or concurrent logical servers",
+    "Target-only config Unloading has no source counterpart and is not emulated",
+    "ServerStopped can occur without ServerStarted after failure; no universal equality of counters",
+    "Static ASM/linkage/effect proof is not JVM/Forge discovery or behavior validation",
+    "LIFE-EVENTS/COMPOSE-01 acceptance prerequisites remain PARTIAL",
+    "Private operation requires explicit complete development inventories, not a new generic embedded dataset"
+  ],
+  "boundaries": {
+    "publicProfiles": 6,
+    "publicInstallProfile": "simple-content-v1",
+    "publicConvertApplyChanged": false,
+    "runtimeIdentityChanged": false,
+    "oldCatalogEntriesChanged": 0,
+    "publicClientAndInstallerBytesChanged": false,
+    "bundledDataAndJiJBytesChanged": false,
+    "originalUnchanged": true,
+    "licenseChanged": false,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "realModsAcquired": 0,
+    "publication": false,
+    "gameProcessesLaunched": 0,
+    "contractCounts": {
+      "ACCEPTED": 15,
+      "PARTIAL": 17,
+      "BLOCKED": 2,
+      "NOT_STARTED": 47
+    }
+  }
+}

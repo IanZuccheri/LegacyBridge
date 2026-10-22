@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-22",
+  "purpose": "Free open-source experimental publication; no compatibility expansion",
+  "license": "GPL-3.0-only with Minecraft/Forge linking exception",
+  "sourceRepository": "https://github.com/IanZuccheri/LegacyBridge",
+  "curseForge": "OWNER_MANUAL_SUBMISSION_NOT_PERFORMED",
+  "artifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "6b398e8b74873810b55f438bec3abc0b6b0bdee0f3637c45257db9b5c681aeed",
+    "sizeBytes": 2086522,
+    "runtimeVersion": "0.1.1-SNAPSHOT",
+    "runtimeModId": "legacybridge_runtime",
+    "minecraft": "1.20.1",
+    "forge": "47.4.23",
+    "java": 17
+  },
+  "comparison": {
+    "previousSha256": "536d9d5da318c92a6ee02f198e777d18668514f60d22c685740b1a8383a7e68e",
+    "unchangedClassEntries": 707,
+    "changedEntries": [
+      "META-INF/legacybridge/legal/LICENSING.md",
+      "META-INF/legacybridge/legal/LINKING_EXCEPTION.md",
+      "META-INF/legacybridge/legal/THIRD_PARTY_NOTICES.md",
+      "META-INF/LICENSE_legacybridge_runtime",
+      "META-INF/MANIFEST.MF",
+      "META-INF/mods.toml"
+    ],
+    "codeAndAdapterChanges": 0,
+    "packagedLicenseBytesVerified": true
+  },
+  "headless": {
+    "fullDefaultBuild": "INCOMPLETE_CANCELLED_DURING_CORPUS_SUITE_NOT_PASSED",
+    "fullDefaultBuildLog": "build/publication-20261022/validation.log",
+    "reason": "The extensive unchanged composition filesystem suite was stopped; publication-scope assembly/audits and selected tests ran serially afterwards.",
+    "publicationBuild": "PASS",
+    "publicationBuildLog": "build/publication-20261022/validation-publication.log",
+    "tasks": [
+      "assemble",
+      "legacy-corpus:test (CorpusVerifierTest, CorpusLockTest, PromptContractVerifierTest)",
+      "legacy-corpus:verifyCatalog",
+      "legacy-corpus:verifyPromptContract",
+      "legacy-product:test (HistoryClientBoundaryTest, PreservedDeveloperClientBoundaryTest)",
+      "legacy-product:verifyProductJar",
+      "legacy-runtime:verifyRuntimeJar",
+      "legacy-converter:verifyEngineConsumerBoundary",
+      "legacy-converter:smokeInstalledCli"
+    ],
+    "freshJUnit": [
+      {
+        "module": "legacy-converter",
+        "tests": 4043,
+        "passed": 3571,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 472
+      },
+      {
+        "module": "legacy-corpus",
+        "tests": 146,
+        "passed": 143,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 3
+      },
+      {
+        "module": "legacy-product",
+        "tests": 7,
+        "passed": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "workflowTask": "UP_TO_DATE; not counted as fresh tests",
+    "runtimeTestReports": "Not rerun; previous reports excluded from fresh totals",
+    "logFiles": "Local only; not included in public source"
+  },
+  "native": {
+    "client": "NOT_RUN",
+    "dedicatedServer": "NOT_RUN",
+    "gameplay": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "changedLibraryForgeLoading": "NOT_RUN"
+  },
+  "limitations": [
+    "Test counts are not counts or percentages of supported mods.",
+    "Only the public simple-content-v1 route is admitted; advanced development profiles are not promoted.",
+    "No private mod binaries, complete mapping inventories, games, caches or local logs are published.",
+    "Historical fixture/native results do not qualify this new artifact hash."
+  ],
+  "sourceSnapshot": {
+    "exportedFiles": 1537,
+    "exportedBytes": 11780990,
+    "exporterTests": {
+      "passed": 16,
+      "skipped": 0,
+      "status": "PASS"
+    },
+    "assemblyAndSelectedChecks": "PASS",
+    "jarSha256": "6b398e8b74873810b55f438bec3abc0b6b0bdee0f3637c45257db9b5c681aeed",
+    "jarMatchesWorkingCheckout": true,
+    "junitReports": [
+      {
+        "passed": 143,
+        "errors": 0,
+        "total": 146,
+        "failures": 0,
+        "module": "legacy-corpus",
+        "skipped": 3
+      },
+      {
+        "passed": 7,
+        "errors": 0,
+        "total": 7,
+        "failures": 0,
+        "module": "legacy-product",
+        "skipped": 0
+      },
+      {
+        "passed": 32,
+        "errors": 0,
+        "total": 32,
+        "failures": 0,
+        "module": "legacy-workflow",
+        "skipped": 0
+      }
+    ],
+    "dependencies": "Existing Gradle dependency cache used with --offline; no claim of a clean dependency cache or offline gameplay.",
+    "privateBuildOutputsCopied": false,
+    "log": "build/publication-20261022/snapshot-validation.log (local only)",
+    "sourceTreeReview": "Only the Gradle wrapper is a tracked binary; no index line-ending changes across 1537 files. An additional local HotSpot username label was redacted in the public evidence copy; original evidence remains unchanged.",
+    "fullSuite": "NOT_RUN_TO_COMPLETION",
+    "native": "NOT_RUN"
+  }
+}

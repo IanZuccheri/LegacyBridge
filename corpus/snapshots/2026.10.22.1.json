@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "2026.10.22.1",
+  "records": {
+    "records/fixture-simple-content-1.16.5-1.0.0.json": "3a0683577ae359b19b3780a8a4b98ebf6745af24b14f96ddc7ecb4f1c3f143c9",
+    "records/fixture-p6-cancel-1.0.0.json": "5c0bc81a0d76a6d3f2ce4cfffd8a72f02ee4eb1f81c8fd7720d6621596b8dfcc",
+    "records/fixture-p6-duplicate-1.0.0.json": "09c3d1f5a1277b0bf3bd76d6a50c3b675c33e18aa4df8edc3f50c37678d1df0b",
+    "records/fixture-p6-dependency-1.0.0.json": "2b49f5c5e177317a9541b6ccb4ddee6b72ed8a27263b78676e58e587cbcc9406",
+    "records/fixture-p6-unsupported-1.0.0.json": "4487a4eb2c1b0036b982b7eecf3c82e74b8b661a32500d0a156cc4db5b997f62",
+    "records/fixture-p6-corrupt-1.json": "4320b7270e64033b0d7eaedb1479d7c01dbde938e58003a9a02cbde748fe935c",
+    "records/clumps-forge-6.0.0.28.json": "ae449e4adeac1dfffbbdf728f6f08b461fa7fa935c0a48d90244288367b60bf8",
+    "records/controlling-forge-7.0.0.29.json": "1780e3294065455ef3ad41ed6b8937fa5e47d3d27e6156b93a5351c88b345c71",
+    "records/appleskin-forge-2.5.1-mc1.16.4.json": "3b6ac5e3dc817c7a04b86c54881385021c221206c3a73731a016c725d54060c5"
+  }
+}

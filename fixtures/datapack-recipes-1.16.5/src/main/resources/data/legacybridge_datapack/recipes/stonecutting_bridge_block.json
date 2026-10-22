@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "legacybridge_datapack:processing_inputs"
+  },
+  "result": "legacybridge_datapack:bridge_block",
+  "count": 2
+}

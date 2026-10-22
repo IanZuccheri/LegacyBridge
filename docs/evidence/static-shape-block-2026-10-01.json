@@ -1,0 +1,2199 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "prompt": "LB-10",
+  "cut": "BLOCK-STATE",
+  "slices": [
+    "STATIC_BOTTOM_HALF_SHAPE",
+    "STATIC_SHAPE_SELF_DROP"
+  ],
+  "scope": "Two private finite preserved Block/resource variants; not public profile promotion or native gameplay qualification",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "fixtures": [
+    {
+      "path": "fixtures/static-shape-block-1.16.5/build/libs/legacybridge-static-shape-block-1.16.5-1.0.0.jar",
+      "bytes": 8003,
+      "sha256": "cec912b3574c3f23c137e42ed5aca492d66f8dfb7547ac553ae998db3ffffd96",
+      "ownership": "ORIGINAL_PROJECT_FIXTURE",
+      "originalUnchanged": true,
+      "executed": false
+    },
+    {
+      "path": "fixtures/static-shape-drop-1.16.5/build/libs/legacybridge-static-shape-drop-1.16.5-1.0.0.jar",
+      "bytes": 8818,
+      "sha256": "eb99f51ce8d92ca6a2dca399e3f28167e30c249781ef6fc7841ab20ffacb6057",
+      "ownership": "ORIGINAL_PROJECT_FIXTURE",
+      "originalUnchanged": true,
+      "executed": false
+    }
+  ],
+  "mappingProfile": {
+    "path": "build/client-config-20260919/mapping-profile.properties",
+    "bytes": 3068,
+    "sha256": "ac622b0d6aff4e53f4f8e3210699267292dce6b2f77c443af4981c032433b2df"
+  },
+  "nativeSourceAudit": {
+    "sourceArchive": {
+      "coordinate": "net.minecraftforge:forge:1.16.5-36.2.42_mapped_official_1.16.5:sources",
+      "sha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376"
+    },
+    "targetArchive": {
+      "coordinate": "net.minecraftforge:forge:1.20.1-47.4.23_mapped_official_1.20.1:sources",
+      "sha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932"
+    },
+    "method": "Pinned local source/bytecode inspection; bounded bytecode-as-data oracle with explicit allocation/cache boundaries; no Minecraft or original mod class loading",
+    "geometry": [
+      "Block.box divides six coordinates by 16; only exact lower half admitted",
+      "Old bounds normalize inversions; target factory rejects them",
+      "Old findBits floor/fixed tolerance differs from target round/scaled tolerance",
+      "Exact box requests filled lower cell of a 1x2x1 grid in both audited factory paths",
+      "Target solidity threshold uses average extent 5/6, not box volume; conditional on supplied cache facts"
+    ],
+    "boundaries": [
+      "BitSet allocation/fill operations are recorded, not native cache/game execution",
+      "Bounds/isEmpty facts are modeled explicitly for calculateSolid; native defaults need separate QA",
+      "Unknown reached calls/opcodes and loops beyond the bound fail"
+    ],
+    "resources": {
+      "legacyClientSha256": "00b5ebbc33e95ea88c1ab80601599c9827e9aa861d93ccc2cfcbbfd996e86263",
+      "targetClientSha256": "56b71336d2b4fdffd197f56595b0da93e32a946f78f382a299b8f4b92758bb0f",
+      "unchangedReferenceModels": [
+        {
+          "path": "assets/minecraft/models/block/block.json",
+          "sha256": "3ef6c442f1ab55d2a57fa58e28bb831268159052659f12b453b637b31ded1da8"
+        },
+        {
+          "path": "assets/minecraft/models/block/slab.json",
+          "sha256": "bd869ebe3ba380d46349e5c6e988b9b1ccf1ab25212ab1de66e2fdcc067edc1d"
+        }
+      ],
+      "implicitUvs": {
+        "upDown": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "sides": [
+          0,
+          8,
+          16,
+          16
+        ]
+      },
+      "interiorTopCullface": "OMITTED",
+      "nativeResourcesCopiedIntoProduct": false
+    },
+    "loot": {
+      "format": "one minecraft:block table, one pool, numeric rolls 1, one local item, survives_explosion only",
+      "defaults": "Omitted bonus_rolls=0, weight=1, quality=0 in both inspected parsers",
+      "absence": "PRESERVE_ABSENCE",
+      "formula": "radius absent => true; otherwise nextFloat() <= 1/radius",
+      "semanticDifferences": [
+        "Target TNT explosion decay defaults false",
+        "Target distinguishes DESTROY from DESTROY_WITH_DECAY for radius context",
+        "RNG/context construction differs; no identical random-outcome claim"
+      ],
+      "nativeDropComparison": "NOT_RUN"
+    }
+  },
+  "negativeScope": [
+    "Geometry bounds, numeric types, negative zero, NaN/infinity, dynamic/context-dependent bodies and opcodes",
+    "Missing/private/static/final/abstract/native declarations and lost virtual dispatch",
+    "Unknown constructors/fields/methods/interfaces/exceptions/annotations/dependencies",
+    "Mismatched models, cullface, UV/rotation/forge_data and resources",
+    "Loot unknown fields, foreign IDs, multiple pools, functions, conditions, explicit bonus, duplicate keys, malformed UTF-8, parser/size limits and GLM",
+    "Changed source/target/archive bytes, cancellation during serialization/readback/prepared stage and refusal by public profiles"
+  ],
+  "failuresAndCorrections": [
+    {
+      "run": "fixture.log",
+      "outcome": "INTERRUPTED_OWN_BUILD_ONLY",
+      "reason": "ForgeGradle SSL server-certificate probe waited during --offline; Gradle offline does not prohibit that probe",
+      "correction": "Kept TLS verification; Windows-ROOT trust store and explicit 20s network timeouts, then serial successful fixture retry"
+    },
+    {
+      "run": "focused.log",
+      "tests": 344,
+      "failures": 4,
+      "reason": "Source callback absence/private access was skipped by generic override walk and treated as owned method",
+      "correction": "Require exact concrete native declarations independently in mappings and offline linkage; preserve original failing XML"
+    },
+    {
+      "run": "regression-first.log",
+      "tests": 1631,
+      "failures": 1,
+      "reason": "AdapterContractIntegrationTest concrete-entrypoint guard rejected the two-instruction delegation in the new properties operation; packaged catalog and runtime identity checks themselves passed",
+      "correction": "Keep the existing guard. Independently pin all five complete ordered operation maps and deeply immutable output; add 12 focused recipe drift tests, without changing the previous full-cube recipe or its descriptor"
+    }
+  ],
+  "authority": {
+    "publicProfileCount": 6,
+    "publicProfilesChanged": false,
+    "applyChanged": false,
+    "runtimeIdentityChanged": false,
+    "originalsExecuted": false,
+    "gameClientStarted": false,
+    "gameServerStarted": false,
+    "screenAutomation": false,
+    "installed": false,
+    "worldsModified": false,
+    "licenseChanged": false,
+    "downloadedMods": false,
+    "published": false
+  },
+  "deferred": {
+    "nativeClient": "NOT_RUN",
+    "nativeServer": "NOT_RUN",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "cachelessAdvancedConversion": "NOT_RUN",
+    "completeUnfilteredTestSuite": "NOT_RUN",
+    "acceptanceStatus": "PARTIAL",
+    "releaseQualification": "EXPERIMENTAL_BETA"
+  },
+  "next": {
+    "prompt": "LB-10",
+    "cut": "BLOCK-STATE",
+    "slice": "BOOLEAN_TOGGLE_USE",
+    "status": "AUDITED_NOT_IMPLEMENTED",
+    "audit": "docs/BLOCK_INTERACTION_AUDIT.md",
+    "requiresStillPending": [
+      "COMPOSE-01",
+      "LIFE-EVENTS"
+    ],
+    "constraints": "One logical-server local state write; no inventory/network/async effects or implicit composition; native QA remains separately authorized"
+  },
+  "artifactAudit": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "34d622b16f000e7570bc5bf3816d169c7de246a3bb1ae3441d6a62e6c0627529",
+    "bytes": 1874735,
+    "entries": 728,
+    "fileEntries": 679,
+    "previousSha256": "b5768ab50840d793481c134061f9daebf09636b65ee891793d741181fe5ef7e6",
+    "unchangedEntries": 705,
+    "changedEntries": [
+      "dev/legacybridge/converter/conversion/CompositionArtifactPlan.class",
+      "dev/legacybridge/converter/conversion/CompositionCandidateBuilder.class",
+      "dev/legacybridge/converter/conversion/ContentResourceValidator.class",
+      "dev/legacybridge/converter/conversion/logic/PlainBlockApiRecipe$Op.class",
+      "dev/legacybridge/converter/conversion/logic/PlainBlockApiRecipe.class",
+      "dev/legacybridge/converter/conversion/logic/VerifiedLogicMappings.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter$CompositionInspection.class",
+      "dev/legacybridge/converter/conversion/LogicPreservingConverter.class",
+      "dev/legacybridge/converter/conversion/PlainBlockLowering.class",
+      "dev/legacybridge/converter/conversion/TransformationBindings.class",
+      "dev/legacybridge/converter/service/LegacyEngineService$1.class",
+      "dev/legacybridge/converter/service/LegacyEngineService.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$CallbackPolicy.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check$SignatureReferences.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier$Check.class",
+      "dev/legacybridge/converter/transformation/linkage/OfflineLinkageVerifier.class",
+      "dev/legacybridge/runtime/compat/AdapterCatalog.class",
+      "META-INF/legacybridge/adapters.json"
+    ],
+    "addedEntries": [
+      "dev/legacybridge/converter/conversion/StaticShapeBlockContract$Names.class",
+      "dev/legacybridge/converter/conversion/StaticShapeBlockContract$Proof.class",
+      "dev/legacybridge/converter/conversion/StaticShapeBlockContract.class",
+      "dev/legacybridge/converter/conversion/StaticShapeLootContract.class",
+      "dev/legacybridge/runtime/compat/logic/StaticShapeBlockArtifactAdapter.class"
+    ],
+    "removedEntries": [],
+    "catalog": {
+      "changedOldEntries": [],
+      "oldEntries": 53,
+      "newEntries": 56
+    },
+    "fixture": {
+      "bytes": 8003,
+      "sha256": "cec912b3574c3f23c137e42ed5aca492d66f8dfb7547ac553ae998db3ffffd96"
+    },
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef"
+  },
+  "staticProofs": [
+    {
+      "schemaVersion": 1,
+      "candidate": {
+        "bytes": 6780,
+        "kind": "PRIVATE_SERIALIZED_JAR",
+        "sha256": "c05eecac99b0dc014c6b9f19b7236bee773fc10ee19f8d59b084a30e88084504"
+      },
+      "input": {
+        "fileName": "legacybridge-static-shape-block-1.16.5-1.0.0.jar",
+        "sha256": "cec912b3574c3f23c137e42ed5aca492d66f8dfb7547ac553ae998db3ffffd96"
+      },
+      "staticShapeVariant": "STATIC_BOTTOM_HALF_SHAPE",
+      "sourceStaticShapeBlockContract": {
+        "block": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlock",
+        "classesExecuted": false,
+        "contract": "static-bottom-half-shape-with-item-v1",
+        "entry": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlockContent",
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlockContent",
+          "modId": "legacybridge_static_shape_block",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "shape": {
+          "contextUse": "NONE",
+          "dynamicShape": false,
+          "factory": "Block.box",
+          "maximum": [
+            16,
+            8,
+            16
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "offset": "NONE",
+          "outlineAndCollision": "SAME_STATIC_FINAL_FIELD",
+          "units": "SIXTEENTHS"
+        },
+        "shapeField": "SHAPE"
+      },
+      "staticShapeBlockContract": {
+        "block": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlock",
+        "classesExecuted": false,
+        "contract": "static-bottom-half-shape-with-item-v1",
+        "entry": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlockContent",
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlockContent",
+          "modId": "legacybridge_static_shape_block",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "shape": {
+          "contextUse": "NONE",
+          "dynamicShape": false,
+          "factory": "Block.box",
+          "maximum": [
+            16,
+            8,
+            16
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "offset": "NONE",
+          "outlineAndCollision": "SAME_STATIC_FINAL_FIELD",
+          "units": "SIXTEENTHS"
+        },
+        "shapeField": "SHAPE"
+      },
+      "reopenedStaticShapeBlockContract": {
+        "block": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlock",
+        "classesExecuted": false,
+        "contract": "static-bottom-half-shape-with-item-v1",
+        "entry": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlockContent",
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/staticshapeblock/StaticShapeBlockContent",
+          "modId": "legacybridge_static_shape_block",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "shape": {
+          "contextUse": "NONE",
+          "dynamicShape": false,
+          "factory": "Block.box",
+          "maximum": [
+            16,
+            8,
+            16
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "offset": "NONE",
+          "outlineAndCollision": "SAME_STATIC_FINAL_FIELD",
+          "units": "SIXTEENTHS"
+        },
+        "shapeField": "SHAPE"
+      },
+      "staticShapeBlockMappingCommutation": "PASSED_EXACT_RULES",
+      "sourceOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 15,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class bottom-half Block/BlockItem program: one static final native Block.box(0,0,0,16,8,16), constructor super only, and two public outline/collision overrides returning that same owned field without consulting state/world/position/context. No general geometry, dynamic shape, horizontal composition, shape mutation, native cache/default/lighting qualification or game execution."
+        ],
+        "methodReferenceCount": 20,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 49,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "targetOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 16,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class bottom-half Block/BlockItem program: one static final native Block.box(0,0,0,16,8,16), constructor super only, and two public outline/collision overrides returning that same owned field without consulting state/world/position/context. No general geometry, dynamic shape, horizontal composition, shape mutation, native cache/default/lighting qualification or game execution."
+        ],
+        "methodReferenceCount": 22,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 53,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "serializedOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 16,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class bottom-half Block/BlockItem program: one static final native Block.box(0,0,0,16,8,16), constructor super only, and two public outline/collision overrides returning that same owned field without consulting state/world/position/context. No general geometry, dynamic shape, horizontal composition, shape mutation, native cache/default/lighting qualification or game execution."
+        ],
+        "methodReferenceCount": 22,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 53,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "bytecodeValidation": {
+        "inputClasses": 2,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "offlineLinkageVerified": true,
+        "outputClasses": 2,
+        "serializedJar": true,
+        "status": "PASSED_STATIC_REOPENED"
+      },
+      "candidateArchiveValidation": {
+        "centralDirectoryAndCrc": true,
+        "entryCount": 13,
+        "modClassesLoaded": false,
+        "ownershipAndHashes": true,
+        "scratchDeleted": true,
+        "status": "PASSED_REOPENED"
+      },
+      "bodyPreservation": "CHECKED_EXCEPT_EXACT_LOGGED_STONE_PAIR_EXPANSION",
+      "preservedClassCount": 2,
+      "preservedMethodCount": 8,
+      "replacedClassCount": 0,
+      "bytecodeExecuted": false,
+      "publicationAllowed": false,
+      "runtimeValidation": "NOT_RUN",
+      "status": "CANDIDATE_VALIDATED",
+      "adapterBindings": {
+        "adapters": [
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;",
+            "id": "logic.symbol-contracts.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PreservedLogicAdapter",
+            "method": "remapDescriptor",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+            "id": "block.native-registration.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PlainBlockArtifactAdapter",
+            "method": "registryDescriptor",
+            "revision": 1
+          },
+          {
+            "descriptor": "()Ljava/util/List;",
+            "id": "block.static-half-stone-properties.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "stonePropertiesCalls",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;)[B",
+            "id": "block.static-shape-manifest.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "targetManifest",
+            "revision": 1
+          },
+          {
+            "descriptor": "()Ljava/util/Map;",
+            "id": "block.static-shape-bindings.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "bindingTree",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/util/List;)Ljava/util/Map;",
+            "id": "world.stone-mining.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.world.BlockMiningAdapter",
+            "method": "targetTag",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+            "id": "registry.mod-metadata.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+            "method": "targetRanges",
+            "revision": 1
+          },
+          {
+            "descriptor": "(I)I",
+            "id": "client.resource-pack.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+            "method": "targetFormat",
+            "revision": 1
+          }
+        ],
+        "runtimeVersion": "0.1.1-SNAPSHOT",
+        "schemaVersion": 1
+      },
+      "sources": [
+        {
+          "id": "legacy.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+        },
+        {
+          "id": "legacy.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+        },
+        {
+          "id": "legacy.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+        },
+        {
+          "id": "target.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+        },
+        {
+          "id": "target.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+        },
+        {
+          "id": "target.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+        },
+        {
+          "id": "legacy.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+        },
+        {
+          "id": "legacy.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+        },
+        {
+          "id": "legacy.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+        },
+        {
+          "id": "legacy.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+        },
+        {
+          "id": "legacy.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+        },
+        {
+          "id": "legacy.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "46d9d0b4a42ab220a2baa25807bc7a076c2cb51594fa6c013c595f43b92956b3"
+        },
+        {
+          "id": "target.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+        },
+        {
+          "id": "target.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+        },
+        {
+          "id": "target.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+        },
+        {
+          "id": "target.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+        },
+        {
+          "id": "target.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+        },
+        {
+          "id": "target.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+        },
+        {
+          "id": "target.apiJars[6]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+        },
+        {
+          "id": "target.apiJars[7]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "39d9a3d9277c1402b8e7b97f917ce278241cf1796312aec85b87f19a376dd99a"
+        }
+      ],
+      "validatedSlices": [
+        "preserved-owned-static-bottom-half-shape-v1",
+        "exact-outline-and-collision-overrides-v1",
+        "matching-half-block-model-v1",
+        "half-shape-stone-properties-v1",
+        "target-pickaxe-tag-v1"
+      ],
+      "transformations": [
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;",
+            "id": "logic.symbol-contracts.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PreservedLogicAdapter",
+            "method": "remapDescriptor",
+            "revision": 1
+          },
+          "behaviorDifferences": "Registration naming is target-native; no generic call-body emulation, initializer execution or HIGH-to-VERIFIED promotion.",
+          "fixtures": [
+            "fixtures/logic-preservation-1.16.5"
+          ],
+          "knownLimitations": "logic-preserving-v1 only; changed RegistryObject.get erasure, unknown external calls and unreviewed overrides abort.",
+          "legacyApi": "Exact reviewed Item.isFoil, ItemStack.getCount, item properties and finite DeferredRegister contracts",
+          "operation": "Compose only verified object descriptor components and apply independently approved exact class/member recipes.",
+          "phase": "OFFLINE",
+          "targetApi": "Exact target declarations plus preserved mod-owned bodies, helpers, hierarchy and initialization"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+            "id": "block.native-registration.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PlainBlockArtifactAdapter",
+            "method": "registryDescriptor",
+            "revision": 1
+          },
+          "behaviorDifferences": "Registry scheduling is target native and scoped to blocks before items.",
+          "fixtures": [
+            "fixtures/plain-block-1.16.5"
+          ],
+          "knownLimitations": "No early lookup, custom registries or foreign blocks.",
+          "legacyApi": "Deferred BlockItem supplier RegistryObject.get returning IForgeRegistryEntry",
+          "operation": "Change only the independently proved late lookup return erasure; retain Block cast and native constructors.",
+          "phase": "OFFLINE",
+          "targetApi": "Target RegistryObject.get returning Object"
+        },
+        {
+          "adapter": {
+            "descriptor": "()Ljava/util/List;",
+            "id": "block.static-half-stone-properties.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "stonePropertiesCalls",
+            "revision": 1
+          },
+          "behaviorDifferences": "Material removed; half-cuboid defaults requalified independently. Mining tag and native placement event remain explicit.",
+          "fixtures": [
+            "fixtures/static-shape-block-1.16.5"
+          ],
+          "knownLimitations": "Only box(0,0,0,16,8,16), constant outline/collision, finite strength and default predicates; not arbitrary geometry.",
+          "legacyApi": "STONE properties of exact bottom-half box Block",
+          "operation": "Resolve and emit the five native property operations only after complete fixed-geometry proof.",
+          "phase": "OFFLINE",
+          "targetApi": "Native explicit color/instrument and geometry-derived solidity"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;)[B",
+            "id": "block.static-shape-manifest.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "targetManifest",
+            "revision": 1
+          },
+          "behaviorDifferences": "Inert provenance, not native qualification.",
+          "fixtures": [
+            "fixtures/static-shape-block-1.16.5"
+          ],
+          "knownLimitations": "No public output, install or generalized shape support.",
+          "legacyApi": "Validated source manifest",
+          "operation": "Write distinct static candidate identity.",
+          "phase": "OFFLINE",
+          "targetApi": "Private fixed-shape candidate manifest"
+        },
+        {
+          "adapter": {
+            "descriptor": "()Ljava/util/Map;",
+            "id": "block.static-shape-bindings.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "bindingTree",
+            "revision": 1
+          },
+          "behaviorDifferences": "Not an install receipt or runtime shim.",
+          "fixtures": [
+            "fixtures/static-shape-block-1.16.5"
+          ],
+          "knownLimitations": "Independent two-class bottom-half contract only.",
+          "legacyApi": "No conversion provenance",
+          "operation": "Record exact implemented operation identities.",
+          "phase": "OFFLINE",
+          "targetApi": "Fixed-shape operation bindings"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/util/List;)Ljava/util/Map;",
+            "id": "world.stone-mining.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.world.BlockMiningAdapter",
+            "method": "targetTag",
+            "revision": 1
+          },
+          "behaviorDifferences": "Selection changes from a Material predicate to data-driven tags; source assets/tags are not rewritten.",
+          "fixtures": [
+            "fixtures/simple-content-1.16.5"
+          ],
+          "knownLimitations": "Plain STONE only, no harvest-level/custom tool or external behavior-changing tags.",
+          "legacyApi": "PickaxeItem.getDestroySpeed uses Material.STONE in Minecraft 1.16.5",
+          "operation": "Generate an additive target pickaxe-mining block tag for the proven STONE declarations.",
+          "phase": "OFFLINE",
+          "targetApi": "DiggerItem/PickaxeItem consult minecraft:mineable/pickaxe in Minecraft 1.20.1"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+            "id": "registry.mod-metadata.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+            "method": "targetRanges",
+            "revision": 1
+          },
+          "behaviorDifferences": "The generated mod now requires the matching runtime and no longer advertises old-platform loading.",
+          "fixtures": [
+            "fixtures/simple-content-1.16.5"
+          ],
+          "knownLimitations": "Only already validated single-mod metadata; does not port third-party dependencies.",
+          "legacyApi": "Forge 36 javafml loaderVersion and Minecraft 1.16.5 dependency ranges",
+          "operation": "Validate the source baseline and return exact target dependency ranges.",
+          "phase": "OFFLINE",
+          "targetApi": "Forge 47 javafml, Minecraft 1.20.1, required compatible LegacyBridge runtime"
+        },
+        {
+          "adapter": {
+            "descriptor": "(I)I",
+            "id": "client.resource-pack.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+            "method": "targetFormat",
+            "revision": 1
+          },
+          "behaviorDifferences": "Version advertisement changes; this method never proves arbitrary resources compatible.",
+          "fixtures": [
+            "fixtures/simple-content-1.16.5"
+          ],
+          "knownLimitations": "Caller must run ContentResourceValidator first. No codecs, custom models, shaders or animation conversion.",
+          "legacyApi": "Minecraft 1.16.5 pack.mcmeta pack_format 6",
+          "operation": "Upgrade only the already validated finite resource pack format while preserving its description.",
+          "phase": "OFFLINE",
+          "targetApi": "Minecraft 1.20.1 pack.mcmeta pack_format 15"
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "candidate": {
+        "bytes": 7199,
+        "kind": "PRIVATE_SERIALIZED_JAR",
+        "sha256": "dfdc78c39109863353837d0b355952948389adc01295d501924af74dbf6e91f1"
+      },
+      "input": {
+        "fileName": "legacybridge-static-shape-drop-1.16.5-1.0.0.jar",
+        "sha256": "eb99f51ce8d92ca6a2dca399e3f28167e30c249781ef6fc7841ab20ffacb6057"
+      },
+      "staticShapeVariant": "STATIC_BOTTOM_HALF_SHAPE_SELF_DROP",
+      "sourceStaticShapeBlockContract": {
+        "block": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropBlock",
+        "classesExecuted": false,
+        "contract": "static-bottom-half-shape-with-item-v1",
+        "entry": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropContent",
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropContent",
+          "modId": "legacybridge_static_shape_drop",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "shape": {
+          "contextUse": "NONE",
+          "dynamicShape": false,
+          "factory": "Block.box",
+          "maximum": [
+            16,
+            8,
+            16
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "offset": "NONE",
+          "outlineAndCollision": "SAME_STATIC_FINAL_FIELD",
+          "units": "SIXTEENTHS"
+        },
+        "shapeField": "SHAPE"
+      },
+      "staticShapeBlockContract": {
+        "block": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropBlock",
+        "classesExecuted": false,
+        "contract": "static-bottom-half-shape-with-item-v1",
+        "entry": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropContent",
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropContent",
+          "modId": "legacybridge_static_shape_drop",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "shape": {
+          "contextUse": "NONE",
+          "dynamicShape": false,
+          "factory": "Block.box",
+          "maximum": [
+            16,
+            8,
+            16
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "offset": "NONE",
+          "outlineAndCollision": "SAME_STATIC_FINAL_FIELD",
+          "units": "SIXTEENTHS"
+        },
+        "shapeField": "SHAPE"
+      },
+      "reopenedStaticShapeBlockContract": {
+        "block": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropBlock",
+        "classesExecuted": false,
+        "contract": "static-bottom-half-shape-with-item-v1",
+        "entry": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropContent",
+        "plainContent": {
+          "block": {
+            "hardness": 2,
+            "material": "STONE",
+            "noOcclusion": false,
+            "requiredTargetTag": "minecraft:mineable/pickaxe",
+            "requiresCorrectTool": false,
+            "resistance": 6,
+            "sound": "STONE",
+            "targetInstrument": "BASEDRUM",
+            "targetMapColor": "STONE"
+          },
+          "blockItem": {
+            "blockLookup": "DEFERRED_ITEM_FACTORY_ONLY",
+            "creativeTab": "NONE",
+            "stackSize": 32
+          },
+          "classesExecuted": false,
+          "contract": "plain-block-with-item-v1",
+          "entry": "dev/legacybridge/fixture/staticshapedrop/StaticShapeDropContent",
+          "modId": "legacybridge_static_shape_drop",
+          "registration": "BLOCKS_THEN_ITEMS_ON_MOD_BUS; ZERO_CAPTURE_STATIC_SUPPLIERS",
+          "registryName": "bridge_block",
+          "runtimeValidation": "NOT_RUN",
+          "schemaVersion": 1
+        },
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "shape": {
+          "contextUse": "NONE",
+          "dynamicShape": false,
+          "factory": "Block.box",
+          "maximum": [
+            16,
+            8,
+            16
+          ],
+          "minimum": [
+            0,
+            0,
+            0
+          ],
+          "offset": "NONE",
+          "outlineAndCollision": "SAME_STATIC_FINAL_FIELD",
+          "units": "SIXTEENTHS"
+        },
+        "shapeField": "SHAPE"
+      },
+      "staticShapeLootContract": {
+        "bonusRolls": "OMITTED_NATIVE_ZERO",
+        "classesExecuted": false,
+        "contextDifferences": [
+          "Target TNT explosion-decay game rule defaults to false; source/target radius presence is not assumed identical",
+          "Native random sources differ; matching formula does not promise matching random outcomes"
+        ],
+        "item": "legacybridge_static_shape_drop:bridge_block",
+        "kind": "STATIC_SHAPE_SELF_DROP",
+        "path": "data/legacybridge_static_shape_drop/loot_tables/blocks/bridge_block.json",
+        "probability": {
+          "contextRequired": "NATIVE_LOOT_CONTEXT",
+          "outcome": "ZERO_OR_ONE_LOCAL_ITEM",
+          "withExplosionRadius": "nextFloat() <= 1.0F / explosionRadius",
+          "withoutExplosionRadius": "TRUE"
+        },
+        "resourceBytesModified": false,
+        "rolls": 1,
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "sha256": "8d2c982aec4fdfe4d7b8db316659e90413e569360eaf88d4cd64a6aa3a4e9d00"
+      },
+      "reopenedStaticShapeLootContract": {
+        "bonusRolls": "OMITTED_NATIVE_ZERO",
+        "classesExecuted": false,
+        "contextDifferences": [
+          "Target TNT explosion-decay game rule defaults to false; source/target radius presence is not assumed identical",
+          "Native random sources differ; matching formula does not promise matching random outcomes"
+        ],
+        "item": "legacybridge_static_shape_drop:bridge_block",
+        "kind": "STATIC_SHAPE_SELF_DROP",
+        "path": "data/legacybridge_static_shape_drop/loot_tables/blocks/bridge_block.json",
+        "probability": {
+          "contextRequired": "NATIVE_LOOT_CONTEXT",
+          "outcome": "ZERO_OR_ONE_LOCAL_ITEM",
+          "withExplosionRadius": "nextFloat() <= 1.0F / explosionRadius",
+          "withoutExplosionRadius": "TRUE"
+        },
+        "resourceBytesModified": false,
+        "rolls": 1,
+        "runtimeValidation": "NOT_RUN",
+        "schemaVersion": 1,
+        "sha256": "8d2c982aec4fdfe4d7b8db316659e90413e569360eaf88d4cd64a6aa3a4e9d00"
+      },
+      "staticShapeBlockMappingCommutation": "PASSED_EXACT_RULES",
+      "sourceOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 15,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class bottom-half Block/BlockItem program: one static final native Block.box(0,0,0,16,8,16), constructor super only, and two public outline/collision overrides returning that same owned field without consulting state/world/position/context. No general geometry, dynamic shape, horizontal composition, shape mutation, native cache/default/lighting qualification or game execution."
+        ],
+        "methodReferenceCount": 20,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 49,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "targetOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 16,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class bottom-half Block/BlockItem program: one static final native Block.box(0,0,0,16,8,16), constructor super only, and two public outline/collision overrides returning that same owned field without consulting state/world/position/context. No general geometry, dynamic shape, horizontal composition, shape mutation, native cache/default/lighting qualification or game execution."
+        ],
+        "methodReferenceCount": 22,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 53,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "serializedOfflineLinkage": {
+        "checkedMethodCount": 8,
+        "classesExecuted": false,
+        "fieldReferenceCount": 16,
+        "lambdaSiteCount": 2,
+        "limitations": [
+          "Static declaration/access/dataflow checks only; no JVM class loading, Forge discovery or runtime behavior was tested.",
+          "Caller supplies complete production-namespace external declarations and separately validates external module/classloader wiring; ApiIndex has no module/nest/sealed metadata.",
+          "Cross-owner package access, nestmates, owned sealed/record/annotation classes, default-interface dispatch, native code, jsr/ret and reflective linkage are unsupported.",
+          "Constructor delegation through this(), uninitialized local aliases, branches or exception handlers with live uninitialized values are unsupported.",
+          "Only the independently re-read two-class bottom-half Block/BlockItem program: one static final native Block.box(0,0,0,16,8,16), constructor super only, and two public outline/collision overrides returning that same owned field without consulting state/world/position/context. No general geometry, dynamic shape, horizontal composition, shape mutation, native cache/default/lighting qualification or game execution."
+        ],
+        "methodReferenceCount": 22,
+        "ownedClassCount": 2,
+        "resolvedClassCount": 53,
+        "schemaVersion": 1,
+        "status": "PASSED_SCOPED"
+      },
+      "bytecodeValidation": {
+        "inputClasses": 2,
+        "jvmLinkageVerified": false,
+        "modClassesLoaded": false,
+        "offlineLinkageVerified": true,
+        "outputClasses": 2,
+        "serializedJar": true,
+        "status": "PASSED_STATIC_REOPENED"
+      },
+      "candidateArchiveValidation": {
+        "centralDirectoryAndCrc": true,
+        "entryCount": 14,
+        "modClassesLoaded": false,
+        "ownershipAndHashes": true,
+        "scratchDeleted": true,
+        "status": "PASSED_REOPENED"
+      },
+      "bodyPreservation": "CHECKED_EXCEPT_EXACT_LOGGED_STONE_PAIR_EXPANSION",
+      "preservedClassCount": 2,
+      "preservedMethodCount": 8,
+      "replacedClassCount": 0,
+      "bytecodeExecuted": false,
+      "publicationAllowed": false,
+      "runtimeValidation": "NOT_RUN",
+      "status": "CANDIDATE_VALIDATED",
+      "adapterBindings": {
+        "adapters": [
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;",
+            "id": "logic.symbol-contracts.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PreservedLogicAdapter",
+            "method": "remapDescriptor",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+            "id": "block.native-registration.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PlainBlockArtifactAdapter",
+            "method": "registryDescriptor",
+            "revision": 1
+          },
+          {
+            "descriptor": "()Ljava/util/List;",
+            "id": "block.static-half-stone-properties.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "stonePropertiesCalls",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;)[B",
+            "id": "block.static-shape-manifest.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "targetManifest",
+            "revision": 1
+          },
+          {
+            "descriptor": "()Ljava/util/Map;",
+            "id": "block.static-shape-bindings.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "bindingTree",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/util/List;)Ljava/util/Map;",
+            "id": "world.stone-mining.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.world.BlockMiningAdapter",
+            "method": "targetTag",
+            "revision": 1
+          },
+          {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+            "id": "registry.mod-metadata.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+            "method": "targetRanges",
+            "revision": 1
+          },
+          {
+            "descriptor": "(I)I",
+            "id": "client.resource-pack.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+            "method": "targetFormat",
+            "revision": 1
+          }
+        ],
+        "runtimeVersion": "0.1.1-SNAPSHOT",
+        "schemaVersion": 1
+      },
+      "sources": [
+        {
+          "id": "legacy.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "7931ed6d723eceb1d621d05a76e10ddf643bf468c6ecf1c4ecf377bd72cf8b8c"
+        },
+        {
+          "id": "legacy.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b3732b0f031abce7083cac8e594427e70d2e19674b8de2c682630c39b64228a7"
+        },
+        {
+          "id": "legacy.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "80216a0f4ae79d81a5e11ceccaa97582a1f6a2cf079b7703b88a99a26547b342"
+        },
+        {
+          "id": "target.clientMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "67bfc33ef0c7103f002d6ac134f8eddd3d67e2ce45d266e83816d1a2e2c9b01d"
+        },
+        {
+          "id": "target.serverMappings",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dca153d20defb32cfac3f069c3bf77b3e13c30ae63847637479d3137e099bb72"
+        },
+        {
+          "id": "target.srg",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "f46d1050d8bed9046886b90a0d2fb80b4c6b5120fc35d32e5d37498dbe0a6d2a"
+        },
+        {
+          "id": "legacy.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1a3e71d6ccb8461fe9d94f4c63551fe52a8c0c01116572c49a0c3253d0506b03"
+        },
+        {
+          "id": "legacy.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "8754a57ff4d15dffcab15f50b691f4a9c1108b057fbcfff5c915ce928c41f84e"
+        },
+        {
+          "id": "legacy.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "296b69b63f3d2a2092bf94fa12add4deb89e7d1f977157f7ee1b6b6d0fd52a58"
+        },
+        {
+          "id": "legacy.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "14e9554e9c48abfe7449e4451e597bfc0d85074fc6c80a377488c067c313fd7c"
+        },
+        {
+          "id": "legacy.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "dfeab9c7d582fce5b1112e9d3038fa0e7075296e467031ce1e2c0ba9fdcf441f"
+        },
+        {
+          "id": "legacy.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "46d9d0b4a42ab220a2baa25807bc7a076c2cb51594fa6c013c595f43b92956b3"
+        },
+        {
+          "id": "target.apiJars[0]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "b820f2243c37f060b17678f3a23c868da14d35ebf82ee47b4035b1718c0952ee"
+        },
+        {
+          "id": "target.apiJars[1]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c11e456e4486152f77d7f34af37ce795e9abbf3a100663ed62abdd6ff5cd3661"
+        },
+        {
+          "id": "target.apiJars[2]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cb7467136d76ed8cdbf1d6cecca40e0034cd77ce78f64a72105346deaa184daa"
+        },
+        {
+          "id": "target.apiJars[3]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "a2a86db8b83b4a8ec53fe82a4412e94103101e6d337064f2075f974819ce185a"
+        },
+        {
+          "id": "target.apiJars[4]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "c9c9aab0979e08a0489fc497ba433276648d5192608e53535bad881dfe14d712"
+        },
+        {
+          "id": "target.apiJars[5]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "cf65afa612fffbe4dc976115dac0312f48b9c84b3ddaf58bec8018a9454440d7"
+        },
+        {
+          "id": "target.apiJars[6]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "1bc71c67b54ba9c8e5030b3ddaef7dee16ae43fee6850368f76b0cffef819700"
+        },
+        {
+          "id": "target.apiJars[7]",
+          "origin": "LOCAL_PROFILE",
+          "sha256": "39d9a3d9277c1402b8e7b97f917ce278241cf1796312aec85b87f19a376dd99a"
+        }
+      ],
+      "validatedSlices": [
+        "preserved-owned-static-bottom-half-shape-v1",
+        "exact-outline-and-collision-overrides-v1",
+        "matching-half-block-model-v1",
+        "half-shape-stone-properties-v1",
+        "target-pickaxe-tag-v1",
+        "byte-preserved-local-self-drop-v1"
+      ],
+      "transformations": [
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;",
+            "id": "logic.symbol-contracts.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PreservedLogicAdapter",
+            "method": "remapDescriptor",
+            "revision": 1
+          },
+          "behaviorDifferences": "Registration naming is target-native; no generic call-body emulation, initializer execution or HIGH-to-VERIFIED promotion.",
+          "fixtures": [
+            "fixtures/logic-preservation-1.16.5"
+          ],
+          "knownLimitations": "logic-preserving-v1 only; changed RegistryObject.get erasure, unknown external calls and unreviewed overrides abort.",
+          "legacyApi": "Exact reviewed Item.isFoil, ItemStack.getCount, item properties and finite DeferredRegister contracts",
+          "operation": "Compose only verified object descriptor components and apply independently approved exact class/member recipes.",
+          "phase": "OFFLINE",
+          "targetApi": "Exact target declarations plus preserved mod-owned bodies, helpers, hierarchy and initialization"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+            "id": "block.native-registration.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.PlainBlockArtifactAdapter",
+            "method": "registryDescriptor",
+            "revision": 1
+          },
+          "behaviorDifferences": "Registry scheduling is target native and scoped to blocks before items.",
+          "fixtures": [
+            "fixtures/plain-block-1.16.5"
+          ],
+          "knownLimitations": "No early lookup, custom registries or foreign blocks.",
+          "legacyApi": "Deferred BlockItem supplier RegistryObject.get returning IForgeRegistryEntry",
+          "operation": "Change only the independently proved late lookup return erasure; retain Block cast and native constructors.",
+          "phase": "OFFLINE",
+          "targetApi": "Target RegistryObject.get returning Object"
+        },
+        {
+          "adapter": {
+            "descriptor": "()Ljava/util/List;",
+            "id": "block.static-half-stone-properties.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "stonePropertiesCalls",
+            "revision": 1
+          },
+          "behaviorDifferences": "Material removed; half-cuboid defaults requalified independently. Mining tag and native placement event remain explicit.",
+          "fixtures": [
+            "fixtures/static-shape-block-1.16.5"
+          ],
+          "knownLimitations": "Only box(0,0,0,16,8,16), constant outline/collision, finite strength and default predicates; not arbitrary geometry.",
+          "legacyApi": "STONE properties of exact bottom-half box Block",
+          "operation": "Resolve and emit the five native property operations only after complete fixed-geometry proof.",
+          "phase": "OFFLINE",
+          "targetApi": "Native explicit color/instrument and geometry-derived solidity"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;)[B",
+            "id": "block.static-shape-manifest.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "targetManifest",
+            "revision": 1
+          },
+          "behaviorDifferences": "Inert provenance, not native qualification.",
+          "fixtures": [
+            "fixtures/static-shape-block-1.16.5"
+          ],
+          "knownLimitations": "No public output, install or generalized shape support.",
+          "legacyApi": "Validated source manifest",
+          "operation": "Write distinct static candidate identity.",
+          "phase": "OFFLINE",
+          "targetApi": "Private fixed-shape candidate manifest"
+        },
+        {
+          "adapter": {
+            "descriptor": "()Ljava/util/Map;",
+            "id": "block.static-shape-bindings.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.logic.StaticShapeBlockArtifactAdapter",
+            "method": "bindingTree",
+            "revision": 1
+          },
+          "behaviorDifferences": "Not an install receipt or runtime shim.",
+          "fixtures": [
+            "fixtures/static-shape-block-1.16.5"
+          ],
+          "knownLimitations": "Independent two-class bottom-half contract only.",
+          "legacyApi": "No conversion provenance",
+          "operation": "Record exact implemented operation identities.",
+          "phase": "OFFLINE",
+          "targetApi": "Fixed-shape operation bindings"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/util/List;)Ljava/util/Map;",
+            "id": "world.stone-mining.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.world.BlockMiningAdapter",
+            "method": "targetTag",
+            "revision": 1
+          },
+          "behaviorDifferences": "Selection changes from a Material predicate to data-driven tags; source assets/tags are not rewritten.",
+          "fixtures": [
+            "fixtures/simple-content-1.16.5"
+          ],
+          "knownLimitations": "Plain STONE only, no harvest-level/custom tool or external behavior-changing tags.",
+          "legacyApi": "PickaxeItem.getDestroySpeed uses Material.STONE in Minecraft 1.16.5",
+          "operation": "Generate an additive target pickaxe-mining block tag for the proven STONE declarations.",
+          "phase": "OFFLINE",
+          "targetApi": "DiggerItem/PickaxeItem consult minecraft:mineable/pickaxe in Minecraft 1.20.1"
+        },
+        {
+          "adapter": {
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;",
+            "id": "registry.mod-metadata.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.registry.ModMetadataAdapter",
+            "method": "targetRanges",
+            "revision": 1
+          },
+          "behaviorDifferences": "The generated mod now requires the matching runtime and no longer advertises old-platform loading.",
+          "fixtures": [
+            "fixtures/simple-content-1.16.5"
+          ],
+          "knownLimitations": "Only already validated single-mod metadata; does not port third-party dependencies.",
+          "legacyApi": "Forge 36 javafml loaderVersion and Minecraft 1.16.5 dependency ranges",
+          "operation": "Validate the source baseline and return exact target dependency ranges.",
+          "phase": "OFFLINE",
+          "targetApi": "Forge 47 javafml, Minecraft 1.20.1, required compatible LegacyBridge runtime"
+        },
+        {
+          "adapter": {
+            "descriptor": "(I)I",
+            "id": "client.resource-pack.v1",
+            "implementationClass": "dev.legacybridge.runtime.compat.client.ResourcePackAdapter",
+            "method": "targetFormat",
+            "revision": 1
+          },
+          "behaviorDifferences": "Version advertisement changes; this method never proves arbitrary resources compatible.",
+          "fixtures": [
+            "fixtures/simple-content-1.16.5"
+          ],
+          "knownLimitations": "Caller must run ContentResourceValidator first. No codecs, custom models, shaders or animation conversion.",
+          "legacyApi": "Minecraft 1.16.5 pack.mcmeta pack_format 6",
+          "operation": "Upgrade only the already validated finite resource pack format while preserving its description.",
+          "phase": "OFFLINE",
+          "targetApi": "Minecraft 1.20.1 pack.mcmeta pack_format 15"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "focusedInitial": {
+      "tests": 481,
+      "passed": 481,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "build/static-shape-block-20261001/two-slices.log"
+    },
+    "regressionBeforeFinalRecipeHardening": {
+      "tests": 1631,
+      "passed": 1631,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "log": "build/static-shape-block-20261001/regression-second.log"
+    },
+    "regressionFinal": {
+      "tests": 1643,
+      "passed": 1643,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "newCases": 493,
+      "previousCases": 1150,
+      "log": "build/static-shape-block-20261001/regression-final.log",
+      "commandScript": "build/static-shape-block-20261001/regression.ps1",
+      "suites": [
+        {
+          "name": "dev.legacybridge.converter.cli.CliEngineServiceTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.ClientConfigIntegrationTest",
+          "tests": 46,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.DatapackProfileIntegrationTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.DurableItemIntegrationTest",
+          "tests": 49,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.EventPriorityIntegrationTest",
+          "tests": 41,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.FoodProfileIntegrationTest",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.HorizontalBlockIntegrationTest",
+          "tests": 105,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.HorizontalTransformsIntegrationTest",
+          "tests": 31,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.LifecycleSuiteIntegrationTest",
+          "tests": 55,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.LogicProfileIntegrationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.NetworkProfileIntegrationTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.OwnedConstructorsIntegrationTest",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.OwnedHierarchyIntegrationTest",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.OwnedInterfaceIntegrationTest",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.OwnedReceiverIntegrationTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.PlainBlockIntegrationTest",
+          "tests": 53,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.ServerConfigIntegrationTest",
+          "tests": 54,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.StaticShapeBlockIntegrationTest",
+          "tests": 103,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.cli.StaticShapeSelfDropIntegrationTest",
+          "tests": 38,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.AdapterContractIntegrationTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.CompositionArtifactPlanTest",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.HorizontalBlockArtifactPlanTest",
+          "tests": 23,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.HorizontalBlockContractTest",
+          "tests": 171,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.LifecycleContractAdapterTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.LifecycleMetadataTest",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.LifecycleProfileShapeTest",
+          "tests": 28,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.logic.HorizontalMappingIntegrationTest",
+          "tests": 28,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.logic.HorizontalOrientationApiAuditTest",
+          "tests": 28,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.logic.HorizontalTransformsMappingIntegrationTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.logic.StaticShapeMappingIntegrationTest",
+          "tests": 49,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.logic.StaticShapeNativeApiAuditTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.logic.VerifiedLogicMappingsTest",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.LogicProfileShapeTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.PlainBlockArtifactPlanTest",
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.PlainBlockContractTest",
+          "tests": 35,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.PlainBlockLoweringIntegrationTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.StaticShapeBlockArtifactPlanTest",
+          "tests": 48,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.StaticShapeBlockContractTest",
+          "tests": 148,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.conversion.StaticShapeLootContractTest",
+          "tests": 87,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.transformation.linkage.OfflineLinkageVerifierTest",
+          "tests": 31,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.transformation.linkage.OwnedConstructorGraphTest",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.transformation.linkage.OwnedInterfaceDefaultsTest",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.transformation.linkage.OwnedItemHierarchyTest",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.transformation.linkage.OwnedReceiverHandlesTest",
+          "tests": 38,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.converter.transformation.MappingResolverTest",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.runtime.compat.logic.StaticShapeRecipeContractTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    "fixtureArchives": {
+      "tests": 9,
+      "passed": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": [
+        {
+          "name": "dev.legacybridge.fixture.staticshapeblock.StaticShapeBlockFixtureArtifactTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "dev.legacybridge.fixture.staticshapedrop.StaticShapeDropFixtureArtifactTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    "package": {
+      "status": "PASSED",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli"
+      ],
+      "log": "build/static-shape-block-20261001/package.log",
+      "commandScript": "build/static-shape-block-20261001/package.ps1"
+    },
+    "countsMeaning": "Overlapping runs are not added as distinct cases or compatible mods. Fixture tests inspect archives only. Native API oracle is static with modeled boundaries.",
+    "candidateHashesStableBetweenRuns": true,
+    "contractValidation": {
+      "status": "PASSED_SCOPED_PATH_AND_STATE_CHECKS",
+      "tests": 77,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 2,
+      "skippedCases": [
+        "rejectsSymbolicEvidenceWithoutFollowingIt()",
+        "rejectsSymbolicPromptDirectory()"
+      ],
+      "passed": 75,
+      "log": "build/static-shape-block-20261001/contract.log",
+      "prompts": 23,
+      "cuts": 81,
+      "current": "LB-10/BLOCK-STATE",
+      "scope": "PATHS_ONLY_NO_EXECUTION_OR_FRESHNESS_INFERENCE",
+      "skipBoundary": "Windows symbolic-link setup unavailable in these conditional tests; not counted as pass"
+    },
+    "closeout": {
+      "status": "PASSED",
+      "log": "build/static-shape-block-20261001/closeout.log",
+      "tasks": [
+        "assemble",
+        ":legacy-product:verifyProductJar",
+        ":legacy-runtime:verifyRuntimeJar",
+        ":legacy-converter:verifyEngineConsumerBoundary",
+        ":legacy-converter:smokeInstalledCli",
+        ":legacy-corpus:verifyPromptContract"
+      ],
+      "artifactHashUnchanged": true
+    }
+  },
+  "evidenceFiles": [
+    {
+      "path": "build/static-shape-block-20261001/audit.ps1",
+      "bytes": 3124,
+      "sha256": "1c436a6eccb916567d0878c88eb84e223d7f3d55713c86d0d67333e255e52a22"
+    },
+    {
+      "path": "build/static-shape-block-20261001/compile.log",
+      "bytes": 6254,
+      "sha256": "684eba6ee438e22dce8222861ce4802f040947cb0c1baf3767508bf9d5194a58"
+    },
+    {
+      "path": "build/static-shape-block-20261001/drop-fixture.log",
+      "bytes": 6572,
+      "sha256": "5b061efb65d7d32131841fb753a64288240a5ff22db9353262f80e7bf7d60fe7"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.CliEngineServiceTest.xml",
+      "bytes": 3119,
+      "sha256": "847d438e918910869d51ea8f79020a29c9161c581fe359209b1722de084d6746"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.ClientConfigIntegrationTest.xml",
+      "bytes": 134989,
+      "sha256": "d78870d920dc2a04013508e3c70825f338c913a5d9d839dfea97baf351d56b8f"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.CompositionPreviewIntegrationTest.xml",
+      "bytes": 187987,
+      "sha256": "eb7469112cc3fd02812022b46a971b7d5fb032bd1bbedab0b1a1e0f44dd95f4f"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.DatapackProfileIntegrationTest.xml",
+      "bytes": 1119,
+      "sha256": "f38e86bf5cbf6becb88c828e87d99041497fdffe04f1727d4bc13893a58d0fe9"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.DurableItemIntegrationTest.xml",
+      "bytes": 112613,
+      "sha256": "b3c86ee0ea3b1f09b433beb4b842b4b0245ae017372119d605bc422d6ee4b46d"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.EventPriorityIntegrationTest.xml",
+      "bytes": 119904,
+      "sha256": "b1e2f5393697b9172b4f51a33d082d58b79a7f37c5e8ff8cc2f8d0da920e064d"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.FoodProfileIntegrationTest.xml",
+      "bytes": 2639,
+      "sha256": "7b8c06d56b4ab97fe86eb914344991e89cfae556a93d2ec2976ae7aba016e09f"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.HorizontalBlockIntegrationTest.xml",
+      "bytes": 252189,
+      "sha256": "30ad8827847f571eed5fb12f6b59557b4925993eda0745a05a3b514a051f588e"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.HorizontalTransformsIntegrationTest.xml",
+      "bytes": 299789,
+      "sha256": "2ffa4e1a4e78352ca41d875b246119d6d6c8a9d9225aa92434d5a5eb8d8177f3"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.LifecycleProfileIntegrationTest.xml",
+      "bytes": 966,
+      "sha256": "4f5a4d9bd4e6df0b63b3fad28a98365d2ccc1cbf88e73d11616eb95b38ed388b"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.LifecycleSuiteIntegrationTest.xml",
+      "bytes": 241059,
+      "sha256": "1bc45b5a4864a15503894cb25dee85279c1b87d5e977a27078313e637ffb17e8"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.LogicProfileIntegrationTest.xml",
+      "bytes": 952,
+      "sha256": "a6328fe39c86aaed96e7c51ecf8685f63ac884ed933b3be3c689588bcec35ab3"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.NetworkProfileIntegrationTest.xml",
+      "bytes": 4552,
+      "sha256": "da21d574caac72b86b2fff029e24de9f7746d5fad5a7fdd6e4ddb2cdbc642ffd"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedConstructorsIntegrationTest.xml",
+      "bytes": 113563,
+      "sha256": "94bce997b9967dc7c5d413cab82932b7eeaeb88ed599f67b06e55551cfdf871e"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedHierarchyIntegrationTest.xml",
+      "bytes": 134467,
+      "sha256": "5adc7dde14139d33eddcb866cfabc8b6d300c28a46aa5147593a5eef10acb3c7"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedInterfaceIntegrationTest.xml",
+      "bytes": 122211,
+      "sha256": "fb04f4059c7502a627d2642d00520f8606cc76bc13039587d63ebb2c11c9f418"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.OwnedReceiverIntegrationTest.xml",
+      "bytes": 113153,
+      "sha256": "e786a5d53c77f0492360d00f1459ce1c3c6a0f532e73aafb6d5febbca4851f4e"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.PlainBlockIntegrationTest.xml",
+      "bytes": 148463,
+      "sha256": "c69ddf9caa1befc368611b9266c22e61562f68e11b4113375ee0bf34eb104827"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.ServerConfigIntegrationTest.xml",
+      "bytes": 149216,
+      "sha256": "07ecf49759a81f3351f3465a5e271b5435c43629c3dbd8b8531644951c4c4635"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.StaticShapeBlockIntegrationTest.xml",
+      "bytes": 209533,
+      "sha256": "cd50d82deec0bfd607e1642a53020dd95524c5c2fa360d8efd75ac8dbeb1032b"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.cli.StaticShapeSelfDropIntegrationTest.xml",
+      "bytes": 203976,
+      "sha256": "517efdd5192f73e2607f6a80d6b9ca6f94458494c7a15611d5cffc24fa546e50"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.AdapterContractIntegrationTest.xml",
+      "bytes": 1660,
+      "sha256": "e5ec9762344b56287377d3f79755b25a0f1f2fe3b7abe983537f11a4520c7cc9"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.CompositionArtifactPlanTest.xml",
+      "bytes": 2572,
+      "sha256": "9014eca80197f2203d058275de7c4186e2c95d70ba33fbd5b0c0fb6c6dc5f612"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.HorizontalBlockArtifactPlanTest.xml",
+      "bytes": 3429,
+      "sha256": "3472d37af4f50f45d70cfa76189ad9397f3c896ddf3ec65c1d0edb5e63b3ffa9"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.HorizontalBlockContractTest.xml",
+      "bytes": 24513,
+      "sha256": "cb62fd2c7ef1c4929678b485311e686a89351d4d6f32a63e80779d6d698e2c66"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LifecycleContractAdapterTest.xml",
+      "bytes": 1060,
+      "sha256": "45dcb1e3ec77211974ce87635c444e76617da2b775e7535adcf2b1e4fd184b9e"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LifecycleMetadataTest.xml",
+      "bytes": 3204,
+      "sha256": "d400fc18c3bb9e50748f97c9611104b702010d7914cc4b482e55f2fdc54988a8"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LifecycleProfileShapeTest.xml",
+      "bytes": 4922,
+      "sha256": "ed37bb0032d60b5c4c1f8a64792022b110ae98e2e13a88f75a1fabbc9c2d2deb"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalMappingIntegrationTest.xml",
+      "bytes": 4602,
+      "sha256": "1e52bc364b81c83d17d43c1f8cf2554519b9a5db381c8df93e7feae4dabb74c1"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalOrientationApiAuditTest.xml",
+      "bytes": 4865,
+      "sha256": "f390d5f8caa3c910cc13e38f55441d10fee7f5c40a5115e24a3042e9729bba69"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.HorizontalTransformsMappingIntegrationTest.xml",
+      "bytes": 3860,
+      "sha256": "a0a79a96e9b604227264ae576e63baac0195ca9ca0e452e0216f564e8e5259db"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.StaticShapeMappingIntegrationTest.xml",
+      "bytes": 7835,
+      "sha256": "24e02a0049d71af1820d0b59cf42bbc9bafe5b36e2e1bbf4ede2747b81561df9"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.StaticShapeNativeApiAuditTest.xml",
+      "bytes": 1534,
+      "sha256": "a252d9350c22461f567f12935408d542d9f1b6c158610c66cd1f767d7c7365b6"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.logic.VerifiedLogicMappingsTest.xml",
+      "bytes": 2654,
+      "sha256": "9d8873c2e231e8d6c8e5cf7a6bf3b89c2d6d29f7bcbf21d590c09cccf28fe9d5"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.LogicProfileShapeTest.xml",
+      "bytes": 2115,
+      "sha256": "5f38c2504d93a14a1d07224e17bcb842221d3cca8ee597bf2bc258cbe921cda0"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.PlainBlockArtifactPlanTest.xml",
+      "bytes": 3188,
+      "sha256": "c49b4d716d32ea388e2400d18d1d9bc701a0455e0784241939fb98b4d574b93c"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.PlainBlockContractTest.xml",
+      "bytes": 4967,
+      "sha256": "ed03594b4b44521629df2ffe6cb3b4c6717a78f1282b2a6aa6cfa4aef165b608"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.PlainBlockLoweringIntegrationTest.xml",
+      "bytes": 614,
+      "sha256": "52b27c28bb682bf27887f78764f3b51035f86d00f5054379db9ad36f343eb6ee"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.StaticShapeBlockArtifactPlanTest.xml",
+      "bytes": 7119,
+      "sha256": "00918d186ba810bbca9789be70bfd423fbff42a2d1beffc08f767f57dc4c1bd1"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.StaticShapeBlockContractTest.xml",
+      "bytes": 21070,
+      "sha256": "379ad72a9730818176c34e0ff736faf4addea882b0b191678dc2492c5248845f"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.conversion.StaticShapeLootContractTest.xml",
+      "bytes": 12392,
+      "sha256": "92fae2e593889ac4dd11ff191d17675836994e4a6abe80382475fa55d31f3bf7"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OfflineLinkageVerifierTest.xml",
+      "bytes": 6036,
+      "sha256": "99695b238d15c13aaa96c2208799f0a9e565104d0ef2d2f6f6c922358d45322a"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedConstructorGraphTest.xml",
+      "bytes": 2670,
+      "sha256": "5ca521ab364f977e29042ac80b54a4b2a32c40cd60193cf726604b3df194ac68"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedInterfaceDefaultsTest.xml",
+      "bytes": 3854,
+      "sha256": "41fe9ed1a424fa8cae3d9d17264581df0a4b634f5200e6ea3f9e0ad9b6679f72"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedItemHierarchyTest.xml",
+      "bytes": 3330,
+      "sha256": "68fb7fa6a7c6f98635613e036f153fe6369a5cced282bfcec82065be2d362000"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.linkage.OwnedReceiverHandlesTest.xml",
+      "bytes": 5647,
+      "sha256": "4f0dc7ada4ccc9dc377d03502c27bbb9d2011ba3304272dcd78e27b5878818b8"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.converter.transformation.MappingResolverTest.xml",
+      "bytes": 3211,
+      "sha256": "3e8d13e41ca7b1be14f2089cfb3d64799e43a69aec420a5a1d1b6a2eabfbfae7"
+    },
+    {
+      "path": "build/static-shape-block-20261001/final-results/TEST-dev.legacybridge.runtime.compat.logic.StaticShapeRecipeContractTest.xml",
+      "bytes": 1913,
+      "sha256": "b83d665c834d8ce981f0c1eda38a2d292807a878626b5010504848e2047f1d61"
+    },
+    {
+      "path": "build/static-shape-block-20261001/first-results/TEST-dev.legacybridge.converter.cli.StaticShapeBlockIntegrationTest.xml",
+      "bytes": 209495,
+      "sha256": "9196c425d91ab89c21c522a1666825b21ffea99df3b8714a6f27a7e99b402e9e"
+    },
+    {
+      "path": "build/static-shape-block-20261001/first-results/TEST-dev.legacybridge.converter.conversion.logic.StaticShapeMappingIntegrationTest.xml",
+      "bytes": 40744,
+      "sha256": "e1f037c1faed16501656c8d70435e247b4ffdba59ab75baa835529c5fa4b56af"
+    },
+    {
+      "path": "build/static-shape-block-20261001/first-results/TEST-dev.legacybridge.converter.conversion.StaticShapeBlockArtifactPlanTest.xml",
+      "bytes": 7159,
+      "sha256": "843064907eb06c4779c88e11cbf57cb652c2767a3a4d2a224d007df5accef192"
+    },
+    {
+      "path": "build/static-shape-block-20261001/first-results/TEST-dev.legacybridge.converter.conversion.StaticShapeBlockContractTest.xml",
+      "bytes": 21082,
+      "sha256": "ea7b242417840ea61932484e543293b4755f2718a70f743e5a214fcb2398794b"
+    },
+    {
+      "path": "build/static-shape-block-20261001/fixture.log",
+      "bytes": 4486,
+      "sha256": "963c96fb7fa69bf8c37573e75baad212f56837127ff92b434249f5101cf081eb"
+    },
+    {
+      "path": "build/static-shape-block-20261001/fixture-retry.log",
+      "bytes": 6570,
+      "sha256": "0f18e8ae00312ce804635446dc2feb75284d10f87104256ef62c5515d45fd6ee"
+    },
+    {
+      "path": "build/static-shape-block-20261001/focused.log",
+      "bytes": 96392,
+      "sha256": "47ce826efd7fd41841f082038663a580ca43e1b1e2302a2e993a45b25755a45f"
+    },
+    {
+      "path": "build/static-shape-block-20261001/package.log",
+      "bytes": 10806,
+      "sha256": "259e0e38aeada90a2631d2d3209ee39c4c9314ac0dc8c87aa385650b2d2fd71c"
+    },
+    {
+      "path": "build/static-shape-block-20261001/package.ps1",
+      "bytes": 591,
+      "sha256": "6769cc55905d40ee7435ad6e1d85598121bb3ffed4f80780c1f52179e1222287"
+    },
+    {
+      "path": "build/static-shape-block-20261001/regression.ps1",
+      "bytes": 2398,
+      "sha256": "0f7cd6997a6e6695e76d7f400ac72daaf28ea1333366e08e6cead861f2744de3"
+    },
+    {
+      "path": "build/static-shape-block-20261001/regression-final.log",
+      "bytes": 394978,
+      "sha256": "96a6a64a18668274fe6ca263bf1a36cc19856fe505fbfef3377e544800be567a"
+    },
+    {
+      "path": "build/static-shape-block-20261001/regression-first.log",
+      "bytes": 395100,
+      "sha256": "49d70f1b341d197cd80a5194c670289c17b84f0e73e57f02c6627919beeed67e"
+    },
+    {
+      "path": "build/static-shape-block-20261001/regression-first-results/TEST-dev.legacybridge.converter.conversion.AdapterContractIntegrationTest.xml",
+      "bytes": 2935,
+      "sha256": "c179427d3b180e8a79d9c5de8ee4a48390adda32834eefa02cf7575e09666452"
+    },
+    {
+      "path": "build/static-shape-block-20261001/regression-second.log",
+      "bytes": 392456,
+      "sha256": "cd0ddb84f53f6ede6467453cabc806952a2eb0298f7e6f71cda9f5f5bc42d4de"
+    },
+    {
+      "path": "build/static-shape-block-20261001/two-slices.log",
+      "bytes": 127638,
+      "sha256": "210a1f7fe7b68ab36d037d3b4e03a8e8507af4299c86a4aec3bf00447d7e4f9e"
+    },
+    {
+      "path": "fixtures/static-shape-block-1.16.5/build/test-results/test/TEST-dev.legacybridge.fixture.staticshapeblock.StaticShapeBlockFixtureArtifactTest.xml",
+      "bytes": 1055,
+      "sha256": "f451ed73a39473c402b798c666c6aa76b57fd3d0d6a081aa8b39ea8edb065ba7"
+    },
+    {
+      "path": "fixtures/static-shape-drop-1.16.5/build/test-results/test/TEST-dev.legacybridge.fixture.staticshapedrop.StaticShapeDropFixtureArtifactTest.xml",
+      "bytes": 1229,
+      "sha256": "abebf7a1631e9dfc60bc57388bda824f168d2991143010d92902e6a8f6f1347b"
+    },
+    {
+      "path": "build/static-shape-block-20261001/contract.log",
+      "bytes": 22598,
+      "sha256": "17eb140ebb82581d36fa9d245cb848b8c0713d7f83c347900cf27d4362635f3a"
+    },
+    {
+      "path": "legacy-corpus/build/test-results/test/TEST-dev.legacybridge.corpus.PromptContractVerifierTest.xml",
+      "bytes": 9786,
+      "sha256": "b6f54d22d7767acca2b1966cd0b378e149752d87739e22ee92342f250d2ced15"
+    },
+    {
+      "path": "build/static-shape-block-20261001/closeout.log",
+      "bytes": 11664,
+      "sha256": "ea1a5afd47c7e8701c1f6bb326973ad75102adca6654ebc5cf72c0e2d8e1d6fa"
+    }
+  ]
+}

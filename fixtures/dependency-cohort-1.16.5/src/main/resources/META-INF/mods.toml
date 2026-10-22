@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+[[mods]]
+modId="lb_cohort_library"
+version="1.0.0"
+displayName="LegacyBridge Cohort Library Fixture"
+description="Authored source-linkage fixture, not a converted release."
+[[dependencies.lb_cohort_library]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.lb_cohort_library]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"

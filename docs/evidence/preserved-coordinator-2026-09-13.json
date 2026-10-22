@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_PRESERVED_INSTALL_COORDINATOR_EVIDENCE",
+  "reviewedAt": "2026-09-13",
+  "contract": {
+    "prompt": "LB-01",
+    "cut": "PRODUCT-COMPOSED",
+    "slice": "PRESERVED_INSTALL_COORDINATOR",
+    "implementation": "IMPLEMENTED_STATIC",
+    "acceptance": "PARTIAL"
+  },
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "e5a0d7e70bb2c3915d5142e6d8653624d91ea50fc8a6a6c7cb45b0735a5b640f",
+    "bytes": 1554835,
+    "entries": 636,
+    "unchanged": 613,
+    "changed": [
+      "dev/legacybridge/product/controller/ConversionController$1.class",
+      "dev/legacybridge/product/controller/ConversionController$2.class",
+      "dev/legacybridge/product/controller/ConversionController$ControllerFailure.class",
+      "dev/legacybridge/product/controller/ConversionController$InstallationObservation.class",
+      "dev/legacybridge/product/controller/ConversionController$InstallView.class",
+      "dev/legacybridge/product/controller/ConversionController$JobRecord.class",
+      "dev/legacybridge/product/controller/ConversionController$Phase.class",
+      "dev/legacybridge/product/controller/ConversionController$View.class",
+      "dev/legacybridge/product/controller/ConversionController.class"
+    ],
+    "added": [
+      "dev/legacybridge/product/controller/ConversionController$PreservedOperations.class",
+      "dev/legacybridge/product/controller/ConversionController$PreservedReceiptWriter.class",
+      "dev/legacybridge/product/controller/ConversionController$PreservedReview.class",
+      "dev/legacybridge/product/controller/ConversionController$RealPreservedOperations.class",
+      "dev/legacybridge/product/controller/PreservedInstallSelection$Recovery.class",
+      "dev/legacybridge/product/controller/PreservedInstallSelection.class",
+      "dev/legacybridge/product/controller/PreservedInstallView$State.class",
+      "dev/legacybridge/product/controller/PreservedInstallView.class",
+      "dev/legacybridge/product/history/PreservedInstallReceipts$Action.class",
+      "dev/legacybridge/product/history/PreservedInstallReceipts$History.class",
+      "dev/legacybridge/product/history/PreservedInstallReceipts$Receipt.class",
+      "dev/legacybridge/product/history/PreservedInstallReceipts$Refused.class",
+      "dev/legacybridge/product/history/PreservedInstallReceipts$Status.class",
+      "dev/legacybridge/product/history/PreservedInstallReceipts.class"
+    ],
+    "removed": [],
+    "unexpectedChanges": []
+  },
+  "previousArtifact": {
+    "path": "build/preserved-coordinator-20260913/LegacyBridge-baseline.jar",
+    "sha256": "8dbd54f4e6139a223e1e8d6665e2818baf3c0877189b0ec9ea607034857f3a35",
+    "bytes": 1525546,
+    "entries": 622
+  },
+  "implementation": [
+    "Explicit developer factory; ordinary public controller remains disabled for preserved operations",
+    "Fresh typed admission review and single-use current-controller confirmation",
+    "Same bounded coordinator, installation reservation and orderly-shutdown lease for both installer routes",
+    "Current trusted session sampled at acceptance and dispatch; changed session/world/provider refusal",
+    "Actual PreservedAddOnlyInstaller apply/inspect/restore calls; no fake simple-content job or TransactionResult",
+    "Separate no-overwrite forced presentation receipt schema 1 and bounded inert history; old schemas/readers unchanged",
+    "Receipt failures preserve authoritative installation outcome and deny safe close"
+  ],
+  "authoredInputs": {
+    "original": {
+      "path": "fixtures/logic-preservation-1.16.5/build/libs/legacybridge-logic-1.16.5-1.0.0.jar",
+      "sha256": "49dfbd7c65918c16ce8c057df992f7e9b7c188a3fe5634adb42bb1bc5dbfc19f"
+    },
+    "candidate": {
+      "path": "build/logic-preserving-v1/converted.jar",
+      "sha256": "78de0e2fd62ed83315518a1980ae0738b354531736a5eea73195d332aecc186d"
+    },
+    "data": {
+      "path": "build/logic-preserving-v1/mapping-bundle",
+      "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb",
+      "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION"
+    },
+    "classesExecuted": false,
+    "platformDeclaration": "SYNTHETIC_INERT_TEST_METADATA_NOT_FORGE_EXECUTION"
+  },
+  "validation": {
+    "product": {
+      "status": "PASSED",
+      "cases": 83,
+      "newCases": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": [
+        {
+          "name": "dev.legacybridge.product.history.PreservedInstallReceiptsTest",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "2.707"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.PreservedInstallCoordinatorTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "31.77"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.JobInstallationReceiptTest",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "14.245"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.JobHistoryControllerTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "2.324"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.InstallationShutdownBarrierTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "0.602"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.InstallationControllerTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "0.113"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.ConversionQueueTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "22.983"
+        },
+        {
+          "name": "dev.legacybridge.product.controller.ConversionControllerTest",
+          "tests": 19,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": "3.536"
+        }
+      ]
+    },
+    "build": {
+      "status": "PASSED",
+      "duration": "3m31s",
+      "tasks": 52,
+      "executed": 18,
+      "upToDate": 34,
+      "scope": [
+        "all-module assemble",
+        "public JAR audit",
+        "runtime JAR audit",
+        "engine consumer boundary",
+        "installed CLI help smoke",
+        "prompt contract structure verifier"
+      ],
+      "corpusTests": "UP_TO_DATE in this build; post-documentation cleanTest/test rerun: 77 cases, 75 passed, two Windows symlink-privilege skips, zero failures/errors.",
+      "contractCloseout": {
+        "status": "PASSED",
+        "duration": "1m22s",
+        "tasks": 51,
+        "executed": 17,
+        "upToDate": 34,
+        "current": "LB-04/UI-PROMOTION",
+        "log": "build/preserved-coordinator-20260913/contract-closeout.log",
+        "logSha256": "594087f11f9db448e175474a0acff8fe5d058953b85221f28b5ae9d6380dfb7c",
+        "publicJarHashUnchanged": true
+      }
+    },
+    "logs": [
+      {
+        "path": "build/preserved-coordinator-20260913/compile.log",
+        "sha256": "ae4964f144a3a62a01e1705fe59c100415d5ee0d07b8f135c7dd7e73aaaa8c74"
+      },
+      {
+        "path": "build/preserved-coordinator-20260913/focused.log",
+        "sha256": "2aafb78a7f5771d9b842664a6424d7f92b45e761f33f39844606dfb85abee5a5"
+      },
+      {
+        "path": "build/preserved-coordinator-20260913/fixed.log",
+        "sha256": "a0ea31d343241d16206ab195325fd4563345f2709690e6b0abb9504085fd6167"
+      },
+      {
+        "path": "build/preserved-coordinator-20260913/final-build.log",
+        "sha256": "183508ba3509fcb48d10a1107eb25dc129407bdf840e375d33b89c82cb560e33"
+      },
+      {
+        "path": "build/preserved-coordinator-20260913/worker-threads.log",
+        "sha256": "8e7c400c1875da757d50392333f36a42f6432aa0650418f8bb83a0049882b572"
+      }
+    ],
+    "earlierAttempts": [
+      {
+        "log": "build/preserved-coordinator-20260913/focused.log",
+        "cases": 83,
+        "failures": 18,
+        "cause": "Synthetic refusal receipts exposed dependence on a missing admission directory in CanonicalReportWriter protectedInput. Corrected to trusted root with fresh canonical no-overwrite destination; explicit force added.",
+        "retained": "build/preserved-coordinator-20260913/initial-results/receipts.xml"
+      },
+      {
+        "log": "build/preserved-coordinator-20260913/fixed.log",
+        "cases": 83,
+        "failures": 6,
+        "cause": "Existing simple-controller/history tests hit unchanged 15-second deadlines. A test-worker thread capture observed class-loader FileInputStream.readBytes in the existing embedded-data path; no complete OS root-cause claim. Repeated full selection unchanged; all 83 passed.",
+        "retained": "build/preserved-coordinator-20260913/timeout-results",
+        "thresholdsChanged": false
+      }
+    ]
+  },
+  "native": {
+    "client": "NOT_RUN",
+    "server": "NOT_RUN",
+    "ui": "NOT_RUN",
+    "activation": "NOT_OBSERVED",
+    "behavior": "NOT_RUN",
+    "multiplayer": "NOT_RUN",
+    "currentArtifactOutsideProjectJvm": "NOT_RUN",
+    "historicalProcessRecovery": "Previous 8dbd54... artifact evidence only; not transferred"
+  },
+  "unchanged": {
+    "publicSimpleProfile": true,
+    "engineAndSixProfiles": true,
+    "allRuntimeBytesAndAbi": true,
+    "allInstallerAndJournalBytes": true,
+    "oldHistoryReaderBytes": true,
+    "nativeUiBytes": true,
+    "embeddedDataLibrariesAndServices": true,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "licenseChanged": false,
+    "billing": false,
+    "downloadedMods": false,
+    "published": false
+  },
+  "limits": [
+    "One preserved admission at a time, developer opt-in only; no public composition/cohort/preserved update promotion",
+    "Trusted host must supply a current thread-safe nonblocking session and enforce world/connect/exit exclusion; native host wiring is next, not implemented here",
+    "Review and accepted installation are noncancellable; cooperative installer bounds and orderly shutdown lease are not hard OS/RSS/power-loss guarantees",
+    "History bounded to 1024 entries/128 receipts/64 KiB per file/2 MiB/10 seconds; first bad input yields partial, no latest ordering or approval",
+    "No new current-JAR offline/runtime/cacheless claim; full local reviewed data remains separately required for this developer preserved profile"
+  ],
+  "next": {
+    "prompt": "LB-04",
+    "cut": "UI-PROMOTION",
+    "slice": "PRESERVED_DEVELOPER_SCREEN",
+    "gamesAuthorized": false,
+    "publicPromotionAuthorized": false
+  }
+}

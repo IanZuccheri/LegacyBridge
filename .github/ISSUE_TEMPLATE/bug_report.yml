@@ -1,0 +1,65 @@
+name: Bug report
+description: Report an unexpected failure in an implemented LegacyBridge operation.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        LegacyBridge is experimental. A documented UNSUPPORTED result may be a compatibility request rather than a bug.
+        Do not upload private mod JARs, full mapping/API bundles, credentials or unredacted personal logs.
+        For security-sensitive issues, use private vulnerability reporting if enabled, or request a private contact without posting an exploit.
+  - type: input
+    id: bridge_version
+    attributes:
+      label: LegacyBridge version and artifact SHA-256
+      description: Include the release/tag or commit and the hash of the actual JAR.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Minecraft, exact Forge build, Java, OS, client/server and relevant other mods. Do not paste launcher arguments or tokens.
+    validations:
+      required: true
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Affected operation
+      options:
+        - Inventory or analysis
+        - Planning or conversion
+        - Installation or recovery
+        - Client interface
+        - Next-launch discovery or gameplay
+        - Developer tooling
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Numbered steps, expected result and actual result. Identify whether anything was installed or active in a world.
+    validations:
+      required: true
+  - type: textarea
+    id: source_identity
+    attributes:
+      label: Input identity and permissions
+      description: If relevant, give the exact original mod version, SHA-256 and official source/release URL, or an original minimal fixture. A public download is not redistribution permission.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Diagnostics and evidence
+      description: Copy the error code and relevant redacted report/log excerpts. Distinguish build, conversion, discovery and gameplay outcomes; do not present a screenshot mockup as game evidence.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked existing issues and the documented supported profile.
+          required: true
+        - label: I removed credentials and personal/private data, and have permission to share every attachment.
+          required: true

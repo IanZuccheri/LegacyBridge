@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_NATIVE_HANDSHAKE_CONTINUATION",
+  "date": "2026-09-07",
+  "status": "PARTIAL_TARGET_HANDSHAKE_EVIDENCE",
+  "currentSlice": "NET-QA-02-HANDSHAKE",
+  "currentObligation": "CLIENT_ABSENT_NEGOTIATION_INVESTIGATION",
+  "parentGateComplete": false,
+  "allPromptsComplete": false,
+  "nextGateAfterHandshake": "NET-QA-02-COMPARISON",
+  "source": {
+    "minecraft": "1.16.5",
+    "forge": "36.2.42"
+  },
+  "target": {
+    "minecraft": "1.20.1",
+    "forge": "47.4.23",
+    "java": "17.0.12"
+  },
+  "runtimeIdentity": "legacybridge_runtime",
+  "adapterVersion": "0.1.1-SNAPSHOT",
+  "publicSha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88",
+  "originalSha256": "a5843c3dc1a0364a56220cceb9b1d3de8b0511d4941b2463e5a75ce5f838a33e",
+  "convertedSha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f",
+  "conversionReportSha256": "529f972bbeb23f6f3ab56921f53dc098c389b15021e6b636b30b13a294ee66ae",
+  "probeSha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746",
+  "publicBytes": 1190628,
+  "probeBytes": 25034,
+  "publicBytesChanged": false,
+  "conversionRulesChanged": false,
+  "newCompatibilityEnabled": false,
+  "simpleContentV1Changed": false,
+  "originalExecuted": false,
+  "sourceRuntimeComparison": "NOT_RUN",
+  "publicOnlyGui": "NOT_RUN",
+  "offlineGame": "NOT_TESTED",
+  "crossVersionPlay": "UNSUPPORTED",
+  "corpusVersionChanged": false,
+  "newRealModsObtained": false,
+  "wholeRealModPortsValidated": 0,
+  "cases": [
+    {
+      "scenario": "MATCHED",
+      "status": "PASSED",
+      "runLabel": "handshake-matched2",
+      "elapsedSeconds": 84,
+      "client": {
+        "sequence": 1,
+        "value": 427,
+        "accepted": 1,
+        "rejected": 0,
+        "applicationThreadMatchesNativeClient": true
+      },
+      "nativeChannelAcceptances": 2,
+      "processExitCodes": [
+        0,
+        0
+      ],
+      "serverSaved": true
+    },
+    {
+      "scenario": "CLIENT_ABSENT",
+      "status": "FAILED_NO_NATIVE_VERSION_DECISION",
+      "runLabels": [
+        "handshake-client-absent1",
+        "handshake-client-absent2"
+      ],
+      "fixtureOnValidatingServerOnly": true,
+      "logins": 0,
+      "fixtureEffects": 0,
+      "clientScreen": "net.minecraft.client.gui.screens.DisconnectedScreen",
+      "serverDispatchesObserved": 22,
+      "clientLoginWrapperReceiveLogs": 0,
+      "nativeExpectedRejections": 0,
+      "causeEstablished": false,
+      "automaticRetryConfigured": false
+    },
+    {
+      "scenario": "CLIENT_PROTOCOL",
+      "status": "NOT_RUN"
+    },
+    {
+      "scenario": "SERVER_ABSENT",
+      "status": "NOT_RUN"
+    },
+    {
+      "scenario": "SERVER_PROTOCOL",
+      "status": "NOT_RUN"
+    }
+  ],
+  "correctedHarnessFailure": {
+    "runLabel": "handshake-matched1",
+    "cause": "WINDOWS_SHARING_VIOLATION_READING_FINISH_MARKER_WHILE_EXCLUSIVE_WRITER_WAS_OPEN",
+    "partialSnapshotDelivered": true,
+    "overallRuntimePass": false,
+    "correction": "FORCED_CREATE_NEW_TEMPORARY_CLOSED_BEFORE_SAME_DIRECTORY_NO_REPLACE_RENAME",
+    "swallowedExceptions": false,
+    "deadlinesChanged": false,
+    "probeBytesChangedByCorrection": false,
+    "fixedRun": "handshake-matched2"
+  },
+  "observationScope": "Per-role PASSED fields certify local observations only; final handshake PASS additionally requires the independent ordered native version/channel/termination log oracle. Generic disconnection or timeout never satisfies that oracle.",
+  "diagnostics": {
+    "ownedRun": "handshake-client-absent2",
+    "command": "jcmd <verified-owned-pid> Thread.print -l",
+    "accountOrCommandLineDumpRequested": false,
+    "threadSamples": 2,
+    "observation": "Sampled Netty threads were waiting in WEPoll; native game loops were running/waiting normally and QA workers were sleeping. This sample does not establish the negotiation failure cause.",
+    "platformClassesModified": false,
+    "protocolOrPredicateModified": false,
+    "internetSearchYieldedVerifiedCause": false
+  },
+  "sourceEvidence": [
+    {
+      "role": "source",
+      "sourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+      "apis": [
+        "NetworkRegistry.ABSENT/validateChannels",
+        "FMLHandshakeHandler"
+      ]
+    },
+    {
+      "role": "target",
+      "sourcesSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+      "apis": [
+        "NetworkRegistry.ABSENT.version()/validateChannels",
+        "HandshakeHandler",
+        "ClientHandshakePacketListenerImpl.handleCustomQuery/onDisconnect",
+        "ConnectScreen.startConnecting/tick",
+        "Connection.channelActive/setProtocol/sendPacket/connect",
+        "NetworkHooks.registerClientLoginChannel/onCustomPayload"
+      ]
+    },
+    {
+      "role": "target_logging",
+      "entry": "log4j2.xml in exact local fmlloader 1.20.1-47.4.23",
+      "observedProperty": "forge.logging.mojang.level",
+      "defaultValue": "info",
+      "changedInNativeRuns": false,
+      "note": "The configuration explicitly warns that DEBUG activates Mojang isDebugEnabled behavior. Any diagnostic use must be explicit and separately recorded."
+    }
+  ],
+  "builds": [
+    {
+      "path": "build/network-snapshot-v1/handshake-probe-build1.log",
+      "sha256": "aa49c8e4abf8bfa0b029c15400a9c3cc5e79b9f83d8036bafd171a28522db01b",
+      "status": "PASSED",
+      "freshInertJavaTests": 7,
+      "elapsedSeconds": 20
+    },
+    {
+      "path": "build/network-snapshot-v1/handshake-probe-build2.log",
+      "sha256": "9203480d193f5b3199ae8142a344c39de6d67f2c92c7c90c0016fad664d86aad",
+      "status": "PASSED",
+      "freshInertJavaTests": 7,
+      "elapsedSeconds": 16,
+      "after": "SERVER_FINISH_WAIT_FOR_NATIVE_DISCONNECT"
+    },
+    {
+      "path": "build/network-snapshot-v1/handshake-root-build1.log",
+      "sha256": "5de3707d5a1ec0bb494107097653cf53fbbd6dad2c112a3799a397ee0556cf6b",
+      "status": "PASSED",
+      "elapsedSeconds": 76,
+      "javaTests": "UP_TO_DATE",
+      "freshHandshakeOracleCases": 128,
+      "freshNetworkOracleCases": 186,
+      "freshInstallationCases": 81
+    },
+    {
+      "path": "build/network-snapshot-v1/handshake-root-build2.log",
+      "sha256": "66db7dcf52c512566792883b8d31aa9b28812b4936625323be5eb0ab84906fe7",
+      "status": "PASSED",
+      "elapsedSeconds": 79,
+      "javaTests": "UP_TO_DATE",
+      "freshHandshakeOracleCases": 128,
+      "freshHandshakeMarkerFilesystemCases": 6,
+      "freshNetworkOracleCases": 186,
+      "freshInstallationCases": 81,
+      "after": "ATOMIC_FIXED_MARKER_PUBLICATION"
+    }
+  ],
+  "currentOwnedJavaProcesses": [],
+  "retainedRuns": [
+    {
+      "runLabel": "handshake-matched1",
+      "status": "FAILED_OR_INCOMPLETE",
+      "files": [
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/executed-Test-NetworkHandshake.ps1",
+          "sha256": "87af96a0cd412ff58ae18dc779a8432b966473fe785d51ea335f7ed07409ceef",
+          "bytes": 25059
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/handshake-failure.json",
+          "sha256": "4adc064bea36ad019382048d24acc89875478edc48bcf4cdaf08a7c23ef4136e",
+          "bytes": 248
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/preparation-receipt.json",
+          "sha256": "e038acb3b2f138f7f67fcc8bdbfc0e95d4e1e51f026ff756e78146926a29d19e",
+          "bytes": 1087607
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/control/a/ready.json",
+          "sha256": "f9230744abdfe0dfa1535bd2be5ad2ee0afd288c71aca9ac75ee2a1d9f1d52b3",
+          "bytes": 332
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/control/a/result.json",
+          "sha256": "07cc5019871a5cad0be99b52280de7a53ac40dbfb9dde092f6dc79d6520b9898",
+          "bytes": 342
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/control/server/ready.json",
+          "sha256": "e1b7a704ee4f6255b742f13233ed6f10dd73a6450de4ec9fdcf2ddbf70209ad7",
+          "bytes": 263
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/server/qa-stdout.log",
+          "sha256": "2ace912eff7d0ee22dcfdcd7c89f82c111eac701fb8b31cc31040b1971af1b55",
+          "bytes": 11891
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/server/qa-stderr.log",
+          "sha256": "68b584518d201247ccd693953e6304361362bfdb0999be48ede6425479e49aab",
+          "bytes": 1149
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/server/logs/debug.log",
+          "sha256": "37db4d4c3da75ed13faa60dc7f5b1949f9f1b9b13b1fec9b2d5200cf976b78c0",
+          "bytes": 107911
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/client-a/qa-stdout.log",
+          "sha256": "e82f83ca0a35ae6945e0ae1c2546b525f36d4b4d0c6f7a4232ebf891dc6c85a8",
+          "bytes": 10173
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/client-a/qa-stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/client-a/logs/debug.log",
+          "sha256": "beaf025b1ff8de453dca0be81deaacf65240b2336100e8d15621764b0b7ccaf9",
+          "bytes": 99497
+        }
+      ],
+      "installedArtifacts": [
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/server/mods/converted.jar",
+          "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/server/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/server/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/client-a/mods/converted.jar",
+          "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/client-a/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched1/client-a/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        }
+      ]
+    },
+    {
+      "runLabel": "handshake-matched2",
+      "status": "PASSED",
+      "files": [
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/handshake-receipt.json",
+          "sha256": "c3d1e7d804e1e00758765736286be9c4698eb65ea5cc6c3509880d7d6fb82611",
+          "bytes": 9419
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/preparation-receipt.json",
+          "sha256": "428c151de283f0e3fa1759c69a2511799aa850b9156f0a08d4b354989e952bfa",
+          "bytes": 1087607
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/control/a/ready.json",
+          "sha256": "f9230744abdfe0dfa1535bd2be5ad2ee0afd288c71aca9ac75ee2a1d9f1d52b3",
+          "bytes": 332
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/control/a/result.json",
+          "sha256": "07cc5019871a5cad0be99b52280de7a53ac40dbfb9dde092f6dc79d6520b9898",
+          "bytes": 342
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/control/server/ready.json",
+          "sha256": "e1b7a704ee4f6255b742f13233ed6f10dd73a6450de4ec9fdcf2ddbf70209ad7",
+          "bytes": 263
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/control/server/result.json",
+          "sha256": "624b94fb401d26693ebd49c48b5d6cf1f3b9a478b175ba8f4a8e372cd39aafc1",
+          "bytes": 264
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/server/qa-stdout.log",
+          "sha256": "56814b6c5db2bf405b22f3ddcec0824b4e7ec6d60b33b50a82f897302afd27f2",
+          "bytes": 11870
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/server/qa-stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/server/logs/debug.log",
+          "sha256": "49486c8358b56c6d9468e0f0921e641ba4c80108dbe09abd3dd886ebf443d076",
+          "bytes": 107875
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/client-a/qa-stdout.log",
+          "sha256": "73d7ca7da8d1bfaff697c9ca62572f4fe075964c3f996e6945f4730a3fdf55b6",
+          "bytes": 10174
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/client-a/qa-stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/client-a/logs/debug.log",
+          "sha256": "9e30a2a5481ed7ab576f9f4cd3d9664dc7772bb9ba0e02263d53063f88889d53",
+          "bytes": 99804
+        }
+      ],
+      "installedArtifacts": [
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/server/mods/converted.jar",
+          "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/server/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/server/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/client-a/mods/converted.jar",
+          "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/client-a/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-matched2/client-a/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        }
+      ]
+    },
+    {
+      "runLabel": "handshake-client-absent1",
+      "status": "FAILED_OR_INCOMPLETE",
+      "files": [
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/handshake-failure.json",
+          "sha256": "a0aa8ac6aaa46107268aa42c24daeb576486b0544471e592e528222032fe260f",
+          "bytes": 260
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/preparation-receipt.json",
+          "sha256": "b7cb0b9d55bcafb6e61f7ef4f4f252eadf1301fb1e87c5e072bd9e41bcbee874",
+          "bytes": 1087613
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/control/a/ready.json",
+          "sha256": "ea3dba2e63f6f53b2adadebe1c4bdbf22ba1fdba3fe0ef2c25f055be55dd15aa",
+          "bytes": 273
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/control/a/result.json",
+          "sha256": "77fdcb8e0d392e04b1eb683ba36a1a821b6ffeb616af7d220fd000c14fef2a03",
+          "bytes": 280
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/control/server/ready.json",
+          "sha256": "bf6100bd0d0bccbcc12b783569f150c266987e609f41c78fe9f344979291babb",
+          "bytes": 269
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/control/server/result.json",
+          "sha256": "ace6de15cec5e3276a7db949c3905ab1f00e8ff8d0dd00688b6e9a1cb3b759c6",
+          "bytes": 270
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/server/qa-stdout.log",
+          "sha256": "4a8750d053449fd0210e8c73ca841c478bd1163243b1cb64ab205fbc8c531f34",
+          "bytes": 12114
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/server/qa-stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/server/logs/debug.log",
+          "sha256": "c63e97129e64ac13186abba63a158a4f327cc253ca5a00ea1e9d9203da3c1052",
+          "bytes": 94558
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/client-a/qa-stdout.log",
+          "sha256": "b2bbce83961382833ca69e0af069729803f4b63ffe9fac8dd2195cc75b4c2278",
+          "bytes": 10049
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/client-a/qa-stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/client-a/logs/debug.log",
+          "sha256": "8d3f50951ece61d28c24f7599ad3d7c453de1e58ee2f0cd59a620a7010da698c",
+          "bytes": 81904
+        }
+      ],
+      "installedArtifacts": [
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/server/mods/converted.jar",
+          "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/server/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/server/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/client-a/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent1/client-a/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        }
+      ]
+    },
+    {
+      "runLabel": "handshake-client-absent2",
+      "status": "FAILED_OR_INCOMPLETE",
+      "files": [
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/handshake-failure.json",
+          "sha256": "ac79107df8239d5d0402657238f06084b528d304882e09e786ad9a14fc2dc6da",
+          "bytes": 260
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/preparation-receipt.json",
+          "sha256": "a236e8d220c39c897dd295078515f28bbe0cf04cf73be8395b793669ef2de060",
+          "bytes": 1087613
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/control/a/ready.json",
+          "sha256": "ea3dba2e63f6f53b2adadebe1c4bdbf22ba1fdba3fe0ef2c25f055be55dd15aa",
+          "bytes": 273
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/control/a/result.json",
+          "sha256": "77fdcb8e0d392e04b1eb683ba36a1a821b6ffeb616af7d220fd000c14fef2a03",
+          "bytes": 280
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/control/server/ready.json",
+          "sha256": "bf6100bd0d0bccbcc12b783569f150c266987e609f41c78fe9f344979291babb",
+          "bytes": 269
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/control/server/result.json",
+          "sha256": "ace6de15cec5e3276a7db949c3905ab1f00e8ff8d0dd00688b6e9a1cb3b759c6",
+          "bytes": 270
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/server/qa-stdout.log",
+          "sha256": "2088f240a4978e3967f1bc4ca04ae81d8d88f89d1546221f492c9c55f907b9d9",
+          "bytes": 11909
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/server/qa-stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/server/logs/debug.log",
+          "sha256": "841dd89f5c4b0c84956413f62c0be5e30f2e1fc22b256be305bf3d3c204d1588",
+          "bytes": 94571
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/server/qa-thread-sample.txt",
+          "sha256": "1279da33830c080d7871415b2cf115b455d3107d9417d558abd6c4d94f866b8e",
+          "bytes": 73086
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/client-a/qa-stdout.log",
+          "sha256": "b862e1f14cd8ba96109aded193dca7a27c0185f6ac9843867b6dca83c1829ebf",
+          "bytes": 10049
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/client-a/qa-stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/client-a/logs/debug.log",
+          "sha256": "7b976099d5ee43bbd45fbf8d979115cbf308b13a6e63c4f8817d966b2c472a4e",
+          "bytes": 81904
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/client-a/qa-thread-sample.txt",
+          "sha256": "79453d8bce0a83d78ddc9bc118a34812db282342f3a5a9eefb74d8ffcacc29ef",
+          "bytes": 60160
+        }
+      ],
+      "installedArtifacts": [
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/server/mods/converted.jar",
+          "sha256": "18b00406492e6fb7ccba4ae799bda0165446b66fd538444619c1eeed69a3a91f"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/server/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/server/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/client-a/mods/legacybridge-network-handshake-probe-1.20.1-1.0.0.jar",
+          "sha256": "206422ba556b6a44a25e21108d73d62604cbbac52f6251ed6d566bb0a5a68746"
+        },
+        {
+          "path": "build/network-snapshot-v1/handshake-client-absent2/client-a/mods/LegacyBridge.jar",
+          "sha256": "8daae3478a1b59482c438b843311c4160b5bdc8e4721f8e6067a1a87b81bbf88"
+        }
+      ]
+    }
+  ],
+  "remaining": [
+    "Investigate CLIENT_ABSENT missing native handshake decisions without changing platform classes, weakening oracle or silently retrying.",
+    "Execute CLIENT_PROTOCOL/SERVER_ABSENT/SERVER_PROTOCOL in fresh installations; do not mark these passed from static tests.",
+    "Close NET-QA-02-COMPARISON with isolated original and converted native behavior.",
+    "NET-QA-03 queue/session/overload remains before capabilities.",
+    "Retain all other prompt-index obligations; new famous-mod acquisition remains INTAKE-FINAL only."
+  ],
+  "releaseStatus": "EXPERIMENTAL_BETA_NOT_APPROVED_FOR_PUBLICATION",
+  "finalBuild": {
+    "path": "build/network-snapshot-v1/handshake-final-build.log",
+    "sha256": "da0e07fc47b51ff835e9b53bbb6cbbbf4ced54839e1f2c9218f646e4a1f33a17",
+    "status": "PASSED",
+    "elapsedSeconds": 73,
+    "actionableTasks": 66,
+    "tasksExecuted": 21,
+    "tasksUpToDate": 45,
+    "javaTests": "UP_TO_DATE",
+    "freshHandshakeOracleCases": 128,
+    "freshHandshakeMarkerFilesystemCases": 6,
+    "freshNetworkOracleCases": 186,
+    "freshInstallationCases": 81,
+    "after": "NATIVE_ATTEMPTS_AND_DOCUMENTED_CURSOR"
+  },
+  "closeout": {
+    "baselineHashesPassed": true,
+    "ownedProcesses": [],
+    "finalBuildSha256": "da0e07fc47b51ff835e9b53bbb6cbbbf4ced54839e1f2c9218f646e4a1f33a17",
+    "validatedAtUtc": "2026-09-07T07:42:58.5828085Z",
+    "documentationLinks": "PASSED",
+    "powerShellAst": "PASSED",
+    "originalPublicConvertedAndPreviousNativeBaselineUnchanged": true
+  }
+}

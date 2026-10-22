@@ -1,0 +1,7 @@
+{
+  "bridge_ping": {
+    "sounds": [
+      { "name": "minecraft:block.note_block.pling", "type": "event" }
+    ]
+  }
+}

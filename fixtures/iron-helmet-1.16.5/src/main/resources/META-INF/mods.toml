@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_iron_helmet"
+version="1.0.0"
+displayName="LegacyBridge Iron Helmet Fixture"
+authors="LegacyBridge contributors"
+description='''Original Forge 1.16.5 semantic-audit fixture with one native iron helmet. Inherited occupied-slot swapping and equipment-stat differences remain unsupported for conversion.'''
+
+[[dependencies.legacybridge_iron_helmet]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_iron_helmet]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"

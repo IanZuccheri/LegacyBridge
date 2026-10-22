@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "legacybridge_datapack:block/bridge_block" }
+  }
+}

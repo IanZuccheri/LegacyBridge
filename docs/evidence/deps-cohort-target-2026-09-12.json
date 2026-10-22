@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-12",
+  "prompt": "LB-19",
+  "cut": "DEPS-COHORT",
+  "status": "PARTIAL",
+  "implementedSlice": "FINITE_TARGET_PAIR",
+  "baseline": {"sourceMinecraft": "1.16.5", "sourceForge": "36.2.42", "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": 17, "gradle": "8.8", "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT"},
+  "sourceApiAudit": {
+    "legacySourcesSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetJavaFmlSourcesSha256": "1d786de4b0701e82d871f3ed6ac663d1ffa443ca9af21e97ef6cfc3c263278c1",
+    "reRead": ["Mod.java and FMLModContainer.java in both exact archives", "javap -p -c -s Score and ConsumerMod from the actual originals", "Existing metadata graph, offline linkage/access and bounded archive implementations"],
+    "review": "Only unchanged @Mod declaration plus finite pinned JDK-only bodies. Public no-argument constructors; no static initializer or lifecycle-sensitive shared state. Forge36 classloader initialization and Forge47 module/context construction differ; native wiring not proven.",
+    "bodyMappingsAdded": false,
+    "automaticConfidencePromotion": false,
+    "references": ["https://docs.minecraftforge.net/en/1.20.1/gettingstarted/modfiles/", "https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-4.html"]
+  },
+  "explicitLocalData": {"path": "build/logic-preserving-v1/mapping-bundle", "manifestSha256": "0edd3ba641dbf858b7464096794a3caf4efca9d04ef4484a740a9599e9aec2bb", "redistribution": "LOCAL_USE_ONLY_NOT_APPROVED_FOR_REDISTRIBUTION", "bundledInPublicJar": false, "automaticDownloadOrCacheLookup": false},
+  "fixture": {
+    "path": "fixtures/dependency-cohort-1.16.5",
+    "rights": "Existing authored originals under repository all-rights-reserved license. No private/game binary redistributed.",
+    "librarySource": {"sha256": "7ccceb72ef6d1518310b21253acf18cff0502e8f06a892758ea254ae799f5cd4", "bytes": 2697, "classes": 2},
+    "consumerSource": {"sha256": "a67a24e331c1d81b5e85ce267c9d55e622294f01134cdc9cca8cdcad76e7e8f1", "bytes": 2272, "classes": 1},
+    "rebuiltThisTurn": false,
+    "originalHashesPreserved": true,
+    "sourceOrTargetCodeExecuted": false,
+    "bodyBytesUnchanged": true,
+    "expectedNotObserved": {"evaluate5": 17, "evaluate0": 2, "negative": "IllegalArgumentException"}
+  },
+  "privateCandidates": {
+    "result": "STATIC_PAIR_VALIDATED",
+    "library": {"sha256": "facd86ef056da22304c0e78fd2a892fda08f3a4d9e0142bfac6b63e255cff88b", "bytes": 2437, "entries": 5},
+    "consumer": {"sha256": "434d3010118fcde50c7c0783ae3f1ba3f7291466ba82c8324d91e244c48f97bd", "bytes": 1994, "entries": 4},
+    "targetGraphBothSides": "PASSED_METADATA_ONLY",
+    "targetAsm": "PASSED_REOPENED",
+    "targetLinkage": "PASSED_SCOPED_PER_ARTIFACT",
+    "changes": {"schemaVersion": 1, "resourceRewrites": 6, "classRewrites": 0, "confidence": "VERIFIED exact metadata operations only", "adapters": ["cohort.finite-metadata.v1", "cohort.finite-manifest.v1", "cohort.finite-bindings.v1"]},
+    "serializedAndReopened": true,
+    "scratchDeleted": true,
+    "outputJarExposed": false,
+    "publicationAllowed": false,
+    "installationAllowed": false,
+    "runtimeValidation": "NOT_RUN",
+    "proofPath": "build/deps-cohort-target-20260912/real-target-pair.json",
+    "proofSha256": "ff2de147ddf016b86762e3ca5df633cd326eb236d4eda00a7313ed26c28c413c"
+  },
+  "validation": {
+    "initialFocused": {"result": "PASS_WITH_ENVIRONMENT_SKIP", "skipped": 1, "log": "build/deps-cohort-target-20260912/focused-initial.log", "explanation": "The old real simple-content adapter integration requires verifyMappingEnvironment=true; it was enabled and passed in the final run. No code/test failure was observed."},
+    "finalFocused": {
+      "result": "PASS", "tests": 136, "passed": 136, "failed": 0, "errors": 0, "skipped": 0, "newTests": 25,
+      "converterTests": 130, "runtimeTests": 6,
+      "runtimeExecution": "The six runtime checks executed successfully in the initial invocation; final invocation reused UP-TO-DATE results. Counts are unique cases, not sums across invocations.",
+      "suites": {"CliEngineServiceTest": 12, "CohortInspectionCliTest": 11, "CohortInspectionEnvironmentTest": 4, "AdapterContractIntegrationTest": 7, "CohortTargetArchiveTest": 5, "CohortTargetPlannerEnvironmentTest": 15, "CohortSourceInspectorTest": 27, "DependencyGraphVerifierTest": 18, "OfflineLinkageVerifierTest": 31, "OfflineCompatibilityAdapterTest": 6},
+      "command": "gradlew.bat :legacy-converter:test --tests *Cohort*Test --tests *DependencyGraphVerifierTest --tests *OfflineLinkageVerifierTest --tests *CliEngineServiceTest --tests *AdapterContractIntegrationTest :legacy-runtime:test --tests *OfflineCompatibilityAdapterTest -PverifyMappingEnvironment=true -PcohortBundle=<explicit full bundle> -PcohortEvidence=build/deps-cohort-target-20260912 --max-workers=1 --console=plain",
+      "duration": "28s", "tasks": 17, "executed": 6, "upToDate": 11,
+      "log": "build/deps-cohort-target-20260912/focused-final.log", "logSha256": "90d74b093ae533704d71b0afec5e8dd85c1609f969ee4ae73562f3b102a55565",
+      "scope": "Focused headless tests, not full root/corpus/native campaign. Actual Forge-compiled originals are read-only data, never test classpath entries.",
+      "negativeCases": ["missing provider", "incomplete pair", "unreviewed valid body", "metadata version drift", "unknown resource", "selected hash mismatch", "second write failure", "reopened body or metadata tampering", "cancel after first candidate", "cancel during created scratch snapshot", "source drift at completion", "target API mismatch", "ordinary single-mod consumer conversion blocked", "corrupt ZIP", "unavailable scratch path"],
+      "writeFailureCoverage": "Simulated IOException on the second round trip and real nonexistent scratch-directory failure; not physical disk exhaustion or real Windows locked-file recovery.",
+      "cliServiceCanonicalJsonEqual": true,
+      "existingSimpleContentActualFixturePassed": true,
+      "existingCatalogEntrypointsConcreteInRuntimeJar": true
+    },
+    "package": {
+      "result": "PASS", "duration": "30s", "tasks": 48, "executed": 29, "upToDate": 19,
+      "command": "gradlew.bat assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-compat-api:verifyCompatibilityApiBoundary :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli --max-workers=1 --console=plain",
+      "log": "build/deps-cohort-target-20260912/package.log", "logSha256": "f37b28aaaae261e49bfe65a8553527e9562ec301b3c23226bf3b5bb102c786d4",
+      "validationProbesCompiledNotExecuted": true,
+      "finalMetadataRecheckLog": "build/deps-cohort-target-20260912/final-metadata-check.log"
+    },
+    "installedCliEmptyCaches": {
+      "result": "STATIC_PAIR_VALIDATED", "exit": 0,
+      "launcher": "Java17 directly on legacy-converter/build/install/legacy-converter/lib/*, main dev.legacybridge.converter.cli.LegacyBridgeCli plan-cohort",
+      "userHome": "build/deps-cohort-target-20260912/empty-user-home",
+      "gradleUserHome": "build/deps-cohort-target-20260912/empty-gradle-cache",
+      "bothDirectoriesRemainEmpty": true,
+      "explicitBundleUsed": true,
+      "candidateHashesMatchService": true,
+      "stdout": "build/deps-cohort-target-20260912/installed-cli-empty-cache.json",
+      "stdoutSha256": "26d4fa3c96e9092ab613a8e369e68f41c631f7aefc8d796c9b4be0e700516683",
+      "captureEncoding": "PowerShell Tee-Object UTF-16; JSON parsed with BOM detection, candidate hash equivalence checked separately from byte-canonical JUnit CLI parity.",
+      "limitation": "Empty per-process homes, not a host filesystem/network sandbox. No native Forge offline claim. Existing development caches were not removed or modified."
+    },
+    "nativeClient": "NOT_RUN", "nativeServer": "NOT_RUN", "behaviorComparison": "NOT_RUN", "multiplayer": "NOT_RUN", "fullRegressionCampaign": "DEFERRED"
+  },
+  "previousPublicArtifact": {"sha256": "362b6757cde2ec0a935ddbd3d0112b2060719f9881ab8a993f3f3e907dd83d45", "preservedPath": "build/deps-cohort-target-20260912/baseline-LegacyBridge.jar"},
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar", "sha256": "27f09773ec6b2a275269adb3c788ec99504659b9638d6283c4ffdf756822d6aa", "sizeBytes": 1373067, "entries": 557,
+    "entryHashComparison": {"unchanged": 545, "changed": 4, "added": 8, "removed": 0, "changedEntries": ["dev/legacybridge/converter/service/LegacyEngineService.class", "dev/legacybridge/converter/service/LegacyEngineService$1.class", "dev/legacybridge/runtime/compat/AdapterCatalog.class", "META-INF/legacybridge/adapters.json"], "addedScope": "CohortTargetPlanner plus nested types, CohortPlanningRequest and CohortMetadataAdapter", "existingProfilesRuntimeBodiesDataUiInstallerAndLibrariesUnchanged": true},
+    "catalogChange": "Three additive concrete OFFLINE entries; existing descriptors/revisions and required adapter subsets unchanged. Runtime ABI/version preserved, no gameplay shim added.",
+    "fixtureHarnessCliAndPrivateDataPackaged": false,
+    "nativeQualification": "NOT_RUN"
+  },
+  "restrictions": {"minecraftProcessesStarted": 0, "screenAutomationUsed": false, "publicProfilesAdded": false, "installerAdmissionChanged": false, "historicalEvidenceRebound": false, "newModsAcquired": false, "published": false},
+  "handoff": {"nextPrompt": "LB-01", "nextCut": "PRODUCT-COMPOSED", "nextSlice": "COHORT_TARGET_PREVIEW", "work": "Connect explicit multi-selection to the implemented typed private target plan with progress/cancellation, per-artifact proof and blockers. No CLI calls, duplicated recipes, new public profile or Apply authority. Native cohort acceptance remains pending.", "acceptancePrerequisitesUnchanged": true}
+}

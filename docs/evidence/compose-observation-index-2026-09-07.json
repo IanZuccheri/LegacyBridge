@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACY_COMPOSITION_OBSERVATION_INDEX",
+  "oracle": "composed-foil-cooking-v1",
+  "artifacts": {
+    "original": {
+      "path": "fixtures/composed-logic-recipes-1.16.5/build/libs/legacybridge-composed-logic-recipes-1.16.5-1.0.0.jar",
+      "sha256": "873013592b97449b9fffd3f569cc7b7fc3309fcc9b1d241f5a230d1d45731212",
+      "bytes": 7433
+    },
+    "candidate": {
+      "path": "build/composition-qa/run-20260907-export1/candidate.jar",
+      "sha256": "328c475e98e80c022aeb044d55cdf1b375e62db89c0602da8fc3c00fb495eca2",
+      "bytes": 5913
+    },
+    "proof": {
+      "path": "build/composition-qa/run-20260907-export1/proof.json",
+      "sha256": "ea1624ac6ff59363272da0b04f1f94a11f11a9324cde35591bf41db0e193b2d1",
+      "bytes": 107831
+    },
+    "receipt": {
+      "path": "build/composition-qa/run-20260907-export1/receipt.json",
+      "sha256": "ed976a181fac59e2453d3dd110db6c0d89b3d7565a22e37d6df4ab4bf508e9bd",
+      "bytes": 506
+    },
+    "runtime": {
+      "path": "legacy-product/build/libs/LegacyBridge.jar",
+      "sha256": "4e74a86169bb05d8ce299c000d4945c1bcf3746f53c8b3684ee37fe67a9b1b84",
+      "bytes": 1280333
+    }
+  },
+  "runs": null
+}

@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+[[mods]]
+modId="legacybridge_composed"
+version="1.0.0"
+displayName="LegacyBridge Composed Logic Recipes Fixture"
+description="Authored static composition fixture; not a released converted mod."
+[[dependencies.legacybridge_composed]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.legacybridge_composed]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"

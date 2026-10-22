@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_helmet_dispenser"
+version="1.0.0"
+displayName="LegacyBridge Iron Helmet Dispenser Fixture"
+authors="LegacyBridge contributors"
+description='''Original Forge 1.16.5 fixture: native iron helmet and direct dispenseArmor helper. Scenario declarations are not execution evidence; conversion remains unsupported.'''
+
+[[dependencies.legacybridge_helmet_dispenser]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_helmet_dispenser]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"

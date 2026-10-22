@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="legacybridge_attr_durable"
+version="1.0.0"
+displayName="LegacyBridge Item Attribute Durability Fixture"
+authors="LegacyBridge contributors"
+description='''Original Forge 1.16.5 fixture with a plain owned Item and immutable MAINHAND attribute modifiers. Durability 128 and iron-ingot repair eligibility; no sword, tier, tool, wear-on-hit/mining, event or player-state behavior.'''
+
+[[dependencies.legacybridge_attr_durable]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.42,37)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.legacybridge_attr_durable]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"

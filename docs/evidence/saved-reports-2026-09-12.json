@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACY_SAVED_REPORTS_EVIDENCE",
+  "reviewedAt": "2026-09-12",
+  "prompt": "LB-04",
+  "cut": "UI-SAVED-REPORTS",
+  "cutStatus": "PARTIAL",
+  "implementedSlice": "BOUNDED_SAVED_REPORT_VIEW; PERSISTENT_INDEX_V1",
+  "nextDevelopment": "LB-05 / INSTALL-PROMOTION: finite independent admission, not public enablement of composed Apply",
+  "baseline": {
+    "sourceMinecraft": "1.16.5", "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1", "targetForge": "47.4.23", "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime", "runtimeVersion": "0.1.1-SNAPSHOT",
+    "sourceApiArchiveSha256": "bbe2d148f96694271c43fc2ba584463d75d9ffc490abd0469ae66b831293d376",
+    "targetApiArchiveSha256": "4bd6656a7cbe3809da68f3b709ca0f2fa186575f58538668c58ce30cb38c4932",
+    "sourcePolicy": "Exact locally prepared source bytes consulted only for development; never bundled. Target Screen/GUI APIs, not a legacy GUI conversion rule. See P4_UI_API_BASELINES.md and PRODUCT_API_BASELINES.md."
+  },
+  "implementation": {
+    "savedIndexSchema": 1,
+    "jobReceiptSchemasUnchanged": [1, 2],
+    "conversionAndTransformationSchemasChanged": false,
+    "installationJournalChanged": false,
+    "readOnly": true,
+    "originalClassesExecuted": false,
+    "newConversionProfiles": 0,
+    "applyAuthorityRestored": false,
+    "limits": {"reportBytes": 1048576, "indexBytes": 16384, "receiptBytes": 65536, "reportsPerIndex": 3, "pageUtf16Units": 4096, "surrogateBoundaryExtraUnits": 1, "cooperativeSeconds": 10},
+    "trustLimit": "Hash integrity is not authenticity; no OS sandbox, global external hardlink enumeration, hard heap isolation or blocking-I/O deadline guarantee.",
+    "legacyReceiptPolicy": "Old jobs retain receipt view; missing saved index is explicit, associations never reconstructed.",
+    "sourceHashes": {
+      "legacy-product/src/main/java/dev/legacybridge/product/history/SavedReport.java": "0298c2d2984e6729eee84c236f8a19eafebb0c8ac4177dc7b1fff57d2208793f",
+      "legacy-product/src/main/java/dev/legacybridge/product/history/SavedReportStore.java": "0a9dce49caf8900bdc9b4fb34b42e2d77fb21d03c0e86c3e8dd246143a98f910",
+      "legacy-product/src/main/java/dev/legacybridge/product/controller/ConversionController.java": "6084daae3e475362992639a542bbd7b14b9adaf90cca856b8409e153d12a066c",
+      "legacy-product/src/main/java/dev/legacybridge/product/client/HistoryScreen.java": "5890b98864ee5b5d90638d47d4752aa9f6afd7b546a9b5b58519727b72e546f8",
+      "legacy-product/src/main/java/dev/legacybridge/product/client/SavedReportScreen.java": "76907b85422c69bcd9dbb21c3803d40a6b06b41f6d6f77a29ea915d5db93a310",
+      "legacy-product/src/test/java/dev/legacybridge/product/history/SavedReportStoreTest.java": "68fb271a5d56b1cbf91ce6a16e327222e50287dcc7fda67e959388f3e9fcbdd8",
+      "legacy-product/src/test/java/dev/legacybridge/product/controller/SavedReportControllerTest.java": "491f988c8308df27d52f0838910ab880db46b77dab04afc7fd5a674c441bca06",
+      "legacy-product/build.gradle": "40c78df832c4baefc5734e82607e10f5d3f3c35243ae62a3ae3ce8c8e3ab25a7"
+    }
+  },
+  "focusedValidation": {
+    "status": "PASSED_WITH_EXPLICIT_SKIP", "cases": 101, "passed": 100, "failures": 0, "errors": 0, "skipped": 1,
+    "newCases": 22, "newPassed": 21, "newSkipped": 1,
+    "skipReason": "SavedReportStore symlink fixture: Windows symbolic-link creation privilege unavailable. Not a symlink PASS.",
+    "countPolicy": "Final execution only; test cases/parameter variants are not mods. Native and contract acceptance counted separately.",
+    "log": "build/saved-reports-20260912/second.log",
+    "logSha256": "6589962b71389a4654b756bb01782b2f8b83eccbf0190fd59d688c6f57f2690a",
+    "xmlDirectory": "build/saved-reports-20260912/focused-xml",
+    "suites": [
+      {"name": "ConversionQueueTest", "cases": 8, "sha256": "14a42936440be0583b19a508e24ae80950b983ef834c72945d2874cf2751b095"},
+      {"name": "JobHistoryControllerTest", "cases": 4, "sha256": "122cadd3f18e3ebc0a5cc77439e8234dc48ba51b726d71e4f1e11a1d0391de10"},
+      {"name": "JobInstallationReceiptTest", "cases": 14, "sha256": "84418c5bc7b585280713b22f7bceb057b1a9ebfcc2682a459964118bdd2e7dd8"},
+      {"name": "SavedReportControllerTest", "cases": 6, "sha256": "a172ec67d7d1b6480118ccc02c80a11908108d2254b4a3793643892861e2f020"},
+      {"name": "HistoryClientBoundaryTest", "cases": 2, "sha256": "af6060113f0d69fb7b797af30c79782b666cb1ac70e25b5502f9edac3c22651b"},
+      {"name": "HistoryPresentationTest", "cases": 5, "sha256": "1752f39a9d4e14838d9d60d22c1b3e7719de3d756e7db627571eb41a7321f79d"},
+      {"name": "JobHistoryReaderTest", "cases": 46, "sha256": "a11c5302be2663ded7040391b447f733a0344758c7c92a071ad3bbfaaf37753d"},
+      {"name": "SavedReportStoreTest", "cases": 16, "skipped": 1, "sha256": "fa9b6954dfea5c5520294716a66ae8d66960f02ba7bd6f7960480aee2ec6a727"}
+    ],
+    "command": ".\\gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT --max-workers=1 --console=plain -PsavedReportFixture=<explicit absolute compiled fixture> :legacy-product:test --tests *SavedReport*Test --tests *History*Test --tests *JobInstallationReceiptTest --tests *ConversionQueueTest assemble :legacy-product:verifyProductJar :legacy-runtime:verifyRuntimeJar :legacy-converter:verifyEngineConsumerBoundary :legacy-converter:smokeInstalledCli",
+    "build": "SUCCESSFUL in 1m 35s; 49 actionable tasks, 20 executed, 29 up-to-date; serial, no game",
+    "warning": "Existing validation harness ResourceLocation(String,String) deprecation warning; harness is not in the public JAR."
+  },
+  "observedAndCorrected": [
+    {"log": "build/saved-reports-20260912/first.log", "sha256": "78088e4c51532287b8a2a455273c9f084bcfa85bc16fd4724796618f6f6fe6df", "status": "FAILED: 17 of 98 cases", "cause": "16 new reader cases omitted the original-path fixture required by CanonicalReportWriter; one existing queue case expected four files/job before the new index.", "correction": "Create inert original fixture without weakening production path protection; queue now asserts five complete files/job, including index. All rerun with no failures."}
+  ],
+  "compiledOriginalFixture": {
+    "path": "fixtures/simple-content-1.16.5/build/libs/legacybridge-example-1.16.5-1.0.0.jar",
+    "sha256": "00dd689f53f9631ecf4a8e84da142eb21051e2ca33f1c05403e4060e15b10947",
+    "convertedSha256": "541cc64b44b97d0e4e79a193dd2ce3a86a5feba6e15714d0ee24ad63751492bb",
+    "validated": "Actual controller static conversion using included simple data, close/reopen, all three indexed reports, file snapshots unchanged, no actionable history jobs, no mods directory, original unchanged.",
+    "originalExecuted": false, "convertedExecuted": false,
+    "independentPackagedRuntimeProbeThisTurn": false,
+    "allSixProfileRuntimeRegressionThisTurn": false,
+    "qualification": "Exact simple fixture static regression, not full profile matrix, native UI interaction or game behavior."
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "b89a4a7795309f2ff70a05348a200bcafb1afe048c3c332910bf727663b4b5d9",
+    "bytes": 1466678, "entries": 595,
+    "baselineArchive": "build/saved-reports-20260912/LegacyBridge-baseline.jar",
+    "baselineSha256": "76189bcfb81012d1bce3f63c2b43a819a1ef1473b357d35df295e570c3f39c22",
+    "unchangedPayloads": 574, "changedPayloads": 12, "addedPayloads": 9, "removedPayloads": 0,
+    "changedScope": "Two product localizations, HistoryScreen, ConversionController and its existing nested-class metadata; nine new report/viewer/controller-seam classes.",
+    "unchanged": ["engine", "runtime/adapters/ABI", "six conversion profiles", "mapping/API data", "installer", "platform libraries", "metadata and services", "third-party notices and source material"],
+    "audit": "verifyProductJar, verifyRuntimeJar, verifyEngineConsumerBoundary and installed CLI smoke passed. One public artifact, no fixtures/harnesses/private data or duplicate platform libraries."
+  },
+  "contractValidation": {
+    "status": "PASSED_WITH_EXPLICIT_SKIPS", "prompts": 23, "cuts": 81, "nativeGatesAdvanced": false,
+    "cases": 77, "passed": 75, "failed": 0, "errors": 0, "skipped": 2,
+    "skipReason": "Two existing symbolic-link privilege tests unavailable on Windows; not inferred as PASS.",
+    "initialTask": "The first closeout test was UP-TO-DATE; the subsequent --rerun execution is the counted result.",
+    "log": "build/saved-reports-20260912/contract-rerun.log",
+    "logSha256": "36669ecf76036cdcbd6c0c96563c7251322396100913f717949e63e0adc31e96",
+    "xml": "build/saved-reports-20260912/PromptContractVerifierTest.xml",
+    "xmlSha256": "856e672a2b802158cdfa61b711e8925d45633760c83ff1451b12bc8dcf51ea62",
+    "build": "SUCCESSFUL in 28s; :legacy-corpus:test --rerun --tests *PromptContractVerifierTest :legacy-corpus:verifyPromptContract, same serial Java/TLS options",
+    "scope": "Actual repository contract structure/evidence-path existence; not evidence freshness, execution or acceptance promotion.",
+    "postEvidenceCloseoutLog": "build/saved-reports-20260912/closeout.log"
+  },
+  "translationStaticCheck": {"status": "PASSED", "keys": 18, "languages": ["en_us", "pt_br"], "scope": "JSON parse, saved-report key parity and percent-s placeholder counts; not native localization QA or additional JUnit cases."},
+  "rightsAndScope": {
+    "monetization": "USER_POSTPONED",
+    "licenseChanged": false,
+    "licenseSha256": "07a52114e08672700aef0163270403224f4bb61dc324124f192518a66ee1e9ef",
+    "billingOrRoyaltyImplemented": false,
+    "newModsDownloaded": false,
+    "published": false,
+    "git": "Entire standalone project is untracked in parent worktree; no reset, checkout, unrelated-project edit or commit."
+  },
+  "nativeValidation": {
+    "client": "NOT_RUN", "server": "NOT_RUN", "screenshots": [],
+    "keyboardResizeNarration": "NOT_RUN", "gameBehavior": "NOT_RUN", "multiplayer": "NOT_RUN",
+    "offlinePreparedForge": "NOT_RUN", "reason": "User reserved the PC and authorized headless development only; historical QA does not transfer to this new hash."
+  }
+}

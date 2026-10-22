@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_HEADLESS_NEXT_SESSION_RECOVERY_VALIDATION",
+  "reviewedAt": "2026-09-07",
+  "prompt": "LB-06",
+  "cut": "PUBLIC-CURRENT-E2E",
+  "cutStatus": "PARTIAL",
+  "executionConstraint": "HEADLESS_ONLY_UNTIL_EXPLICIT_NEW_UI_AUTHORIZATION",
+  "gamesLaunched": false,
+  "desktopAutomationUsed": false,
+  "nativeDiscoveryObserved": false,
+  "nativePublicClientInterruptionObserved": false,
+  "productionCodeChanged": false,
+  "newProfiles": 0,
+  "newAdapters": 0,
+  "newMappings": 0,
+  "newCompatibleModsClaimed": 0,
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "java": "17.0.12",
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT",
+    "publicSha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6"
+  },
+  "source": {
+    "path": "legacy-product/src/test/java/dev/legacybridge/product/install/TransactionalProcessCrashTest.java",
+    "sha256": "0c6d872df13a19c91d38ca339aba025878cab1596a7edf822a6541e63efb8412",
+    "scope": "Seven new test cases and test-only child modes. Two existing actual-process crash tests retained. Final source adds bounded exit/result markers and narrows one test name after the initial targeted run."
+  },
+  "fixtureBoundary": {
+    "originals": "Inert text files, not real 1.16.5 mod JARs",
+    "staged": "Existing small ASM-generated installer candidates; parsed and validated, never executed",
+    "runtimeJarInTestDirectory": "Inert metadata declaration, not the public LegacyBridge.jar",
+    "classPath": "Installer and test/dependency classes; no input/staged mod archives",
+    "loadedSnapshots": "Explicit synthetic IDs/paths/world flag, not a Forge ModList or an opened world",
+    "processBoundary": "Actual helper JVM Runtime.halt(81) via package-private installer test hook; independent recovery JVM",
+    "childHeapMiB": 128,
+    "childTimeoutSeconds": 30,
+    "processesSequential": true,
+    "gameplayClaim": false
+  },
+  "newCases": [
+    {"id": "PARTIAL_LOADED_RESUME", "status": "PASSED_HEADLESS", "expected": "First entry owned/published without INSTALLED checkpoint, declared loaded in next-session snapshot; RESUME finishes second entry without rewriting the first and is idempotent"},
+    {"id": "ALL_PUBLISHED_MISSING_COMMIT", "status": "PASSED_HEADLESS", "expected": "Both INSTALLED checkpoints exist, COMMITTED absent; PARTIAL is unsafe to close until explicit RESUME records final receipt without rewriting loaded files"},
+    {"id": "RESTORE_LOADED_ID", "status": "PASSED_HEADLESS", "expected": "TRANSACTION_REFUSED, PARTIAL retained, protected artifacts unchanged"},
+    {"id": "RESTORE_LOADED_FILE_ALIAS", "status": "PASSED_HEADLESS", "expected": "Distinct hard-link path in loaded-file snapshot is refused even without fixture ID in loaded set"},
+    {"id": "RESTORE_LOADED_BOTH", "status": "PASSED_HEADLESS", "expected": "Loaded IDs and paths prevent RESTORE; no RESTORED checkpoint"},
+    {"id": "RESUME_WORLD_OPEN", "status": "PASSED_HEADLESS", "expected": "INSTALL_MANUAL before publication for synthetic world-open flag"},
+    {"id": "RESUME_MISSING_ENTRY_LOADED_ID", "status": "PASSED_HEADLESS", "expected": "Missing second publication with conflicting loaded ID is refused before publishing remainder"}
+  ],
+  "protectedFiles": "Inert runtime declaration, original/staged inputs, plan, payloads, existing checkpoints and installed JARs: retained hard-link identity, SHA-256 and last-modified time asserted after recovery/refusal. Operational canary/lock cleanup is allowed and not mistaken for artifact removal.",
+  "initialTargetedRun": {
+    "command": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT :legacy-product:test --tests '*TransactionalProcessCrashTest' --no-daemon --max-workers=1",
+    "status": "BUILD_SUCCESSFUL",
+    "exitCode": 0,
+    "secondsReportedByGradle": 216,
+    "tests": 9,
+    "newCases": 7,
+    "existingCases": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "xml": {"path": "build/public-current-next-session-2026-09-07-run1/targeted-tests-1.xml", "sha256": "7c69252f340b0389f246db300f7996dc570d852d802d0eddaa1abb88628cf70b"},
+    "log": {"path": "build/public-current-next-session-2026-09-07-run1/tests-1.log", "sha256": "470fa89b76cbbce6190957eec2ba25d067572cfbf99ef1f5cae0cc86ce2febc2"}
+  },
+  "rootBuild": {
+    "status": "BUILD_SUCCESSFUL",
+    "command": "gradlew.bat -Djavax.net.ssl.trustStore=NONE -Djavax.net.ssl.trustStoreType=Windows-ROOT build :legacy-corpus:verifyPublicEvidence --no-daemon --max-workers=1",
+    "exitCode": 0,
+    "secondsReportedByGradle": 123,
+    "actionableTasks": 69,
+    "executedTasks": 26,
+    "upToDateTasks": 43,
+    "freshJavaModule": "legacy-product",
+    "tests": 91,
+    "passed": 91,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "otherJavaTests": "UP-TO-DATE; no fresh execution claimed",
+    "suites": [
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.controller.ConversionControllerTest.xml",
+        "sha256": "d536167440663fab4809ec17f1e74e42f4fb470dcf9d83cd0036d5015b4ffd57",
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.controller.ConversionQueueTest.xml",
+        "sha256": "97c0a914bc37b9a27c16465f499adc61d598c736e034367e3b4d23d07626310e",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.controller.InstallationControllerTest.xml",
+        "sha256": "37a360c72327e3f1982dc1ed62dc9fd01ef1019b7b3fab8be0c6ca585dddac50",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.controller.InstallationShutdownBarrierTest.xml",
+        "sha256": "f3d855c0c8798ea90f98c18fa239f5681347621d8a15770a9b541c48d2fca4ee",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.install.AddOnlyInstallerTest.xml",
+        "sha256": "6c6d6e1f3c11837ddb4dd96877fa65c18264630397cbad4536fd8f0024767aa7",
+        "tests": 21,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.install.TransactionalInstallerTest.xml",
+        "sha256": "752d5a6da0cf3af7b68bd17fc559559754c7d0c8f146779b076a9d2073da7ae8",
+        "tests": 21,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.install.TransactionalProcessCrashTest.xml",
+        "sha256": "bfe485ec4705342036d3fe2b7fa4ce5571f54175247accb40b23866f156ad7d2",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "build/public-current-next-session-2026-09-07-run1/root-product-tests/TEST-dev.legacybridge.product.install.TransactionalWindowsLockTest.xml",
+        "sha256": "88ee5d608d806a5b9b2d7f56ef23ca58bc7f5cfea69135089c7413ff986f2ab4",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "confirmedHelperExits": {
+      "halt81": 9,
+      "recovery0": 9,
+      "syntheticNextSessionResultMarkers": 7
+    },
+    "publicSha256": "3749da06606f36b7e9bcbb97e4d9558f91d0bfa1c60e5da533767fd722607df6",
+    "contractVerification": "23 prompts, 77 cuts, cursor LB-06/PUBLIC-CURRENT-E2E",
+    "evidenceIndexVerification": "192 files/61 scalar assertions intact; pending gates unchanged; no runtime acceptance",
+    "log": {
+      "path": "build/public-current-next-session-2026-09-07-run1/build-1.log",
+      "sha256": "03b518a5edd32ad81792040583af24c9003818564aa16e93de09b6e436df9a24"
+    }
+  },
+  "pending": [
+    "Validated external observation/termination boundary for the unmodified public-only Minecraft process, with renewed explicit UI authorization",
+    "Actual Forge discovery snapshot, native interrupted installation, explicit recovery, subsequent activation and behavior",
+    "Installed-ID/dependency conflict UI matrix and remaining GUI scale/resize/queue cases",
+    "Persistent job/install linkage under UI-PROMOTION"
+  ],
+  "notClaimed": ["Automatic launcher restart", "Network-isolated offline gameplay", "Multiplayer validation", "New real-mod coverage"]
+}

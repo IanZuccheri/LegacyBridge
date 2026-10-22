@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "runtimeModId": "legacybridge_runtime",
+  "runtimeVersion": "${project_version}",
+  "minecraftVersion": "${minecraft_version}",
+  "forgeVersion": "${forge_version}",
+  "transformationsEnabled": false,
+  "adapterCatalog": "META-INF/legacybridge/adapters.json",
+  "capabilities": {
+    "legacyApiShims": ["simple-content-v1"],
+    "bytecodeTransformations": []
+  }
+}

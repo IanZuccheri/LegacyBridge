@@ -1,0 +1,1600 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "2026.09.10.1",
+  "reviewedAt": "2026-10-22",
+  "numbering": "Nova consolidação canônica 0–22; não recuperação literal de todos os prompts históricos. IDs NET/DATA anteriores preservados.",
+  "baseline": {
+    "sourceMinecraft": "1.16.5",
+    "sourceForge": "36.2.42",
+    "targetMinecraft": "1.20.1",
+    "targetForge": "47.4.23",
+    "targetJava": 17,
+    "runtimeModId": "legacybridge_runtime",
+    "runtimeVersion": "0.1.1-SNAPSHOT"
+  },
+  "publicArtifact": {
+    "path": "legacy-product/build/libs/LegacyBridge.jar",
+    "sha256": "6b398e8b74873810b55f438bec3abc0b6b0bdee0f3637c45257db9b5c681aeed",
+    "evidence": "docs/evidence/publication-2026-10-22.json",
+    "qualification": "Experimental/Beta GPL publication. 707 class entries, adapters, dependencies and finite mapping contracts byte-identical to previous artifact; only legal/manifest/mod metadata changed. Publication assembly/audits/installed CLI and selected tests PASS. Full default build stopped during extensive corpus suite, not passed. Fresh converter 3571 PASS/472 skipped; selected corpus 143 PASS/3 skipped; product boundary 7 PASS. Native client/server/gameplay/multiplayer NOT_RUN."
+  },
+  "current": {
+    "prompt": "LB-10",
+    "cut": "ITEM-EQUIPMENT",
+    "reason": "Feature cursor retained while free open-source publication takes priority (2026-10-22). Last implementation record: IRON_HELMET_DISPENSER_CLOSED_RECEIVERS entregue: operação real com consulta/predicados nativos, primeiro ServerPlayer/Zombie elegível, split1, player HEAD ou Zombie silencioso, drop chance2/persistência. Desconhecido recusado antes do consumo, sem skip/false/fallback. 68 descriptors anteriores e item/HEAD intactos; novo fixture original. 744 regressões PASS (50 novas), fixtures 4+5 PASS; sem registro, receita/candidato/Apply. Próximo IRON_HELMET_INTEGRATED_SUCCESSOR: item/factory com identidade nova e ownership, use/callback integrados; preservar guards antigas. Outros receivers vanilla, query order, Equipable/rendering/coortes/nativo/requires permanecem. Seis perfis, Apply simples, licença/aquisição intactos. Sem jogos."
+  },
+  "executionPolicy": {
+    "mode": "HEADLESS_IMPLEMENTATION",
+    "authorizedAt": "2026-09-13",
+    "reason": "Usuário: priorizar desenvolvimento do produto, testes extensos depois; continuar sem abrir o mine.",
+    "validationPolicy": "SERIAL_COMPILATION_FOCUSED_CHECKS_AND_PACKAGE; EXTENSIVE_AND_NATIVE_QA_DEFERRED_NOT_PASSED",
+    "lastImplementedCut": "ITEM-EQUIPMENT",
+    "lastImplementedSlice": "IRON_HELMET_DISPENSER_CLOSED_RECEIVERS; NATIVE_PREDICATES_FIRST_RECEIVER_SPLIT_ONE; SERVER_PLAYER_HEAD_OR_SILENT_ZOMBIE; DROP_CHANCE_PERSISTENCE; REJECT_UNKNOWN_BEFORE_SPLIT; 744_SELECTED_REGRESSIONS_PASS_50_NEW; NO_REGISTRATION_RECIPE_OR_CANDIDATE; NATIVE_NOT_RUN",
+    "implementationPrerequisites": "Partes estáticas implementadas de PARTIAL podem sustentar desenvolvimento; não satisfazem requires de aceite nem autorizam promoção pública.",
+    "gamesAndScreenAutomation": "NOT_AUTHORIZED",
+    "pendingNativeCutsRemainRequired": true,
+    "nextEligibleHeadless": [
+      "ITEM-EQUIPMENT"
+    ],
+    "nextRequiredDecision": "Owner authorized free public source under GPL-3.0-only with narrow Minecraft/Forge linking exception on 2026-10-22. No 5% royalty. User will submit CurseForge manually. Keep current native/cohort gates and data exclusions; source publication is not universal conversion or stable runtime qualification.",
+    "monetization": {
+      "status": "FREE_OPEN_SOURCE_NO_ROYALTIES",
+      "license": "GPL-3.0-only with Minecraft/Forge linking exception",
+      "licenseChanged": true,
+      "billingImplemented": false,
+      "royaltyShare": 0,
+      "commercialRedistribution": "Permitted subject to GPL and separate third-party terms"
+    },
+    "newAcquisitionAndPublicationUnchanged": false,
+    "deferredAcceptance": [
+      "BLOCK-STATE: registro preservado, orientação/rotate/mirror, meio bloco estático, self-drop local opcional e BOOLEAN_TOGGLE_USE implementados privadamente; callbacks/geometria/loot/interação gerais, native/multiplayer e requires não aceitos.",
+      "ITEM-EQUIPMENT: candidatos anteriores preservados; espada/capacete UNSUPPORTED. Operações independentes de uso vazio, HEAD e dispenser fechado implementadas; sem registro integrado/receita/candidato. Próximo sucessor integrado com identidade/ownership explícitos. Outros receivers vanilla, query order, fallback, Equipable, som/eventos externos, rendering, desgaste/consumo/bigorna, nativo/multiplayer e requires não aceitos.",
+      "LIFE-CONFIG: candidatos CLIENT startup e SERVER por mundo mais COMMON Loading/Reloading integrado entregues estaticamente; reload CLIENT/SERVER remoto, sync, esquemas gerais, comparação nativa e requires não aceitos.",
+      "LIFE-EVENTS: evento próprio HIGH/LOW e cancelamento agora compõem com config, late registry e comandos; eventos/subscribers/terceiros arbitrários e comparação nativa continuam pendentes.",
+      "LIFE-COMMANDS: subcomandos integer/boolean, permissão nativa 1..4 e árvore nova por dispatcher entregues no recorte; Brigadier isolado não prova console/jogador real, execução no servidor, dependências/coortes ou efeitos gerais.",
+      "UI-PROMOTION: preserved developer preparation/update screen implementation does not satisfy native UI, discovery, behavior or public promotion",
+      "LINKAGE-GENERAL: finite constructor, owned Item hierarchy, flat interface/default and this-bound receiver proofs implemented separately; arbitrary layouts/hierarchies/handles/composition, requires and native comparison remain acceptance gates",
+      "DATA-EXPAND: COMPOSE-01/native acceptance",
+      "ENGINE-ISOLATION: retained-structure/RSS/adversarial/runtime-load qualification; no hard heap boundary",
+      "PACKAGE-RIGHTS: owner terms resolved by explicit GPL/linking decision; final source/build/notices and modified-library native/cohort qualification remain separate.",
+      "PACKAGE-RIGHTS: native Forge JiJ selection/JPMS/coexistence and modified-library client/server qualification NOT_RUN"
+    ]
+  },
+  "resumeOrder": [
+    "ITEM-EQUIPMENT",
+    "BLOCK-STATE",
+    "LINKAGE-GENERAL",
+    "PRODUCT-COMPOSED",
+    "INSTALL-PROMOTION",
+    "UI-SAVED-REPORTS",
+    "PACKAGE-RIGHTS",
+    "DEPS-COHORT",
+    "UI-HISTORY-READ",
+    "COMPOSE-01",
+    "PUBLIC-CURRENT-E2E",
+    "UI-PROMOTION",
+    "NET-QA-02-HANDSHAKE",
+    "NET-QA-02-COMPARISON",
+    "NET-QA-03",
+    "CAP-ENERGY",
+    "CAP-INVENTORY",
+    "CAP-FLUID",
+    "CAP-PLAYER",
+    "PERSIST-SAVEDDATA",
+    "DATA-EXPAND",
+    "ENGINE-ISOLATION",
+    "LIFE-CONFIG",
+    "LIFE-EVENTS",
+    "LIFE-COMMANDS"
+  ],
+  "intakePolicy": {
+    "newAcquisition": "DEFERRED_UNTIL_RELEASE_QUAL",
+    "requiredCut": "RELEASE-QUAL",
+    "scopeRevisionRequiresUserApproval": true,
+    "existingAuthorizedCorpusReadOnlyReviewAllowed": true,
+    "publicationRequiresSeparateAuthorization": true
+  },
+  "prompts": [
+    {
+      "id": "LB-00",
+      "number": 0,
+      "title": "Contrato, baselines e rastreabilidade",
+      "file": "prompts/00-governance.md",
+      "status": "ACCEPTED",
+      "risk": "processual",
+      "estimate": "Manutenção contínua; não é trabalho de compatibilidade concluído.",
+      "evidence": [
+        "docs/PROJECT_STATUS.md",
+        "docs/PROMPT_CONTINUATION.md"
+      ],
+      "nextAction": "Manter rastreabilidade nas próximas retomadas.",
+      "cuts": [
+        {
+          "id": "GOV-01",
+          "status": "ACCEPTED",
+          "requires": [],
+          "summary": "Versionar o contrato, auditar o estado, validar IDs/cursor/dependências e preservar os ledgers.",
+          "evidence": [
+            "docs/contract/AUDIT_2026-09-07.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LB-01",
+      "number": 1,
+      "title": "Arquitetura do produto e limites de ativação",
+      "file": "prompts/01-product-architecture.md",
+      "status": "PARTIAL",
+      "risk": "alto em descoberta e classloaders",
+      "estimate": "Revisão de promoção por perfil; estimar após o plano composável.",
+      "evidence": [
+        "docs/PRODUCT_ARCHITECTURE.md",
+        "docs/PRODUCT_IMPLEMENTATION_PLAN.md",
+        "docs/PRODUCT_API_BASELINES.md"
+      ],
+      "nextAction": "Coordenador, preparação e tela developer de updates entregues. Não repetir API/backend/host/preparação. PRODUCT-COMPOSED continua PARTIAL: composição/promoção/requires e aceites nativos pendentes. Desenvolvimento segue LB-08/LINKAGE-GENERAL com prova privada de delegação de construtores, sem Apply público.",
+      "cuts": [
+        {
+          "id": "PRODUCT-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "GOV-01"
+          ],
+          "summary": "Arquitetura inicial de artefato único e pastas separadas documentada; não equivale a aceite de execução.",
+          "evidence": [
+            "docs/PRODUCT_ARCHITECTURE.md"
+          ]
+        },
+        {
+          "id": "PRODUCT-COMPOSED",
+          "status": "PARTIAL",
+          "implementedSlice": "TYPED_STATIC_INSPECTION_AND_NATIVE_SCREEN; COHORT_TARGET_PREVIEW; PRESERVED_INSTALL_COORDINATOR; PRESERVED_PREPARATION_WORKFLOW; PRESERVED_UPDATE_COORDINATOR",
+          "requires": [
+            "COMPOSE-01"
+          ],
+          "summary": "Definir promoção de contratos combinados ao produto, identidade dos adapters e fronteiras de instalação.",
+          "evidence": [
+            "docs/PRODUCT_COMPOSITION_INSPECTION.md",
+            "docs/evidence/product-composition-2026-09-12.json",
+            "docs/PRODUCT_COHORT_PREVIEW.md",
+            "docs/evidence/product-cohort-preview-2026-09-12.json",
+            "docs/PRESERVED_INSTALL_COORDINATOR.md",
+            "docs/evidence/preserved-coordinator-2026-09-13.json",
+            "docs/PRESERVED_PREPARATION_WORKFLOW.md",
+            "docs/evidence/preserved-preparation-2026-09-19.json",
+            "docs/PRESERVED_UPDATE_COORDINATOR.md",
+            "docs/evidence/preserved-update-coordinator-2026-09-19.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LB-02",
+      "number": 2,
+      "title": "Motor reutilizável, mappings e dados distribuíveis",
+      "file": "prompts/02-engine-data.md",
+      "status": "PARTIAL",
+      "risk": "alto: contratos, limites e direitos",
+      "estimate": "Dados simples implementados; vocabulários novos estimados por recorte após auditoria.",
+      "evidence": [
+        "docs/EMBEDDED_SIMPLE_CONTENT_DATA.md",
+        "docs/FINITE_COHORT_DATA.md",
+        "docs/PORTABLE_MAPPING_DATA.md",
+        "docs/MAPPINGS.md",
+        "docs/ENGINE_EXECUTION_CONTROLS.md",
+        "docs/ENGINE_SERVICE_VALIDATION.md",
+        "docs/PROMPT_02_HEADLESS.md",
+        "docs/evidence/prompt02-headless-2026-09-12.json"
+      ],
+      "nextAction": "Implementação COMPOSITION_DATA_SCOPE entregue via revisão/seleção explícita de bundle full local, sem ampliar o inventário incluído. ENGINE-ISOLATION agora PARTIAL: 1 ativo/33 admitidos, métricas/freio cooperativo e matriz finita medida. Manter pendentes retenção exata de estruturas, RSS/adversarial/carga e aceites COMPOSE-01/nativos; não anunciar limite rígido ou prompt completo. Desenvolvimento segue LB-03 técnico sem repetir esta matriz como único próximo trabalho.",
+      "cuts": [
+        {
+          "id": "DATA-SIMPLE-01",
+          "status": "ACCEPTED",
+          "requires": [
+            "PRODUCT-BASE"
+          ],
+          "summary": "Dados finitos incluídos: verificação de APIs, equivalência CLI/serviço e conversão sem bundle/cache registradas, não aceite visual.",
+          "evidence": [
+            "docs/evidence/embedded-simple-content-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "DATA-EXPAND",
+          "status": "PARTIAL",
+          "implementedSlice": "FINITE_COHORT_DATA; COMPOSITION_DATA_SCOPE_EXPLICIT_REVIEW",
+          "requires": [
+            "DATA-SIMPLE-01",
+            "COMPOSE-01"
+          ],
+          "summary": "Vocabulários versionados por operação, proveniência/direitos e fluxo explícito para dados não redistribuíveis.",
+          "evidence": [
+            "docs/FINITE_COHORT_DATA.md",
+            "docs/evidence/finite-cohort-data-2026-09-12.json",
+            "docs/PROMPT_02_HEADLESS.md",
+            "docs/evidence/prompt02-headless-2026-09-12.json"
+          ],
+          "remainingAcceptance": [
+            "COMPOSE-01 prerequisite acceptance",
+            "Native data review/coexistence on final artifact",
+            "No full bundle redistribution authorized"
+          ]
+        },
+        {
+          "id": "ENGINE-ISOLATION",
+          "status": "PARTIAL",
+          "requires": [
+            "COMPOSE-01"
+          ],
+          "summary": "Qualificar limites agregados e decidir isolamento de processo se for necessária garantia rígida de memória.",
+          "evidence": [
+            "docs/PROMPT_02_HEADLESS.md",
+            "docs/evidence/prompt02-headless-2026-09-12.json"
+          ],
+          "implementedSlice": "AGGREGATE_ADMISSION_AND_HEAP_PRESSURE; OBSERVED_FINITE_MATRIX",
+          "remainingAcceptance": [
+            "Exact retained ASM/index/image attribution and native/RSS profiling",
+            "Adversarial/opaque-allocation qualification and native runtime coexistence",
+            "COMPOSE-01 prerequisite acceptance"
+          ],
+          "processIsolationDecision": "No hard-memory guarantee for current bounded in-process product. Hard guarantee requires separate worker/protocol, not implemented."
+        }
+      ]
+    },
+    {
+      "id": "LB-03",
+      "number": 3,
+      "title": "JAR único, classloaders e direitos de distribuição",
+      "file": "prompts/03-packaging-rights.md",
+      "status": "PARTIAL",
+      "risk": "alto: ABI, classes duplicadas e licença",
+      "estimate": "Correção técnica por dependência; decisão de direitos tem espera não estimável.",
+      "evidence": [
+        "docs/PACKAGING_ARCHITECTURE.md",
+        "docs/PACKAGING_RIGHTS.md",
+        "docs/PACKAGING_VALIDATION.md",
+        "docs/SRGUTILS_RELINKING.md",
+        "docs/evidence/relink-2026-09-12.json"
+      ],
+      "nextAction": "TECHNICAL_RELINK_V1 entregue. Usuário adiou decisão de monetização/termos até produto pronto; continuar desenvolvimento headless de outros prompts. Revisitar direitos e materiais de release antes de publicar, sem reconstruir a mesma infraestrutura. Forge JiJ/JPMS nativo permanece NOT_RUN; licença inalterada.",
+      "cuts": [
+        {
+          "id": "PACKAGE-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "PRODUCT-BASE"
+          ],
+          "summary": "Empacotamento atual verificado e servidor do artefato final registrado; não é aprovação legal/publicação.",
+          "evidence": [
+            "docs/evidence/embedded-simple-content-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "PACKAGE-RIGHTS",
+          "status": "PARTIAL",
+          "requires": [
+            "PACKAGE-BASE"
+          ],
+          "summary": "Owner GPL/linking terms resolved; historical corpus authorization preserved; source/build/relink materials published with experimental preparation. Native modified-library/cohort qualification remains pending.",
+          "evidence": [
+            "docs/SRGUTILS_RELINKING.md",
+            "docs/evidence/relink-2026-09-12.json",
+            "LICENSING.md",
+            "LINKING_EXCEPTION.md",
+            "docs/PUBLICATION_2026-10-22.md"
+          ],
+          "implementedSlice": "TECHNICAL_RELINK_V1",
+          "headlessNextAction": "Keep GPL and linking permission/notices with source and binary; user submits CurseForge manually. Do not use source publication to claim native qualification or unrestricted mapping redistribution.",
+          "remainingAcceptance": [
+            "Reviewed corresponding-source/build/relinking release materials; independent recipe does not reproduce the upstream release",
+            "Native Forge JiJ/JPMS selection, coexistence and modified-library client/server behavior",
+            "Final release artifact notices, source and rights review; no stable/native compatibility promotion"
+          ]
+        },
+        {
+          "id": "PACKAGE-PROMOTION",
+          "status": "NOT_STARTED",
+          "requires": [
+            "PRODUCT-COMPOSED",
+            "DATA-EXPAND"
+          ],
+          "summary": "Requalificar cada novo contrato no JAR público, serviços, módulos e lados.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-04",
+      "number": 4,
+      "title": "Interface nativa e promoção segura de perfis",
+      "file": "prompts/04-native-ui.md",
+      "status": "PARTIAL",
+      "risk": "alto na distinção conversão/ativação",
+      "estimate": "Gate nativo finito aceito; promoção e matriz ampla de UI ainda precisam de recortes próprios.",
+      "evidence": [
+        "docs/CLIENT_MENU_UI.md",
+        "docs/P4_UI_API_BASELINES.md",
+        "docs/NATIVE_UI_VALIDATION.md",
+        "docs/EMBEDDED_SIMPLE_CONTENT_DATA.md",
+        "docs/EMBEDDED_SIMPLE_NATIVE_UI_VALIDATION.md"
+      ],
+      "nextAction": "PRESERVED_UPDATE_SCREEN entregue: mesmo host developer, seleção ADD/UPDATE e antecessor, comparação observada, confirmação própria, recuperação e histórico inerte, en_us/pt_br. Aceite visual/teclado/foco/resize e runtime NOT_RUN; UI-PROMOTION/requires permanecem PARTIAL. Próximo desenvolvimento LB-08/LINKAGE-GENERAL; não repetir esta tela nem abrir Minecraft.",
+      "cuts": [
+        {
+          "id": "DATA-SIMPLE-01-NATIVE_UI",
+          "status": "ACCEPTED",
+          "requires": [
+            "DATA-SIMPLE-01",
+            "PACKAGE-BASE"
+          ],
+          "summary": "Aceite nativo finito no hash 3749da...: campo vazio, três conversões iguais, continuar sem ativação, um ADD aprovado/close, nova descoberta, crafting real e assets/en_us/pt_br; original intacto. Não aceita matriz negativa ampla nem recibo PENDING_RESTART persistente.",
+          "evidence": [
+            "docs/evidence/embedded-simple-content-2026-09-07.json",
+            "docs/evidence/embedded-simple-native-ui-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "UI-HISTORY-READ",
+          "status": "PARTIAL",
+          "implementationStatus": "IMPLEMENTED_STATIC",
+          "nativeValidation": "NOT_RUN",
+          "requires": [
+            "JOB-HISTORY-READ",
+            "DATA-SIMPLE-01-NATIVE_UI"
+          ],
+          "summary": "Tela de histórico somente leitura: busca, recibos paginados, diagnósticos e cópia de texto limitado; leitura no coordenador existente. Não reidrata Apply, não abre caminhos históricos nem infere ativação. en_us/pt_br e navegação nativa implementados; validação visual/teclado/resize e servidor do novo hash pendentes.",
+          "evidence": [
+            "docs/UI_HISTORY.md",
+            "docs/evidence/ui-history-2026-09-10.json"
+          ]
+        },
+        {
+          "id": "UI-SAVED-REPORTS",
+          "status": "PARTIAL",
+          "implementationStatus": "IMPLEMENTED_STATIC",
+          "nativeValidation": "NOT_RUN",
+          "requires": [
+            "JOB-HISTORY-READ",
+            "UI-HISTORY-READ"
+          ],
+          "summary": "Consulta paginada de CompatibilityReport/ConversionReport/TransformationLog persistidos com índice versionado e hashes. Leitura no coordenador; arquivos legados sem índice não adquirem vínculo inventado. Não abre paths históricos, reidrata Apply ou prova autenticidade/ativação.",
+          "evidence": [
+            "docs/SAVED_REPORTS.md",
+            "docs/evidence/saved-reports-2026-09-12.json"
+          ]
+        },
+        {
+          "id": "UI-PROMOTION",
+          "status": "PARTIAL",
+          "implementedSlice": "PRESERVED_DEVELOPER_SCREEN; PRESERVED_PREPARATION_WORKFLOW; PRESERVED_UPDATE_SCREEN; DEVELOPER_OPT_IN_ONLY; NATIVE_NOT_RUN",
+          "requires": [
+            "PRODUCT-COMPOSED",
+            "INSTALL-PROMOTION",
+            "PACKAGE-PROMOTION"
+          ],
+          "summary": "Expor só combinações com admissão implementada e resultados persistentes/reabríveis.",
+          "evidence": [
+            "docs/PRESERVED_DEVELOPER_SCREEN.md",
+            "docs/evidence/preserved-developer-screen-2026-09-19.json",
+            "docs/PRESERVED_UPDATE_SCREEN.md",
+            "docs/evidence/preserved-update-screen-2026-09-19.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LB-05",
+      "number": 5,
+      "title": "Instalação, atualização, recuperação e encerramento",
+      "file": "prompts/05-transactional-install.md",
+      "status": "PARTIAL",
+      "risk": "crítico: integridade e recuperação",
+      "estimate": "Admissão por perfil e recuperação ampla precisam de recortes separados.",
+      "evidence": [
+        "docs/TRANSACTIONAL_INSTALLATION.md",
+        "docs/TRANSACTIONAL_INSTALLATION_VALIDATION.md",
+        "docs/ADD_ONLY_INSTALLATION.md"
+      ],
+      "nextAction": "Backend, coordenador e tela developer de updates entregues. Não repetir instalador/coordenador/UI; cadeias, composições/coortes e aceites nativos permanecem pendentes, V1/V2/UI simples e requires preservados. Desenvolvimento segue LB-08/LINKAGE-GENERAL sem promoção pública.",
+      "cuts": [
+        {
+          "id": "INSTALL-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "PRODUCT-BASE"
+          ],
+          "summary": "Instalador finito implementado, testes e limitações documentados; não qualifica falha de energia física.",
+          "evidence": [
+            "docs/TRANSACTIONAL_INSTALLATION_VALIDATION.md"
+          ]
+        },
+        {
+          "id": "JOB-INSTALL-RECEIPTS",
+          "status": "ACCEPTED",
+          "requires": [
+            "INSTALL-BASE"
+          ],
+          "summary": "Recibos append-only por job e tentativa de Apply/recovery, vínculo por índice/hash/identidade, erros e barreira de encerramento. Recorte headless de correção; não inclui reidratação do histórico nem aceite da UI.",
+          "evidence": [
+            "docs/JOB_INSTALL_RECEIPTS.md",
+            "docs/evidence/job-install-receipts-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "JOB-HISTORY-READ",
+          "status": "ACCEPTED",
+          "requires": [
+            "JOB-INSTALL-RECEIPTS"
+          ],
+          "summary": "Leitura limitada de histórico schemas 1/2, arquivos inválidos/duplicados/caminhos inseguros e diagnóstico tipado. Somente leitura: não reidratar autorização de Apply nem inferir descoberta/ativação; integração nativa separada.",
+          "evidence": [
+            "docs/JOB_HISTORY_READ.md",
+            "docs/evidence/job-history-read-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "INSTALL-PROMOTION",
+          "status": "PARTIAL",
+          "implementedSlice": "INDEPENDENT_LOGIC_READBACK_V1; JOURNAL_ADMISSION_BINDING; PRESERVED_ADD_ONLY_INSTALL_DEVELOPER_API; PRESERVED_MANAGED_UPDATES_DEVELOPER_BACKEND; PUBLIC_PROMOTION_NOT_ENABLED",
+          "requires": [
+            "COMPOSE-01",
+            "DEPS-COHORT"
+          ],
+          "summary": "Admissão, binding, add-only e update individual de antecessor add-only developer implementados; aprovação/pins frescos, backup independente, journal separado, ownership/resume/restore. Coordenador de updates entregue no LB-01; UI de updates, updates em cadeia, composições/coortes e gates nativos permanecem pendentes. Não muda V1/V2 ou Apply público.",
+          "evidence": [
+            "docs/PRESERVED_ARTIFACT_ADMISSION.md",
+            "docs/evidence/preserved-admission-2026-09-13.json",
+            "docs/PRESERVED_ADMISSION_JOURNAL.md",
+            "docs/evidence/journal-admission-2026-09-13.json",
+            "docs/PRESERVED_ADD_ONLY_INSTALL.md",
+            "docs/evidence/preserved-install-2026-09-13.json",
+            "docs/PRESERVED_MANAGED_UPDATES.md",
+            "docs/evidence/preserved-updates-2026-09-19.json"
+          ]
+        },
+        {
+          "id": "INSTALL-RECOVERY-QA",
+          "status": "PARTIAL",
+          "requires": [
+            "INSTALL-BASE"
+          ],
+          "summary": "Qualificar interrupção nativa, armazenamento/permissões e restauração no artefato final.",
+          "evidence": [
+            "docs/TRANSACTIONAL_INSTALLATION.md",
+            "docs/evidence/public-current-negatives-2026-09-07.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LB-06",
+      "number": 6,
+      "title": "Validação integral do artefato público",
+      "file": "prompts/06-public-e2e.md",
+      "status": "PARTIAL",
+      "risk": "alto: falsos positivos de QA",
+      "estimate": "Campanha por hash/coorte; não herdar prazos ou PASS de um hash anterior.",
+      "evidence": [
+        "docs/PUBLIC_ONLY_END_TO_END_VALIDATION.md",
+        "docs/PRODUCTION_CLIENT_LAUNCH.md",
+        "docs/PLAYER_INSTALLATION.md",
+        "docs/PUBLIC_CURRENT_QUALIFICATION.md",
+        "docs/evidence/public-current-index-2026-09-07.json"
+      ],
+      "nextAction": "Gate nativo adiado durante a prioridade HEADLESS_IMPLEMENTATION. Novo JAR de recibos requer qualificação nativa própria; não herdar positivo/servidor de 3749da... Falta mecanismo externo validado para interromper/observar commit público e descoberta real. Não repetir controles nem substituir por snapshots sintéticos; executar somente após autorização explícita para jogos.",
+      "cuts": [
+        {
+          "id": "PUBLIC-CURRENT-E2E",
+          "status": "PARTIAL",
+          "requires": [
+            "DATA-SIMPLE-01-NATIVE_UI"
+          ],
+          "summary": "Positivo/negativos finitos, servidor/cacheless e índice de 192 arquivos/61 asserções preservados. Sete casos headless novos cobrem recuperação após halt com publicações declaradas carregadas, commit ausente e recusas de segurança. Não há descoberta/interrupção nativa nova; conflitos/UI e autorização de tela continuam pendentes.",
+          "evidence": [
+            "docs/PUBLIC_ONLY_END_TO_END_VALIDATION.md",
+            "docs/evidence/embedded-simple-native-ui-2026-09-07.json",
+            "docs/evidence/public-current-negatives-2026-09-07.json",
+            "docs/PUBLIC_CURRENT_QUALIFICATION.md",
+            "docs/evidence/public-current-index-2026-09-07.json",
+            "docs/PUBLIC_NEXT_SESSION_RECOVERY_VALIDATION.md",
+            "docs/evidence/public-next-session-recovery-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "PUBLIC-PROMOTED-E2E",
+          "status": "NOT_STARTED",
+          "requires": [
+            "UI-PROMOTION",
+            "INSTALL-PROMOTION",
+            "PACKAGE-PROMOTION"
+          ],
+          "summary": "Repetir fluxo completo para cada perfil promovido e combinação selecionada.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-07",
+      "number": 7,
+      "title": "Corpus autorizado e priorização por mods inteiros",
+      "file": "prompts/07-corpus-priorities.md",
+      "status": "PARTIAL",
+      "risk": "alto em seleção, direitos e métricas",
+      "estimate": "B01: 3–5; B02: 8–15 dias-pessoa no backlog existente; condicionais, não soma de prazo global.",
+      "evidence": [
+        "corpus/README.md",
+        "corpus/BACKLOG.md",
+        "corpus/SCHEMA.md",
+        "docs/CORPUS_VALIDATION.md"
+      ],
+      "nextAction": "Reconciliar fixtures já existentes e bloqueios transversais, sem nova aquisição.",
+      "cuts": [
+        {
+          "id": "CORPUS-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "GOV-01"
+          ],
+          "summary": "Corpus e backlog versionados com direitos/hashes e níveis de evidência separados.",
+          "evidence": [
+            "corpus/snapshots/2026.09.06.1.json"
+          ]
+        },
+        {
+          "id": "CORPUS-REFRESH",
+          "status": "NOT_STARTED",
+          "requires": [
+            "CORPUS-BASE"
+          ],
+          "summary": "Reconciliar fixtures já existentes e bloqueios transversais, sem nova aquisição.",
+          "evidence": []
+        },
+        {
+          "id": "CORPUS-PRIORITY",
+          "status": "NOT_STARTED",
+          "requires": [
+            "CORPUS-REFRESH",
+            "COMPOSE-01"
+          ],
+          "summary": "Priorizar coortes e feixes completos de bloqueios, sem contar primeiro erro removido como mod portado.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-08",
+      "number": 8,
+      "title": "Lógica preservada, linkage e composição de contratos",
+      "file": "prompts/08-preserved-logic-composition.md",
+      "status": "PARTIAL",
+      "risk": "crítico: semântica arbitrária e despacho",
+      "estimate": "Arquitetura e primeiro fixture combinado antes de estimar generalização; não estimar por quantidade de mappings.",
+      "evidence": [
+        "docs/LOGIC_PRESERVING_PROFILE.md",
+        "docs/LOGIC_API_BASELINES.md",
+        "docs/ASM_PIPELINE.md",
+        "docs/MAPPINGS.md",
+        "docs/DEPENDENCY_GRAPH.md"
+      ],
+      "nextAction": "OWNED_RECEIVER_HANDLES entregue: prova privada this::method/IntUnaryOperator com receptor this inicializado, fixture real/readback e regressões. Não repetir este harness; desenvolvimento segue LB-09/LIFE-EVENTS/EVENT_PRIORITY_CANCELLATION. COMPOSE-01/LINKAGE-GENERAL/requires e comparação nativa permanecem PARTIAL; composição geral e promoção pública não entregues.",
+      "cuts": [
+        {
+          "id": "LOGIC-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "GOV-01"
+          ],
+          "summary": "Fixture fechado com helpers/subclasse/interfaces, ASM/linkage e comparação nativa limitada registrados.",
+          "evidence": [
+            "docs/evidence/logic-preserving-v1/validation.json"
+          ]
+        },
+        {
+          "id": "COMPOSE-01",
+          "status": "PARTIAL",
+          "requires": [
+            "LOGIC-BASE"
+          ],
+          "summary": "Plano imutável de operações compatíveis; primeiro fixture combinando dois contratos já existentes sem perder corpos.",
+          "evidence": [
+            "docs/COMPOSITION_PREVIEW.md",
+            "docs/evidence/compose-01-2026-09-07.json",
+            "docs/COMPOSITION_CANDIDATE.md",
+            "docs/evidence/compose-candidate-2026-09-07.json",
+            "docs/COMPOSITION_QA_EXPORT.md",
+            "docs/evidence/compose-export-2026-09-07.json",
+            "docs/COMPOSITION_OBSERVATIONS.md",
+            "docs/evidence/compose-observations-2026-09-07.json",
+            "docs/COMPOSITION_PROBES.md",
+            "docs/evidence/compose-probes-2026-09-07.json",
+            "docs/COMPOSITION_RUN_PLANNING.md",
+            "docs/evidence/compose-platform-inventory-2026-09-07.json",
+            "docs/evidence/compose-planning-2026-09-07.json",
+            "docs/COMPOSITION_STAGING_COLLECTION.md",
+            "docs/evidence/compose-staging-2026-09-08.json",
+            "docs/COMPOSITION_INERT_SESSIONS.md",
+            "docs/evidence/compose-sessions-2026-09-08.json",
+            "docs/COMPOSITION_NATIVE_OUTPUT_POLICY.md",
+            "docs/COMPOSITION_NATIVE_LOOKUP_AUDIT.md",
+            "docs/evidence/compose-output-policy-2026-09-08.json",
+            "docs/COMPOSITION_NATIVE_CONFIG_REVIEW.md",
+            "docs/evidence/compose-config-review-2026-09-08.json",
+            "docs/COMPOSITION_RESTRICTED_SETTINGS.md",
+            "docs/evidence/compose-restricted-settings-2026-09-08.json"
+          ]
+        },
+        {
+          "id": "LINKAGE-GENERAL",
+          "status": "PARTIAL",
+          "requires": [
+            "COMPOSE-01"
+          ],
+          "summary": "Expandir prova de ownership, hierarquia/acesso/invocação e admissão independente do layout do compilador.",
+          "evidence": [
+            "docs/OWNED_CONSTRUCTOR_DELEGATION.md",
+            "docs/evidence/owned-constructors-2026-09-19.json",
+            "docs/OWNED_HIERARCHY_DISPATCH.md",
+            "docs/evidence/owned-hierarchy-2026-09-19.json",
+            "docs/OWNED_INTERFACE_DEFAULTS.md",
+            "docs/evidence/owned-interface-2026-09-19.json",
+            "docs/OWNED_RECEIVER_HANDLES.md",
+            "docs/evidence/owned-receiver-2026-09-19.json"
+          ]
+        },
+        {
+          "id": "COMPOSE-MIXED",
+          "status": "NOT_STARTED",
+          "requires": [
+            "LINKAGE-GENERAL",
+            "DEPS-COHORT",
+            "LIFE-EVENTS"
+          ],
+          "summary": "Validar combinações com dependência real e conflitos de contratos, não apenas perfis isolados.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-09",
+      "number": 9,
+      "title": "Registros, eventos, lifecycle, configurações e comandos",
+      "file": "prompts/09-lifecycle-config-commands.md",
+      "status": "PARTIAL",
+      "risk": "alto: ordem, lados e recarga",
+      "estimate": "B02 8–15 dias-pessoa é um recorte do corpus, não toda esta família.",
+      "evidence": [
+        "docs/LIFECYCLE_PRESERVING_PROFILE.md",
+        "docs/LIFECYCLE_API_BASELINES.md",
+        "docs/CONFIG_COMMAND_API_BASELINES.md",
+        "docs/DEPENDENCY_GRAPH.md",
+        "docs/EVENT_PRIORITY_CANCELLATION.md",
+        "docs/evidence/event-priority-2026-09-19.json",
+        "docs/CLIENT_CONFIG_SCOPE.md",
+        "docs/evidence/client-config-2026-09-19.json",
+        "docs/SERVER_CONFIG_SCOPE.md",
+        "docs/evidence/server-config-2026-09-19.json",
+        "docs/LIFECYCLE_SUITE.md",
+        "docs/evidence/lifecycle-suite-2026-09-19.json"
+      ],
+      "nextAction": "Marco delimitado de implementação integrado entregue; não repetir CONFIG_RELOAD_SCOPE/TYPED_COMMAND_TREE. Aguardar autorização para comparar comportamento real original/destino, watcher reload, console/jogador e dispatcher; CLIENT/SERVER e requires permanecem. Padrões fora dos contratos finitos não estão implementados. Cursor headless agora LB-10/ITEM-EQUIPMENT/DURABILITY_REPAIR; LB-09 permanece PARTIAL.",
+      "cuts": [
+        {
+          "id": "LIFE-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "LOGIC-BASE"
+          ],
+          "summary": "Fixture finito e comparação de defaults/config inválida documentados.",
+          "evidence": [
+            "docs/evidence/lifecycle-preserving-v1/validation.json"
+          ]
+        },
+        {
+          "id": "LIFE-EVENTS",
+          "status": "PARTIAL",
+          "requires": [
+            "COMPOSE-01"
+          ],
+          "summary": "Formas reais de registro/callback com bus/fase/lado/ordem e listeners em composição.",
+          "evidence": [
+            "docs/EVENT_PRIORITY_CANCELLATION.md",
+            "docs/evidence/event-priority-2026-09-19.json",
+            "docs/LIFECYCLE_SUITE.md",
+            "docs/evidence/lifecycle-suite-2026-09-19.json"
+          ]
+        },
+        {
+          "id": "LIFE-CONFIG",
+          "status": "PARTIAL",
+          "requires": [
+            "LIFE-EVENTS"
+          ],
+          "summary": "CLIENT e SERVER separados, defaults/validação/carga/reload e política de reinicialização.",
+          "evidence": [
+            "docs/CLIENT_CONFIG_SCOPE.md",
+            "docs/evidence/client-config-2026-09-19.json",
+            "docs/SERVER_CONFIG_SCOPE.md",
+            "docs/evidence/server-config-2026-09-19.json",
+            "docs/LIFECYCLE_SUITE.md",
+            "docs/evidence/lifecycle-suite-2026-09-19.json"
+          ]
+        },
+        {
+          "id": "LIFE-COMMANDS",
+          "status": "PARTIAL",
+          "requires": [
+            "LIFE-EVENTS",
+            "DEPS-COHORT"
+          ],
+          "summary": "Expandir argumentos, permissão, origem e recriação do dispatcher sem alterar comportamento.",
+          "evidence": [
+            "docs/LIFECYCLE_PRESERVING_VALIDATION.md",
+            "docs/LIFECYCLE_SUITE.md",
+            "docs/evidence/lifecycle-suite-2026-09-19.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LB-10",
+      "number": 10,
+      "title": "Itens e blocos com comportamento",
+      "file": "prompts/10-items-blocks.md",
+      "status": "PARTIAL",
+      "risk": "alto a crítico: conservação e diferenças vanilla",
+      "estimate": "Usar recortes IB do corpus; ferramentas/redstone exigem auditoria antes de estimativa.",
+      "evidence": [
+        "docs/ITEM_BLOCK_CORPUS_AUDIT.md",
+        "docs/FOOD_API_BASELINES.md",
+        "docs/FOOD_ITEM_VALIDATION.md",
+        "docs/SIMPLE_CONTENT.md",
+        "docs/DURABLE_ITEM_CONTRACT.md",
+        "docs/evidence/durable-item-2026-09-19.json",
+        "docs/PLAIN_BLOCK_CONTRACT.md",
+        "docs/evidence/plain-block-2026-09-26.json",
+        "docs/HORIZONTAL_BLOCK_CONTRACT.md",
+        "docs/evidence/horizontal-block-2026-10-01.json",
+        "docs/STATIC_SHAPE_BLOCK_CONTRACT.md",
+        "docs/evidence/static-shape-block-2026-10-01.json",
+        "docs/BLOCK_INTERACTION_AUDIT.md",
+        "docs/BOOLEAN_TOGGLE_BLOCK_CONTRACT.md",
+        "docs/evidence/boolean-toggle-block-2026-10-01.json",
+        "docs/IRON_SWORD_API_AUDIT.md",
+        "docs/IRON_SWORD_INSPECTION.md",
+        "docs/evidence/iron-sword-inspection-2026-10-01.json",
+        "docs/ITEM_ATTRIBUTE_API_AUDIT.md",
+        "docs/ITEM_ATTRIBUTE_CONTRACT.md",
+        "docs/evidence/item-attributes-candidate-2026-10-01.json",
+        "docs/ITEM_ATTRIBUTE_DURABILITY_API_AUDIT.md",
+        "docs/ITEM_ATTRIBUTE_DURABILITY_CONTRACT.md",
+        "docs/evidence/item-attribute-durability-candidate-2026-10-01.json",
+        "docs/OWNED_STACK_DAMAGE_API_AUDIT.md",
+        "docs/OWNED_STACK_DAMAGE_CONTRACT.md",
+        "docs/evidence/owned-stack-damage-candidate-2026-10-04.json",
+        "docs/OWNED_STACK_REPAIR_USE_API_AUDIT.md",
+        "docs/OWNED_STACK_REPAIR_USE_CONTRACT.md",
+        "docs/evidence/owned-stack-repair-use-candidate-2026-10-05.json",
+        "docs/IRON_HELMET_NEXT_SLICE.md",
+        "docs/IRON_HELMET_INSPECTION.md",
+        "docs/IRON_HELMET_EMPTY_SLOT_ADAPTER_PLAN.md",
+        "docs/evidence/iron-helmet-inspection-2026-10-05.json",
+        "docs/IRON_HELMET_EMPTY_SLOT_ADAPTER.md",
+        "docs/IRON_HELMET_HEAD_EFFECTS_PLAN.md",
+        "docs/evidence/iron-helmet-adapter-2026-10-05.json",
+        "docs/IRON_HELMET_HEAD_EFFECTS.md",
+        "docs/IRON_HELMET_DISPENSER_PLAN.md",
+        "docs/evidence/iron-helmet-head-effects-2026-10-05.json",
+        "docs/IRON_HELMET_DISPENSER.md",
+        "docs/IRON_HELMET_INTEGRATED_ITEM_PLAN.md",
+        "docs/evidence/iron-helmet-dispenser-2026-10-05.json"
+      ],
+      "nextAction": "IRON_HELMET_DISPENSER_CLOSED_RECEIVERS entregue: operação real com consulta/predicados nativos, primeiro ServerPlayer/Zombie elegível, split1, player HEAD ou Zombie silencioso, drop chance2/persistência. Desconhecido recusado antes do consumo, sem skip/false/fallback. 68 descriptors anteriores e item/HEAD intactos; novo fixture original. 744 regressões PASS (50 novas), fixtures 4+5 PASS; sem registro, receita/candidato/Apply. Próximo IRON_HELMET_INTEGRATED_SUCCESSOR: item/factory com identidade nova e ownership, use/callback integrados; preservar guards antigas. Outros receivers vanilla, query order, Equipable/rendering/coortes/nativo/requires permanecem. Seis perfis, Apply simples, licença/aquisição intactos. Sem jogos.",
+      "cuts": [
+        {
+          "id": "FOOD-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "LOGIC-BASE"
+          ],
+          "summary": "Fixture literal de alimento com comparação de endpoints registrada, não uso completo/multiplayer.",
+          "evidence": [
+            "docs/evidence/food-item-v1/validation.json"
+          ]
+        },
+        {
+          "id": "ITEM-USE-QA",
+          "status": "PARTIAL",
+          "requires": [
+            "FOOD-BASE"
+          ],
+          "summary": "Uso real, duração, última unidade, consumo/efeitos e reconexão do alimento existente.",
+          "evidence": [
+            "docs/FOOD_ITEM_VALIDATION.md"
+          ]
+        },
+        {
+          "id": "ITEM-EQUIPMENT",
+          "status": "PARTIAL",
+          "requires": [
+            "COMPOSE-01",
+            "LIFE-EVENTS"
+          ],
+          "summary": "IRON_HELMET_DISPENSER_CLOSED_RECEIVERS entregue: operação real com consulta/predicados nativos, primeiro ServerPlayer/Zombie elegível, split1, player HEAD ou Zombie silencioso, drop chance2/persistência. Desconhecido recusado antes do consumo, sem skip/false/fallback. 68 descriptors anteriores e item/HEAD intactos; novo fixture original. 744 regressões PASS (50 novas), fixtures 4+5 PASS; sem registro, receita/candidato/Apply. Próximo IRON_HELMET_INTEGRATED_SUCCESSOR: item/factory com identidade nova e ownership, use/callback integrados; preservar guards antigas. Outros receivers vanilla, query order, Equipable/rendering/coortes/nativo/requires permanecem. Seis perfis, Apply simples, licença/aquisição intactos. Sem jogos.",
+          "evidence": [
+            "docs/DURABLE_ITEM_CONTRACT.md",
+            "docs/evidence/durable-item-2026-09-19.json",
+            "docs/IRON_SWORD_API_AUDIT.md",
+            "docs/IRON_SWORD_INSPECTION.md",
+            "docs/evidence/iron-sword-inspection-2026-10-01.json",
+            "docs/ITEM_ATTRIBUTE_API_AUDIT.md",
+            "docs/ITEM_ATTRIBUTE_CONTRACT.md",
+            "docs/evidence/item-attributes-candidate-2026-10-01.json",
+            "docs/ITEM_ATTRIBUTE_DURABILITY_API_AUDIT.md",
+            "docs/ITEM_ATTRIBUTE_DURABILITY_CONTRACT.md",
+            "docs/evidence/item-attribute-durability-candidate-2026-10-01.json",
+            "docs/OWNED_STACK_DAMAGE_API_AUDIT.md",
+            "docs/OWNED_STACK_DAMAGE_CONTRACT.md",
+            "docs/evidence/owned-stack-damage-candidate-2026-10-04.json",
+            "docs/OWNED_STACK_REPAIR_USE_API_AUDIT.md",
+            "docs/OWNED_STACK_REPAIR_USE_CONTRACT.md",
+            "docs/evidence/owned-stack-repair-use-candidate-2026-10-05.json",
+            "docs/IRON_HELMET_NEXT_SLICE.md",
+            "docs/IRON_HELMET_INSPECTION.md",
+            "docs/IRON_HELMET_EMPTY_SLOT_ADAPTER_PLAN.md",
+            "docs/evidence/iron-helmet-inspection-2026-10-05.json",
+            "docs/IRON_HELMET_EMPTY_SLOT_ADAPTER.md",
+            "docs/IRON_HELMET_HEAD_EFFECTS_PLAN.md",
+            "docs/evidence/iron-helmet-adapter-2026-10-05.json",
+            "docs/IRON_HELMET_HEAD_EFFECTS.md",
+            "docs/IRON_HELMET_DISPENSER_PLAN.md",
+            "docs/evidence/iron-helmet-head-effects-2026-10-05.json",
+            "docs/IRON_HELMET_DISPENSER.md",
+            "docs/IRON_HELMET_INTEGRATED_ITEM_PLAN.md",
+            "docs/evidence/iron-helmet-dispenser-2026-10-05.json"
+          ]
+        },
+        {
+          "id": "BLOCK-STATE",
+          "status": "PARTIAL",
+          "requires": [
+            "COMPOSE-01",
+            "LIFE-EVENTS"
+          ],
+          "summary": "Registro, orientação/rotate/mirror, half-shape/self-drop anteriores preservados; BOOLEAN_TOGGLE_USE privado implementa propriedade local, default false, branch cliente sem escrita e única escrita no servidor com flags 3. Source/target/readback, ASM/linkage e recursos correspondentes verificados. Não é interação geral ou prova nativa; requisitos permanecem.",
+          "evidence": [
+            "docs/PLAIN_BLOCK_CONTRACT.md",
+            "docs/evidence/plain-block-2026-09-26.json",
+            "docs/HORIZONTAL_BLOCK_CONTRACT.md",
+            "docs/evidence/horizontal-block-2026-10-01.json",
+            "docs/STATIC_SHAPE_BLOCK_CONTRACT.md",
+            "docs/evidence/static-shape-block-2026-10-01.json",
+            "docs/BLOCK_INTERACTION_AUDIT.md",
+            "docs/BOOLEAN_TOGGLE_BLOCK_CONTRACT.md",
+            "docs/evidence/boolean-toggle-block-2026-10-01.json"
+          ]
+        },
+        {
+          "id": "BLOCK-TICKS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "BLOCK-STATE",
+            "DATA-LOOT"
+          ],
+          "summary": "Ticks/redstone, plantas/crescimento e consumo/drops por contratos de contexto.",
+          "evidence": []
+        },
+        {
+          "id": "ITEM-EFFECTS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "ITEM-EQUIPMENT",
+            "NET-C2S"
+          ],
+          "summary": "Uso com efeitos, encantamentos e brewing em cortes separados, com consumo/tempo/lados.",
+          "evidence": []
+        },
+        {
+          "id": "CREATIVE-TABS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "LIFE-EVENTS",
+            "DATA-ASSETS"
+          ],
+          "summary": "Agrupamento, ordenação e identidade visual de stacks; diferenças da API alvo explicitadas.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-11",
+      "number": 11,
+      "title": "Recursos e datapacks por formato e versão",
+      "file": "prompts/11-resources-datapacks.md",
+      "status": "PARTIAL",
+      "risk": "alto: schemas, referências e reload",
+      "estimate": "Por serializer/formato e contexto; não tratar todos os datapacks como cópia de arquivos.",
+      "evidence": [
+        "docs/RESOURCE_API_BASELINES.md",
+        "docs/RESOURCE_CORPUS_AUDIT.md",
+        "docs/DATAPACK_RECIPES_PROFILE.md",
+        "docs/DATAPACK_RECIPES_VALIDATION.md"
+      ],
+      "nextAction": "Máquina/stonecutter/recipe-book reais, inputs/fuel/outputs/XP e reload.",
+      "cuts": [
+        {
+          "id": "DATA-RECIPES-BASE",
+          "status": "ACCEPTED",
+          "requires": [
+            "PRODUCT-BASE"
+          ],
+          "summary": "Cópia byte-exata/reescrita finita, parsers e endpoints de recipes/tags registrados.",
+          "evidence": [
+            "docs/evidence/datapack-recipes-v1/validation.json"
+          ]
+        },
+        {
+          "id": "DATA-RECIPES-QA",
+          "status": "PARTIAL",
+          "requires": [
+            "DATA-RECIPES-BASE"
+          ],
+          "summary": "Máquina/stonecutter/recipe-book reais, inputs/fuel/outputs/XP e reload.",
+          "evidence": [
+            "docs/DATAPACK_RECIPES_VALIDATION.md"
+          ]
+        },
+        {
+          "id": "DATA-CONDITIONAL",
+          "status": "NOT_STARTED",
+          "requires": [
+            "COMPOSE-01",
+            "DEPS-COHORT"
+          ],
+          "summary": "Serializers/ingredientes concretos, condições e tags interdependentes por schemas.",
+          "evidence": []
+        },
+        {
+          "id": "DATA-LOOT",
+          "status": "NOT_STARTED",
+          "requires": [
+            "DATA-CONDITIONAL"
+          ],
+          "summary": "Loot e GLM por contexto; depois advancements/triggers e funções/comandos.",
+          "evidence": []
+        },
+        {
+          "id": "DATA-ASSETS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "COMPOSE-01"
+          ],
+          "summary": "Modelos/blockstates, animação de textura, áudio e referências com parsers limitados.",
+          "evidence": []
+        },
+        {
+          "id": "DATA-ADV-FUNCTIONS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "DATA-LOOT",
+            "LIFE-COMMANDS"
+          ],
+          "summary": "Advancements/triggers e funções/comandos por schema/parser/contexto.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-12",
+      "number": 12,
+      "title": "Networking e contratos de multiplayer",
+      "file": "prompts/12-networking.md",
+      "status": "BLOCKED",
+      "risk": "crítico: autoridade, thread e protocolo",
+      "estimate": "Investigar falha antes de estimar expansão; sem prazo garantido para hipótese de transporte.",
+      "evidence": [
+        "docs/NETWORK_API_BASELINES.md",
+        "docs/NETWORK_HANDSHAKE_CLEAR_RETURN.md",
+        "docs/NETWORK_HANDSHAKE_PLATFORM_CONTROL.md",
+        "docs/NETWORK_RUNTIME_TEST_PLAN.md",
+        "docs/NETWORK_SNAPSHOT_PROFILE.md"
+      ],
+      "nextAction": "Resolver CLIENT_PROTOCOL no modo normal e executar SERVER_ABSENT/SERVER_PROTOCOL.",
+      "cuts": [
+        {
+          "id": "NET-QA-01",
+          "status": "ACCEPTED",
+          "requires": [
+            "LOGIC-BASE"
+          ],
+          "summary": "Cenário finito de dois clientes e servidor registrado; não equivalência de origem nem networking geral.",
+          "evidence": [
+            "docs/evidence/network-native-continuation-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "NET-QA-02-HANDSHAKE",
+          "status": "BLOCKED",
+          "requires": [
+            "NET-QA-01"
+          ],
+          "summary": "Resolver CLIENT_PROTOCOL no modo normal e executar SERVER_ABSENT/SERVER_PROTOCOL.",
+          "evidence": [
+            "docs/evidence/network-handshake-clear-return-2026-09-07.json"
+          ]
+        },
+        {
+          "id": "NET-QA-02-COMPARISON",
+          "status": "NOT_STARTED",
+          "requires": [
+            "NET-QA-02-HANDSHAKE"
+          ],
+          "summary": "Comparar fixture original e convertido em ambientes isolados.",
+          "evidence": []
+        },
+        {
+          "id": "NET-QA-03",
+          "status": "NOT_STARTED",
+          "requires": [
+            "NET-QA-02-COMPARISON"
+          ],
+          "summary": "Sessões/epochs, pending-work, saturação, reconexão e fechamento.",
+          "evidence": []
+        },
+        {
+          "id": "NET-C2S",
+          "status": "NOT_STARTED",
+          "requires": [
+            "NET-QA-03",
+            "COMPOSE-01",
+            "LIFE-EVENTS"
+          ],
+          "summary": "Primeiro contrato C2S autorizado; expandir canais/codecs/destinatários somente por fixture.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-13",
+      "number": 13,
+      "title": "Capabilities e persistência por instância",
+      "file": "prompts/13-capabilities-persistence.md",
+      "status": "NOT_STARTED",
+      "risk": "crítico: ciclo de vida, perda e duplicação",
+      "estimate": "Energia, inventário, fluido e jogador separados; estimar após auditoria de cada host.",
+      "evidence": [
+        "docs/COMPAT_LAYER.md",
+        "docs/COMPAT_API_BASELINES.md",
+        "docs/PROJECT_STATUS.md"
+      ],
+      "nextAction": "Primeiro provider de energia por ItemStack, sem máquina/mundo.",
+      "cuts": [
+        {
+          "id": "CAP-ENERGY",
+          "status": "NOT_STARTED",
+          "requires": [
+            "NET-QA-03",
+            "COMPOSE-01"
+          ],
+          "summary": "Primeiro provider de energia por ItemStack, sem máquina/mundo.",
+          "evidence": []
+        },
+        {
+          "id": "CAP-INVENTORY",
+          "status": "NOT_STARTED",
+          "requires": [
+            "CAP-ENERGY"
+          ],
+          "summary": "Inventário pequeno por instância/face, simulação, serialização e invalidação.",
+          "evidence": []
+        },
+        {
+          "id": "CAP-FLUID",
+          "status": "NOT_STARTED",
+          "requires": [
+            "CAP-INVENTORY"
+          ],
+          "summary": "Tanque finito, tipo/quantidade/NBT, simulação e persistência.",
+          "evidence": []
+        },
+        {
+          "id": "CAP-PLAYER",
+          "status": "NOT_STARTED",
+          "requires": [
+            "CAP-ENERGY",
+            "LIFE-EVENTS"
+          ],
+          "summary": "Dados por jogador, clone/morte/respawn/dimensão/relog; sync como corte separado.",
+          "evidence": []
+        },
+        {
+          "id": "PERSIST-SAVEDDATA",
+          "status": "NOT_STARTED",
+          "requires": [
+            "CAP-PLAYER"
+          ],
+          "summary": "SavedData por mundo/nível, dirty-state e política explícita de serialização/reabertura.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-14",
+      "number": 14,
+      "title": "BlockEntities, máquinas e automação",
+      "file": "prompts/14-blockentities-machines.md",
+      "status": "NOT_STARTED",
+      "risk": "crítico: persistência, ticking e dupe",
+      "estimate": "Sem estimativa defensável de família; dividir por host persistente/tick/máquina.",
+      "evidence": [
+        "docs/COMPAT_LAYER.md",
+        "docs/RESOURCE_API_BASELINES.md",
+        "docs/DEPENDENCY_GRAPH.md"
+      ],
+      "nextAction": "Primeiro host persistente sem tick/GUI, registro/construção/save/load/remoção.",
+      "cuts": [
+        {
+          "id": "BE-PERSIST",
+          "status": "NOT_STARTED",
+          "requires": [
+            "BLOCK-STATE",
+            "CAP-INVENTORY"
+          ],
+          "summary": "Primeiro host persistente sem tick/GUI, registro/construção/save/load/remoção.",
+          "evidence": []
+        },
+        {
+          "id": "BE-TICK",
+          "status": "NOT_STARTED",
+          "requires": [
+            "BE-PERSIST"
+          ],
+          "summary": "Tick servidor com efeito limitado, unload/reload e dirty-state.",
+          "evidence": []
+        },
+        {
+          "id": "BE-MACHINE",
+          "status": "NOT_STARTED",
+          "requires": [
+            "BE-TICK",
+            "CAP-FLUID",
+            "NET-C2S",
+            "DATA-RECIPES-QA"
+          ],
+          "summary": "Máquina finita, recursos/capabilities/recipe e automação por face.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-15",
+      "number": 15,
+      "title": "Entidades, atributos, combate, spawn e AI",
+      "file": "prompts/15-entities-ai.md",
+      "status": "NOT_STARTED",
+      "risk": "crítico: comportamento vanilla e sincronização",
+      "estimate": "Clumps B03: 30–50 dias-pessoa condicionais no backlog; não é estimativa de todas as entidades.",
+      "evidence": [
+        "corpus/BACKLOG.md",
+        "corpus/intake/semantic-review.md",
+        "docs/COMPAT_LAYER.md",
+        "docs/NETWORK_API_BASELINES.md"
+      ],
+      "nextAction": "Entidade não viva: registro, construtor, spawn/tracking e estado persistente finito.",
+      "cuts": [
+        {
+          "id": "ENTITY-CORE",
+          "status": "NOT_STARTED",
+          "requires": [
+            "COMPOSE-01",
+            "LIFE-EVENTS",
+            "NET-QA-03"
+          ],
+          "summary": "Entidade não viva: registro, construtor, spawn/tracking e estado persistente finito.",
+          "evidence": []
+        },
+        {
+          "id": "ENTITY-LIVING",
+          "status": "NOT_STARTED",
+          "requires": [
+            "ENTITY-CORE",
+            "ITEM-EQUIPMENT"
+          ],
+          "summary": "Living/atributos/dano/equipamento/morte e conservação de drops/XP.",
+          "evidence": []
+        },
+        {
+          "id": "ENTITY-AI",
+          "status": "NOT_STARTED",
+          "requires": [
+            "ENTITY-LIVING"
+          ],
+          "summary": "Goal/pathfinding finito; prioridade, scheduling, spawn/despawn e navegação.",
+          "evidence": []
+        },
+        {
+          "id": "ENTITY-CORPUS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "ENTITY-AI",
+            "RENDER-ENTITY",
+            "PERSIST-SAVEDDATA"
+          ],
+          "summary": "Fechar comportamento de um fixture derivado de caso autorizado do corpus, incluindo XP quando aplicável.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-16",
+      "number": 16,
+      "title": "Menus, inventários, telas, input e HUD legados",
+      "file": "prompts/16-menus-input-screens.md",
+      "status": "NOT_STARTED",
+      "risk": "crítico em containers; alto em UX/lados",
+      "estimate": "Controlling B04: 20–35 dias-pessoa condicionais; menus server-side são outro recorte.",
+      "evidence": [
+        "docs/P4_UI_API_BASELINES.md",
+        "docs/NETWORK_API_BASELINES.md",
+        "corpus/BACKLOG.md"
+      ],
+      "nextAction": "Tela local/keymapping/HUD finito, input/foco e isolamento físico.",
+      "cuts": [
+        {
+          "id": "CLIENT-LOCAL",
+          "status": "NOT_STARTED",
+          "requires": [
+            "COMPOSE-01",
+            "LIFE-EVENTS"
+          ],
+          "summary": "Tela local/keymapping/HUD finito, input/foco e isolamento físico.",
+          "evidence": []
+        },
+        {
+          "id": "MENU-SLOTS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "BE-PERSIST",
+            "CAP-INVENTORY",
+            "NET-C2S"
+          ],
+          "summary": "Menu server-authoritative com slots, abertura/validade/sincronização e consumo.",
+          "evidence": []
+        },
+        {
+          "id": "MENU-ANTIDUPE",
+          "status": "NOT_STARTED",
+          "requires": [
+            "MENU-SLOTS",
+            "CLIENT-LOCAL"
+          ],
+          "summary": "Shift-click/drag/concorrência, close/relog e dois jogadores.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-17",
+      "number": 17,
+      "title": "Renderização, modelos dinâmicos, partículas e áudio",
+      "file": "prompts/17-rendering-audio.md",
+      "status": "NOT_STARTED",
+      "risk": "alto: pipeline gráfico, recursos e lado físico",
+      "estimate": "AppleSkin B06: 30–50 dias-pessoa condicionais; renderers gerais precisam de auditoria.",
+      "evidence": [
+        "docs/COMPAT_LAYER.md",
+        "docs/RESOURCE_API_BASELINES.md",
+        "corpus/BACKLOG.md"
+      ],
+      "nextAction": "Renderer real mínimo de entidade, pose/buffer/textura/estado com isolamento cliente.",
+      "cuts": [
+        {
+          "id": "RENDER-ENTITY",
+          "status": "NOT_STARTED",
+          "requires": [
+            "ENTITY-CORE",
+            "DATA-ASSETS",
+            "CLIENT-LOCAL"
+          ],
+          "summary": "Renderer real mínimo de entidade, pose/buffer/textura/estado com isolamento cliente.",
+          "evidence": []
+        },
+        {
+          "id": "RENDER-DYNAMIC",
+          "status": "NOT_STARTED",
+          "requires": [
+            "RENDER-ENTITY",
+            "BE-PERSIST"
+          ],
+          "summary": "BlockEntity/item renderer e modelos dinâmicos em recortes separados.",
+          "evidence": []
+        },
+        {
+          "id": "RENDER-EFFECTS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "RENDER-DYNAMIC"
+          ],
+          "summary": "Partículas/áudio e viabilidade de shader concreto; sem shader genérico automático.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-18",
+      "number": 18,
+      "title": "Mundo, geração, biomas, estruturas e dimensões",
+      "file": "prompts/18-worldgen-dimensions.md",
+      "status": "NOT_STARTED",
+      "risk": "crítico: formatos dinâmicos e corrupção de estado",
+      "estimate": "Sem estimativa global defensável; provas em mundos novos por formato/contexto.",
+      "evidence": [
+        "docs/RESOURCE_API_BASELINES.md",
+        "docs/DEPENDENCY_GRAPH.md",
+        "docs/SECURITY.md"
+      ],
+      "nextAction": "Acesso a mundo/posição/chunk finito no lado/thread corretos, sem carregamento arbitrário.",
+      "cuts": [
+        {
+          "id": "WORLD-ACCESS",
+          "status": "NOT_STARTED",
+          "requires": [
+            "COMPOSE-01",
+            "BLOCK-STATE",
+            "LIFE-EVENTS"
+          ],
+          "summary": "Acesso a mundo/posição/chunk finito no lado/thread corretos, sem carregamento arbitrário.",
+          "evidence": []
+        },
+        {
+          "id": "WORLD-GENERATION",
+          "status": "NOT_STARTED",
+          "requires": [
+            "WORLD-ACCESS",
+            "DATA-CONDITIONAL"
+          ],
+          "summary": "Feature/placement em mundo novo; depois bioma/estrutura/registry dinâmico por corte.",
+          "evidence": []
+        },
+        {
+          "id": "WORLD-DIMENSION",
+          "status": "NOT_STARTED",
+          "requires": [
+            "WORLD-GENERATION",
+            "CAP-PLAYER",
+            "NET-C2S"
+          ],
+          "summary": "Dimensão isolada, persistência de mundo novo e transição/spawn/respawn/reconexão.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-19",
+      "number": 19,
+      "title": "Dependências, bibliotecas e composição entre mods",
+      "file": "prompts/19-dependency-cohorts.md",
+      "status": "PARTIAL",
+      "risk": "crítico: fechamento, linkage e descoberta",
+      "estimate": "Coorte mínima antes de estimar bibliotecas populares; grafo metadata-only não é compatibilidade.",
+      "evidence": [
+        "docs/DEPENDENCY_GRAPH.md",
+        "docs/PORTABLE_MAPPING_DATA.md",
+        "docs/PACKAGING_ARCHITECTURE.md",
+        "docs/TRANSACTIONAL_INSTALLATION.md"
+      ],
+      "nextAction": "FINITE_TARGET_PAIR entregue estaticamente via serviço/CLI, sem publicar a dupla. Comparação isolada origem/destino e wiring nativo permanecem pendentes de autorização; avançar desenvolvimento do produto em LB-01/COHORT_TARGET_PREVIEW, sem mais scaffolding de lançamento nem antecipar INSTALL-PROMOTION.",
+      "cuts": [
+        {
+          "id": "DEPS-METADATA",
+          "status": "ACCEPTED",
+          "requires": [
+            "GOV-01"
+          ],
+          "summary": "Verificador metadata-only documentado; não prova APIs/binários externos.",
+          "evidence": [
+            "docs/DEPENDENCY_GRAPH.md"
+          ]
+        },
+        {
+          "id": "DEPS-COHORT",
+          "status": "PARTIAL",
+          "requires": [
+            "COMPOSE-01",
+            "DEPS-METADATA"
+          ],
+          "summary": "SOURCE_COHORT_INSPECTION_V1 e FINITE_TARGET_PAIR implementados: dois originais hash-pinned, ownership/grafo/linkage origem e destino por JAR; montagem/reabertura de candidatos privados, três classes intactas e seis mudanças metadata com adapters reais. Falha/cancelamento não aprovam subconjunto. Comparação nativa/descoberta/comportamento ainda NOT_RUN; nenhum Apply ou perfil público novo.",
+          "evidence": [
+            "docs/DEPENDENCY_COHORT_SOURCE.md",
+            "docs/evidence/deps-cohort-source-2026-09-12.json",
+            "docs/DEPENDENCY_COHORT_TARGET.md",
+            "docs/evidence/deps-cohort-target-2026-09-12.json"
+          ]
+        },
+        {
+          "id": "DEPS-LIBRARIES",
+          "status": "NOT_STARTED",
+          "requires": [
+            "DEPS-COHORT",
+            "DATA-EXPAND"
+          ],
+          "summary": "Bibliotecas/JiJ/services/relocation e integrações opcionais por coorte autorizada.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-20",
+      "number": 20,
+      "title": "Reflexão, access transformers, mixins e coremods",
+      "file": "prompts/20-advanced-hooks.md",
+      "status": "NOT_STARTED",
+      "risk": "crítico: limites permanentes da política",
+      "estimate": "Auditoria por hook; alguns casos não têm implementação permitida neste produto.",
+      "evidence": [
+        "docs/ANALYZER_LIMITATIONS.md",
+        "docs/SECURITY.md",
+        "corpus/intake/semantic-review.md"
+      ],
+      "nextAction": "Classificar hooks concretos do corpus em API pública equivalente, MANUAL ou UNSUPPORTED.",
+      "cuts": [
+        {
+          "id": "HOOKS-AUDIT",
+          "status": "NOT_STARTED",
+          "requires": [
+            "LINKAGE-GENERAL",
+            "DEPS-COHORT"
+          ],
+          "summary": "Classificar hooks concretos do corpus em API pública equivalente, MANUAL ou UNSUPPORTED.",
+          "evidence": []
+        },
+        {
+          "id": "HOOKS-PUBLIC-ROUTE",
+          "status": "NOT_STARTED",
+          "requires": [
+            "HOOKS-AUDIT",
+            "LIFE-EVENTS"
+          ],
+          "summary": "Provar substituição de um hook concreto por operação pública existente, ou documentar impossibilidade sem habilitar suporte.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-21",
+      "number": 21,
+      "title": "Qualificação cumulativa, segurança e prontidão de distribuição",
+      "file": "prompts/21-quality-release-gates.md",
+      "status": "NOT_STARTED",
+      "risk": "crítico: produto final versus testes isolados",
+      "estimate": "Por coorte/hardware/hash; direitos, soak e QA humana não têm prazo automático.",
+      "evidence": [
+        "docs/SECURITY.md",
+        "docs/PUBLIC_ONLY_END_TO_END_VALIDATION.md",
+        "docs/PACKAGING_RIGHTS.md",
+        "docs/REPORT_SCHEMA.md",
+        "corpus/BACKLOG.md"
+      ],
+      "nextAction": "Arquivos adversariais, budgets, fuzzing, acesso a paths, cancelamento e limites agregados.",
+      "cuts": [
+        {
+          "id": "QUALITY-SECURITY",
+          "status": "NOT_STARTED",
+          "requires": [
+            "ENGINE-ISOLATION",
+            "LINKAGE-GENERAL"
+          ],
+          "summary": "Arquivos adversariais, budgets, fuzzing, acesso a paths, cancelamento e limites agregados.",
+          "evidence": []
+        },
+        {
+          "id": "QUALITY-COMPOSED",
+          "status": "NOT_STARTED",
+          "requires": [
+            "COMPOSE-MIXED",
+            "ITEM-EQUIPMENT",
+            "BLOCK-TICKS",
+            "DATA-LOOT",
+            "DATA-ASSETS",
+            "NET-C2S",
+            "CAP-FLUID",
+            "PERSIST-SAVEDDATA",
+            "BE-MACHINE",
+            "ENTITY-CORPUS",
+            "MENU-ANTIDUPE",
+            "RENDER-EFFECTS",
+            "WORLD-DIMENSION",
+            "DEPS-LIBRARIES",
+            "HOOKS-PUBLIC-ROUTE",
+            "ITEM-EFFECTS",
+            "CREATIVE-TABS",
+            "DATA-ADV-FUNCTIONS",
+            "ITEM-USE-QA",
+            "CORPUS-PRIORITY",
+            "LIFE-CONFIG",
+            "LIFE-COMMANDS"
+          ],
+          "summary": "Coortes autorais/existentes com famílias combinadas; comportamento/MP/persistência/anti-dupe e soak.",
+          "evidence": []
+        },
+        {
+          "id": "RELEASE-QUAL",
+          "status": "NOT_STARTED",
+          "requires": [
+            "QUALITY-SECURITY",
+            "QUALITY-COMPOSED",
+            "PACKAGE-RIGHTS",
+            "PUBLIC-CURRENT-E2E",
+            "PUBLIC-PROMOTED-E2E",
+            "INSTALL-RECOVERY-QA"
+          ],
+          "summary": "Mesmo JAR final, direitos, dados, UI/instalação/servidor, documentação e revisão de qualidade antes de intake final.",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "id": "LB-22",
+      "number": 22,
+      "title": "Campanha final autorizada com mods reais e fechamento",
+      "file": "prompts/22-authorized-real-mod-campaign.md",
+      "status": "NOT_STARTED",
+      "risk": "alto: direitos, seleção e expectativa de cobertura",
+      "estimate": "B07 indica 2–4 dias-pessoa por intake; port completo depende dos bloqueios e não cabe nessa estimativa.",
+      "evidence": [
+        "corpus/README.md",
+        "corpus/BACKLOG.md",
+        "docs/PACKAGING_RIGHTS.md",
+        "docs/PROJECT_STATUS.md"
+      ],
+      "nextAction": "Selecionar e obter releases autorizados 1.16.5 sem port 1.20.1 localizado, com verificação datada.",
+      "cuts": [
+        {
+          "id": "REAL-INTAKE",
+          "status": "NOT_STARTED",
+          "requires": [
+            "RELEASE-QUAL",
+            "CORPUS-PRIORITY"
+          ],
+          "summary": "Selecionar e obter releases autorizados 1.16.5 sem port 1.20.1 localizado, com verificação datada.",
+          "evidence": []
+        },
+        {
+          "id": "REAL-BEHAVIOR",
+          "status": "NOT_STARTED",
+          "requires": [
+            "REAL-INTAKE"
+          ],
+          "summary": "Conversão e comparação por release/coorte, cliente/servidor/comportamento/MP e bloqueios transparentes.",
+          "evidence": []
+        },
+        {
+          "id": "REAL-CLOSEOUT",
+          "status": "NOT_STARTED",
+          "requires": [
+            "REAL-BEHAVIOR"
+          ],
+          "summary": "Relatório final de cobertura da amostra e plano de próxima versão, sem publicação automática.",
+          "evidence": []
+        }
+      ]
+    }
+  ],
+  "publication": {
+    "requestedAt": "2026-10-22",
+    "priority": "PUBLIC_SOURCE_AND_EXPERIMENTAL_HANDOFF",
+    "sourceRepository": "https://github.com/IanZuccheri/LegacyBridge",
+    "githubStatus": "SOURCE_VERIFIED_READY_FOR_PUSH",
+    "curseForgeSubmission": "OWNER_WILL_SUBMIT_MANUALLY",
+    "license": "GPL-3.0-only with Minecraft/Forge linking exception",
+    "ownerApprovedLicense": true,
+    "ownerApprovedLinkingException": true,
+    "royalties": false,
+    "nativeValidation": "NOT_RUN_FOR_NEW_ARTIFACT",
+    "scopeExpansion": false,
+    "featureDevelopmentDeferredByOwner": true,
+    "sourceSnapshotBuild": "PASS; same public JAR SHA-256; existing dependency cache; full/default and native qualification remain pending",
+    "exporterTests": "16 PASS, 0 skipped"
+  }
+}
+

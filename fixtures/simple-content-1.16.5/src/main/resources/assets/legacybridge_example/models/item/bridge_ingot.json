@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "legacybridge_example:item/bridge_ingot"
+  }
+}

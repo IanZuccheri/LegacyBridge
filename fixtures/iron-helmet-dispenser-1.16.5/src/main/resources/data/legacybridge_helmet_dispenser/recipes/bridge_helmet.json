@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [{"item": "minecraft:iron_ingot"}],
+  "result": {"item": "legacybridge_helmet_dispenser:bridge_helmet", "count": 1}
+}

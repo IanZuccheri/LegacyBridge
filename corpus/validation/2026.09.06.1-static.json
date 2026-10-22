@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "reportType": "LEGACYBRIDGE_CORPUS_VALIDATION_LEDGER",
+  "corpusVersion": "2026.09.06.1",
+  "reviewedAt": "2026-09-06",
+  "catalogSha256": "129b59c273837a163649b3a870e46b4fd77db53f53ed52cc50b75d07a4342c5e",
+  "snapshotLockSha256": "00648262e0cb28514ba7df5cd8bbed4cb6ef02fc867001ee71e872af0a988e0a",
+  "developmentRunnerJarSha256": "c11b74bf49a140317ca2a36c4270e1c0e5a380f21e1c44090d404e82eb281e11",
+  "publicJarSha256BeforeAndAfter": "00cc7ebde1279c1ac3cc6ac0a54498e4598ca4f45700a6799f915ce9dddea991",
+  "mappingManifestSha256": "bac4e0018cc51bd13a7e5ae19116d04cb6b4bc271d3aecfba5e4ac0d27df5c69",
+  "mappingDataRedistributed": false,
+  "productionRulesChanged": false,
+  "originalClassesExecuted": false,
+  "originalHashesUnchanged": 9,
+  "newGameExecutions": 0,
+  "runtimeEvidenceInheritedByNewObservations": false,
+  "localHistoricalEvidenceMissingAtVerification": [],
+  "realProjects": 3,
+  "realArtifacts": 3,
+  "projectFixtureCasesIncludingCorruptNonMod": 6,
+  "realStaticResults": {"analyzable": 3, "convertible": 0, "bytecodeValidated": 0},
+  "fixtureStaticResults": {"analyzable": 5, "convertible": 3, "bytecodeValidated": 3},
+  "cliServiceRealModReportPairsByteEqual": 6,
+  "cliServiceComparisonScope": "Analysis and conversion report per exact Clumps, Controlling and AppleSkin release; original installed CLI observations versus final typed-service runner. All refusals remain refusals.",
+  "currentTestResults": [
+    {"module": "legacy-converter", "tests": 358, "passed": 357, "failed": 0, "skipped": 1},
+    {"module": "legacy-corpus", "tests": 84, "passed": 83, "failed": 0, "skipped": 1},
+    {"module": "legacy-product", "tests": 82, "passed": 82, "failed": 0, "skipped": 0},
+    {"module": "legacy-runtime", "tests": 30, "passed": 30, "failed": 0, "skipped": 0},
+    {"module": "legacy-workflow", "tests": 32, "passed": 32, "failed": 0, "skipped": 0}
+  ],
+  "testCountIsNotSupportedModCount": true,
+  "builds": [
+    {"path": "build/corpus-intake/build-corpus-full.log", "sha256": "d69c74a27f60373156fe37838bbb1ea009b7783dc17e80eb3d90ecbac5cac81d", "status": "BUILD_SUCCESSFUL", "scope": "Full forced rerun before the final two diagnostic-summary regression tests; 64 tasks executed."},
+    {"path": "build/corpus-intake/build-corpus-final.log", "sha256": "e47238cd386097cc84ddcf45678613276dfee74dd404d3286808418ad9092ae6", "status": "BUILD_SUCCESSFUL", "scope": "Final code with all 84 corpus tests rerun; unchanged other modules up-to-date; 27 executed and 37 up-to-date tasks."}
+  ],
+  "observationPathPattern": "build/corpus-runs/2026.09.06.1-service-final/<recordId>/observation.json",
+  "observations": [
+    {"recordId": "fixture-simple-content-1.16.5-1.0.0", "sha256": "0ec55fb7efc7f70abd35255d3b581dcb813b9d27f51b444c1461d43546935a1c", "status": "CONVERTED"},
+    {"recordId": "fixture-p6-cancel-1.0.0", "sha256": "c51b9a485c10fc7833a32fefe37beaae6e714ad00d178f83d61f19d2c28dd140", "status": "CONVERTED"},
+    {"recordId": "fixture-p6-duplicate-1.0.0", "sha256": "1d582e08cb13fdd16d5e16f15338a9de1ed9e7bcd9937b939a81476cac5bf8aa", "status": "CONVERTED"},
+    {"recordId": "fixture-p6-dependency-1.0.0", "sha256": "d4863d5f453aeda36a5cbbd136db0a27fcb316e536133be30f7cd25db19912fb", "status": "BLOCKED"},
+    {"recordId": "fixture-p6-unsupported-1.0.0", "sha256": "99dcc9efaf98fe7d44dcd388a553592511d5beaf4125567da5413d9ccfa27034", "status": "BLOCKED"},
+    {"recordId": "fixture-p6-corrupt-1", "sha256": "b03735e687330d3af393b17bc51f1ecdd7264ae8247b4a47e96ff3476c96e293", "status": "NOT_RUN"},
+    {"recordId": "clumps-forge-6.0.0.28", "sha256": "59185d54c3d7b4a8889146c26e754219df957ed027bdc487ddd454f0cd2245f4", "status": "BLOCKED"},
+    {"recordId": "controlling-forge-7.0.0.29", "sha256": "c43852f9c37fa5f0f76efcaa050aa15ee116e6010c1112aea4d5f98ceb49288a", "status": "BLOCKED"},
+    {"recordId": "appleskin-forge-2.5.1-mc1.16.4", "sha256": "2f631d1f5c2b464f0ed7e394cfef944eac828225a9d817b47856ed296d08f04c", "status": "BLOCKED"}
+  ],
+  "limitations": [
+    "Two native symlink tests require unavailable Windows privileges; other lexical/alias refusal tests ran.",
+    "The earlier service observation directory without the -final suffix has a superseded auxiliary blocker label for successful scope warnings; do not use it as the final observation receipt. Raw engine reports and artifact hashes were unchanged.",
+    "P6 runtime passes are historical scoped attestations on the unchanged public artifact, not game runs performed by this corpus task.",
+    "No real-mod output exists, no original runtime behavior was executed, and no multiplayer result was established.",
+    "Explicit permitted local mappings are still necessary. These runs do not certify a fully offline Minecraft installation or acquisition independence from upstream availability.",
+    "A three-project convenience sample cannot estimate ecosystem compatibility or justify enabling new features."
+  ]
+}
