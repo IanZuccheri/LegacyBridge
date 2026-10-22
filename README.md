@@ -150,7 +150,7 @@ reproductions, not private mod JARs.
 
 LegacyBridge's original code, documentation and authored fixtures are
 **GPL-3.0-only with a narrow Minecraft/Forge linking exception**. It is offered
-free of charge, with **no 5% revenue share or royalty**. Third-party components
+free of charge. Third-party components
 retain their own terms.
 
 See [LICENSE](LICENSE), [licensing scope](LICENSING.md),
