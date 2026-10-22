@@ -1584,7 +1584,7 @@
     "requestedAt": "2026-10-22",
     "priority": "PUBLIC_SOURCE_AND_EXPERIMENTAL_HANDOFF",
     "sourceRepository": "https://github.com/IanZuccheri/LegacyBridge",
-    "githubStatus": "SOURCE_VERIFIED_READY_FOR_PUSH",
+    "githubStatus": "PUBLIC_SOURCE_PUBLISHED",
     "curseForgeSubmission": "OWNER_WILL_SUBMIT_MANUALLY",
     "license": "GPL-3.0-only with Minecraft/Forge linking exception",
     "ownerApprovedLicense": true,
@@ -1594,7 +1594,9 @@
     "scopeExpansion": false,
     "featureDevelopmentDeferredByOwner": true,
     "sourceSnapshotBuild": "PASS; same public JAR SHA-256; existing dependency cache; full/default and native qualification remain pending",
-    "exporterTests": "16 PASS, 0 skipped"
+    "exporterTests": "16 PASS, 0 skipped",
+    "sourceCodeCommit": "da12cbed4f63b2d6643595a6693323f728d654c4",
+    "sourceReleaseTag": "v0.1.1-preview-20261022"
   }
 }
 

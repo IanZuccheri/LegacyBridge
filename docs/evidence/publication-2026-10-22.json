@@ -131,6 +131,9 @@
     "log": "build/publication-20261022/snapshot-validation.log (local only)",
     "sourceTreeReview": "Only the Gradle wrapper is a tracked binary; no index line-ending changes across 1537 files. An additional local HotSpot username label was redacted in the public evidence copy; original evidence remains unchanged.",
     "fullSuite": "NOT_RUN_TO_COMPLETION",
-    "native": "NOT_RUN"
+    "native": "NOT_RUN",
+    "sourceCodeCommit": "da12cbed4f63b2d6643595a6693323f728d654c4",
+    "releaseTag": "v0.1.1-preview-20261022",
+    "githubSource": "PUBLIC_SOURCE_PUBLISHED"
   }
 }
